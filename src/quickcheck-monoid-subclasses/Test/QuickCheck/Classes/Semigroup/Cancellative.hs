@@ -57,9 +57,9 @@ import Test.QuickCheck.Classes.Semigroup.Internal
 --
 -- Note that the following superclass laws are __not__ included:
 --
--- * 'leftCancellativeLaws'
--- * 'rightCancellativeLaws'
--- * 'reductiveLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.leftCancellativeLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.rightCancellativeLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.reductiveLaws'
 --
 cancellativeLaws
     :: forall a. (Arbitrary a, Show a, Eq a, Cancellative a)
@@ -130,7 +130,7 @@ commutativeLaw_basic a b =
 --
 -- Note that the following superclass laws are __not__ included:
 --
--- * 'leftReductiveLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.leftReductiveLaws'
 --
 leftCancellativeLaws
     :: forall a. (Arbitrary a, Show a, Eq a, LeftCancellative a)
@@ -213,9 +213,9 @@ leftReductiveLaw_stripPrefix a b =
 --
 -- Note that the following superclass laws are __not__ included:
 --
--- * 'commutativeLaws'
--- * 'leftReductiveLaws'
--- * 'rightReductiveLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.commutativeLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.leftReductiveLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.rightReductiveLaws'
 --
 reductiveLaws
     :: forall a. (Arbitrary a, Show a, Eq a, Reductive a)
@@ -276,7 +276,7 @@ reductiveLaw_inversion_suffix a b =
 --
 -- Note that the following superclass laws are __not__ included:
 --
--- * 'rightReductiveLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.rightReductiveLaws'
 --
 rightCancellativeLaws
     :: forall a. (Arbitrary a, Show a, Eq a, RightCancellative a)
