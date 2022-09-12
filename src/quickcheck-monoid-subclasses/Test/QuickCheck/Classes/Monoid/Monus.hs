@@ -41,8 +41,8 @@ import Test.QuickCheck.Classes.Semigroup.Internal
 --
 -- Note that the following superclass laws are __not__ included:
 --
--- * 'commutativeLaws'
--- * 'overlappingGCDMonoidLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.commutativeLaws'
+-- * 'Test.QuickCheck.Classes.Monoid.GCD.overlappingGCDMonoidLaws'
 --
 monusLaws
     :: forall a. (Arbitrary a, Show a, Eq a, Monus a)

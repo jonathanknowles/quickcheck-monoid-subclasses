@@ -51,8 +51,8 @@ import Test.QuickCheck.Classes.Semigroup.Internal
 --
 -- Note that the following superclass laws are __not__ included:
 --
--- * 'cancellativeLaws'
--- * 'gcdMonoidLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.cancellativeLaws'
+-- * 'Test.QuickCheck.Classes.Monoid.GCD.gcdMonoidLaws'
 --
 cancellativeGCDMonoidLaws
     :: forall a. (Arbitrary a, Show a, Eq a, Cancellative a, GCDMonoid a)
@@ -102,11 +102,11 @@ cancellativeGCDMonoidLaw_suffix a b c =
 --
 -- Note that the following superclass laws are __not__ included:
 --
--- * 'commutativeLaws'
--- * 'reductiveLaws'
--- * 'leftGCDMonoidLaws'
--- * 'rightGCDMonoidLaws'
--- * 'overlappingGCDMonoidLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.commutativeLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.reductiveLaws'
+-- * 'Test.QuickCheck.Classes.Monoid.GCD.leftGCDMonoidLaws'
+-- * 'Test.QuickCheck.Classes.Monoid.GCD.rightGCDMonoidLaws'
+-- * 'Test.QuickCheck.Classes.Monoid.GCD.overlappingGCDMonoidLaws'
 --
 gcdMonoidLaws
     :: forall a. (Arbitrary a, Show a, Eq a, GCDMonoid a)
@@ -171,7 +171,7 @@ gcdMonoidLaw_gcd_reduction_2 a b =
 --
 -- Note that the following superclass laws are __not__ included:
 --
--- * 'leftReductiveLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.leftReductiveLaws'
 --
 leftGCDMonoidLaws
     :: forall a. (Arbitrary a, Show a, Eq a, LeftGCDMonoid a)
@@ -246,8 +246,8 @@ leftGCDMonoidLaw_stripCommonPrefix_stripPrefix_2 a b =
 --
 -- Note that the following superclass laws are __not__ included:
 --
--- * 'leftReductiveLaws'
--- * 'rightReductiveLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.leftReductiveLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.rightReductiveLaws'
 --
 overlappingGCDMonoidLaws
     :: forall a. (Arbitrary a, Show a, Eq a, OverlappingGCDMonoid a)
@@ -322,7 +322,7 @@ overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap a b =
 --
 -- Note that the following superclass laws are __not__ included:
 --
--- * 'rightReductiveLaws'
+-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.rightReductiveLaws'
 --
 rightGCDMonoidLaws
     :: forall a. (Arbitrary a, Show a, Eq a, RightGCDMonoid a)

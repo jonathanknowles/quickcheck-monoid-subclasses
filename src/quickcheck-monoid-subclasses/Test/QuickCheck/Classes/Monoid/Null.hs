@@ -68,7 +68,7 @@ monoidNullLaw_basic a =
 --
 -- Note that the following superclass laws are __not__ included:
 --
--- * 'monoidNullLaws'
+-- * 'Test.QuickCheck.Classes.Monoid.Null.monoidNullLaws'
 --
 positiveMonoidLaws
     :: forall a. (Arbitrary a, Show a, Eq a, PositiveMonoid a)
