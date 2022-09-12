@@ -36,7 +36,7 @@ import Test.QuickCheck.Classes.Monoid.GCD
 import Test.QuickCheck.Classes.Monoid.Null
     ( monoidNullLaws, positiveMonoidLaws )
 import Test.QuickCheck.Classes.Semigroup
-    ( groupLaws, monusLaws )
+    ( monusLaws )
 import Test.QuickCheck.Classes.Semigroup.Cancellative
     ( cancellativeLaws
     , commutativeLaws
@@ -62,7 +62,6 @@ spec = do
         , cancellativeLaws
         , commutativeLaws
         , gcdMonoidLaws
-        , groupLaws
         , leftCancellativeLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
@@ -157,7 +156,6 @@ spec = do
     testLawsMany @(Sum Int)
         [ cancellativeLaws
         , commutativeLaws
-        , groupLaws
         , leftCancellativeLaws
         , leftReductiveLaws
         , monoidNullLaws
