@@ -33,10 +33,10 @@ import Test.QuickCheck.Classes.Monoid.GCD
     , overlappingGCDMonoidLaws
     , rightGCDMonoidLaws
     )
+import Test.QuickCheck.Classes.Monoid.Monus
+    ( monusLaws )
 import Test.QuickCheck.Classes.Monoid.Null
     ( monoidNullLaws, positiveMonoidLaws )
-import Test.QuickCheck.Classes.Semigroup
-    ( monusLaws )
 import Test.QuickCheck.Classes.Semigroup.Cancellative
     ( cancellativeLaws
     , commutativeLaws

@@ -44,8 +44,8 @@ library
         src/quickcheck-monoid-subclasses
     exposed-modules:
         Test.QuickCheck.Classes.Monoid.GCD
+        Test.QuickCheck.Classes.Monoid.Monus
         Test.QuickCheck.Classes.Monoid.Null
-        Test.QuickCheck.Classes.Semigroup
         Test.QuickCheck.Classes.Semigroup.Cancellative
     default-language:
         Haskell2010

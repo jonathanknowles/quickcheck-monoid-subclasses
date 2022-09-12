@@ -5,21 +5,7 @@
 -- Copyright: © 2022 Jonathan Knowles
 -- License: Apache-2.0
 --
--- This module provides:
---
--- * Support for testing 'Semigroup' subclass instances with QuickCheck.
--- * Reusable properties in the form of 'Laws' definitions.
---
--- In general:
---
--- * Each 'Laws' definition includes properties that relate to __just one__
---   __class__.
--- * Laws for superclasses are __not__ transitively included.
---
--- Therefore, when testing laws for a particular class, you should make sure to
--- also test laws for all superclasses.
---
-module Test.QuickCheck.Classes.Semigroup
+module Test.QuickCheck.Classes.Monoid.Monus
     (
     -- * Monus
       monusLaws
