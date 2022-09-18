@@ -1,7 +1,7 @@
 cabal-version:  3.0
-name:           quickcheck-monoid-subclasses
+name:           quickcheck-classes-monoid-subclasses
 version:        0.0.0
-bug-reports:    https://github.com/jonathanknowles/quickcheck-monoid-subclasses/issues
+bug-reports:    https://github.com/jonathanknowles/quickcheck-classes-monoid-subclasses/issues
 license:        Apache-2.0
 license-file:   LICENSE
 author:         Jonathan Knowles
@@ -35,13 +35,13 @@ common common-extensions
 
 source-repository head
     type: git
-    location: https://github.com/jonathanknowles/quickcheck-monoid-subclasses
+    location: https://github.com/jonathanknowles/quickcheck-classes-monoid-subclasses
 
 library
     import:
         common-extensions
     hs-source-dirs:
-        src/quickcheck-monoid-subclasses
+        src/quickcheck-classes-monoid-subclasses
     exposed-modules:
         Test.QuickCheck.Classes.Monoid.GCD
         Test.QuickCheck.Classes.Monoid.Monus
@@ -54,13 +54,13 @@ library
       , monoid-subclasses
       , QuickCheck
       , quickcheck-classes
-      , quickcheck-monoid-subclasses-internal
+      , quickcheck-classes-monoid-subclasses-internal
 
-library quickcheck-monoid-subclasses-internal
+library quickcheck-classes-monoid-subclasses-internal
     import:
         common-extensions
     hs-source-dirs:
-        src/quickcheck-monoid-subclasses-internal
+        src/quickcheck-classes-monoid-subclasses-internal
     exposed-modules:
         Data.Semigroup.Eq
         Test.QuickCheck.Classes.Semigroup.Internal
@@ -73,11 +73,11 @@ library quickcheck-monoid-subclasses-internal
       , pretty-show
       , semigroupoids
 
-library quickcheck-monoid-subclasses-prelude
+library quickcheck-classes-monoid-subclasses-prelude
     import:
         common-extensions
     hs-source-dirs:
-        src/quickcheck-monoid-subclasses-prelude
+        src/quickcheck-classes-monoid-subclasses-prelude
     exposed-modules:
         Test.QuickCheck.Classes.Semigroup.Prelude
     default-language:
@@ -87,17 +87,17 @@ library quickcheck-monoid-subclasses-prelude
       , containers
       , monoid-subclasses
       , QuickCheck
-      , quickcheck-monoid-subclasses
-      , quickcheck-monoid-subclasses-internal
+      , quickcheck-classes-monoid-subclasses
+      , quickcheck-classes-monoid-subclasses-internal
       , quickcheck-instances
 
-test-suite quickcheck-monoid-subclasses-test
+test-suite quickcheck-classes-monoid-subclasses-test
     import:
         common-extensions
     main-is:
         Spec.hs
     hs-source-dirs:
-        src/quickcheck-monoid-subclasses-test
+        src/quickcheck-classes-monoid-subclasses-test
     other-modules:
         Test.QuickCheck.Classes.Hspec
         Test.QuickCheck.Classes.SemigroupSpec
@@ -114,6 +114,6 @@ test-suite quickcheck-monoid-subclasses-test
       , monoid-subclasses
       , QuickCheck
       , quickcheck-classes
-      , quickcheck-monoid-subclasses
+      , quickcheck-classes-monoid-subclasses
       , quickcheck-instances
       , text
