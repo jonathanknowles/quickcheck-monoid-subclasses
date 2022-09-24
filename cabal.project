@@ -1,0 +1,6 @@
+packages: .
+
+source-repository-package
+    type: git
+    location: https://github.com/blamario/monoid-subclasses
+    tag: 2dc6444c26fef527576a22fa05d7fe50ba89febb
