@@ -20,6 +20,8 @@ import Data.Set
     ( Set )
 import Data.Text
     ( Text )
+import Data.Vector
+    ( Vector )
 import Numeric.Natural
     ( Natural )
 import Test.Hspec
@@ -55,6 +57,8 @@ import Test.QuickCheck.Instances.ByteString
 import Test.QuickCheck.Instances.Natural
     ()
 import Test.QuickCheck.Instances.Text
+    ()
+import Test.QuickCheck.Instances.Vector
     ()
 import Test.QuickCheck.Property
     ( Result (..), mapTotalResult )
@@ -225,6 +229,17 @@ spec = do
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
+        , rightReductiveLaws
+        ]
+    testLawsMany @(Vector Int)
+        [ leftCancellativeLaws
+        , leftGCDMonoidLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , overlappingGCDMonoidLaws
+        , positiveMonoidLaws
+        , rightCancellativeLaws
+        , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
 
