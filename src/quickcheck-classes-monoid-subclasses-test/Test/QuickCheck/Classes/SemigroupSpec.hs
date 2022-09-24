@@ -14,6 +14,8 @@ import Data.Map.Strict
     ( Map )
 import Data.Monoid
     ( Product (..), Sum (..) )
+import Data.Sequence
+    ( Seq )
 import Data.Set
     ( Set )
 import Data.Text
@@ -99,6 +101,17 @@ spec = do
         , rightReductiveLaws
         ]
     testLawsMany @[Int]
+        [ leftCancellativeLaws
+        , leftGCDMonoidLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , overlappingGCDMonoidLaws
+        , positiveMonoidLaws
+        , rightCancellativeLaws
+        , rightGCDMonoidLaws
+        , rightReductiveLaws
+        ]
+    testLawsMany @(Seq Int)
         [ leftCancellativeLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
