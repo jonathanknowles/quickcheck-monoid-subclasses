@@ -184,9 +184,7 @@ spec = do
         [ leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
-        -- TODO:
-        -- Determine why these laws are not satisfied:
-        -- overlappingGCDMonoidLaws
+        , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
@@ -194,9 +192,7 @@ spec = do
         [ leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
-        -- TODO:
-        -- Determine why these laws are not satisfied:
-        -- overlappingGCDMonoidLaws
+        , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
