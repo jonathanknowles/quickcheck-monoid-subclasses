@@ -8,14 +8,20 @@ module Test.QuickCheck.Classes.SemigroupSpec where
 
 import Data.ByteString.Lazy
     ( ByteString )
+import Data.IntMap.Strict
+    ( IntMap )
 import Data.Map.Strict
     ( Map )
 import Data.Monoid
     ( Product (..), Sum (..) )
+import Data.Sequence
+    ( Seq )
 import Data.Set
     ( Set )
 import Data.Text
     ( Text )
+import Data.Vector
+    ( Vector )
 import Numeric.Natural
     ( Natural )
 import Test.Hspec
@@ -51,6 +57,8 @@ import Test.QuickCheck.Instances.ByteString
 import Test.QuickCheck.Instances.Natural
     ()
 import Test.QuickCheck.Instances.Text
+    ()
+import Test.QuickCheck.Instances.Vector
     ()
 import Test.QuickCheck.Property
     ( Result (..), mapTotalResult )
@@ -97,6 +105,17 @@ spec = do
         , rightReductiveLaws
         ]
     testLawsMany @[Int]
+        [ leftCancellativeLaws
+        , leftGCDMonoidLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , overlappingGCDMonoidLaws
+        , positiveMonoidLaws
+        , rightCancellativeLaws
+        , rightGCDMonoidLaws
+        , rightReductiveLaws
+        ]
+    testLawsMany @(Seq Int)
         [ leftCancellativeLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
@@ -180,6 +199,22 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
+    testLawsMany @(IntMap Int)
+        [ leftGCDMonoidLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , overlappingGCDMonoidLaws
+        , positiveMonoidLaws
+        , rightReductiveLaws
+        ]
+    testLawsMany @(IntMap Natural)
+        [ leftGCDMonoidLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , overlappingGCDMonoidLaws
+        , positiveMonoidLaws
+        , rightReductiveLaws
+        ]
     testLawsMany @(Map Int Int)
         [ leftGCDMonoidLaws
         , leftReductiveLaws
@@ -194,6 +229,17 @@ spec = do
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
+        , rightReductiveLaws
+        ]
+    testLawsMany @(Vector Int)
+        [ leftCancellativeLaws
+        , leftGCDMonoidLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , overlappingGCDMonoidLaws
+        , positiveMonoidLaws
+        , rightCancellativeLaws
+        , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
 

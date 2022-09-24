@@ -117,3 +117,4 @@ test-suite quickcheck-classes-monoid-subclasses-test
       , quickcheck-classes-monoid-subclasses
       , quickcheck-instances
       , text
+      , vector
