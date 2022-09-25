@@ -92,6 +92,8 @@ library quickcheck-classes-monoid-subclasses-prelude
       , quickcheck-instances
 
 test-suite quickcheck-classes-monoid-subclasses-test
+    if impl(ghc < 9.0.0)
+        buildable: False
     import:
         common-extensions
     main-is:
@@ -111,6 +113,7 @@ test-suite quickcheck-classes-monoid-subclasses-test
       , bytestring
       , containers
       , hspec
+      , if-instance
       , monoid-subclasses
       , QuickCheck
       , quickcheck-classes
