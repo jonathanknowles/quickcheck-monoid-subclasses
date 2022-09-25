@@ -1,3 +1,9 @@
+{-# LANGUAGE ConstraintKinds #-}
+{-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE GADTs #-}
+{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# OPTIONS_GHC -fplugin=IfSat.Plugin #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
 -- |
@@ -6,20 +12,39 @@
 --
 module Test.QuickCheck.Classes.SemigroupSpec where
 
+import Control.Monad
+    ( forM_ )
 import Data.ByteString.Lazy
     ( ByteString )
+import Data.Constraint.If
+    ( IfSat, ifSat )
 import Data.IntMap.Strict
     ( IntMap )
 import Data.Map.Strict
     ( Map )
 import Data.Monoid
     ( Product (..), Sum (..) )
+import Data.Monoid.GCD
+    ( GCDMonoid, LeftGCDMonoid, RightGCDMonoid, OverlappingGCDMonoid )
+import Data.Proxy
+    ( Proxy (..) )
+import Data.Semigroup.Cancellative
+    ( Cancellative
+    , Commutative
+    , LeftCancellative
+    , LeftReductive
+    , Reductive
+    , RightCancellative
+    , RightReductive
+    )
 import Data.Sequence
     ( Seq )
 import Data.Set
     ( Set )
 import Data.Text
     ( Text )
+import Data.Typeable
+    ( Typeable )
 import Data.Vector
     ( Vector )
 import Numeric.Natural
@@ -27,11 +52,11 @@ import Numeric.Natural
 import Test.Hspec
     ( Spec )
 import Test.QuickCheck
-    ( Property )
+    ( Arbitrary, Property )
 import Test.QuickCheck.Classes
     ( Laws (..) )
 import Test.QuickCheck.Classes.Hspec
-    ( testLawsMany )
+    ( testLaws, testLawsMany )
 import Test.QuickCheck.Classes.Monoid.GCD
     ( cancellativeGCDMonoidLaws
     , gcdMonoidLaws
@@ -64,184 +89,156 @@ import Test.QuickCheck.Property
     ( Result (..), mapTotalResult )
 
 spec :: Spec
-spec = do
-    testLawsMany @() $ disableCoverageCheck
-        [ cancellativeGCDMonoidLaws
-        , cancellativeLaws
-        , commutativeLaws
-        , gcdMonoidLaws
-        , leftCancellativeLaws
-        , leftGCDMonoidLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , monusLaws
-        , overlappingGCDMonoidLaws
-        , positiveMonoidLaws
-        , reductiveLaws
-        , rightCancellativeLaws
-        , rightGCDMonoidLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @ByteString
-        [ leftCancellativeLaws
-        , leftGCDMonoidLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , overlappingGCDMonoidLaws
-        , positiveMonoidLaws
-        , rightCancellativeLaws
-        , rightGCDMonoidLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @Text
-        [ leftCancellativeLaws
-        , leftGCDMonoidLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , overlappingGCDMonoidLaws
-        , positiveMonoidLaws
-        , rightCancellativeLaws
-        , rightGCDMonoidLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @[Int]
-        [ leftCancellativeLaws
-        , leftGCDMonoidLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , overlappingGCDMonoidLaws
-        , positiveMonoidLaws
-        , rightCancellativeLaws
-        , rightGCDMonoidLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @(Seq Int)
-        [ leftCancellativeLaws
-        , leftGCDMonoidLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , overlappingGCDMonoidLaws
-        , positiveMonoidLaws
-        , rightCancellativeLaws
-        , rightGCDMonoidLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @(Set Int)
-        [ commutativeLaws
-        , gcdMonoidLaws
-        , leftGCDMonoidLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , monusLaws
-        , overlappingGCDMonoidLaws
-        , positiveMonoidLaws
-        , reductiveLaws
-        , rightGCDMonoidLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @(Set Natural)
-        [ commutativeLaws
-        , gcdMonoidLaws
-        , leftGCDMonoidLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , monusLaws
-        , overlappingGCDMonoidLaws
-        , positiveMonoidLaws
-        , reductiveLaws
-        , rightGCDMonoidLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @(Product Int)
-        [ commutativeLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , reductiveLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @(Product Natural)
-        [ commutativeLaws
-        , gcdMonoidLaws
-        , leftGCDMonoidLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , monusLaws
-        , overlappingGCDMonoidLaws
-        , positiveMonoidLaws
-        , reductiveLaws
-        , rightGCDMonoidLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @(Sum Int)
-        [ cancellativeLaws
-        , commutativeLaws
-        , leftCancellativeLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , reductiveLaws
-        , rightCancellativeLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @(Sum Natural)
-        [ cancellativeGCDMonoidLaws
-        , cancellativeLaws
-        , commutativeLaws
-        , gcdMonoidLaws
-        , leftCancellativeLaws
-        , leftGCDMonoidLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , monusLaws
-        , overlappingGCDMonoidLaws
-        , positiveMonoidLaws
-        , reductiveLaws
-        , rightCancellativeLaws
-        , rightGCDMonoidLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @(IntMap Int)
-        [ leftGCDMonoidLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , overlappingGCDMonoidLaws
-        , positiveMonoidLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @(IntMap Natural)
-        [ leftGCDMonoidLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , overlappingGCDMonoidLaws
-        , positiveMonoidLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @(Map Int Int)
-        [ leftGCDMonoidLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , overlappingGCDMonoidLaws
-        , positiveMonoidLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @(Map Int Natural)
-        [ leftGCDMonoidLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , overlappingGCDMonoidLaws
-        , positiveMonoidLaws
-        , rightReductiveLaws
-        ]
-    testLawsMany @(Vector Int)
-        [ leftCancellativeLaws
-        , leftGCDMonoidLaws
-        , leftReductiveLaws
-        , monoidNullLaws
-        , overlappingGCDMonoidLaws
-        , positiveMonoidLaws
-        , rightCancellativeLaws
-        , rightGCDMonoidLaws
-        , rightReductiveLaws
-        ]
+spec = forM_ testTypes $ \(TestType p) -> testLawsAll p
+
+type TestConstraint a c = (Arbitrary a, Eq a, Show a, Typeable a, IfSat (c a))
+
+data TestType = forall a. TestConstraints a => TestType (Proxy a)
+
+testTypes :: [TestType]
+testTypes =
+    [ TestType (Proxy @(IntMap ()))
+    , TestType (Proxy @(IntMap Int))
+    , TestType (Proxy @(IntMap Natural))
+    , TestType (Proxy @(Map Int ()))
+    , TestType (Proxy @(Map Int Int))
+    , TestType (Proxy @(Map Int Natural))
+    , TestType (Proxy @(Maybe ()))
+    , TestType (Proxy @(Product Int))
+    , TestType (Proxy @(Product Natural))
+    , TestType (Proxy @(Seq ()))
+    , TestType (Proxy @(Seq Int))
+    , TestType (Proxy @(Seq Natural))
+    , TestType (Proxy @(Set ()))
+    , TestType (Proxy @(Set Int))
+    , TestType (Proxy @(Set Natural))
+    , TestType (Proxy @(Sum Int))
+    , TestType (Proxy @(Sum Natural))
+    , TestType (Proxy @(Vector ()))
+    , TestType (Proxy @(Vector Int))
+    , TestType (Proxy @(Vector Natural))
+    , TestType (Proxy @ByteString)
+    , TestType (Proxy @Text)
+    , TestType (Proxy @[()])
+    , TestType (Proxy @[Int])
+    , TestType (Proxy @[Natural])
+    ]
+
+type TestConstraints a =
+    ( TestConstraint a Cancellative
+    , TestConstraint a Commutative
+    , TestConstraint a GCDMonoid
+    , TestConstraint a LeftCancellative
+    , TestConstraint a LeftGCDMonoid
+    , TestConstraint a LeftReductive
+    , TestConstraint a OverlappingGCDMonoid
+    , TestConstraint a Reductive
+    , TestConstraint a RightCancellative
+    , TestConstraint a RightGCDMonoid
+    , TestConstraint a RightReductive
+    )
+
+testLawsAll
+    :: forall a. TestConstraints a
+    => Proxy a
+    -> Spec
+testLawsAll p = do
+    testCancellativeGCDMonoidLaws p
+    testCancellativeLaws p
+    testCommutativeLaws p
+    testGCDMonoidLaws p
+    testLeftCancellativeLaws p
+    testLeftGCDMonoidLaws p
+    testLeftReductiveLaws p
+    testOverlappingGCDMonoidLaws p
+    testReductiveLaws p
+    testRightCancellativeLaws p
+    testRightGCDMonoidLaws p
+    testRightReductiveLaws p
+
+testCancellativeLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testCancellativeLaws _ =
+    ifSat @(Cancellative a)
+        (testLaws @a cancellativeLaws)
+        (pure ())
+
+testCommutativeLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testCommutativeLaws _ =
+    ifSat @(Commutative a)
+        (testLaws @a commutativeLaws)
+        (pure ())
+
+testCancellativeGCDMonoidLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testCancellativeGCDMonoidLaws _ =
+    ifSat @(Cancellative a)
+        (ifSat @(GCDMonoid a) (testLaws @a cancellativeGCDMonoidLaws) (pure ()))
+        (pure ())
+
+testGCDMonoidLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testGCDMonoidLaws _ =
+    ifSat @(GCDMonoid a)
+        (testLaws @a gcdMonoidLaws)
+        (pure ())
+
+testLeftGCDMonoidLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testLeftGCDMonoidLaws _ =
+    ifSat @(LeftGCDMonoid a)
+        (testLaws @a leftGCDMonoidLaws)
+        (pure ())
+
+testRightGCDMonoidLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testRightGCDMonoidLaws _ =
+    ifSat @(RightGCDMonoid a)
+        (testLaws @a rightGCDMonoidLaws)
+        (pure ())
+
+testLeftCancellativeLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testLeftCancellativeLaws _ =
+    ifSat @(LeftCancellative a)
+        (testLaws @a leftCancellativeLaws)
+        (pure ())
+
+testLeftReductiveLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testLeftReductiveLaws _ =
+    ifSat @(LeftReductive a)
+        (testLaws @a leftReductiveLaws)
+        (pure ())
+
+testRightCancellativeLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testRightCancellativeLaws _ =
+    ifSat @(RightCancellative a)
+        (testLaws @a rightCancellativeLaws)
+        (pure ())
+
+testRightReductiveLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testRightReductiveLaws _ =
+    ifSat @(RightReductive a)
+        (testLaws @a rightReductiveLaws)
+        (pure ())
+
+testReductiveLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testReductiveLaws _ =
+    ifSat @(Reductive a)
+        (testLaws @a reductiveLaws)
+        (pure ())
+
+testOverlappingGCDMonoidLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testOverlappingGCDMonoidLaws _ =
+    ifSat @(OverlappingGCDMonoid a)
+        (testLaws @a overlappingGCDMonoidLaws)
+        (pure ())
 
 --------------------------------------------------------------------------------
 -- Coverage checks

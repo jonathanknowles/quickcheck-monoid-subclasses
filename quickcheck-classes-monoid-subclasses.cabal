@@ -111,6 +111,7 @@ test-suite quickcheck-classes-monoid-subclasses-test
       , bytestring
       , containers
       , hspec
+      , if-instance
       , monoid-subclasses
       , QuickCheck
       , quickcheck-classes
