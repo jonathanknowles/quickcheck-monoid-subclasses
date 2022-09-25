@@ -16,6 +16,8 @@ import Control.Monad
     ( forM_ )
 import Data.ByteString.Lazy
     ( ByteString )
+import Data.Kind
+    ( Constraint, Type )
 import Data.Constraint.If
     ( IfSat, ifSat )
 import Data.IntMap.Strict
@@ -26,6 +28,10 @@ import Data.Monoid
     ( Product (..), Sum (..) )
 import Data.Monoid.GCD
     ( GCDMonoid, LeftGCDMonoid, RightGCDMonoid, OverlappingGCDMonoid )
+import Data.Monoid.Monus
+    ( Monus )
+import Data.Monoid.Null
+    ( MonoidNull, PositiveMonoid )
 import Data.Proxy
     ( Proxy (..) )
 import Data.Semigroup.Cancellative
@@ -56,7 +62,7 @@ import Test.QuickCheck
 import Test.QuickCheck.Classes
     ( Laws (..) )
 import Test.QuickCheck.Classes.Hspec
-    ( testLaws, testLawsMany )
+    ( testLaws )
 import Test.QuickCheck.Classes.Monoid.GCD
     ( cancellativeGCDMonoidLaws
     , gcdMonoidLaws
@@ -95,31 +101,33 @@ type TestConstraint a c = (Arbitrary a, Eq a, Show a, Typeable a, IfSat (c a))
 
 data TestType = forall a. TestConstraints a => TestType (Proxy a)
 
+data TestLaw =
+    forall (c :: Type -> Constraint). TestLaw (forall a. Proxy a -> Laws)
+
+alltestLaws :: [TestLaw]
+alltestLaws =
+    [ TestLaw @LeftReductive (leftReductiveLaws)
+    ]
+
 testTypes :: [TestType]
 testTypes =
     [ TestType (Proxy @(IntMap ()))
     , TestType (Proxy @(IntMap Int))
     , TestType (Proxy @(IntMap Natural))
-    , TestType (Proxy @(Map Int ()))
     , TestType (Proxy @(Map Int Int))
     , TestType (Proxy @(Map Int Natural))
-    , TestType (Proxy @(Maybe ()))
     , TestType (Proxy @(Product Int))
     , TestType (Proxy @(Product Natural))
-    , TestType (Proxy @(Seq ()))
     , TestType (Proxy @(Seq Int))
     , TestType (Proxy @(Seq Natural))
-    , TestType (Proxy @(Set ()))
     , TestType (Proxy @(Set Int))
     , TestType (Proxy @(Set Natural))
     , TestType (Proxy @(Sum Int))
     , TestType (Proxy @(Sum Natural))
-    , TestType (Proxy @(Vector ()))
     , TestType (Proxy @(Vector Int))
     , TestType (Proxy @(Vector Natural))
     , TestType (Proxy @ByteString)
     , TestType (Proxy @Text)
-    , TestType (Proxy @[()])
     , TestType (Proxy @[Int])
     , TestType (Proxy @[Natural])
     ]
@@ -131,7 +139,10 @@ type TestConstraints a =
     , TestConstraint a LeftCancellative
     , TestConstraint a LeftGCDMonoid
     , TestConstraint a LeftReductive
+    , TestConstraint a MonoidNull
+    , TestConstraint a Monus
     , TestConstraint a OverlappingGCDMonoid
+    , TestConstraint a PositiveMonoid
     , TestConstraint a Reductive
     , TestConstraint a RightCancellative
     , TestConstraint a RightGCDMonoid
@@ -150,7 +161,10 @@ testLawsAll p = do
     testLeftCancellativeLaws p
     testLeftGCDMonoidLaws p
     testLeftReductiveLaws p
+    testMonoidNullLaws p
+    testMonusLaws p
     testOverlappingGCDMonoidLaws p
+    testPositiveMonoidLaws p
     testReductiveLaws p
     testRightCancellativeLaws p
     testRightGCDMonoidLaws p
@@ -231,6 +245,27 @@ testReductiveLaws
 testReductiveLaws _ =
     ifSat @(Reductive a)
         (testLaws @a reductiveLaws)
+        (pure ())
+
+testMonoidNullLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testMonoidNullLaws _ =
+    ifSat @(MonoidNull a)
+        (testLaws @a monoidNullLaws)
+        (pure ())
+
+testMonusLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testMonusLaws _ =
+    ifSat @(Monus a)
+        (testLaws @a monusLaws)
+        (pure ())
+
+testPositiveMonoidLaws
+    :: forall a. TestConstraints a => Proxy a -> Spec
+testPositiveMonoidLaws _ =
+    ifSat @(PositiveMonoid a)
+        (testLaws @a positiveMonoidLaws)
         (pure ())
 
 testOverlappingGCDMonoidLaws
