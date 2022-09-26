@@ -41,7 +41,7 @@ library
     import:
         common-extensions
     hs-source-dirs:
-        src/quickcheck-classes-monoid-subclasses
+        src/public
     exposed-modules:
         Test.QuickCheck.Classes.Monoid.GCD
         Test.QuickCheck.Classes.Monoid.Monus
@@ -60,7 +60,7 @@ library quickcheck-classes-monoid-subclasses-internal
     import:
         common-extensions
     hs-source-dirs:
-        src/quickcheck-classes-monoid-subclasses-internal
+        src/internal
     exposed-modules:
         Data.Semigroup.Eq
         Test.QuickCheck.Classes.Semigroup.Internal
@@ -77,7 +77,7 @@ library quickcheck-classes-monoid-subclasses-prelude
     import:
         common-extensions
     hs-source-dirs:
-        src/quickcheck-classes-monoid-subclasses-prelude
+        src/prelude
     exposed-modules:
         Test.QuickCheck.Classes.Semigroup.Prelude
     default-language:
@@ -97,7 +97,7 @@ test-suite quickcheck-classes-monoid-subclasses-test
     main-is:
         Spec.hs
     hs-source-dirs:
-        src/quickcheck-classes-monoid-subclasses-test
+        src/test
     other-modules:
         Test.QuickCheck.Classes.Hspec
         Test.QuickCheck.Classes.SemigroupSpec
