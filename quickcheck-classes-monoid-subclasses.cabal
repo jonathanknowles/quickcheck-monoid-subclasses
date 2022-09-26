@@ -54,9 +54,9 @@ library
       , monoid-subclasses
       , QuickCheck
       , quickcheck-classes
-      , quickcheck-classes-monoid-subclasses-internal
+      , quickcheck-classes-monoid-subclasses:internal
 
-library quickcheck-classes-monoid-subclasses-internal
+library internal
     import:
         common-extensions
     hs-source-dirs:
@@ -73,7 +73,7 @@ library quickcheck-classes-monoid-subclasses-internal
       , pretty-show
       , semigroupoids
 
-library quickcheck-classes-monoid-subclasses-prelude
+library prelude
     import:
         common-extensions
     hs-source-dirs:
@@ -88,10 +88,10 @@ library quickcheck-classes-monoid-subclasses-prelude
       , monoid-subclasses
       , QuickCheck
       , quickcheck-classes-monoid-subclasses
-      , quickcheck-classes-monoid-subclasses-internal
+      , quickcheck-classes-monoid-subclasses:internal
       , quickcheck-instances
 
-test-suite quickcheck-classes-monoid-subclasses-test
+test-suite test
     import:
         common-extensions
     main-is:
