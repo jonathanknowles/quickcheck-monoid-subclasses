@@ -1,5 +1,5 @@
 cabal-version:  3.0
-name:           quickcheck-classes-monoid-subclasses
+name:           qcms
 version:        0.0.0
 bug-reports:    https://github.com/jonathanknowles/quickcheck-classes-monoid-subclasses/issues
 license:        Apache-2.0
@@ -54,7 +54,7 @@ library
       , monoid-subclasses
       , QuickCheck
       , quickcheck-classes
-      , quickcheck-classes-monoid-subclasses:internal
+      , qcms:internal
 
 library internal
     import:
@@ -87,8 +87,8 @@ library prelude
       , containers
       , monoid-subclasses
       , QuickCheck
-      , quickcheck-classes-monoid-subclasses
-      , quickcheck-classes-monoid-subclasses:internal
+      , qcms
+      , qcms:internal
       , quickcheck-instances
 
 test-suite test
@@ -114,7 +114,7 @@ test-suite test
       , monoid-subclasses
       , QuickCheck
       , quickcheck-classes
-      , quickcheck-classes-monoid-subclasses
+      , qcms
       , quickcheck-instances
       , text
       , vector
