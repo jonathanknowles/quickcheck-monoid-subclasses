@@ -1,4 +1,5 @@
 {- HLINT ignore "Use camelCase" -}
+{- HLINT ignore "Use infix" -}
 {- HLINT ignore "Redundant bracket" -}
 
 -- |
@@ -42,7 +43,7 @@ import Test.QuickCheck
 import Test.QuickCheck.Classes
     ( Laws (..) )
 import Test.QuickCheck.Classes.Semigroup.Internal
-    ( makeLaw2, makeProperty )
+    ( makeLaw2, makeProperty, report )
 
 --------------------------------------------------------------------------------
 -- Cancellative
@@ -75,18 +76,30 @@ cancellativeLaws _ = Laws "Cancellative"
     ]
 
 cancellativeLaw_cancellation_prefix
-    :: (Eq a, Cancellative a) => a -> a -> Property
+    :: (Eq a, Show a, Cancellative a) => a -> a -> Property
 cancellativeLaw_cancellation_prefix a b =
     makeProperty
         "(a <> b) </> a == Just b"
         ((a <> b) </> a == Just b)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "(a <> b) </> a"
+        ((a <> b) </> a)
 
 cancellativeLaw_cancellation_suffix
-    :: (Eq a, Cancellative a) => a -> a -> Property
+    :: (Eq a, Show a, Cancellative a) => a -> a -> Property
 cancellativeLaw_cancellation_suffix a b =
     makeProperty
         "(a <> b) </> b == Just a"
         ((a <> b) </> b == Just a)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "(a <> b) </> b"
+        ((a <> b) </> b)
 
 --------------------------------------------------------------------------------
 -- Commutative
@@ -109,11 +122,17 @@ commutativeLaws _ = Laws "Commutative"
     ]
 
 commutativeLaw_basic
-    :: (Eq a, Commutative a) => a -> a -> Property
+    :: (Eq a, Show a, Commutative a) => a -> a -> Property
 commutativeLaw_basic a b =
     makeProperty
         "a <> b == b <> a"
         (a <> b == b <> a)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "b <> a"
+        (b <> a)
     & cover 1
         ((a /= b) && (a <> b /= a) && (b <> a /= b))
         "(a /= b) && (a <> b /= a) && (b <> a /= b)"
@@ -143,11 +162,17 @@ leftCancellativeLaws _ = Laws "LeftCancellative"
     ]
 
 leftCancellativeLaw_cancellation
-    :: (Eq a, LeftCancellative a) => a -> a -> Property
+    :: (Eq a, Show a, LeftCancellative a) => a -> a -> Property
 leftCancellativeLaw_cancellation a b =
     makeProperty
         "stripPrefix a (a <> b) == Just b"
         (stripPrefix a (a <> b) == Just b)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "stripPrefix a (a <> b)"
+        (stripPrefix a (a <> b))
 
 --------------------------------------------------------------------------------
 -- LeftReductive
@@ -178,25 +203,40 @@ leftReductiveLaws _ = Laws "LeftReductive"
     ]
 
 leftReductiveLaw_isPrefix_mappend
-    :: (Eq a, LeftReductive a) => a -> a -> Property
+    :: (Eq a, Show a, LeftReductive a) => a -> a -> Property
 leftReductiveLaw_isPrefix_mappend a b =
     makeProperty
         "a `isPrefixOf` (a <> b)"
         (a `isPrefixOf` (a <> b))
+    & report
+        "a <> b"
+        (a <> b)
 
 leftReductiveLaw_isPrefix_stripPrefix
-    :: (Eq a, LeftReductive a) => a -> a -> Property
+    :: (Eq a, Show a, LeftReductive a) => a -> a -> Property
 leftReductiveLaw_isPrefix_stripPrefix a b =
     makeProperty
         "isPrefixOf a b == isJust (stripPrefix a b)"
         (isPrefixOf a b == isJust (stripPrefix a b))
+    & report
+        "isPrefixOf a b"
+        (isPrefixOf a b)
+    & report
+        "stripPrefix a b"
+        (stripPrefix a b)
 
 leftReductiveLaw_stripPrefix
-    :: (Eq a, LeftReductive a) => a -> a -> Property
+    :: (Eq a, Show a, LeftReductive a) => a -> a -> Property
 leftReductiveLaw_stripPrefix a b =
     makeProperty
         "maybe b (a <>) (stripPrefix a b) == b"
         (maybe b (a <>) (stripPrefix a b) == b)
+    & report
+        "stripPrefix a b"
+        (stripPrefix a b)
+    & report
+        "maybe b (a <>) (stripPrefix a b)"
+        (maybe b (a <>) (stripPrefix a b))
 
 --------------------------------------------------------------------------------
 -- Reductive
@@ -237,32 +277,56 @@ reductiveLaws _ = Laws "Reductive"
     ]
 
 reductiveLaw_equivalence_prefix
-    :: (Eq a, Reductive a) => a -> a -> Property
+    :: (Eq a, Show a, Reductive a) => a -> a -> Property
 reductiveLaw_equivalence_prefix a b =
     makeProperty
         "a </> b == stripPrefix b a"
         (a </> b == stripPrefix b a)
+    & report
+        "a </> b"
+        (a </> b)
+    & report
+        "stripPrefix b a"
+        (stripPrefix b a)
 
 reductiveLaw_equivalence_suffix
-    :: (Eq a, Reductive a) => a -> a -> Property
+    :: (Eq a, Show a, Reductive a) => a -> a -> Property
 reductiveLaw_equivalence_suffix a b =
     makeProperty
         "a </> b == stripSuffix b a"
         (a </> b == stripSuffix b a)
+    & report
+        "a </> b"
+        (a </> b)
+    & report
+        "stripSuffix b a"
+        (stripSuffix b a)
 
 reductiveLaw_inversion_prefix
-    :: (Eq a, Reductive a) => a -> a -> Property
+    :: (Eq a, Show a, Reductive a) => a -> a -> Property
 reductiveLaw_inversion_prefix a b =
     makeProperty
         "maybe a (b <>) (a </> b) == a"
         (maybe a (b <>) (a </> b) == a)
+    & report
+        "a </> b"
+        (a </> b)
+    & report
+        "maybe a (b <>) (a </> b)"
+        (maybe a (b <>) (a </> b))
 
 reductiveLaw_inversion_suffix
-    :: (Eq a, Reductive a) => a -> a -> Property
+    :: (Eq a, Show a, Reductive a) => a -> a -> Property
 reductiveLaw_inversion_suffix a b =
     makeProperty
         "maybe a (<> b) (a </> b) == a"
         (maybe a (<> b) (a </> b) == a)
+    & report
+        "a </> b"
+        (a </> b)
+    & report
+        "maybe a (<> b) (a </> b)"
+        (maybe a (<> b) (a </> b))
 
 --------------------------------------------------------------------------------
 -- RightCancellative
@@ -289,11 +353,17 @@ rightCancellativeLaws _ = Laws "RightCancellative"
     ]
 
 rightCancellativeLaw_cancellation
-    :: (Eq a, RightCancellative a) => a -> a -> Property
+    :: (Eq a, Show a, RightCancellative a) => a -> a -> Property
 rightCancellativeLaw_cancellation a b =
     makeProperty
         "stripSuffix b (a <> b) == Just a"
         (stripSuffix b (a <> b) == Just a)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "stripSuffix b (a <> b)"
+        (stripSuffix b (a <> b))
 
 --------------------------------------------------------------------------------
 -- RightReductive
@@ -324,22 +394,37 @@ rightReductiveLaws _ = Laws "RightReductive"
     ]
 
 rightReductiveLaw_isSuffix_mappend
-    :: (Eq a, RightReductive a) => a -> a -> Property
+    :: (Eq a, Show a, RightReductive a) => a -> a -> Property
 rightReductiveLaw_isSuffix_mappend a b =
     makeProperty
         "b `isSuffixOf` (a <> b)"
         (b `isSuffixOf` (a <> b))
+    & report
+        "a <> b"
+        (a <> b)
 
 rightReductiveLaw_isSuffix_stripSuffix
-    :: (Eq a, RightReductive a) => a -> a -> Property
+    :: (Eq a, Show a, RightReductive a) => a -> a -> Property
 rightReductiveLaw_isSuffix_stripSuffix a b =
     makeProperty
         "isSuffixOf a b == isJust (stripSuffix a b)"
         (isSuffixOf a b == isJust (stripSuffix a b))
+    & report
+        "isSuffixOf a b"
+        (isSuffixOf a b)
+    & report
+        "stripSuffix a b"
+        (stripSuffix a b)
 
 rightReductiveLaw_stripSuffix
-    :: (Eq a, RightReductive a) => a -> a -> Property
+    :: (Eq a, Show a, RightReductive a) => a -> a -> Property
 rightReductiveLaw_stripSuffix a b =
     makeProperty
         "maybe b (<> a) (stripSuffix a b) == b"
         (maybe b (<> a) (stripSuffix a b) == b)
+    & report
+        "stripSuffix a b"
+        (stripSuffix a b)
+    & report
+        "maybe b (<> a) (stripSuffix a b)"
+        (maybe b (<> a) (stripSuffix a b))

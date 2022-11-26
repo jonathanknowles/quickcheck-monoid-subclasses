@@ -15,6 +15,8 @@ module Test.QuickCheck.Classes.Monoid.Monus
 import Prelude hiding
     ( gcd, null )
 
+import Data.Function
+    ( (&) )
 import Data.Monoid.GCD
     ( OverlappingGCDMonoid (..) )
 import Data.Monoid.Monus
@@ -26,7 +28,7 @@ import Test.QuickCheck
 import Test.QuickCheck.Classes
     ( Laws (..) )
 import Test.QuickCheck.Classes.Semigroup.Internal
-    ( makeLaw2, makeProperty )
+    ( makeLaw2, makeProperty, report )
 
 --------------------------------------------------------------------------------
 -- Monus
@@ -58,19 +60,31 @@ monusLaws _ = Laws "Monus"
     ]
 
 monusLaw_stripPrefixOverlap
-    :: (Eq a, Monus a) => a -> a -> Property
+    :: (Eq a, Monus a, Show a) => a -> a -> Property
 monusLaw_stripPrefixOverlap a b =
     makeProperty
         "a <\\> b == stripPrefixOverlap b a"
         (a <\\> b == stripPrefixOverlap b a)
+    & report
+        "a <\\> b"
+        (a <\\> b)
+    & report
+        "stripPrefixOverlap b a"
+        (stripPrefixOverlap b a)
   where
     (<\\>) = (<\>)
 
 monusLaw_stripSuffixOverlap
-    :: (Eq a, Monus a) => a -> a -> Property
+    :: (Eq a, Monus a, Show a) => a -> a -> Property
 monusLaw_stripSuffixOverlap a b =
     makeProperty
         "a <\\> b == stripSuffixOverlap b a"
         (a <\\> b == stripSuffixOverlap b a)
+    & report
+        "a <\\> b"
+        (a <\\> b)
+    & report
+        "stripSuffixOverlap b a"
+        (stripSuffixOverlap b a)
   where
     (<\\>) = (<\>)

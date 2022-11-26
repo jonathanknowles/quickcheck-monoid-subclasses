@@ -8,6 +8,7 @@ module Test.QuickCheck.Classes.Semigroup.Internal
     , makeLaw2
     , makeLaw3
     , makeProperty
+    , report
     )
     where
 
@@ -120,3 +121,7 @@ makeProperty3 p (evalTuple3 -> (a, b, c))
         (allUnique [a, b, c] && canVerifyAllNonNull [a, b, c])
         "allUnique [a, b, c] && canVerifyAllNonNull [a, b, c]"
     $ property $ p a b c
+
+report :: (Show a, Testable prop) => String -> a -> prop -> Property
+report name a = counterexample $
+    name <> "\n==\n" <> show a <> "\n"
