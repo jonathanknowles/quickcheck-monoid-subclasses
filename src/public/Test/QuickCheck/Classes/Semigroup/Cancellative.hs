@@ -121,11 +121,17 @@ commutativeLaws _ = Laws "Commutative"
     ]
 
 commutativeLaw_basic
-    :: (Eq a, Commutative a) => a -> a -> Property
+    :: (Eq a, Show a, Commutative a) => a -> a -> Property
 commutativeLaw_basic a b =
     makeProperty
         "a <> b == b <> a"
         (a <> b == b <> a)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "b <> a"
+        (b <> a)
     & cover 1
         ((a /= b) && (a <> b /= a) && (b <> a /= b))
         "(a /= b) && (a <> b /= a) && (b <> a /= b)"
