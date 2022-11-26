@@ -277,32 +277,56 @@ reductiveLaws _ = Laws "Reductive"
     ]
 
 reductiveLaw_equivalence_prefix
-    :: (Eq a, Reductive a) => a -> a -> Property
+    :: (Eq a, Show a, Reductive a) => a -> a -> Property
 reductiveLaw_equivalence_prefix a b =
     makeProperty
         "a </> b == stripPrefix b a"
         (a </> b == stripPrefix b a)
+    & report
+        "a </> b"
+        (a </> b)
+    & report
+        "stripPrefix b a"
+        (stripPrefix b a)
 
 reductiveLaw_equivalence_suffix
-    :: (Eq a, Reductive a) => a -> a -> Property
+    :: (Eq a, Show a, Reductive a) => a -> a -> Property
 reductiveLaw_equivalence_suffix a b =
     makeProperty
         "a </> b == stripSuffix b a"
         (a </> b == stripSuffix b a)
+    & report
+        "a </> b"
+        (a </> b)
+    & report
+        "stripSuffix b a"
+        (stripSuffix b a)
 
 reductiveLaw_inversion_prefix
-    :: (Eq a, Reductive a) => a -> a -> Property
+    :: (Eq a, Show a, Reductive a) => a -> a -> Property
 reductiveLaw_inversion_prefix a b =
     makeProperty
         "maybe a (b <>) (a </> b) == a"
         (maybe a (b <>) (a </> b) == a)
+    & report
+        "a </> b"
+        (a </> b)
+    & report
+        "maybe a (b <>) (a </> b)"
+        (maybe a (b <>) (a </> b))
 
 reductiveLaw_inversion_suffix
-    :: (Eq a, Reductive a) => a -> a -> Property
+    :: (Eq a, Show a, Reductive a) => a -> a -> Property
 reductiveLaw_inversion_suffix a b =
     makeProperty
         "maybe a (<> b) (a </> b) == a"
         (maybe a (<> b) (a </> b) == a)
+    & report
+        "a </> b"
+        (a </> b)
+    & report
+        "maybe a (<> b) (a </> b)"
+        (maybe a (<> b) (a </> b))
 
 --------------------------------------------------------------------------------
 -- RightCancellative
