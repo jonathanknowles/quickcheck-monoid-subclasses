@@ -94,3 +94,12 @@ positiveMonoidLaw_fundamental a b =
     makeProperty
         "null (a <> b) == (null a && null b)"
         (null (a <> b) == (null a && null b))
+    & report
+        "null a"
+        (null a)
+    & report
+        "null b"
+        (null b)
+    & report
+        "null (a <> b)"
+        (null (a <> b))
