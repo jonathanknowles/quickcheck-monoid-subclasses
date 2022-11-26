@@ -356,39 +356,75 @@ overlappingGCDMonoidLaws _ = Laws "OverlappingGCDMonoid"
     ]
 
 overlappingGCDMonoidLaw_overlap_stripPrefixOverlap
-    :: (Eq a, OverlappingGCDMonoid a) => a -> a -> Property
+    :: (Eq a, Show a, OverlappingGCDMonoid a) => a -> a -> Property
 overlappingGCDMonoidLaw_overlap_stripPrefixOverlap a b =
     makeProperty
         "overlap a b <> stripPrefixOverlap a b == b"
         (overlap a b <> stripPrefixOverlap a b == b)
+    & report
+        "overlap a b"
+        (overlap a b)
+    & report
+        "stripPrefixOverlap a b"
+        (stripPrefixOverlap a b)
+    & report
+        "overlap a b <> stripPrefixOverlap a b"
+        (overlap a b <> stripPrefixOverlap a b)
 
 overlappingGCDMonoidLaw_overlap_stripSuffixOverlap
-    :: (Eq a, OverlappingGCDMonoid a) => a -> a -> Property
+    :: (Eq a, Show a, OverlappingGCDMonoid a) => a -> a -> Property
 overlappingGCDMonoidLaw_overlap_stripSuffixOverlap a b =
     makeProperty
         "stripSuffixOverlap b a <> overlap a b == a"
         (stripSuffixOverlap b a <> overlap a b == a)
+    & report
+        "stripSuffixOverlap b a"
+        (stripSuffixOverlap b a)
+    & report
+        "overlap a b"
+        (overlap a b)
+    & report
+        "stripSuffixOverlap b a <> overlap a b"
+        (stripSuffixOverlap b a <> overlap a b)
 
 overlappingGCDMonoidLaw_stripOverlap_overlap
-    :: (Eq a, OverlappingGCDMonoid a) => a -> a -> Property
+    :: (Eq a, Show a, OverlappingGCDMonoid a) => a -> a -> Property
 overlappingGCDMonoidLaw_stripOverlap_overlap a b =
     makeProperty
         "stripOverlap a b & λ(_, x, _) -> x == overlap a b"
         (stripOverlap a b & \(_, x, _) -> x == overlap a b)
+    & report
+        "stripOverlap a b"
+        (stripOverlap a b)
+    & report
+        "overlap a b"
+        (overlap a b)
 
 overlappingGCDMonoidLaw_stripOverlap_stripPrefixOverlap
-    :: (Eq a, OverlappingGCDMonoid a) => a -> a -> Property
+    :: (Eq a, Show a, OverlappingGCDMonoid a) => a -> a -> Property
 overlappingGCDMonoidLaw_stripOverlap_stripPrefixOverlap a b =
     makeProperty
         "stripOverlap a b & λ(_, _, x) -> x == stripPrefixOverlap a b"
         (stripOverlap a b & \(_, _, x) -> x == stripPrefixOverlap a b)
+    & report
+        "stripOverlap a b"
+        (stripOverlap a b)
+    & report
+        "stripPrefixOverlap a b"
+        (stripPrefixOverlap a b)
 
 overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap
-    :: (Eq a, OverlappingGCDMonoid a) => a -> a -> Property
+    :: (Eq a, Show a, OverlappingGCDMonoid a) => a -> a -> Property
 overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap a b =
     makeProperty
         "stripOverlap a b & λ(x, _, _) -> x == stripSuffixOverlap b a"
         (stripOverlap a b & \(x, _, _) -> x == stripSuffixOverlap b a)
+    & report
+        "stripOverlap a b"
+        (stripOverlap a b)
+    & report
+        "stripSuffixOverlap b a"
+        (stripSuffixOverlap b a)
 
 --------------------------------------------------------------------------------
 -- RightGCDMonoid
