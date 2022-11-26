@@ -36,7 +36,7 @@ import Test.QuickCheck
 import Test.QuickCheck.Classes
     ( Laws (..) )
 import Test.QuickCheck.Classes.Semigroup.Internal
-    ( makeLaw2, makeLaw3, makeProperty )
+    ( makeLaw2, makeLaw3, makeProperty, report )
 
 --------------------------------------------------------------------------------
 -- CancellativeGCDMonoid
@@ -68,21 +68,51 @@ cancellativeGCDMonoidLaws _ = Laws "CancellativeGCDMonoid"
     ]
 
 cancellativeGCDMonoidLaw_prefix
-    :: (Eq a, Cancellative a, GCDMonoid a) => a -> a -> a -> Property
+    :: (Eq a, Show a, Cancellative a, GCDMonoid a) => a -> a -> a -> Property
 cancellativeGCDMonoidLaw_prefix a b c =
     makeProperty
         "gcd (a <> b) (a <> c) == a <> gcd b c"
         (gcd (a <> b) (a <> c) == a <> gcd b c)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "a <> c"
+        (a <> c)
+    & report
+        "gcd (a <> b) (a <> c)"
+        (gcd (a <> b) (a <> c))
+    & report
+        "gcd b c"
+        (gcd b c)
+    & report
+        "a <> gcd b c"
+        (a <> gcd b c)
     & cover 1
         (a /= mempty && gcd b c /= mempty && a /= gcd b c)
         "a /= mempty && gcd b c /= mempty && a /= gcd b c"
 
 cancellativeGCDMonoidLaw_suffix
-    :: (Eq a, Cancellative a, GCDMonoid a) => a -> a -> a -> Property
+    :: (Eq a, Show a, Cancellative a, GCDMonoid a) => a -> a -> a -> Property
 cancellativeGCDMonoidLaw_suffix a b c =
     makeProperty
         "gcd (a <> c) (b <> c) == gcd a b <> c"
         (gcd (a <> c) (b <> c) == gcd a b <> c)
+    & report
+        "a <> c"
+        (a <> c)
+    & report
+        "b <> c"
+        (b <> c)
+    & report
+        "gcd (a <> c) (b <> c)"
+        (gcd (a <> c) (b <> c))
+    & report
+        "gcd a b"
+        (gcd a b)
+    & report
+        "gcd a b <> c"
+        (gcd a b <> c)
     & cover 1
         (c /= mempty && gcd a b /= mempty && c /= gcd a b)
         "c /= mempty && gcd a b /= mempty && c /= gcd a b"
