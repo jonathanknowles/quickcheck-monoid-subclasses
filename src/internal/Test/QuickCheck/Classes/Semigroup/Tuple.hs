@@ -130,20 +130,20 @@ evalTuple3 (Tuple3 c1 c2 c3 t) =
 
 showTuple1 :: (Semigroup a, Show a) => Tuple1 a -> String
 showTuple1 (evalTuple1 -> a) = unlines
-    [ mempty, "a:", showWrap a
+    [ mempty, "a", "==", showWrap a
     ]
 
 showTuple2 :: (Semigroup a, Show a) => Tuple2 a -> String
 showTuple2 (evalTuple2 -> (a, b)) = unlines
-    [ mempty, "a:", showWrap a
-    , mempty, "b:", showWrap b
+    [ mempty, "a", "==", showWrap a
+    , mempty, "b", "==", showWrap b
     ]
 
 showTuple3 :: (Semigroup a, Show a) => Tuple3 a -> String
 showTuple3 (evalTuple3 -> (a, b, c)) = unlines
-    [ mempty, "a:", showWrap a
-    , mempty, "b:", showWrap b
-    , mempty, "c:", showWrap c
+    [ mempty, "a", "==", showWrap a
+    , mempty, "b", "==", showWrap b
+    , mempty, "c", "==", showWrap c
     ]
 
 shrinkTuple1 :: Arbitrary a => Tuple1 a -> [Tuple1 a]
