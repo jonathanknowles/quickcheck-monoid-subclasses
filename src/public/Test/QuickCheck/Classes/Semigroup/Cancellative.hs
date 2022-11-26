@@ -161,11 +161,17 @@ leftCancellativeLaws _ = Laws "LeftCancellative"
     ]
 
 leftCancellativeLaw_cancellation
-    :: (Eq a, LeftCancellative a) => a -> a -> Property
+    :: (Eq a, Show a, LeftCancellative a) => a -> a -> Property
 leftCancellativeLaw_cancellation a b =
     makeProperty
         "stripPrefix a (a <> b) == Just b"
         (stripPrefix a (a <> b) == Just b)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "stripPrefix a (a <> b)"
+        (stripPrefix a (a <> b))
 
 --------------------------------------------------------------------------------
 -- LeftReductive
