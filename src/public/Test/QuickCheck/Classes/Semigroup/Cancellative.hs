@@ -1,4 +1,5 @@
 {- HLINT ignore "Use camelCase" -}
+{- HLINT ignore "Use infix" -}
 {- HLINT ignore "Redundant bracket" -}
 
 -- |
@@ -202,25 +203,40 @@ leftReductiveLaws _ = Laws "LeftReductive"
     ]
 
 leftReductiveLaw_isPrefix_mappend
-    :: (Eq a, LeftReductive a) => a -> a -> Property
+    :: (Eq a, Show a, LeftReductive a) => a -> a -> Property
 leftReductiveLaw_isPrefix_mappend a b =
     makeProperty
         "a `isPrefixOf` (a <> b)"
         (a `isPrefixOf` (a <> b))
+    & report
+        "a <> b"
+        (a <> b)
 
 leftReductiveLaw_isPrefix_stripPrefix
-    :: (Eq a, LeftReductive a) => a -> a -> Property
+    :: (Eq a, Show a, LeftReductive a) => a -> a -> Property
 leftReductiveLaw_isPrefix_stripPrefix a b =
     makeProperty
         "isPrefixOf a b == isJust (stripPrefix a b)"
         (isPrefixOf a b == isJust (stripPrefix a b))
+    & report
+        "isPrefixOf a b"
+        (isPrefixOf a b)
+    & report
+        "stripPrefix a b"
+        (stripPrefix a b)
 
 leftReductiveLaw_stripPrefix
-    :: (Eq a, LeftReductive a) => a -> a -> Property
+    :: (Eq a, Show a, LeftReductive a) => a -> a -> Property
 leftReductiveLaw_stripPrefix a b =
     makeProperty
         "maybe b (a <>) (stripPrefix a b) == b"
         (maybe b (a <>) (stripPrefix a b) == b)
+    & report
+        "stripPrefix a b"
+        (stripPrefix a b)
+    & report
+        "maybe b (a <>) (stripPrefix a b)"
+        (maybe b (a <>) (stripPrefix a b))
 
 --------------------------------------------------------------------------------
 -- Reductive
