@@ -42,7 +42,7 @@ import Test.QuickCheck
 import Test.QuickCheck.Classes
     ( Laws (..) )
 import Test.QuickCheck.Classes.Semigroup.Internal
-    ( makeLaw2, makeProperty )
+    ( makeLaw2, makeProperty, report )
 
 --------------------------------------------------------------------------------
 -- Cancellative
@@ -75,18 +75,30 @@ cancellativeLaws _ = Laws "Cancellative"
     ]
 
 cancellativeLaw_cancellation_prefix
-    :: (Eq a, Cancellative a) => a -> a -> Property
+    :: (Eq a, Show a, Cancellative a) => a -> a -> Property
 cancellativeLaw_cancellation_prefix a b =
     makeProperty
         "(a <> b) </> a == Just b"
         ((a <> b) </> a == Just b)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "(a <> b) </> a"
+        ((a <> b) </> a)
 
 cancellativeLaw_cancellation_suffix
-    :: (Eq a, Cancellative a) => a -> a -> Property
+    :: (Eq a, Show a, Cancellative a) => a -> a -> Property
 cancellativeLaw_cancellation_suffix a b =
     makeProperty
         "(a <> b) </> b == Just a"
         ((a <> b) </> b == Just a)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "(a <> b) </> b"
+        ((a <> b) </> b)
 
 --------------------------------------------------------------------------------
 -- Commutative
