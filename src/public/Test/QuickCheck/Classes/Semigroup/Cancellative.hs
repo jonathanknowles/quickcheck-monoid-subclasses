@@ -353,11 +353,17 @@ rightCancellativeLaws _ = Laws "RightCancellative"
     ]
 
 rightCancellativeLaw_cancellation
-    :: (Eq a, RightCancellative a) => a -> a -> Property
+    :: (Eq a, Show a, RightCancellative a) => a -> a -> Property
 rightCancellativeLaw_cancellation a b =
     makeProperty
         "stripSuffix b (a <> b) == Just a"
         (stripSuffix b (a <> b) == Just a)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "stripSuffix b (a <> b)"
+        (stripSuffix b (a <> b))
 
 --------------------------------------------------------------------------------
 -- RightReductive
