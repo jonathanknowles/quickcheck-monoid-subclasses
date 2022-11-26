@@ -394,22 +394,37 @@ rightReductiveLaws _ = Laws "RightReductive"
     ]
 
 rightReductiveLaw_isSuffix_mappend
-    :: (Eq a, RightReductive a) => a -> a -> Property
+    :: (Eq a, Show a, RightReductive a) => a -> a -> Property
 rightReductiveLaw_isSuffix_mappend a b =
     makeProperty
         "b `isSuffixOf` (a <> b)"
         (b `isSuffixOf` (a <> b))
+    & report
+        "a <> b"
+        (a <> b)
 
 rightReductiveLaw_isSuffix_stripSuffix
-    :: (Eq a, RightReductive a) => a -> a -> Property
+    :: (Eq a, Show a, RightReductive a) => a -> a -> Property
 rightReductiveLaw_isSuffix_stripSuffix a b =
     makeProperty
         "isSuffixOf a b == isJust (stripSuffix a b)"
         (isSuffixOf a b == isJust (stripSuffix a b))
+    & report
+        "isSuffixOf a b"
+        (isSuffixOf a b)
+    & report
+        "stripSuffix a b"
+        (stripSuffix a b)
 
 rightReductiveLaw_stripSuffix
-    :: (Eq a, RightReductive a) => a -> a -> Property
+    :: (Eq a, Show a, RightReductive a) => a -> a -> Property
 rightReductiveLaw_stripSuffix a b =
     makeProperty
         "maybe b (<> a) (stripSuffix a b) == b"
         (maybe b (<> a) (stripSuffix a b) == b)
+    & report
+        "stripSuffix a b"
+        (stripSuffix a b)
+    & report
+        "maybe b (<> a) (stripSuffix a b)"
+        (maybe b (<> a) (stripSuffix a b))
