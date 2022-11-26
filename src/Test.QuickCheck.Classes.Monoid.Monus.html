@@ -15,117 +15,173 @@
 </span><span id="line-15"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span> </span><span class="hs-keyword">hiding</span><span>
 </span><span id="line-16"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">gcd</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">null</span></span><span> </span><span class="hs-special">)</span><span>
 </span><span id="line-17"></span><span>
-</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Data.Monoid.GCD</span></span><span>
-</span><span id="line-19"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">OverlappingGCDMonoid</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span> </span><span class="hs-special">)</span><span>
-</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Data.Monoid.Monus</span></span><span>
-</span><span id="line-21"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">Monus</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span> </span><span class="hs-special">)</span><span>
-</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Data.Proxy</span></span><span>
-</span><span id="line-23"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">Proxy</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span> </span><span class="hs-special">)</span><span>
-</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Test.QuickCheck</span></span><span>
-</span><span id="line-25"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">Arbitrary</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">Property</span></span><span> </span><span class="hs-special">)</span><span>
-</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Test.QuickCheck.Classes</span></span><span>
-</span><span id="line-27"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">Laws</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span> </span><span class="hs-special">)</span><span>
-</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Test.QuickCheck.Classes.Semigroup.Internal</span></span><span>
-</span><span id="line-29"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">makeLaw2</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">makeProperty</span></span><span> </span><span class="hs-special">)</span><span>
-</span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
-</span><span id="line-32"></span><span class="hs-comment">-- Monus</span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Data.Function</span></span><span>
+</span><span id="line-19"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-operator">(&amp;)</span></span><span> </span><span class="hs-special">)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Data.Monoid.GCD</span></span><span>
+</span><span id="line-21"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">OverlappingGCDMonoid</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span> </span><span class="hs-special">)</span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Data.Monoid.Monus</span></span><span>
+</span><span id="line-23"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">Monus</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span> </span><span class="hs-special">)</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Data.Proxy</span></span><span>
+</span><span id="line-25"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">Proxy</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span> </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Test.QuickCheck</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">Arbitrary</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">Property</span></span><span> </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Test.QuickCheck.Classes</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">Laws</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span> </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Test.QuickCheck.Classes.Semigroup.Internal</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-identifier">makeLaw2</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">makeProperty</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier">report</span></span><span> </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
-</span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span class="hs-comment">-- | 'Laws' for instances of 'Monus'.</span><span>
-</span><span id="line-36"></span><span class="hs-comment">--</span><span>
-</span><span id="line-37"></span><span class="hs-comment">-- Tests the following properties:</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- Monus</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- | 'Laws' for instances of 'Monus'.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
-</span><span id="line-39"></span><span class="hs-comment">-- prop&gt; a &lt;\&gt; b == stripPrefixOverlap b a</span><span>
-</span><span id="line-40"></span><span class="hs-comment">-- prop&gt; a &lt;\&gt; b == stripSuffixOverlap b a</span><span>
-</span><span id="line-41"></span><span class="hs-comment">--</span><span>
-</span><span id="line-42"></span><span class="hs-comment">-- Note that the following superclass laws are __not__ included:</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Tests the following properties:</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- prop&gt; a &lt;\&gt; b == stripPrefixOverlap b a</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- prop&gt; a &lt;\&gt; b == stripSuffixOverlap b a</span><span>
 </span><span id="line-43"></span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span class="hs-comment">-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.commutativeLaws'</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- * 'Test.QuickCheck.Classes.Monoid.GCD.overlappingGCDMonoidLaws'</span><span>
-</span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaws"><span class="hs-identifier hs-type">monusLaws</span></a></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679062169"><span class="annot"><a href="#local-6989586621679062169"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Arbitrary</span></span><span> </span><span class="annot"><a href="#local-6989586621679062169"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679062169"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679062169"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679062169"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><a href="#local-6989586621679062169"><span class="hs-identifier hs-type">a</span></a></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Laws</span></span><span>
-</span><span id="line-51"></span><span id="monusLaws"><span class="annot"><span class="annottext">monusLaws :: Proxy a -&gt; Laws
+</span><span id="line-44"></span><span class="hs-comment">-- Note that the following superclass laws are __not__ included:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.commutativeLaws'</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- * 'Test.QuickCheck.Classes.Monoid.GCD.overlappingGCDMonoidLaws'</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaws"><span class="hs-identifier hs-type">monusLaws</span></a></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679063158"><span class="annot"><a href="#local-6989586621679063158"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Arbitrary</span></span><span> </span><span class="annot"><a href="#local-6989586621679063158"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679063158"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679063158"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679063158"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><a href="#local-6989586621679063158"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Laws</span></span><span>
+</span><span id="line-53"></span><span id="monusLaws"><span class="annot"><span class="annottext">monusLaws :: Proxy a -&gt; Laws
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaws"><span class="hs-identifier hs-var hs-var">monusLaws</span></a></span></span><span> </span><span class="annot"><span class="annottext">Proxy a
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; [(String, Property)] -&gt; Laws
 </span><span class="hs-identifier hs-var">Laws</span></span><span> </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Monus&quot;</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">String -&gt; (a -&gt; a -&gt; Property) -&gt; (String, Property)
+</span><span id="line-54"></span><span>    </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">String -&gt; (a -&gt; a -&gt; Property) -&gt; (String, Property)
 forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679062169"><span class="hs-identifier hs-type">a</span></a></span><span>
-</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">String
+</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679063158"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;monusLaw_stripPrefixOverlap&quot;</span></span><span>
-</span><span id="line-54"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Property
-forall a. (Eq a, Monus a) =&gt; a -&gt; a -&gt; Property
+</span><span id="line-56"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Property
+forall a. (Eq a, Monus a, Show a) =&gt; a -&gt; a -&gt; Property
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripPrefixOverlap"><span class="hs-identifier hs-var">monusLaw_stripPrefixOverlap</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">String -&gt; (a -&gt; a -&gt; Property) -&gt; (String, Property)
+</span><span id="line-57"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">String -&gt; (a -&gt; a -&gt; Property) -&gt; (String, Property)
 forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679062169"><span class="hs-identifier hs-type">a</span></a></span><span>
-</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">String
+</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679063158"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;monusLaw_stripSuffixOverlap&quot;</span></span><span>
-</span><span id="line-57"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Property
-forall a. (Eq a, Monus a) =&gt; a -&gt; a -&gt; Property
+</span><span id="line-59"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Property
+forall a. (Eq a, Monus a, Show a) =&gt; a -&gt; a -&gt; Property
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripSuffixOverlap"><span class="hs-identifier hs-var">monusLaw_stripSuffixOverlap</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">]</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span id="local-6989586621679062183"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripPrefixOverlap"><span class="hs-identifier hs-type">monusLaw_stripPrefixOverlap</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679062183"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679062183"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679062183"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679062183"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
-</span><span id="line-62"></span><span id="monusLaw_stripPrefixOverlap"><span class="annot"><span class="annottext">monusLaw_stripPrefixOverlap :: a -&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripPrefixOverlap"><span class="hs-identifier hs-var hs-var">monusLaw_stripPrefixOverlap</span></a></span></span><span> </span><span id="local-6989586621679062165"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679062165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679062164"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679062164"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
+</span><span id="line-60"></span><span>    </span><span class="hs-special">]</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679063178"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripPrefixOverlap"><span class="hs-identifier hs-type">monusLaw_stripPrefixOverlap</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679063178"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679063178"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679063178"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679063178"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679063178"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-64"></span><span id="monusLaw_stripPrefixOverlap"><span class="annot"><span class="annottext">monusLaw_stripPrefixOverlap :: a -&gt; a -&gt; Property
+</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripPrefixOverlap"><span class="hs-identifier hs-var hs-var">monusLaw_stripPrefixOverlap</span></a></span></span><span> </span><span id="local-6989586621679063154"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679063153"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063153"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
-</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">String
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;\\&gt; b == stripPrefixOverlap b a&quot;</span></span><span>
-</span><span id="line-65"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679062165"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679062163"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679062164"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><span id="line-67"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063154"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679063152"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063153"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. OverlappingGCDMonoid m =&gt; m -&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">stripPrefixOverlap</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679062164"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679062165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>    </span><span id="local-6989586621679062163"><span class="annot"><span class="annottext">&lt;\\&gt; :: a -&gt; a -&gt; a
-</span><a href="#local-6989586621679062163"><span class="hs-operator hs-var hs-var">(&lt;\\&gt;)</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679063153"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
+forall a prop.
+(Show a, Testable prop) =&gt;
+String -&gt; a -&gt; prop -&gt; Property
+</span><span class="hs-identifier hs-var">report</span></span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;a &lt;\\&gt; b&quot;</span></span><span>
+</span><span id="line-70"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063154"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679063152"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063153"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
+forall a prop.
+(Show a, Testable prop) =&gt;
+String -&gt; a -&gt; prop -&gt; Property
+</span><span class="hs-identifier hs-var">report</span></span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;stripPrefixOverlap b a&quot;</span></span><span>
+</span><span id="line-73"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+forall m. OverlappingGCDMonoid m =&gt; m -&gt; m -&gt; m
+</span><span class="hs-identifier hs-var">stripPrefixOverlap</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063153"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>    </span><span id="local-6989586621679063152"><span class="annot"><span class="annottext">&lt;\\&gt; :: a -&gt; a -&gt; a
+</span><a href="#local-6989586621679063152"><span class="hs-operator hs-var hs-var">(&lt;\\&gt;)</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><span class="hs-operator hs-var">(&lt;\&gt;)</span></span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span id="local-6989586621679062160"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripSuffixOverlap"><span class="hs-identifier hs-type">monusLaw_stripSuffixOverlap</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679062160"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679062160"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679062160"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679062160"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
-</span><span id="line-71"></span><span id="monusLaw_stripSuffixOverlap"><span class="annot"><span class="annottext">monusLaw_stripSuffixOverlap :: a -&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripSuffixOverlap"><span class="hs-identifier hs-var hs-var">monusLaw_stripSuffixOverlap</span></a></span></span><span> </span><span id="local-6989586621679062159"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679062159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679062158"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679062158"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span id="local-6989586621679063149"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripSuffixOverlap"><span class="hs-identifier hs-type">monusLaw_stripSuffixOverlap</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679063149"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679063149"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679063149"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679063149"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679063149"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-79"></span><span id="monusLaw_stripSuffixOverlap"><span class="annot"><span class="annottext">monusLaw_stripSuffixOverlap :: a -&gt; a -&gt; Property
+</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripSuffixOverlap"><span class="hs-identifier hs-var hs-var">monusLaw_stripSuffixOverlap</span></a></span></span><span> </span><span id="local-6989586621679063148"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679063147"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063147"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
-</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">String
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;\\&gt; b == stripSuffixOverlap b a&quot;</span></span><span>
-</span><span id="line-74"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679062159"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679062157"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679062158"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><span id="line-82"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063148"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679063146"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063147"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. OverlappingGCDMonoid m =&gt; m -&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">stripSuffixOverlap</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679062158"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679062159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>    </span><span id="local-6989586621679062157"><span class="annot"><span class="annottext">&lt;\\&gt; :: a -&gt; a -&gt; a
-</span><a href="#local-6989586621679062157"><span class="hs-operator hs-var hs-var">(&lt;\\&gt;)</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679063147"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
+forall a prop.
+(Show a, Testable prop) =&gt;
+String -&gt; a -&gt; prop -&gt; Property
+</span><span class="hs-identifier hs-var">report</span></span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;a &lt;\\&gt; b&quot;</span></span><span>
+</span><span id="line-85"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063148"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679063146"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063147"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
+forall a prop.
+(Show a, Testable prop) =&gt;
+String -&gt; a -&gt; prop -&gt; Property
+</span><span class="hs-identifier hs-var">report</span></span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;stripSuffixOverlap b a&quot;</span></span><span>
+</span><span id="line-88"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+forall m. OverlappingGCDMonoid m =&gt; m -&gt; m -&gt; m
+</span><span class="hs-identifier hs-var">stripSuffixOverlap</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063147"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679063148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>    </span><span id="local-6989586621679063146"><span class="annot"><span class="annottext">&lt;\\&gt; :: a -&gt; a -&gt; a
+</span><a href="#local-6989586621679063146"><span class="hs-operator hs-var hs-var">(&lt;\\&gt;)</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><span class="hs-operator hs-var">(&lt;\&gt;)</span></span><span>
-</span><span id="line-77"></span></pre></body></html>
+</span><span id="line-91"></span></pre></body></html>
