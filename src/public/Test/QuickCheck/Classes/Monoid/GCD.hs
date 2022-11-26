@@ -467,36 +467,66 @@ rightGCDMonoidLaws _ = Laws "RightGCDMonoid"
     ]
 
 rightGCDMonoidLaw_stripCommonSuffix_commonSuffix
-    :: (Eq a, RightGCDMonoid a) => a -> a -> Property
+    :: (Eq a, Show a, RightGCDMonoid a) => a -> a -> Property
 rightGCDMonoidLaw_stripCommonSuffix_commonSuffix a b =
     makeProperty
         "stripCommonSuffix a b & λ(_, _, s) -> s == commonSuffix a b"
         (stripCommonSuffix a b & \(_, _, s) -> s == commonSuffix a b)
+    & report
+        "stripCommonSuffix a b"
+        (stripCommonSuffix a b)
+    & report
+        "commonSuffix a b"
+        (commonSuffix a b)
 
 rightGCDMonoidLaw_stripCommonSuffix_mappend_1
-    :: (Eq a, RightGCDMonoid a) => a -> a -> Property
+    :: (Eq a, Show a, RightGCDMonoid a) => a -> a -> Property
 rightGCDMonoidLaw_stripCommonSuffix_mappend_1 a b =
     makeProperty
         "stripCommonSuffix a b & λ(x, _, s) -> x <> s == a"
         (stripCommonSuffix a b & \(x, _, s) -> x <> s == a)
+    & report
+        "stripCommonSuffix a b"
+        (stripCommonSuffix a b)
+    & report
+        "stripCommonSuffix a b & λ(x, _, s) -> x <> s"
+        (stripCommonSuffix a b & \(x, _, s) -> x <> s)
 
 rightGCDMonoidLaw_stripCommonSuffix_mappend_2
-    :: (Eq a, RightGCDMonoid a) => a -> a -> Property
+    :: (Eq a, Show a, RightGCDMonoid a) => a -> a -> Property
 rightGCDMonoidLaw_stripCommonSuffix_mappend_2 a b =
     makeProperty
         "stripCommonSuffix a b & λ(_, x, s) -> x <> s == b"
         (stripCommonSuffix a b & \(_, x, s) -> x <> s == b)
+    & report
+        "stripCommonSuffix a b"
+        (stripCommonSuffix a b)
+    & report
+        "stripCommonSuffix a b & λ(_, x, s) -> x <> s"
+        (stripCommonSuffix a b & \(_, x, s) -> x <> s)
 
 rightGCDMonoidLaw_stripCommonSuffix_stripSuffix_1
-    :: (Eq a, RightGCDMonoid a) => a -> a -> Property
+    :: (Eq a, Show a, RightGCDMonoid a) => a -> a -> Property
 rightGCDMonoidLaw_stripCommonSuffix_stripSuffix_1 a b =
     makeProperty
         "stripCommonSuffix a b & λ(x, _, s) -> Just x == stripSuffix s a"
         (stripCommonSuffix a b & \(x, _, s) -> Just x == stripSuffix s a)
+    & report
+        "stripCommonSuffix a b"
+        (stripCommonSuffix a b)
+    & report
+        "stripCommonSuffix a b & λ(_, _, s) -> stripSuffix s a"
+        (stripCommonSuffix a b & \(_, _, s) -> stripSuffix s a)
 
 rightGCDMonoidLaw_stripCommonSuffix_stripSuffix_2
-    :: (Eq a, RightGCDMonoid a) => a -> a -> Property
+    :: (Eq a, Show a, RightGCDMonoid a) => a -> a -> Property
 rightGCDMonoidLaw_stripCommonSuffix_stripSuffix_2 a b =
     makeProperty
         "stripCommonSuffix a b & λ(_, x, s) -> Just x == stripSuffix s b"
         (stripCommonSuffix a b & \(_, x, s) -> Just x == stripSuffix s b)
+    & report
+        "stripCommonSuffix a b"
+        (stripCommonSuffix a b)
+    & report
+        "stripCommonSuffix a b & λ(_, _, s) -> stripSuffix s b"
+        (stripCommonSuffix a b & \(_, _, s) -> stripSuffix s b)
