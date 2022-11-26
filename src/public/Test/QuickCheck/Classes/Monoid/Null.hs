@@ -18,6 +18,8 @@ module Test.QuickCheck.Classes.Monoid.Null
 import Prelude hiding
     ( null )
 
+import Data.Function
+    ( (&) )
 import Data.Monoid.Null
     ( MonoidNull (..), PositiveMonoid )
 import Data.Proxy
@@ -27,7 +29,7 @@ import Test.QuickCheck
 import Test.QuickCheck.Classes
     ( Laws (..) )
 import Test.QuickCheck.Classes.Semigroup.Internal
-    ( makeLaw1, makeLaw2, makeProperty )
+    ( makeLaw1, makeLaw2, makeProperty, report )
 
 --------------------------------------------------------------------------------
 -- MonoidNull
@@ -55,6 +57,12 @@ monoidNullLaw_basic a =
     makeProperty
         "null a == (a == mempty)"
         (null a == (a == mempty))
+    & report
+        "null a"
+        (null a)
+    & report
+        "a == mempty"
+        (a == mempty)
 
 --------------------------------------------------------------------------------
 -- PositiveMonoid
