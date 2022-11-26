@@ -158,32 +158,56 @@ gcdMonoidLaws _ = Laws "GCDMonoid"
     ]
 
 gcdMonoidLaw_gcd_commonPrefix
-    :: (Eq a, GCDMonoid a) => a -> a -> Property
+    :: (Eq a, Show a, GCDMonoid a) => a -> a -> Property
 gcdMonoidLaw_gcd_commonPrefix a b =
     makeProperty
         "gcd a b == commonPrefix a b"
         (gcd a b == commonPrefix a b)
+    & report
+        "gcd a b"
+        (gcd a b)
+    & report
+        "commonPrefix a b"
+        (commonPrefix a b)
 
 gcdMonoidLaw_gcd_commonSuffix
-    :: (Eq a, GCDMonoid a) => a -> a -> Property
+    :: (Eq a, Show a, GCDMonoid a) => a -> a -> Property
 gcdMonoidLaw_gcd_commonSuffix a b =
     makeProperty
         "gcd a b == commonSuffix a b"
         (gcd a b == commonSuffix a b)
+    & report
+        "gcd a b"
+        (gcd a b)
+    & report
+        "commonSuffix a b"
+        (commonSuffix a b)
 
 gcdMonoidLaw_gcd_reduction_1
-    :: (Eq a, GCDMonoid a) => a -> a -> Property
+    :: (Eq a, Show a, GCDMonoid a) => a -> a -> Property
 gcdMonoidLaw_gcd_reduction_1 a b =
     makeProperty
         "isJust (a </> gcd a b)"
         (isJust (a </> gcd a b))
+    & report
+        "gcd a b"
+        (gcd a b)
+    & report
+        "a </> gcd a b"
+        (a </> gcd a b)
 
 gcdMonoidLaw_gcd_reduction_2
-    :: (Eq a, GCDMonoid a) => a -> a -> Property
+    :: (Eq a, Show a, GCDMonoid a) => a -> a -> Property
 gcdMonoidLaw_gcd_reduction_2 a b =
     makeProperty
         "isJust (b </> gcd a b)"
         (isJust (b </> gcd a b))
+    & report
+        "gcd a b"
+        (gcd a b)
+    & report
+        "b </> gcd a b"
+        (b </> gcd a b)
 
 --------------------------------------------------------------------------------
 -- LeftGCDMonoid
