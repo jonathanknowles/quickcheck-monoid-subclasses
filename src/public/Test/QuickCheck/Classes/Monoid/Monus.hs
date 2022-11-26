@@ -81,6 +81,9 @@ monusLaw_axiom_1 a =
     makeProperty
         "a <\\> a == mempty"
         (a <\\> a == mempty)
+    & report
+        "a <\\> a"
+        (a <\\> a)
 
 monusLaw_axiom_2
     :: (Eq a, Monus a, Show a) => a -> Property
@@ -88,6 +91,9 @@ monusLaw_axiom_2 a =
     makeProperty
         "mempty <\\> a == mempty"
         (mempty <\\> a == mempty)
+    & report
+        "mempty <\\> a"
+        (mempty <\\> a)
 
 monusLaw_axiom_3
     :: (Eq a, Monus a, Show a) => a -> a -> Property
