@@ -27,7 +27,7 @@ import Numeric.Natural
 import Test.Hspec
     ( Spec )
 import Test.QuickCheck
-    ( Property )
+    ( Confidence, Property )
 import Test.QuickCheck.Classes
     ( Laws (..) )
 import Test.QuickCheck.Classes.Hspec
@@ -65,7 +65,7 @@ import Test.QuickCheck.Property
 
 spec :: Spec
 spec = do
-    testLawsMany @() $ disableCoverageCheck
+    testLawsMany @() $ fmap disableCoverageCheck <$>
         [ cancellativeGCDMonoidLaws
         , cancellativeLaws
         , commutativeLaws
@@ -251,13 +251,16 @@ class HasCoverageCheck p where
     disableCoverageCheck :: p -> p
 
 instance HasCoverageCheck Laws where
-    disableCoverageCheck (Laws title laws) =
-        Laws title $ fmap disableCoverageCheck <$> laws
+    disableCoverageCheck = mapLawsProperties disableCoverageCheck
 
 instance HasCoverageCheck Property where
-    disableCoverageCheck =
-        mapTotalResult (\r -> r {maybeCheckCoverage = Nothing})
+    disableCoverageCheck = mapPropertyCheckCoverage (const Nothing)
 
-instance (Functor f, HasCoverageCheck p) => HasCoverageCheck (f p) where
-    disableCoverageCheck =
-        fmap disableCoverageCheck
+mapLawsProperties
+    :: (Property -> Property) -> Laws -> Laws
+mapLawsProperties f (Laws t ps) = Laws t $ fmap f <$> ps
+
+mapPropertyCheckCoverage
+    :: (Maybe Confidence -> Maybe Confidence) -> Property -> Property
+mapPropertyCheckCoverage f =
+    mapTotalResult $ \r -> r {maybeCheckCoverage = f (maybeCheckCoverage r)}
