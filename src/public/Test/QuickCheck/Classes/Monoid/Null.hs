@@ -39,7 +39,9 @@ import Test.QuickCheck.Classes.Semigroup.Internal
 --
 -- Tests the following property:
 --
--- prop> null a == (a == mempty)
+-- @
+-- 'null' a '==' (a '==' 'mempty')
+-- @
 --
 monoidNullLaws
     :: forall a. (Arbitrary a, Show a, Eq a, MonoidNull a)
@@ -70,9 +72,11 @@ monoidNullLaw_basic a =
 
 -- | 'Laws' for instances of 'PositiveMonoid'.
 --
--- Tests the following properties:
+-- Tests the following property:
 --
--- prop> null (a <> b) == (null a && null b)
+-- @
+-- 'null' (a '<>' b) '==' ('null' a '&&' 'null' b)
+-- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
