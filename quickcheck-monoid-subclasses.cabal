@@ -1,7 +1,7 @@
 cabal-version:  3.0
-name:           quickcheck-classes-monoid-subclasses
+name:           quickcheck-monoid-subclasses
 version:        0.0.0
-bug-reports:    https://github.com/jonathanknowles/quickcheck-classes-monoid-subclasses/issues
+bug-reports:    https://github.com/jonathanknowles/quickcheck-monoid-subclasses/issues
 license:        Apache-2.0
 license-file:   LICENSE
 author:         Jonathan Knowles
@@ -35,7 +35,7 @@ common common-extensions
 
 source-repository head
     type: git
-    location: https://github.com/jonathanknowles/quickcheck-classes-monoid-subclasses
+    location: https://github.com/jonathanknowles/quickcheck-monoid-subclasses
 
 library
     import:
@@ -50,11 +50,11 @@ library
     default-language:
         Haskell2010
     build-depends:
-        base >=4.7 && <5
+      , base >=4.7 && <5
       , monoid-subclasses
       , QuickCheck
       , quickcheck-classes
-      , quickcheck-classes-monoid-subclasses:internal
+      , quickcheck-monoid-subclasses:internal
 
 library internal
     import:
@@ -68,9 +68,9 @@ library internal
     default-language:
         Haskell2010
     build-depends:
-        base >=4.7 && <5
-      , QuickCheck
+      , base >=4.7 && <5
       , pretty-show
+      , QuickCheck
       , semigroupoids
 
 library prelude
@@ -83,13 +83,13 @@ library prelude
     default-language:
         Haskell2010
     build-depends:
-        base >=4.7 && <5
+      , base >=4.7 && <5
       , containers
       , monoid-subclasses
       , QuickCheck
-      , quickcheck-classes-monoid-subclasses
-      , quickcheck-classes-monoid-subclasses:internal
       , quickcheck-instances
+      , quickcheck-monoid-subclasses
+      , quickcheck-monoid-subclasses:internal
 
 test-suite test
     import:
@@ -107,14 +107,14 @@ test-suite test
     build-tool-depends:
         hspec-discover:hspec-discover ==2.*
     build-depends:
-        base >=4.7 && <5
+      , base >=4.7 && <5
       , bytestring
       , containers
       , hspec
       , monoid-subclasses
       , QuickCheck
       , quickcheck-classes
-      , quickcheck-classes-monoid-subclasses
       , quickcheck-instances
+      , quickcheck-monoid-subclasses
       , text
       , vector
