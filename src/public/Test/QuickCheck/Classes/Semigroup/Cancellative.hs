@@ -53,8 +53,12 @@ import Test.QuickCheck.Classes.Semigroup.Internal
 --
 -- Tests the following properties:
 --
--- prop> (a <> b) </> a == Just b
--- prop> (a <> b) </> b == Just a
+-- @
+-- (a '<>' b) '</>' a '==' 'Just' b
+-- @
+-- @
+-- (a '<>' b) '</>' b '==' 'Just' a
+-- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
@@ -109,7 +113,9 @@ cancellativeLaw_cancellation_suffix a b =
 --
 -- Tests the following property:
 --
--- prop> a <> b == b <> a
+-- @
+-- a '<>' b '==' b '<>' a
+-- @
 --
 commutativeLaws
     :: forall a. (Arbitrary a, Show a, Eq a, Commutative a)
@@ -145,7 +151,9 @@ commutativeLaw_basic a b =
 --
 -- Tests the following property:
 --
--- prop> stripPrefix a (a <> b) == Just b
+-- @
+-- 'stripPrefix' a (a '<>' b) '==' 'Just' b
+-- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
@@ -182,9 +190,15 @@ leftCancellativeLaw_cancellation a b =
 --
 -- Tests the following properties:
 --
--- prop> a `isPrefixOf` (a <> b)
--- prop> isPrefixOf a b == isJust (stripPrefix a b)
--- prop> maybe b (a <>) (stripPrefix a b) == b
+-- @
+-- a `'isPrefixOf'` (a '<>' b)
+-- @
+-- @
+-- 'isPrefixOf' a b '==' 'isJust' ('stripPrefix' a b)
+-- @
+-- @
+-- 'maybe' b (a '<>') ('stripPrefix' a b) '==' b
+-- @
 --
 leftReductiveLaws
     :: forall a. (Arbitrary a, Show a, Eq a, LeftReductive a)
@@ -246,10 +260,18 @@ leftReductiveLaw_stripPrefix a b =
 --
 -- Tests the following properties:
 --
--- prop> a </> b == stripPrefix b a
--- prop> a </> b == stripSuffix b a
--- prop> maybe a (b <>) (a </> b) == a
--- prop> maybe a (<> b) (a </> b) == a
+-- @
+-- a '</>' b '==' 'stripPrefix' b a
+-- @
+-- @
+-- a '</>' b '==' 'stripSuffix' b a
+-- @
+-- @
+-- 'maybe' a (b '<>') (a '</>' b) '==' a
+-- @
+-- @
+-- 'maybe' a ('<>' b) (a '</>' b) '==' a
+-- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
@@ -336,7 +358,9 @@ reductiveLaw_inversion_suffix a b =
 --
 -- Tests the following property:
 --
--- prop> stripSuffix b (a <> b) == Just a
+-- @
+-- 'stripSuffix' b (a '<>' b) '==' 'Just' a
+-- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
@@ -373,9 +397,15 @@ rightCancellativeLaw_cancellation a b =
 --
 -- Tests the following properties:
 --
--- prop> b `isSuffixOf` (a <> b)
--- prop> isSuffixOf a b == isJust (stripSuffix a b)
--- prop> maybe b (<> a) (stripSuffix a b) == b
+-- @
+-- b `'isSuffixOf'` (a '<>' b)
+-- @
+-- @
+-- 'isSuffixOf' a b '==' 'isJust' ('stripSuffix' a b)
+-- @
+-- @
+-- 'maybe' b ('<>' a) ('stripSuffix' a b) '==' b
+-- @
 --
 rightReductiveLaws
     :: forall a. (Arbitrary a, Show a, Eq a, RightReductive a)
