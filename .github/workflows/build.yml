@@ -78,11 +78,11 @@ jobs:
       - name: Documentation
         if: |
             matrix.os == 'ubuntu-latest'
-            && matrix.ghc == '8.10.7'
+            && matrix.ghc == '9.2.4'
         run: >
-          cabal haddock
+          cabal build all
+          --enable-documentation
           --haddock-hyperlink-source
-          --haddock-quickjump
           --haddock-html-location
           'https://hackage.haskell.org/package/$pkg-$version/docs'
 
@@ -94,7 +94,7 @@ jobs:
         if: |
             github.ref == 'refs/heads/main'
             && matrix.os == 'ubuntu-latest'
-            && matrix.ghc == '8.10.7'
+            && matrix.ghc == '9.2.4'
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           branch: gh-pages
