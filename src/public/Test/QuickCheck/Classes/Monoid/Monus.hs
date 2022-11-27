@@ -38,12 +38,24 @@ import Test.QuickCheck.Classes.Semigroup.Internal
 --
 -- Tests the following properties:
 --
--- prop> a <\> a == mempty
--- prop> mempty <\> a == mempty
--- prop> a <> (b <\> a) == b <> (a <\> b)
--- prop> (a <\> b) <\> c == a <\> (b <> c)
--- prop> a <\> b == stripPrefixOverlap b a
--- prop> a <\> b == stripSuffixOverlap b a
+-- @
+-- a '<\>' a '==' 'mempty'
+-- @
+-- @
+-- 'mempty' '<\>' a '==' 'mempty'
+-- @
+-- @
+-- a '<>' (b '<\>' a) '==' b '<>' (a '<\>' b)
+-- @
+-- @
+-- (a '<\>' b) '<\>' c '==' a '<\>' (b '<>' c)
+-- @
+-- @
+-- a '<\>' b '==' 'stripPrefixOverlap' b a
+-- @
+-- @
+-- a '<\>' b '==' 'stripSuffixOverlap' b a
+-- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
