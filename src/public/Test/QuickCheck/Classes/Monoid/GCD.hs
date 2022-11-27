@@ -46,8 +46,12 @@ import Test.QuickCheck.Classes.Semigroup.Internal
 --
 -- Tests the following properties:
 --
--- prop> gcd (a <> b) (a <> c) == a <> gcd b c
--- prop> gcd (a <> c) (b <> c) == gcd a b <> c
+-- @
+-- 'gcd' (a '<>' b) (a '<>' c) '==' a '<>' 'gcd' b c
+-- @
+-- @
+-- 'gcd' (a '<>' c) (b '<>' c) '==' 'gcd' a b '<>' c
+-- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
@@ -125,10 +129,18 @@ cancellativeGCDMonoidLaw_suffix a b c =
 --
 -- Tests the following properties:
 --
--- prop> gcd a b == commonPrefix a b
--- prop> gcd a b == commonSuffix a b
--- prop> isJust (a </> gcd a b)
--- prop> isJust (b </> gcd a b)
+-- @
+-- 'gcd' a b '==' 'commonPrefix' a b
+-- @
+-- @
+-- 'gcd' a b '==' 'commonSuffix' a b
+-- @
+-- @
+-- 'isJust' (a '</>' 'gcd' a b)
+-- @
+-- @
+-- 'isJust' (b '</>' 'gcd' a b)
+-- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
@@ -217,11 +229,21 @@ gcdMonoidLaw_gcd_reduction_2 a b =
 --
 -- Tests the following properties:
 --
--- prop> stripCommonPrefix a b & \(p, _, _) -> p == commonPrefix a b
--- prop> stripCommonPrefix a b & \(p, x, _) -> p <> x == a
--- prop> stripCommonPrefix a b & \(p, _, x) -> p <> x == b
--- prop> stripCommonPrefix a b & \(p, x, _) -> Just x == stripPrefix p a
--- prop> stripCommonPrefix a b & \(p, _, x) -> Just x == stripPrefix p b
+-- @
+-- 'stripCommonPrefix' a b '&' \\(p, _, _) -> p '==' 'commonPrefix' a b
+-- @
+-- @
+-- 'stripCommonPrefix' a b '&' \\(p, x, _) -> p '<>' x '==' a
+-- @
+-- @
+-- 'stripCommonPrefix' a b '&' \\(p, _, x) -> p '<>' x '==' b
+-- @
+-- @
+-- 'stripCommonPrefix' a b '&' \\(p, x, _) -> 'Just' x '==' 'stripPrefix' p a
+-- @
+-- @
+-- 'stripCommonPrefix' a b '&' \\(p, _, x) -> 'Just' x '==' 'stripPrefix' p b
+-- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
@@ -322,11 +344,21 @@ leftGCDMonoidLaw_stripCommonPrefix_stripPrefix_2 a b =
 --
 -- Tests the following properties:
 --
--- prop> overlap a b <> stripPrefixOverlap a b == b
--- prop> stripSuffixOverlap b a <> overlap a b == a
--- prop> stripOverlap a b & \(_, x, _) -> x == overlap a b
--- prop> stripOverlap a b & \(_, _, x) -> x == stripPrefixOverlap a b
--- prop> stripOverlap a b & \(x, _, _) -> x == stripSuffixOverlap b a
+-- @
+-- 'overlap' a b '<>' 'stripPrefixOverlap' a b '==' b
+-- @
+-- @
+-- 'stripSuffixOverlap' b a '<>' 'overlap' a b '==' a
+-- @
+-- @
+-- 'stripOverlap' a b '&' \\(_, x, _) -> x '==' 'overlap' a b
+-- @
+-- @
+-- 'stripOverlap' a b '&' \\(_, _, x) -> x '==' 'stripPrefixOverlap' a b
+-- @
+-- @
+-- 'stripOverlap' a b '&' \\(x, _, _) -> x '==' 'stripSuffixOverlap' b a
+-- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
@@ -434,11 +466,21 @@ overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap a b =
 --
 -- Tests the following properties:
 --
--- prop> stripCommonSuffix a b & \(_, _, s) -> s == commonSuffix a b
--- prop> stripCommonSuffix a b & \(x, _, s) -> x <> s == a
--- prop> stripCommonSuffix a b & \(_, x, s) -> x <> s == b
--- prop> stripCommonSuffix a b & \(x, _, s) -> Just x == stripSuffix s a
--- prop> stripCommonSuffix a b & \(_, x, s) -> Just x == stripSuffix s b
+-- @
+-- 'stripCommonSuffix' a b '&' \\(_, _, s) -> s '==' 'commonSuffix' a b
+-- @
+-- @
+-- 'stripCommonSuffix' a b '&' \\(x, _, s) -> x '<>' s '==' a
+-- @
+-- @
+-- 'stripCommonSuffix' a b '&' \\(_, x, s) -> x '<>' s '==' b
+-- @
+-- @
+-- 'stripCommonSuffix' a b '&' \\(x, _, s) -> 'Just' x '==' 'stripSuffix' s a
+-- @
+-- @
+-- 'stripCommonSuffix' a b '&' \\(_, x, s) -> 'Just' x '==' 'stripSuffix' s b
+-- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
