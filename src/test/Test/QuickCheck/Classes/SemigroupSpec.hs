@@ -26,12 +26,12 @@ import Numeric.Natural
     ( Natural )
 import Test.Hspec
     ( Spec )
+import Test.Hspec.Laws
+    ( testLawsMany )
 import Test.QuickCheck
     ( Confidence, Property )
 import Test.QuickCheck.Classes
     ( Laws (..) )
-import Test.QuickCheck.Classes.Hspec
-    ( testLawsMany )
 import Test.QuickCheck.Classes.Monoid.GCD
     ( cancellativeGCDMonoidLaws
     , gcdMonoidLaws

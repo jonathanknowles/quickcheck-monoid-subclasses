@@ -24,12 +24,12 @@ import Data.Monoid.Null
     ( MonoidNull (..), PositiveMonoid )
 import Data.Proxy
     ( Proxy (..) )
+import Internal
+    ( makeLaw1, makeLaw2, makeProperty, report )
 import Test.QuickCheck
     ( Arbitrary (..), Property )
 import Test.QuickCheck.Classes
     ( Laws (..) )
-import Test.QuickCheck.Classes.Semigroup.Internal
-    ( makeLaw1, makeLaw2, makeProperty, report )
 
 --------------------------------------------------------------------------------
 -- MonoidNull
