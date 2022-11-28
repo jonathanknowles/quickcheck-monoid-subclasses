@@ -31,12 +31,12 @@ import Data.Proxy
     ( Proxy (..) )
 import Data.Semigroup.Cancellative
     ( Cancellative, LeftReductive (..), Reductive (..), RightReductive (..) )
+import Internal
+    ( makeLaw2, makeLaw3, makeProperty, report )
 import Test.QuickCheck
     ( Arbitrary (..), Property, cover )
 import Test.QuickCheck.Classes
     ( Laws (..) )
-import Test.QuickCheck.Classes.Semigroup.Internal
-    ( makeLaw2, makeLaw3, makeProperty, report )
 
 --------------------------------------------------------------------------------
 -- CancellativeGCDMonoid

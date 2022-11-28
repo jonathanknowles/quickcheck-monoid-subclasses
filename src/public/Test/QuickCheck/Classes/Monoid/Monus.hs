@@ -23,12 +23,12 @@ import Data.Monoid.Monus
     ( Monus (..) )
 import Data.Proxy
     ( Proxy (..) )
+import Internal
+    ( makeLaw1, makeLaw2, makeLaw3, makeProperty, report )
 import Test.QuickCheck
     ( Arbitrary (..), Property )
 import Test.QuickCheck.Classes
     ( Laws (..) )
-import Test.QuickCheck.Classes.Semigroup.Internal
-    ( makeLaw1, makeLaw2, makeLaw3, makeProperty, report )
 
 --------------------------------------------------------------------------------
 -- Monus

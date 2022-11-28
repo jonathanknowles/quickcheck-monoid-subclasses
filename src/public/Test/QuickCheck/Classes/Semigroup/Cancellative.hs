@@ -38,12 +38,12 @@ import Data.Semigroup.Cancellative
     , RightCancellative
     , RightReductive (..)
     )
+import Internal
+    ( makeLaw2, makeProperty, report )
 import Test.QuickCheck
     ( Arbitrary (..), Property, cover )
 import Test.QuickCheck.Classes
     ( Laws (..) )
-import Test.QuickCheck.Classes.Semigroup.Internal
-    ( makeLaw2, makeProperty, report )
 
 --------------------------------------------------------------------------------
 -- Cancellative
