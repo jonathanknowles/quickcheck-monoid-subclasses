@@ -398,7 +398,7 @@ rightCancellativeLaw_cancellation a b =
 -- Tests the following properties:
 --
 -- @
--- b `'isSuffixOf'` (a '<>' b)
+-- b '`isSuffixOf`' (a '<>' b)
 -- @
 -- @
 -- 'isSuffixOf' a b '==' 'isJust' ('stripSuffix' a b)
