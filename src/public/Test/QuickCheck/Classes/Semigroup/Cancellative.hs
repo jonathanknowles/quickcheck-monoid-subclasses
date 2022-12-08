@@ -191,7 +191,7 @@ leftCancellativeLaw_cancellation a b =
 -- Tests the following properties:
 --
 -- @
--- a `'isPrefixOf'` (a '<>' b)
+-- a '`isPrefixOf`' (a '<>' b)
 -- @
 -- @
 -- 'isPrefixOf' a b '==' 'isJust' ('stripPrefix' a b)
