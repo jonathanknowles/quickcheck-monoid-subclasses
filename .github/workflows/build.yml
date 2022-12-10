@@ -58,13 +58,16 @@ jobs:
           --builddir=${{ env.cabal-build-dir }}
 
       - name: Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
+        env:
+          hash: ${{ hashFiles('cabal.project.freeze') }}
         with:
-          path: ${{ steps.setup-haskell-cabal.outputs.cabal-store }}
-          key: |
-            ${{ runner.os }}-\
-            ${{ matrix.ghc }}-\
-            ${{ hashFiles('cabal.project.freeze') }}
+          key: ${{ matrix.os }}-ghc-${{ matrix.ghc }}-${{ env.hash }}
+          restore-keys: |
+            ${{ matrix.os }}-ghc-${{ matrix.ghc }}
+          path: |
+            ${{ steps.setup-haskell-cabal.outputs.cabal-store }}
+            ${{ env.cabal-build-dir }}
 
       - name: Dependencies
         run: >
