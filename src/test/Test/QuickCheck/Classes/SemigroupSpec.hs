@@ -231,6 +231,18 @@ spec = do
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
+    testLawsMany @(Maybe ()) $ fmap disableCoverageCheck <$>
+        [ commutativeLaws
+        , leftGCDMonoidLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , monusLaws
+        , overlappingGCDMonoidLaws
+        , positiveMonoidLaws
+        , reductiveLaws
+        , rightGCDMonoidLaws
+        , rightReductiveLaws
+        ]
     testLawsMany @(Vector Int)
         [ leftCancellativeLaws
         , leftGCDMonoidLaws
