@@ -14,6 +14,16 @@ import Data.Map.Strict
     ( Map )
 import Data.Monoid
     ( Product (..), Sum (..) )
+import Data.Semigroup.Cancellative
+    ( Cancellative
+    , Commutative
+    , LeftCancellative
+    , LeftReductive
+    , Reductive
+    , RightCancellative
+    , RightReductive
+    , SumCancellative
+    )
 import Data.Sequence
     ( Seq )
 import Data.Set
@@ -24,12 +34,20 @@ import Data.Vector
     ( Vector )
 import Numeric.Natural
     ( Natural )
+import Numeric.Product.Commutative
+    ( CommutativeProduct )
 import Test.Hspec
     ( Spec )
 import Test.Hspec.Laws
     ( testLawsMany )
 import Test.QuickCheck
-    ( Confidence, Property )
+    ( Arbitrary (..)
+    , Confidence
+    , Property
+    , arbitrarySizedIntegral
+    , scale
+    , shrinkMap
+    )
 import Test.QuickCheck.Classes
     ( Laws (..) )
 import Test.QuickCheck.Classes.Monoid.GCD
@@ -318,6 +336,38 @@ spec = do
         , rightReductiveLaws
         ]
 -}
+
+--------------------------------------------------------------------------------
+-- Utility types
+--------------------------------------------------------------------------------
+
+type SmallInt = Small Int
+
+newtype Small a = Small {getSmall :: a}
+    deriving newtype
+        ( Cancellative
+        , Commutative
+        , CommutativeProduct
+        , Enum
+        , Eq
+        , Integral
+        , LeftCancellative
+        , LeftReductive
+        , Monoid
+        , Num
+        , Ord
+        , Real
+        , Reductive
+        , RightCancellative
+        , RightReductive
+        , Semigroup
+        , Show
+        , SumCancellative
+        )
+
+instance Arbitrary a => Arbitrary (Small a) where
+    arbitrary = Small <$> scale (`div` 2) arbitrary
+    shrink = shrinkMap Small getSmall
 
 --------------------------------------------------------------------------------
 -- Coverage checks
