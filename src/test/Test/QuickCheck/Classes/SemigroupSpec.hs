@@ -231,6 +231,58 @@ spec = do
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
+    testLawsMany @(Maybe ()) $ fmap disableCoverageCheck <$>
+        [ commutativeLaws
+        , leftGCDMonoidLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , monusLaws
+        , overlappingGCDMonoidLaws
+        , positiveMonoidLaws
+        , reductiveLaws
+        , rightGCDMonoidLaws
+        , rightReductiveLaws
+        ]
+    testLawsMany @(Maybe (Product Int))
+        [ commutativeLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , positiveMonoidLaws
+        , reductiveLaws
+        , rightReductiveLaws
+        ]
+    testLawsMany @(Maybe (Product Natural))
+        [ commutativeLaws
+        , leftGCDMonoidLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , monusLaws
+        , overlappingGCDMonoidLaws
+        , positiveMonoidLaws
+        , reductiveLaws
+        , rightGCDMonoidLaws
+        , rightReductiveLaws
+        ]
+    testLawsMany @(Maybe (Sum Int))
+        [ commutativeLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , positiveMonoidLaws
+        , reductiveLaws
+        , rightReductiveLaws
+        ]
+    testLawsMany @(Maybe (Sum Natural))
+        [ commutativeLaws
+        , leftGCDMonoidLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , monusLaws
+        , overlappingGCDMonoidLaws
+        , positiveMonoidLaws
+        , reductiveLaws
+        , rightGCDMonoidLaws
+        , rightReductiveLaws
+        ]
     testLawsMany @(Vector Int)
         [ leftCancellativeLaws
         , leftGCDMonoidLaws
@@ -242,6 +294,30 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
+
+--------------------------------------------------------------------------------
+-- Notes
+--------------------------------------------------------------------------------
+
+{- All laws tested in this module:
+
+        [ cancellativeGCDMonoidLaws
+        , cancellativeLaws
+        , commutativeLaws
+        , gcdMonoidLaws
+        , leftCancellativeLaws
+        , leftGCDMonoidLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , monusLaws
+        , overlappingGCDMonoidLaws
+        , positiveMonoidLaws
+        , reductiveLaws
+        , rightCancellativeLaws
+        , rightGCDMonoidLaws
+        , rightReductiveLaws
+        ]
+-}
 
 --------------------------------------------------------------------------------
 -- Coverage checks
