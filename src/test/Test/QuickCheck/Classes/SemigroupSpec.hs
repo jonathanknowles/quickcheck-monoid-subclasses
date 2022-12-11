@@ -244,6 +244,30 @@ spec = do
         ]
 
 --------------------------------------------------------------------------------
+-- Notes
+--------------------------------------------------------------------------------
+
+{- All laws tested in this module:
+
+        [ cancellativeGCDMonoidLaws
+        , cancellativeLaws
+        , commutativeLaws
+        , gcdMonoidLaws
+        , leftCancellativeLaws
+        , leftGCDMonoidLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , monusLaws
+        , overlappingGCDMonoidLaws
+        , positiveMonoidLaws
+        , reductiveLaws
+        , rightCancellativeLaws
+        , rightGCDMonoidLaws
+        , rightReductiveLaws
+        ]
+-}
+
+--------------------------------------------------------------------------------
 -- Coverage checks
 --------------------------------------------------------------------------------
 
