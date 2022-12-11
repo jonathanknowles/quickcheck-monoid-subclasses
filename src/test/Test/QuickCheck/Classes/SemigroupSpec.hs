@@ -243,6 +243,18 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
+    testLawsMany @(Maybe (Sum Natural))
+        [ commutativeLaws
+        , leftGCDMonoidLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , monusLaws
+        , overlappingGCDMonoidLaws
+        , positiveMonoidLaws
+        , reductiveLaws
+        , rightGCDMonoidLaws
+        , rightReductiveLaws
+        ]
     testLawsMany @(Vector Int)
         [ leftCancellativeLaws
         , leftGCDMonoidLaws
