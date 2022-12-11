@@ -122,7 +122,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @[Int]
+    testLawsMany @[SmallInt]
         [ leftCancellativeLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
@@ -133,7 +133,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Seq Int)
+    testLawsMany @(Seq SmallInt)
         [ leftCancellativeLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
@@ -144,7 +144,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Set Int)
+    testLawsMany @(Set SmallInt)
         [ commutativeLaws
         , gcdMonoidLaws
         , leftGCDMonoidLaws
@@ -170,7 +170,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Product Int)
+    testLawsMany @(Product SmallInt)
         [ commutativeLaws
         , leftReductiveLaws
         , monoidNullLaws
@@ -190,7 +190,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Sum Int)
+    testLawsMany @(Sum SmallInt)
         [ cancellativeLaws
         , commutativeLaws
         , leftCancellativeLaws
@@ -217,7 +217,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(IntMap Int)
+    testLawsMany @(IntMap SmallInt)
         [ leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
@@ -233,7 +233,7 @@ spec = do
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Map Int Int)
+    testLawsMany @(Map Int SmallInt)
         [ leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
@@ -261,7 +261,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Maybe (Product Int))
+    testLawsMany @(Maybe (Product SmallInt))
         [ commutativeLaws
         , leftReductiveLaws
         , monoidNullLaws
@@ -281,7 +281,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Maybe (Sum Int))
+    testLawsMany @(Maybe (Sum SmallInt))
         [ commutativeLaws
         , leftReductiveLaws
         , monoidNullLaws
@@ -301,7 +301,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Vector Int)
+    testLawsMany @(Vector SmallInt)
         [ leftCancellativeLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
