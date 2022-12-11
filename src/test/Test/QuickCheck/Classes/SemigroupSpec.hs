@@ -263,6 +263,14 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
+    testLawsMany @(Maybe (Sum Int))
+        [ commutativeLaws
+        , leftReductiveLaws
+        , monoidNullLaws
+        , positiveMonoidLaws
+        , reductiveLaws
+        , rightReductiveLaws
+        ]
     testLawsMany @(Maybe (Sum Natural))
         [ commutativeLaws
         , leftGCDMonoidLaws
