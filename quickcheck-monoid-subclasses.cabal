@@ -94,14 +94,18 @@ library prelude
 test-suite test
     import:
         common-extensions
+    ghc-options:
+        -threaded -with-rtsopts=-N
     main-is:
         Spec.hs
     hs-source-dirs:
         src/test
     other-modules:
+        SpecHook
         Test.Hspec.Laws
         Test.QuickCheck.Classes.SemigroupSpec
-    type: exitcode-stdio-1.0
+    type:
+        exitcode-stdio-1.0
     default-language:
         Haskell2010
     build-tool-depends:
