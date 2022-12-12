@@ -8,15 +8,135 @@ author:         Jonathan Knowles
 maintainer:     mail@jonathanknowles.net
 copyright:      2022 Jonathan Knowles
 category:       Testing
-synopsis:       QuickCheck support for testing instances of classes defined in
-                the monoid-subclasses library.
+synopsis:       Testing monoid subclass instances with QuickCheck
 description:
 
-    This library provides:
+  = Overview
 
-    * QuickCheck support for testing instances of classes defined in the
-      'monoid-subclasses' library.
-    * Reusable properties in the form of 'Laws' definitions.
+  This library provides:
+
+  * [QuickCheck](https://hackage.haskell.org/package/QuickCheck) support for
+    testing instances of type classes defined in the
+    [monoid-subclasses](https://hackage.haskell.org/package/monoid-subclasses)
+    library.
+
+  * Compatibility with the
+    [quickcheck-classes](https://hackage.haskell.org/package/quickcheck-classes)
+    library.
+
+  * Reusable properties for type class laws, in the form of
+    [Laws](https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:Laws)
+    definitions.
+
+  = Usage
+
+  In general, usage is identical to that of the
+  [quickcheck-classes](https://hackage.haskell.org/package/quickcheck-classes)
+  library.
+
+  To test that the laws of a particular class hold for a particular type,
+  use the [lawsCheck](https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:lawsCheck)
+  function.
+
+  For example, to test that the
+  [Monus](https://hackage.haskell.org/package/monoid-subclasses/docs/Data-Monoid-Monus.html#t:Monus)
+  laws hold for the
+  [Sum](https://hackage.haskell.org/package/base/docs/Data-Monoid.html#t:Sum)
+  [Natural](https://hackage.haskell.org/package/base/docs/Numeric-Natural.html#t:Natural)
+  type:
+
+  @
+  import Data.Monoid (Sum)
+  import Data.Proxy (Proxy (Proxy))
+  import Numeric.Natural (Natural)
+  import Test.QuickCheck.Classes (lawsCheck)
+  import Test.QuickCheck.Classes.Monoid.Monus (monusLaws)
+  @
+
+  @
+  lawsCheck (monusLaws (Proxy :: Proxy (Sum Natural)))
+  @
+
+  If all tests pass, this will produce output similar to:
+
+  @
+  Monus: axiom1 +++ OK, passed 100 tests.
+  Monus: axiom2 +++ OK, passed 100 tests.
+  Monus: axiom3 +++ OK, passed 100 tests.
+  Monus: axiom4 +++ OK, passed 100 tests.
+  Monus: stripPrefixOverlap +++ OK, passed 100 tests.
+  Monus: stripSuffixOverlap +++ OK, passed 100 tests.
+  @
+
+  = Coverage
+
+  This library includes __coverage checks__ to ensure that important cases are
+  covered, and to reduce the probability that a test suite passes but fails to
+  discover obvious defects. These coverage checks are performed automatically.
+
+  In order to increase coverage of interesting and important cases, this
+  library also tests that laws hold for __combinations__ of generated arbitrary
+  values.
+
+  For example, suppose we are testing the following law:
+
+  @
+  isPrefixOf a b == isJust (stripPrefix a b)
+  @
+
+  This library will also test that the following __derived__ laws hold:
+
+  @
+  isPrefixOf a (a <> a) == isJust (stripPrefix a (a <> a))
+  isPrefixOf a (a <> b) == isJust (stripPrefix a (a <> b))
+  isPrefixOf a (b <> a) == isJust (stripPrefix a (b <> a))
+  @
+
+  = Superclasses
+
+  Note that in general, laws for superclasses are __not__ included
+  automatically.  Therefore, you'll need to __explicitly__ test the laws of
+  every class that you wish to cover.
+
+  For example, to test that the
+  [Sum](https://hackage.haskell.org/package/base/docs/Data-Monoid.html#t:Sum)
+  [Natural](https://hackage.haskell.org/package/base/docs/Numeric-Natural.html#t:Natural)
+  type satisfies the laws of
+  [Semigroup](https://hackage.haskell.org/package/base/docs/Data-Semigroup.html#t:Semigroup)
+  and its subclasses:
+
+  @
+  import Data.Monoid (Sum)
+  import Data.Proxy (Proxy (Proxy))
+  import Numeric.Natural (Natural)
+  import Test.QuickCheck.Classes
+  import Test.QuickCheck.Classes.Monoid.GCD
+  import Test.QuickCheck.Classes.Monoid.Monus
+  import Test.QuickCheck.Classes.Monoid.Null
+  import Test.QuickCheck.Classes.Semigroup.Cancellative
+  @
+
+  @
+  lawsCheckOne (Proxy :: Proxy (Sum Natural))
+      [ cancellativeGCDMonoidLaws
+      , cancellativeLaws
+      , commutativeLaws
+      , gcdMonoidLaws
+      , leftCancellativeLaws
+      , leftGCDMonoidLaws
+      , leftReductiveLaws
+      , monoidLaws
+      , monoidNullLaws
+      , monusLaws
+      , overlappingGCDMonoidLaws
+      , positiveMonoidLaws
+      , reductiveLaws
+      , rightCancellativeLaws
+      , rightGCDMonoidLaws
+      , rightReductiveLaws
+      , semigroupLaws
+      ]
+  @
 
 extra-source-files:
     README.md
