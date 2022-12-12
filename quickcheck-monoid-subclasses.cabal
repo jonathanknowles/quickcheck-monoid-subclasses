@@ -105,6 +105,7 @@ library prelude
       , dependency-containers
       , dependency-monoid-subclasses
       , dependency-QuickCheck
+      , dependency-quickcheck-classes
       , dependency-quickcheck-instances
       , extensions
     build-depends:
