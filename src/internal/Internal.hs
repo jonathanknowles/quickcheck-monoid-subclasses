@@ -134,4 +134,4 @@ makeProperty3 p (evalTuple3 -> (a, b, c))
 
 report :: (Show a, Testable prop) => String -> a -> prop -> Property
 report name a = counterexample $
-    name <> "\n==\n" <> show a <> "\n"
+    name <> ":\n" <> show a <> "\n"
