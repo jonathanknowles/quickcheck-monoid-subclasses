@@ -19,7 +19,7 @@ import Data.Function
 import Data.Proxy
     ( Proxy (..) )
 import Internal.Semigroup.Eq
-    ( allUnique, canVerifyAllNonNull )
+    ( allNonNull, allUnique )
 import Internal.Semigroup.Tuple
     ( Tuple1, Tuple2, Tuple3, evalTuple1, evalTuple2, evalTuple3 )
 import Test.QuickCheck
@@ -106,11 +106,11 @@ makeProperty2 p (evalTuple2 -> (a, b))
         "allUnique [a, b]"
         (allUnique [a, b])
     $ cover
-        "canVerifyAllNonNull [a, b]"
-        (canVerifyAllNonNull [a, b])
+        "allNonNull [a, b]"
+        (allNonNull [a, b])
     $ cover
-        "allUnique [a, b] && canVerifyAllNonNull [a, b]"
-        (allUnique [a, b] && canVerifyAllNonNull [a, b])
+        "allUnique [a, b] && allNonNull [a, b]"
+        (allUnique [a, b] && allNonNull [a, b])
     $ property $ p a b
 
 makeProperty3
@@ -122,11 +122,11 @@ makeProperty3 p (evalTuple3 -> (a, b, c))
         "allUnique [a, b, c]"
         (allUnique [a, b, c])
     $ cover
-        "canVerifyAllNonNull [a, b, c]"
-        (canVerifyAllNonNull [a, b, c])
+        "allNonNull [a, b, c]"
+        (allNonNull [a, b, c])
     $ cover
-        "allUnique [a, b, c] && canVerifyAllNonNull [a, b, c]"
-        (allUnique [a, b, c] && canVerifyAllNonNull [a, b, c])
+        "allUnique [a, b, c] && allNonNull [a, b, c]"
+        (allUnique [a, b, c] && allNonNull [a, b, c])
     $ property $ p a b c
 
 report :: (Show a, Testable prop) => String -> a -> prop -> Property

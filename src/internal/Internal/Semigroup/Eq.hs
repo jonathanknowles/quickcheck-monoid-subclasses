@@ -7,7 +7,7 @@
 --
 module Internal.Semigroup.Eq
     ( allUnique
-    , canVerifyAllNonNull
+    , allNonNull
     )
     where
 
@@ -32,8 +32,8 @@ a `canModifyL` b = b /= a <> b
 canModifyR :: (Eq a, Semigroup a) => a -> a -> Bool
 a `canModifyR` b = b /= b <> a
 
-canVerifyAllNonNull :: (Eq a, Semigroup a, Foldable f) => f a -> Bool
-canVerifyAllNonNull as = F.all (as `canVerifyNonNull`) as
+allNonNull :: (Eq a, Semigroup a, Foldable f) => f a -> Bool
+allNonNull as = F.all (as `canVerifyNonNull`) as
 
 canVerifyNonNull :: (Eq a, Semigroup a, Foldable f) => f a -> a -> Bool
 canVerifyNonNull as a = F.any (a `canModify`) as
