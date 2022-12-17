@@ -10,6 +10,7 @@ module Internal
     , makeLaw3
     , makeProperty
     , report
+    , (==>)
     )
     where
 
@@ -31,6 +32,10 @@ import Test.QuickCheck
     )
 
 import qualified Test.QuickCheck as QC
+
+infixr 0 ==>
+(==>) :: Bool -> Bool -> Bool
+a ==> b = not a || b
 
 cover :: Testable t => String -> Bool -> t -> Property
 cover = flip (QC.cover 1)
