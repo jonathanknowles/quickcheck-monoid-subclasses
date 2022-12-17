@@ -11,15 +11,15 @@ module Test.QuickCheck.Classes.Semigroup.Cancellative
     -- * Commutative
       commutativeLaws
 
-    -- * Cancellative
-    , cancellativeLaws
-    , leftCancellativeLaws
-    , rightCancellativeLaws
-
     -- * Reductive
     , reductiveLaws
     , leftReductiveLaws
     , rightReductiveLaws
+
+    -- * Cancellative
+    , cancellativeLaws
+    , leftCancellativeLaws
+    , rightCancellativeLaws
     )
     where
 
