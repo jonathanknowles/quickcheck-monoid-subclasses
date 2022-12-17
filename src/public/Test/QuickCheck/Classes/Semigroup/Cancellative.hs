@@ -39,7 +39,7 @@ import Data.Semigroup.Cancellative
     , RightReductive (..)
     )
 import Internal
-    ( cover, makeLaw2, makeProperty, report )
+    ( cover, makeLaw1, makeLaw2, makeProperty, report )
 import Test.QuickCheck
     ( Arbitrary (..), Property )
 import Test.QuickCheck.Classes
@@ -191,11 +191,17 @@ leftCancellativeLaw_cancellation a b =
 -- Tests the following properties:
 --
 -- @
+-- a '`isPrefixOf`' a
+-- @
+--
+-- @
 -- a '`isPrefixOf`' (a '<>' b)
 -- @
+--
 -- @
 -- 'isPrefixOf' a b '==' 'isJust' ('stripPrefix' a b)
 -- @
+--
 -- @
 -- 'maybe' b (a '<>') ('stripPrefix' a b) '==' b
 -- @
@@ -205,7 +211,10 @@ leftReductiveLaws
     => Proxy a
     -> Laws
 leftReductiveLaws _ = Laws "LeftReductive"
-    [ makeLaw2 @a
+    [ makeLaw1 @a
+        "leftReductiveLaw_isPrefixOf_reflexivity"
+        (leftReductiveLaw_isPrefixOf_reflexivity)
+    , makeLaw2 @a
         "leftReductiveLaw_isPrefixOf_mappend"
         (leftReductiveLaw_isPrefixOf_mappend)
     , makeLaw2 @a
@@ -215,6 +224,13 @@ leftReductiveLaws _ = Laws "LeftReductive"
         "leftReductiveLaw_stripPrefix"
         (leftReductiveLaw_stripPrefix)
     ]
+
+leftReductiveLaw_isPrefixOf_reflexivity
+    :: (Eq a, Show a, LeftReductive a) => a -> Property
+leftReductiveLaw_isPrefixOf_reflexivity a =
+    makeProperty
+        "a `isPrefixOf` a)"
+        (a `isPrefixOf` a)
 
 leftReductiveLaw_isPrefixOf_mappend
     :: (Eq a, Show a, LeftReductive a) => a -> a -> Property
