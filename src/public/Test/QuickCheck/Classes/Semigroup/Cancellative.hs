@@ -206,19 +206,19 @@ leftReductiveLaws
     -> Laws
 leftReductiveLaws _ = Laws "LeftReductive"
     [ makeLaw2 @a
-        "leftReductiveLaw_isPrefix_mappend"
-        (leftReductiveLaw_isPrefix_mappend)
+        "leftReductiveLaw_isPrefixOf_mappend"
+        (leftReductiveLaw_isPrefixOf_mappend)
     , makeLaw2 @a
-        "leftReductiveLaw_isPrefix_stripPrefix"
-        (leftReductiveLaw_isPrefix_stripPrefix)
+        "leftReductiveLaw_isPrefixOf_stripPrefix"
+        (leftReductiveLaw_isPrefixOf_stripPrefix)
     , makeLaw2 @a
         "leftReductiveLaw_stripPrefix"
         (leftReductiveLaw_stripPrefix)
     ]
 
-leftReductiveLaw_isPrefix_mappend
+leftReductiveLaw_isPrefixOf_mappend
     :: (Eq a, Show a, LeftReductive a) => a -> a -> Property
-leftReductiveLaw_isPrefix_mappend a b =
+leftReductiveLaw_isPrefixOf_mappend a b =
     makeProperty
         "a `isPrefixOf` (a <> b)"
         (a `isPrefixOf` (a <> b))
@@ -226,9 +226,9 @@ leftReductiveLaw_isPrefix_mappend a b =
         "a <> b"
         (a <> b)
 
-leftReductiveLaw_isPrefix_stripPrefix
+leftReductiveLaw_isPrefixOf_stripPrefix
     :: (Eq a, Show a, LeftReductive a) => a -> a -> Property
-leftReductiveLaw_isPrefix_stripPrefix a b =
+leftReductiveLaw_isPrefixOf_stripPrefix a b =
     makeProperty
         "isPrefixOf a b == isJust (stripPrefix a b)"
         (isPrefixOf a b == isJust (stripPrefix a b))
