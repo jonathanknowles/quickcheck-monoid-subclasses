@@ -39,7 +39,7 @@ import Data.Semigroup.Cancellative
     , RightReductive (..)
     )
 import Internal
-    ( cover, makeLaw1, makeLaw2, makeProperty, report )
+    ( cover, makeLaw1, makeLaw2, makeLaw3, makeProperty, report, (==>) )
 import Test.QuickCheck
     ( Arbitrary (..), Property )
 import Test.QuickCheck.Classes
@@ -214,6 +214,9 @@ leftReductiveLaws _ = Laws "LeftReductive"
     [ makeLaw1 @a
         "leftReductiveLaw_isPrefixOf_reflexivity"
         (leftReductiveLaw_isPrefixOf_reflexivity)
+    , makeLaw3 @a
+        "leftReductiveLaw_isPrefixOf_transitivity"
+        (leftReductiveLaw_isPrefixOf_transitivity)
     , makeLaw2 @a
         "leftReductiveLaw_isPrefixOf_mappend"
         (leftReductiveLaw_isPrefixOf_mappend)
@@ -231,6 +234,31 @@ leftReductiveLaw_isPrefixOf_reflexivity a =
     makeProperty
         "a `isPrefixOf` a)"
         (a `isPrefixOf` a)
+
+leftReductiveLaw_isPrefixOf_transitivity
+    :: (Eq a, Show a, LeftReductive a) => a -> a -> a -> Property
+leftReductiveLaw_isPrefixOf_transitivity x y z =
+    makeProperty
+        "(a `isPrefixOf` b) && (b `isPrefixOf` c) ==> (a `isPrefixOf` c)"
+        ((a `isPrefixOf` b) && (b `isPrefixOf` c) ==> (a `isPrefixOf` c))
+    & report
+        "a `isPrefixOf` b"
+        (a `isPrefixOf` b)
+    & report
+        "b `isPrefixOf` c"
+        (b `isPrefixOf` c)
+    & report
+        "a `isPrefixOf` c"
+        (a `isPrefixOf` c)
+  where
+    (a, b, c)
+        | x `isPrefixOf` y && y `isPrefixOf` z = (x, y, z)
+        | x `isPrefixOf` z && z `isPrefixOf` y = (x, z, y)
+        | y `isPrefixOf` x && x `isPrefixOf` z = (y, x, z)
+        | y `isPrefixOf` z && z `isPrefixOf` x = (y, z, x)
+        | z `isPrefixOf` x && x `isPrefixOf` y = (z, x, y)
+        | z `isPrefixOf` y && y `isPrefixOf` x = (z, y, x)
+        | otherwise = (x, y, z)
 
 leftReductiveLaw_isPrefixOf_mappend
     :: (Eq a, Show a, LeftReductive a) => a -> a -> Property
