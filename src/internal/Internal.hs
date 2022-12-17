@@ -44,8 +44,7 @@ makeLaw :: Testable t => String -> t -> (String, Property)
 makeLaw title t = (title, checkCoverage $ property t)
 
 makeLaw0
-    :: forall a. (Eq a, Monoid a)
-    => String
+    :: String
     -> (Proxy a -> Property)
     -> (String, Property)
 makeLaw0 s = makeLaw s . makeProperty0
