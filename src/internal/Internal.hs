@@ -3,7 +3,8 @@
 -- License: Apache-2.0
 --
 module Internal
-    ( makeLaw0
+    ( cover
+    , makeLaw0
     , makeLaw1
     , makeLaw2
     , makeLaw3
@@ -30,6 +31,9 @@ import Test.QuickCheck
     )
 
 import qualified Test.QuickCheck as QC
+
+cover :: Testable t => String -> Bool -> t -> Property
+cover = flip (QC.cover 1)
 
 makeLaw :: Testable t => String -> t -> (String, Property)
 makeLaw title t = (title, checkCoverage $ property t)
