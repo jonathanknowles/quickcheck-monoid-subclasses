@@ -10,6 +10,7 @@ module Internal
     , makeLaw3
     , makeProperty
     , report
+    , (==>)
     )
     where
 
@@ -32,6 +33,10 @@ import Test.QuickCheck
 
 import qualified Test.QuickCheck as QC
 
+infixr 0 ==>
+(==>) :: Bool -> Bool -> Bool
+a ==> b = not a || b
+
 cover :: Testable t => String -> Bool -> t -> Property
 cover = flip (QC.cover 1)
 
@@ -39,14 +44,13 @@ makeLaw :: Testable t => String -> t -> (String, Property)
 makeLaw title t = (title, checkCoverage $ property t)
 
 makeLaw0
-    :: forall a. (Eq a, Monoid a)
-    => String
+    :: String
     -> (Proxy a -> Property)
     -> (String, Property)
 makeLaw0 s = makeLaw s . makeProperty0
 
 makeLaw1
-    :: (Arbitrary a, Show a, Eq a, Monoid a, Testable t)
+    :: (Arbitrary a, Show a, Eq a, Semigroup a, Testable t)
     => String
     -> (a -> t)
     -> (String, Property)
@@ -87,13 +91,11 @@ makeProperty0
 makeProperty0 p = property $ p $ Proxy @a
 
 makeProperty1
-    :: (Eq a, Monoid a, Testable t)
+    :: (Eq a, Semigroup a, Testable t)
     => (a -> t)
     -> (Tuple1 a -> Property)
 makeProperty1 p (evalTuple1 -> a)
-    = cover "a == mempty" (a == mempty)
-    $ cover "a /= mempty" (a /= mempty)
-    $ property $ p a
+    = property $ p a
 
 makeProperty2
     :: (Eq a, Semigroup a, Testable t)
@@ -129,4 +131,4 @@ makeProperty3 p (evalTuple3 -> (a, b, c))
 
 report :: (Show a, Testable prop) => String -> a -> prop -> Property
 report name a = counterexample $
-    name <> "\n==\n" <> show a <> "\n"
+    name <> ":\n" <> show a <> "\n"

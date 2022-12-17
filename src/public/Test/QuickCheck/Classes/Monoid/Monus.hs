@@ -24,7 +24,7 @@ import Data.Monoid.Monus
 import Data.Proxy
     ( Proxy (..) )
 import Internal
-    ( makeLaw1, makeLaw2, makeLaw3, makeProperty, report )
+    ( cover, makeLaw1, makeLaw2, makeLaw3, makeProperty, report )
 import Test.QuickCheck
     ( Arbitrary (..), Property )
 import Test.QuickCheck.Classes
@@ -93,6 +93,12 @@ monusLaw_axiom_1 a =
     makeProperty
         "a <\\> a == mempty"
         (a <\\> a == mempty)
+    & cover
+        "a == mempty"
+        (a == mempty)
+    & cover
+        "a /= mempty"
+        (a /= mempty)
     & report
         "a <\\> a"
         (a <\\> a)
@@ -103,6 +109,12 @@ monusLaw_axiom_2 a =
     makeProperty
         "mempty <\\> a == mempty"
         (mempty <\\> a == mempty)
+    & cover
+        "a == mempty"
+        (a == mempty)
+    & cover
+        "a /= mempty"
+        (a /= mempty)
     & report
         "mempty <\\> a"
         (mempty <\\> a)

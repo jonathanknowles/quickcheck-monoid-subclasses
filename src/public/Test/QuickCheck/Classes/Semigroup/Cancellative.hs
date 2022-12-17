@@ -206,19 +206,19 @@ leftReductiveLaws
     -> Laws
 leftReductiveLaws _ = Laws "LeftReductive"
     [ makeLaw2 @a
-        "leftReductiveLaw_isPrefix_mappend"
-        (leftReductiveLaw_isPrefix_mappend)
+        "leftReductiveLaw_isPrefixOf_mappend"
+        (leftReductiveLaw_isPrefixOf_mappend)
     , makeLaw2 @a
-        "leftReductiveLaw_isPrefix_stripPrefix"
-        (leftReductiveLaw_isPrefix_stripPrefix)
+        "leftReductiveLaw_isPrefixOf_stripPrefix"
+        (leftReductiveLaw_isPrefixOf_stripPrefix)
     , makeLaw2 @a
         "leftReductiveLaw_stripPrefix"
         (leftReductiveLaw_stripPrefix)
     ]
 
-leftReductiveLaw_isPrefix_mappend
+leftReductiveLaw_isPrefixOf_mappend
     :: (Eq a, Show a, LeftReductive a) => a -> a -> Property
-leftReductiveLaw_isPrefix_mappend a b =
+leftReductiveLaw_isPrefixOf_mappend a b =
     makeProperty
         "a `isPrefixOf` (a <> b)"
         (a `isPrefixOf` (a <> b))
@@ -226,9 +226,9 @@ leftReductiveLaw_isPrefix_mappend a b =
         "a <> b"
         (a <> b)
 
-leftReductiveLaw_isPrefix_stripPrefix
+leftReductiveLaw_isPrefixOf_stripPrefix
     :: (Eq a, Show a, LeftReductive a) => a -> a -> Property
-leftReductiveLaw_isPrefix_stripPrefix a b =
+leftReductiveLaw_isPrefixOf_stripPrefix a b =
     makeProperty
         "isPrefixOf a b == isJust (stripPrefix a b)"
         (isPrefixOf a b == isJust (stripPrefix a b))
@@ -413,19 +413,19 @@ rightReductiveLaws
     -> Laws
 rightReductiveLaws _ = Laws "RightReductive"
     [ makeLaw2 @a
-        "rightReductiveLaw_isSuffix_mappend"
-        (rightReductiveLaw_isSuffix_mappend)
+        "rightReductiveLaw_isSuffixOf_mappend"
+        (rightReductiveLaw_isSuffixOf_mappend)
     , makeLaw2 @a
-        "rightReductiveLaw_isSuffix_stripSuffix"
-        (rightReductiveLaw_isSuffix_stripSuffix)
+        "rightReductiveLaw_isSuffixOf_stripSuffix"
+        (rightReductiveLaw_isSuffixOf_stripSuffix)
     , makeLaw2 @a
         "rightReductiveLaw_stripSuffix"
         (rightReductiveLaw_stripSuffix)
     ]
 
-rightReductiveLaw_isSuffix_mappend
+rightReductiveLaw_isSuffixOf_mappend
     :: (Eq a, Show a, RightReductive a) => a -> a -> Property
-rightReductiveLaw_isSuffix_mappend a b =
+rightReductiveLaw_isSuffixOf_mappend a b =
     makeProperty
         "b `isSuffixOf` (a <> b)"
         (b `isSuffixOf` (a <> b))
@@ -433,9 +433,9 @@ rightReductiveLaw_isSuffix_mappend a b =
         "a <> b"
         (a <> b)
 
-rightReductiveLaw_isSuffix_stripSuffix
+rightReductiveLaw_isSuffixOf_stripSuffix
     :: (Eq a, Show a, RightReductive a) => a -> a -> Property
-rightReductiveLaw_isSuffix_stripSuffix a b =
+rightReductiveLaw_isSuffixOf_stripSuffix a b =
     makeProperty
         "isSuffixOf a b == isJust (stripSuffix a b)"
         (isSuffixOf a b == isJust (stripSuffix a b))
