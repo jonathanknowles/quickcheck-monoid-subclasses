@@ -414,11 +414,17 @@ rightCancellativeLaw_cancellation a b =
 -- Tests the following properties:
 --
 -- @
+-- a '`isSuffixOf`' a
+-- @
+--
+-- @
 -- b '`isSuffixOf`' (a '<>' b)
 -- @
+--
 -- @
 -- 'isSuffixOf' a b '==' 'isJust' ('stripSuffix' a b)
 -- @
+--
 -- @
 -- 'maybe' b ('<>' a) ('stripSuffix' a b) '==' b
 -- @
@@ -428,7 +434,10 @@ rightReductiveLaws
     => Proxy a
     -> Laws
 rightReductiveLaws _ = Laws "RightReductive"
-    [ makeLaw2 @a
+    [ makeLaw1 @a
+        "rightReductiveLaw_isSuffixOf_reflexivity"
+        (rightReductiveLaw_isSuffixOf_reflexivity)
+    , makeLaw2 @a
         "rightReductiveLaw_isSuffixOf_mappend"
         (rightReductiveLaw_isSuffixOf_mappend)
     , makeLaw2 @a
@@ -438,6 +447,13 @@ rightReductiveLaws _ = Laws "RightReductive"
         "rightReductiveLaw_stripSuffix"
         (rightReductiveLaw_stripSuffix)
     ]
+
+rightReductiveLaw_isSuffixOf_reflexivity
+    :: (Eq a, Show a, RightReductive a) => a -> Property
+rightReductiveLaw_isSuffixOf_reflexivity a =
+    makeProperty
+        "a `isSuffixOf` a)"
+        (a `isSuffixOf` a)
 
 rightReductiveLaw_isSuffixOf_mappend
     :: (Eq a, Show a, RightReductive a) => a -> a -> Property
