@@ -51,7 +51,7 @@ makeLaw0
 makeLaw0 s = makeLaw s . makeProperty0
 
 makeLaw1
-    :: (Arbitrary a, Show a, Eq a, Monoid a, Testable t)
+    :: (Arbitrary a, Show a, Eq a, Semigroup a, Testable t)
     => String
     -> (a -> t)
     -> (String, Property)
