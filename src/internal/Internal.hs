@@ -92,7 +92,7 @@ makeProperty0
 makeProperty0 p = property $ p $ Proxy @a
 
 makeProperty1
-    :: (Eq a, Monoid a, Testable t)
+    :: (Eq a, Semigroup a, Testable t)
     => (a -> t)
     -> (Tuple1 a -> Property)
 makeProperty1 p (evalTuple1 -> a)
