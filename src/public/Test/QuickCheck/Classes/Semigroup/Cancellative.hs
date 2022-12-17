@@ -39,9 +39,9 @@ import Data.Semigroup.Cancellative
     , RightReductive (..)
     )
 import Internal
-    ( makeLaw2, makeProperty, report )
+    ( cover, makeLaw2, makeProperty, report )
 import Test.QuickCheck
-    ( Arbitrary (..), Property, cover )
+    ( Arbitrary (..), Property )
 import Test.QuickCheck.Classes
     ( Laws (..) )
 
@@ -139,9 +139,9 @@ commutativeLaw_basic a b =
     & report
         "b <> a"
         (b <> a)
-    & cover 1
-        ((a /= b) && (a <> b /= a) && (b <> a /= b))
+    & cover
         "(a /= b) && (a <> b /= a) && (b <> a /= b)"
+        ((a /= b) && (a <> b /= a) && (b <> a /= b))
 
 --------------------------------------------------------------------------------
 -- LeftCancellative
