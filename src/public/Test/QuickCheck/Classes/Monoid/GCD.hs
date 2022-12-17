@@ -32,9 +32,9 @@ import Data.Proxy
 import Data.Semigroup.Cancellative
     ( Cancellative, LeftReductive (..), Reductive (..), RightReductive (..) )
 import Internal
-    ( makeLaw2, makeLaw3, makeProperty, report )
+    ( cover, makeLaw2, makeLaw3, makeProperty, report )
 import Test.QuickCheck
-    ( Arbitrary (..), Property, cover )
+    ( Arbitrary (..), Property )
 import Test.QuickCheck.Classes
     ( Laws (..) )
 
@@ -92,9 +92,9 @@ cancellativeGCDMonoidLaw_prefix a b c =
     & report
         "a <> gcd b c"
         (a <> gcd b c)
-    & cover 1
-        (a /= mempty && gcd b c /= mempty && a /= gcd b c)
+    & cover
         "a /= mempty && gcd b c /= mempty && a /= gcd b c"
+        (a /= mempty && gcd b c /= mempty && a /= gcd b c)
 
 cancellativeGCDMonoidLaw_suffix
     :: (Eq a, Show a, Cancellative a, GCDMonoid a) => a -> a -> a -> Property
@@ -117,9 +117,9 @@ cancellativeGCDMonoidLaw_suffix a b c =
     & report
         "gcd a b <> c"
         (gcd a b <> c)
-    & cover 1
-        (c /= mempty && gcd a b /= mempty && c /= gcd a b)
+    & cover
         "c /= mempty && gcd a b /= mempty && c /= gcd a b"
+        (c /= mempty && gcd a b /= mempty && c /= gcd a b)
 
 --------------------------------------------------------------------------------
 -- GCDMonoid
