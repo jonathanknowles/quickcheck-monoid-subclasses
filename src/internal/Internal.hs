@@ -19,7 +19,7 @@ import Data.Function
 import Data.Proxy
     ( Proxy (..) )
 import Internal.Semigroup.Eq
-    ( allNonNull, allUnique )
+    ( allNonNull, allUnique, allUniqueNonNull )
 import Internal.Semigroup.Tuple
     ( Tuple1, Tuple2, Tuple3, evalTuple1, evalTuple2, evalTuple3 )
 import Test.QuickCheck
@@ -109,8 +109,8 @@ makeProperty2 p (evalTuple2 -> (a, b))
         "allNonNull [a, b]"
         (allNonNull [a, b])
     $ cover
-        "allUnique [a, b] && allNonNull [a, b]"
-        (allUnique [a, b] && allNonNull [a, b])
+        "allUniqueNonNull [a, b]"
+        (allUniqueNonNull [a, b])
     $ property $ p a b
 
 makeProperty3
@@ -125,8 +125,8 @@ makeProperty3 p (evalTuple3 -> (a, b, c))
         "allNonNull [a, b, c]"
         (allNonNull [a, b, c])
     $ cover
-        "allUnique [a, b, c] && allNonNull [a, b, c]"
-        (allUnique [a, b, c] && allNonNull [a, b, c])
+        "allUniqueNonNull [a, b, c]"
+        (allUniqueNonNull [a, b, c])
     $ property $ p a b c
 
 report :: (Show a, Testable prop) => String -> a -> prop -> Property
