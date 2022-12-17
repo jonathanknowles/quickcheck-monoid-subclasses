@@ -91,8 +91,8 @@ makeProperty1
     => (a -> t)
     -> (Tuple1 a -> Property)
 makeProperty1 p (evalTuple1 -> a)
-    = QC.cover 1 (a == mempty) "a == mempty"
-    $ QC.cover 1 (a /= mempty) "a /= mempty"
+    = cover "a == mempty" (a == mempty)
+    $ cover "a /= mempty" (a /= mempty)
     $ property $ p a
 
 makeProperty2
@@ -100,15 +100,15 @@ makeProperty2
     => (a -> a -> t)
     -> (Tuple2 a -> Property)
 makeProperty2 p (evalTuple2 -> (a, b))
-    = QC.cover 1
-        (allUnique [a, b])
+    = cover
         "allUnique [a, b]"
-    $ QC.cover 1
-        (canVerifyAllNonNull [a, b])
+        (allUnique [a, b])
+    $ cover
         "canVerifyAllNonNull [a, b]"
-    $ QC.cover 1
-        (allUnique [a, b] && canVerifyAllNonNull [a, b])
+        (canVerifyAllNonNull [a, b])
+    $ cover
         "allUnique [a, b] && canVerifyAllNonNull [a, b]"
+        (allUnique [a, b] && canVerifyAllNonNull [a, b])
     $ property $ p a b
 
 makeProperty3
@@ -116,15 +116,15 @@ makeProperty3
     => (a -> a -> a -> t)
     -> (Tuple3 a -> Property)
 makeProperty3 p (evalTuple3 -> (a, b, c))
-    = QC.cover 1
-        (allUnique [a, b, c])
+    = cover
         "allUnique [a, b, c]"
-    $ QC.cover 1
-        (canVerifyAllNonNull [a, b, c])
+        (allUnique [a, b, c])
+    $ cover
         "canVerifyAllNonNull [a, b, c]"
-    $ QC.cover 1
-        (allUnique [a, b, c] && canVerifyAllNonNull [a, b, c])
+        (canVerifyAllNonNull [a, b, c])
+    $ cover
         "allUnique [a, b, c] && canVerifyAllNonNull [a, b, c]"
+        (allUnique [a, b, c] && canVerifyAllNonNull [a, b, c])
     $ property $ p a b c
 
 report :: (Show a, Testable prop) => String -> a -> prop -> Property
