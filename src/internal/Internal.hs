@@ -26,9 +26,10 @@ import Test.QuickCheck
     , Testable
     , checkCoverage
     , counterexample
-    , cover
     , property
     )
+
+import qualified Test.QuickCheck as QC
 
 makeLaw :: Testable t => String -> t -> (String, Property)
 makeLaw title t = (title, checkCoverage $ property t)
@@ -86,8 +87,8 @@ makeProperty1
     => (a -> t)
     -> (Tuple1 a -> Property)
 makeProperty1 p (evalTuple1 -> a)
-    = cover 1 (a == mempty) "a == mempty"
-    $ cover 1 (a /= mempty) "a /= mempty"
+    = QC.cover 1 (a == mempty) "a == mempty"
+    $ QC.cover 1 (a /= mempty) "a /= mempty"
     $ property $ p a
 
 makeProperty2
@@ -95,13 +96,13 @@ makeProperty2
     => (a -> a -> t)
     -> (Tuple2 a -> Property)
 makeProperty2 p (evalTuple2 -> (a, b))
-    = cover 1
+    = QC.cover 1
         (allUnique [a, b])
         "allUnique [a, b]"
-    $ cover 1
+    $ QC.cover 1
         (canVerifyAllNonNull [a, b])
         "canVerifyAllNonNull [a, b]"
-    $ cover 1
+    $ QC.cover 1
         (allUnique [a, b] && canVerifyAllNonNull [a, b])
         "allUnique [a, b] && canVerifyAllNonNull [a, b]"
     $ property $ p a b
@@ -111,13 +112,13 @@ makeProperty3
     => (a -> a -> a -> t)
     -> (Tuple3 a -> Property)
 makeProperty3 p (evalTuple3 -> (a, b, c))
-    = cover 1
+    = QC.cover 1
         (allUnique [a, b, c])
         "allUnique [a, b, c]"
-    $ cover 1
+    $ QC.cover 1
         (canVerifyAllNonNull [a, b, c])
         "canVerifyAllNonNull [a, b, c]"
-    $ cover 1
+    $ QC.cover 1
         (allUnique [a, b, c] && canVerifyAllNonNull [a, b, c])
         "allUnique [a, b, c] && canVerifyAllNonNull [a, b, c]"
     $ property $ p a b c
