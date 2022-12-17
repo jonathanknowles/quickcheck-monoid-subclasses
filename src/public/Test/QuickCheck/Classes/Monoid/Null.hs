@@ -25,7 +25,7 @@ import Data.Monoid.Null
 import Data.Proxy
     ( Proxy (..) )
 import Internal
-    ( makeLaw1, makeLaw2, makeProperty, report )
+    ( cover, makeLaw1, makeLaw2, makeProperty, report )
 import Test.QuickCheck
     ( Arbitrary (..), Property )
 import Test.QuickCheck.Classes
@@ -59,6 +59,12 @@ monoidNullLaw_basic a =
     makeProperty
         "null a == (a == mempty)"
         (null a == (a == mempty))
+    & cover
+        "a == mempty"
+        (a == mempty)
+    & cover
+        "a /= mempty"
+        (a /= mempty)
     & report
         "null a"
         (null a)

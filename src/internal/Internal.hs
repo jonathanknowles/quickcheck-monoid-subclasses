@@ -96,9 +96,7 @@ makeProperty1
     => (a -> t)
     -> (Tuple1 a -> Property)
 makeProperty1 p (evalTuple1 -> a)
-    = cover "a == mempty" (a == mempty)
-    $ cover "a /= mempty" (a /= mempty)
-    $ property $ p a
+    = property $ p a
 
 makeProperty2
     :: (Eq a, Semigroup a, Testable t)
