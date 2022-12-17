@@ -14,6 +14,12 @@ import Data.Map.Strict
     ( Map )
 import Data.Monoid
     ( Product (..), Sum (..) )
+import Data.Monoid.GCD
+    ( GCDMonoid, LeftGCDMonoid, OverlappingGCDMonoid, RightGCDMonoid )
+import Data.Monoid.Monus
+    ( Monus )
+import Data.Monoid.Null
+    ( MonoidNull, PositiveMonoid )
 import Data.Semigroup.Cancellative
     ( Cancellative
     , Commutative
@@ -350,15 +356,22 @@ newtype Small a = Small {getSmall :: a}
         , CommutativeProduct
         , Enum
         , Eq
+        , GCDMonoid
         , Integral
         , LeftCancellative
+        , LeftGCDMonoid
         , LeftReductive
         , Monoid
+        , MonoidNull
+        , Monus
         , Num
         , Ord
+        , OverlappingGCDMonoid
+        , PositiveMonoid
         , Real
         , Reductive
         , RightCancellative
+        , RightGCDMonoid
         , RightReductive
         , Semigroup
         , Show
