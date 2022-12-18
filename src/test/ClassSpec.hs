@@ -4,7 +4,7 @@
 -- Copyright: © 2022 Jonathan Knowles
 -- License: Apache-2.0
 --
-module Test.QuickCheck.Classes.SemigroupSpec where
+module ClassSpec where
 
 import Data.ByteString.Lazy
     ( ByteString )
