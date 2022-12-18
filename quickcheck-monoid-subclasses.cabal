@@ -34,11 +34,18 @@ description:
   [quickcheck-classes](https://hackage.haskell.org/package/quickcheck-classes)
   library.
 
-  To test that the laws of a particular class hold for a particular type,
-  use the [lawsCheck](https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:lawsCheck)
-  function.
+  == Testing laws for a single type class instance
 
-  For example, to test that the
+  To test that the laws of a particular class hold for a particular type, use
+  the
+  [lawsCheck](https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:lawsCheck)
+  function with the
+  [Laws](https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:Laws)
+  definition for the class you wish to test.
+
+  === Example
+
+  To test that the
   [Monus](https://hackage.haskell.org/package/monoid-subclasses/docs/Data-Monoid-Monus.html#t:Monus)
   laws hold for the
   [Sum](https://hackage.haskell.org/package/base/docs/Data-Monoid.html#t:Sum)
@@ -57,7 +64,7 @@ description:
   lawsCheck (monusLaws (Proxy :: Proxy (Sum Natural)))
   @
 
-  If all tests pass, this will produce output similar to:
+  If all tests pass, you should see output similar to:
 
   @
   Monus: axiom1 +++ OK, passed 100 tests.
@@ -68,37 +75,18 @@ description:
   Monus: stripSuffixOverlap +++ OK, passed 100 tests.
   @
 
-  = Coverage
+  == Testing laws for multiple type classes
 
-  This library includes __coverage checks__ to ensure that important cases are
-  covered, and to reduce the probability that a test suite passes but fails to
-  discover obvious defects. These coverage checks are performed automatically.
+  To test that the laws of __multiple__ classes hold for a particular type, use
+  the
+  [lawsCheckOne](https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:lawsCheckOne)
+  function with the
+  [Laws](https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:Laws)
+  definitions for the classes you wish to test.
 
-  In order to increase coverage of interesting and important cases, this
-  library also tests that laws hold for __combinations__ of generated arbitrary
-  values.
+  === Example
 
-  For example, suppose we are testing the following law:
-
-  @
-  isPrefixOf a b == isJust (stripPrefix a b)
-  @
-
-  This library will also test that the following __derived__ laws hold:
-
-  @
-  isPrefixOf a (a <> a) == isJust (stripPrefix a (a <> a))
-  isPrefixOf a (a <> b) == isJust (stripPrefix a (a <> b))
-  isPrefixOf a (b <> a) == isJust (stripPrefix a (b <> a))
-  @
-
-  = Superclasses
-
-  Note that in general, laws for superclasses are __not__ included
-  automatically.  Therefore, you'll need to __explicitly__ test the laws of
-  every class that you wish to cover.
-
-  For example, to test that the
+  To test that the
   [Sum](https://hackage.haskell.org/package/base/docs/Data-Monoid.html#t:Sum)
   [Natural](https://hackage.haskell.org/package/base/docs/Numeric-Natural.html#t:Natural)
   type satisfies the laws of
@@ -136,6 +124,40 @@ description:
       , rightReductiveLaws
       , semigroupLaws
       ]
+  @
+
+  = Subclasses and superclasses
+
+  Each of the
+  [Laws](https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:Laws)
+  definitions provided by this library corresponds to exactly __one__ type
+  class, and includes __just__ the laws for that class. Laws for subclasses and
+  superclasses are __not__ automatically included. Therefore, you'll need to
+  __explicitly__ test the laws of every single class you wish to cover.
+
+  = Coverage
+
+  This library includes __coverage checks__ to ensure that important cases are
+  covered, and to reduce the probability of test passes that are false
+  positives.  These coverage checks are performed automatically.
+
+  To increase coverage of interesting and important cases, this library also
+  checks that laws hold for __combinations__ of generated arbitrary values.
+
+  === Example
+
+  Suppose we are testing the following law:
+
+  @
+  isPrefixOf a b == isJust (stripPrefix a b)
+  @
+
+  This library will also test that the following __derived__ laws hold:
+
+  @
+  isPrefixOf a (a <> a) == isJust (stripPrefix a (a <> a))
+  isPrefixOf a (a <> b) == isJust (stripPrefix a (a <> b))
+  isPrefixOf a (b <> a) == isJust (stripPrefix a (b <> a))
   @
 
 extra-source-files:
