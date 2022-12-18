@@ -263,9 +263,9 @@ test-suite test
     hs-source-dirs:
         src/test
     other-modules:
+        ClassSpec
         SpecHook
         Test.Hspec.Laws
-        Test.QuickCheck.Classes.SemigroupSpec
     type:
         exitcode-stdio-1.0
     build-tool-depends:
