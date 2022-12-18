@@ -7,9 +7,12 @@
   <a href="https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:Laws">Laws</a>
   definitions.</li></ul><h1>Usage</h1><p>In general, usage is identical to that of the
 <a href="https://hackage.haskell.org/package/quickcheck-classes">quickcheck-classes</a>
-library.</p><p>To test that the laws of a particular class hold for a particular type,
-use the <a href="https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:lawsCheck">lawsCheck</a>
-function.</p><p>For example, to test that the
+library.</p><h2>Testing laws for a single type class instance</h2><p>To test that the laws of a particular class hold for a particular type, use
+the
+<a href="https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:lawsCheck">lawsCheck</a>
+function with the
+<a href="https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:Laws">Laws</a>
+definition for the class you wish to test.</p><h3>Example</h3><p>To test that the
 <a href="https://hackage.haskell.org/package/monoid-subclasses/docs/Data-Monoid-Monus.html#t:Monus">Monus</a>
 laws hold for the
 <a href="https://hackage.haskell.org/package/base/docs/Data-Monoid.html#t:Sum">Sum</a>
@@ -20,23 +23,18 @@ import Numeric.Natural (Natural)
 import Test.QuickCheck.Classes (lawsCheck)
 import Test.QuickCheck.Classes.Monoid.Monus (monusLaws)
 </pre><pre>lawsCheck (monusLaws (Proxy :: Proxy (Sum Natural)))
-</pre><p>If all tests pass, this will produce output similar to:</p><pre>Monus: axiom1 +++ OK, passed 100 tests.
+</pre><p>If all tests pass, you should see output similar to:</p><pre>Monus: axiom1 +++ OK, passed 100 tests.
 Monus: axiom2 +++ OK, passed 100 tests.
 Monus: axiom3 +++ OK, passed 100 tests.
 Monus: axiom4 +++ OK, passed 100 tests.
 Monus: stripPrefixOverlap +++ OK, passed 100 tests.
 Monus: stripSuffixOverlap +++ OK, passed 100 tests.
-</pre><h1>Coverage</h1><p>This library includes <strong>coverage checks</strong> to ensure that important cases are
-covered, and to reduce the probability that a test suite passes but fails to
-discover obvious defects. These coverage checks are performed automatically.</p><p>In order to increase coverage of interesting and important cases, this
-library also tests that laws hold for <strong>combinations</strong> of generated arbitrary
-values.</p><p>For example, suppose we are testing the following law:</p><pre>isPrefixOf a b == isJust (stripPrefix a b)
-</pre><p>This library will also test that the following <strong>derived</strong> laws hold:</p><pre>isPrefixOf a (a &lt;&gt; a) == isJust (stripPrefix a (a &lt;&gt; a))
-isPrefixOf a (a &lt;&gt; b) == isJust (stripPrefix a (a &lt;&gt; b))
-isPrefixOf a (b &lt;&gt; a) == isJust (stripPrefix a (b &lt;&gt; a))
-</pre><h1>Superclasses</h1><p>Note that in general, laws for superclasses are <strong>not</strong> included
-automatically.  Therefore, you'll need to <strong>explicitly</strong> test the laws of
-every class that you wish to cover.</p><p>For example, to test that the
+</pre><h2>Testing laws for multiple type classes</h2><p>To test that the laws of <strong>multiple</strong> classes hold for a particular type, use
+the
+<a href="https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:lawsCheckOne">lawsCheckOne</a>
+function with the
+<a href="https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:Laws">Laws</a>
+definitions for the classes you wish to test.</p><h3>Example</h3><p>To test that the
 <a href="https://hackage.haskell.org/package/base/docs/Data-Monoid.html#t:Sum">Sum</a>
 <a href="https://hackage.haskell.org/package/base/docs/Numeric-Natural.html#t:Natural">Natural</a>
 type satisfies the laws of
@@ -68,4 +66,16 @@ import Test.QuickCheck.Classes.Semigroup.Cancellative
     , rightReductiveLaws
     , semigroupLaws
     ]
+</pre><h1>Subclasses and superclasses</h1><p>Each of the
+<a href="https://hackage.haskell.org/package/quickcheck-classes/docs/Test-QuickCheck-Classes.html#t:Laws">Laws</a>
+definitions provided by this library corresponds to exactly <strong>one</strong> type
+class, and includes <strong>just</strong> the laws for that class. Laws for subclasses and
+superclasses are <strong>not</strong> automatically included. Therefore, you'll need to
+<strong>explicitly</strong> test the laws of every single class you wish to cover.</p><h1>Coverage</h1><p>This library includes <strong>coverage checks</strong> to ensure that important cases are
+covered, and to reduce the probability of test passes that are false
+positives.  These coverage checks are performed automatically.</p><p>To increase coverage of interesting and important cases, this library also
+checks that laws hold for <strong>combinations</strong> of generated arbitrary values.</p><h3>Example</h3><p>Suppose we are testing the following law:</p><pre>isPrefixOf a b == isJust (stripPrefix a b)
+</pre><p>This library will also test that the following <strong>derived</strong> laws hold:</p><pre>isPrefixOf a (a &lt;&gt; a) == isJust (stripPrefix a (a &lt;&gt; a))
+isPrefixOf a (a &lt;&gt; b) == isJust (stripPrefix a (a &lt;&gt; b))
+isPrefixOf a (b &lt;&gt; a) == isJust (stripPrefix a (b &lt;&gt; a))
 </pre></div></div><div id="module-list"><p class="caption">Modules</p><div id="module-list"><p class="caption">quickcheck-monoid-subclasses-0.0.0</p><ul><li><span class="module details-toggle-control details-toggle" data-details-id="n.1">Test</span><details id="n.1" open="open"><summary class="hide-when-js-enabled">Submodules</summary><ul><li><span class="module details-toggle-control details-toggle" data-details-id="n.1.1">QuickCheck</span><details id="n.1.1" open="open"><summary class="hide-when-js-enabled">Submodules</summary><ul><li><span class="module details-toggle-control details-toggle" data-details-id="n.1.1.1">Classes</span><details id="n.1.1.1" open="open"><summary class="hide-when-js-enabled">Submodules</summary><ul><li><span class="module details-toggle-control details-toggle" data-details-id="n.1.1.1.1">Monoid</span><details id="n.1.1.1.1" open="open"><summary class="hide-when-js-enabled">Submodules</summary><ul><li><span class="module"><span class="noexpander">&nbsp;</span><a href="Test-QuickCheck-Classes-Monoid-GCD.html">Test.QuickCheck.Classes.Monoid.GCD</a></span></li><li><span class="module"><span class="noexpander">&nbsp;</span><a href="Test-QuickCheck-Classes-Monoid-Monus.html">Test.QuickCheck.Classes.Monoid.Monus</a></span></li><li><span class="module"><span class="noexpander">&nbsp;</span><a href="Test-QuickCheck-Classes-Monoid-Null.html">Test.QuickCheck.Classes.Monoid.Null</a></span></li></ul></details></li><li><span class="module details-toggle-control details-toggle" data-details-id="n.1.1.1.2">Semigroup</span><details id="n.1.1.1.2" open="open"><summary class="hide-when-js-enabled">Submodules</summary><ul><li><span class="module"><span class="noexpander">&nbsp;</span><a href="Test-QuickCheck-Classes-Semigroup-Cancellative.html">Test.QuickCheck.Classes.Semigroup.Cancellative</a></span></li></ul></details></li></ul></details></li></ul></details></li></ul></details></li></ul></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.27.0</p></div></body></html>
