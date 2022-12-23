@@ -5,6 +5,9 @@
 -- Copyright: © 2022 Jonathan Knowles
 -- License: Apache-2.0
 --
+-- This module provides 'Laws' definitions for classes exported by
+-- "Data.Monoid.Null".
+--
 module Test.QuickCheck.Classes.Monoid.Null
     (
     -- * Null

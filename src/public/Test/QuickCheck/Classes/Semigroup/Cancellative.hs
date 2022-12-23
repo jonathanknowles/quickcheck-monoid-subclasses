@@ -6,6 +6,9 @@
 -- Copyright: © 2022 Jonathan Knowles
 -- License: Apache-2.0
 --
+-- This module provides 'Laws' definitions for classes exported by
+-- "Data.Semigroup.Cancellative".
+--
 module Test.QuickCheck.Classes.Semigroup.Cancellative
     (
     -- * Commutative
