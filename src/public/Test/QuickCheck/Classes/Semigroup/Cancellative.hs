@@ -56,6 +56,7 @@ import Test.QuickCheck.Classes
 -- @
 -- (a '<>' b) '</>' a '==' 'Just' b
 -- @
+--
 -- @
 -- (a '<>' b) '</>' b '==' 'Just' a
 -- @
@@ -193,9 +194,11 @@ leftCancellativeLaw_cancellation a b =
 -- @
 -- a '`isPrefixOf`' (a '<>' b)
 -- @
+--
 -- @
 -- 'isPrefixOf' a b '==' 'isJust' ('stripPrefix' a b)
 -- @
+--
 -- @
 -- 'maybe' b (a '<>') ('stripPrefix' a b) '==' b
 -- @
@@ -263,12 +266,15 @@ leftReductiveLaw_stripPrefix a b =
 -- @
 -- a '</>' b '==' 'stripPrefix' b a
 -- @
+--
 -- @
 -- a '</>' b '==' 'stripSuffix' b a
 -- @
+--
 -- @
 -- 'maybe' a (b '<>') (a '</>' b) '==' a
 -- @
+--
 -- @
 -- 'maybe' a ('<>' b) (a '</>' b) '==' a
 -- @
@@ -400,9 +406,11 @@ rightCancellativeLaw_cancellation a b =
 -- @
 -- b '`isSuffixOf`' (a '<>' b)
 -- @
+--
 -- @
 -- 'isSuffixOf' a b '==' 'isJust' ('stripSuffix' a b)
 -- @
+--
 -- @
 -- 'maybe' b ('<>' a) ('stripSuffix' a b) '==' b
 -- @

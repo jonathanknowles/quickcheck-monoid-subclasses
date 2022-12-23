@@ -41,18 +41,23 @@ import Test.QuickCheck.Classes
 -- @
 -- a '<\>' a '==' 'mempty'
 -- @
+--
 -- @
 -- 'mempty' '<\>' a '==' 'mempty'
 -- @
+--
 -- @
 -- a '<>' (b '<\>' a) '==' b '<>' (a '<\>' b)
 -- @
+--
 -- @
 -- (a '<\>' b) '<\>' c '==' a '<\>' (b '<>' c)
 -- @
+--
 -- @
 -- a '<\>' b '==' 'stripPrefixOverlap' b a
 -- @
+--
 -- @
 -- a '<\>' b '==' 'stripSuffixOverlap' b a
 -- @

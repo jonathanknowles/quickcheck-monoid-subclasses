@@ -49,6 +49,7 @@ import Test.QuickCheck.Classes
 -- @
 -- 'gcd' (a '<>' b) (a '<>' c) '==' a '<>' 'gcd' b c
 -- @
+--
 -- @
 -- 'gcd' (a '<>' c) (b '<>' c) '==' 'gcd' a b '<>' c
 -- @
@@ -132,12 +133,15 @@ cancellativeGCDMonoidLaw_suffix a b c =
 -- @
 -- 'gcd' a b '==' 'commonPrefix' a b
 -- @
+--
 -- @
 -- 'gcd' a b '==' 'commonSuffix' a b
 -- @
+--
 -- @
 -- 'isJust' (a '</>' 'gcd' a b)
 -- @
+--
 -- @
 -- 'isJust' (b '</>' 'gcd' a b)
 -- @
@@ -232,15 +236,19 @@ gcdMonoidLaw_gcd_reduction_2 a b =
 -- @
 -- 'stripCommonPrefix' a b '&' \\(p, _, _) -> p '==' 'commonPrefix' a b
 -- @
+--
 -- @
 -- 'stripCommonPrefix' a b '&' \\(p, x, _) -> p '<>' x '==' a
 -- @
+--
 -- @
 -- 'stripCommonPrefix' a b '&' \\(p, _, x) -> p '<>' x '==' b
 -- @
+--
 -- @
 -- 'stripCommonPrefix' a b '&' \\(p, x, _) -> 'Just' x '==' 'stripPrefix' p a
 -- @
+--
 -- @
 -- 'stripCommonPrefix' a b '&' \\(p, _, x) -> 'Just' x '==' 'stripPrefix' p b
 -- @
@@ -347,15 +355,19 @@ leftGCDMonoidLaw_stripCommonPrefix_stripPrefix_2 a b =
 -- @
 -- 'overlap' a b '<>' 'stripPrefixOverlap' a b '==' b
 -- @
+--
 -- @
 -- 'stripSuffixOverlap' b a '<>' 'overlap' a b '==' a
 -- @
+--
 -- @
 -- 'stripOverlap' a b '&' \\(_, x, _) -> x '==' 'overlap' a b
 -- @
+--
 -- @
 -- 'stripOverlap' a b '&' \\(_, _, x) -> x '==' 'stripPrefixOverlap' a b
 -- @
+--
 -- @
 -- 'stripOverlap' a b '&' \\(x, _, _) -> x '==' 'stripSuffixOverlap' b a
 -- @
@@ -469,15 +481,19 @@ overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap a b =
 -- @
 -- 'stripCommonSuffix' a b '&' \\(_, _, s) -> s '==' 'commonSuffix' a b
 -- @
+--
 -- @
 -- 'stripCommonSuffix' a b '&' \\(x, _, s) -> x '<>' s '==' a
 -- @
+--
 -- @
 -- 'stripCommonSuffix' a b '&' \\(_, x, s) -> x '<>' s '==' b
 -- @
+--
 -- @
 -- 'stripCommonSuffix' a b '&' \\(x, _, s) -> 'Just' x '==' 'stripSuffix' s a
 -- @
+--
 -- @
 -- 'stripCommonSuffix' a b '&' \\(_, x, s) -> 'Just' x '==' 'stripSuffix' s b
 -- @
