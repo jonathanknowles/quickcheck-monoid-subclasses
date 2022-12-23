@@ -314,6 +314,9 @@ leftGCDMonoidLaw_stripCommonPrefix_commonPrefix a b =
     makeProperty
         "stripCommonPrefix a b & λ(p, _, _) -> p == commonPrefix a b"
         (stripCommonPrefix a b & \(p, _, _) -> p == commonPrefix a b)
+    & cover
+        "commonPrefix a b /= mempty"
+        (commonPrefix a b /= mempty)
     & report
         "stripCommonPrefix a b"
         (stripCommonPrefix a b)
