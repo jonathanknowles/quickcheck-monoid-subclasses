@@ -6,9 +6,8 @@
 -- License: Apache-2.0
 --
 module Test.QuickCheck.Classes.Monoid.Monus
-    (
-    -- * Monus
-      monusLaws
+    ( monusLaws
+    , overlappingGCDMonoidLaws
     )
     where
 
@@ -29,6 +28,8 @@ import Test.QuickCheck
     ( Arbitrary (..), Property )
 import Test.QuickCheck.Classes
     ( Laws (..) )
+import Test.QuickCheck.Classes.Monoid.GCD
+    ( overlappingGCDMonoidLaws )
 
 --------------------------------------------------------------------------------
 -- Monus
