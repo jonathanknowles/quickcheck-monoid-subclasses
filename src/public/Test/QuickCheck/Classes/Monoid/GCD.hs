@@ -623,6 +623,9 @@ rightGCDMonoidLaw_stripCommonSuffix_mappend_2 a b =
     makeProperty
         "stripCommonSuffix a b & λ(_, x, s) -> x <> s == b"
         (stripCommonSuffix a b & \(_, x, s) -> x <> s == b)
+    & cover
+        "stripCommonSuffix a b & λ(_, x, s) -> x /= mempty && s /= mempty"
+        (stripCommonSuffix a b & \(_, x, s) -> x /= mempty && s /= mempty)
     & report
         "stripCommonSuffix a b"
         (stripCommonSuffix a b)
