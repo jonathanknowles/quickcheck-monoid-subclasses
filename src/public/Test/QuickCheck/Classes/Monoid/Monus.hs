@@ -198,6 +198,9 @@ monusLaw_stripSuffixOverlap a b =
     makeProperty
         "a <\\> b == stripSuffixOverlap b a"
         (a <\\> b == stripSuffixOverlap b a)
+    & cover
+        "a <\\> b /= mempty"
+        (a <\\> b /= mempty)
     & report
         "a <\\> b"
         (a <\\> b)
