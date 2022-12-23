@@ -135,6 +135,12 @@ monusLaw_axiom_3 a b =
     makeProperty
         "a <> (b <\\> a) == b <> (a <\\> b)"
         (a <> (b <\\> a) == b <> (a <\\> b))
+    & cover
+        "(a <\\> b) /= mempty"
+        ((a <\\> b) /= mempty)
+    & cover
+        "(b <\\> a) /= mempty"
+        ((b <\\> a) /= mempty)
     & report
         "b <\\> a"
         (b <\\> a)
