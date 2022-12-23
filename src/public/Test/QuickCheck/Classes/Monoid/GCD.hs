@@ -450,6 +450,9 @@ overlappingGCDMonoidLaw_overlap_stripPrefixOverlap a b =
     makeProperty
         "overlap a b <> stripPrefixOverlap a b == b"
         (overlap a b <> stripPrefixOverlap a b == b)
+    & cover
+        "overlap a b /= mempty && stripPrefixOverlap a b /= mempty"
+        (overlap a b /= mempty && stripPrefixOverlap a b /= mempty)
     & report
         "overlap a b"
         (overlap a b)
