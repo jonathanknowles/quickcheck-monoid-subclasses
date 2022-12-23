@@ -183,6 +183,12 @@ gcdMonoidLaw_gcd_commonPrefix a b =
     makeProperty
         "gcd a b == commonPrefix a b"
         (gcd a b == commonPrefix a b)
+    & cover
+        "gcd a b /= mempty"
+        (gcd a b /= mempty)
+    & cover
+        "commonPrefix a b /= mempty"
+        (commonPrefix a b /= mempty)
     & report
         "gcd a b"
         (gcd a b)
