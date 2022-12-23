@@ -106,17 +106,20 @@ positiveMonoidLaws _ = Laws "PositiveMonoid"
     ]
 
 positiveMonoidLaw_fundamental
-    :: (Eq a, PositiveMonoid a) => a -> a -> Property
+    :: (Eq a, PositiveMonoid a, Show a) => a -> a -> Property
 positiveMonoidLaw_fundamental a b =
     makeProperty
         "null (a <> b) == (null a && null b)"
         (null (a <> b) == (null a && null b))
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "null (a <> b)"
+        (null (a <> b))
     & report
         "null a"
         (null a)
     & report
         "null b"
         (null b)
-    & report
-        "null (a <> b)"
-        (null (a <> b))
