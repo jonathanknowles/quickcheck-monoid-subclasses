@@ -202,6 +202,12 @@ gcdMonoidLaw_gcd_commonSuffix a b =
     makeProperty
         "gcd a b == commonSuffix a b"
         (gcd a b == commonSuffix a b)
+    & cover
+        "gcd a b /= mempty"
+        (gcd a b /= mempty)
+    & cover
+        "commonSuffix a b /= mempty"
+        (commonSuffix a b /= mempty)
     & report
         "gcd a b"
         (gcd a b)
