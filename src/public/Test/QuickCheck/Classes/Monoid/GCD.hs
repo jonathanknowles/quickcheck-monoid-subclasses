@@ -240,6 +240,12 @@ gcdMonoidLaw_gcd_reduction_2 a b =
     makeProperty
         "isJust (b </> gcd a b)"
         (isJust (b </> gcd a b))
+    & cover
+        "gcd a b /= mempty"
+        (gcd a b /= mempty)
+    & cover
+        "(b </> gcd a b) /= mempty"
+        ((b </> gcd a b) /= mempty)
     & report
         "gcd a b"
         (gcd a b)
