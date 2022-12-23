@@ -38,7 +38,7 @@ infixr 0 ==>
 a ==> b = not a || b
 
 cover :: Testable t => String -> Bool -> t -> Property
-cover = flip (QC.cover 0.1)
+cover name = flip (QC.cover 0.1) (replaceSpecialChars <$> name)
 
 makeLaw :: Testable t => String -> t -> (String, Property)
 makeLaw title t = (title, checkCoverage $ property t)
