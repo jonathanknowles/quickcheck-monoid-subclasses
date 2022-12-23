@@ -5,6 +5,9 @@
 -- Copyright: © 2022 Jonathan Knowles
 -- License: Apache-2.0
 --
+-- This module provides 'Laws' definitions for classes exported by
+-- "Data.Monoid.Null".
+--
 module Test.QuickCheck.Classes.Monoid.Null
     (
     -- * Null
@@ -37,11 +40,15 @@ import Test.QuickCheck.Classes
 
 -- | 'Laws' for instances of 'MonoidNull'.
 --
--- Tests the following property:
+-- Tests the following law:
 --
 -- @
 -- 'null' a '==' (a '==' 'mempty')
 -- @
+--
+-- Note that the following superclass laws are __not__ included:
+--
+-- * 'Test.QuickCheck.Classes.monoidLaws'
 --
 monoidNullLaws
     :: forall a. (Arbitrary a, Show a, Eq a, MonoidNull a)
@@ -78,7 +85,7 @@ monoidNullLaw_basic a =
 
 -- | 'Laws' for instances of 'PositiveMonoid'.
 --
--- Tests the following property:
+-- Tests the following law:
 --
 -- @
 -- 'null' (a '<>' b) '==' ('null' a '&&' 'null' b)

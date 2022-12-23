@@ -6,6 +6,9 @@
 -- Copyright: © 2022 Jonathan Knowles
 -- License: Apache-2.0
 --
+-- This module provides 'Laws' definitions for classes exported by
+-- "Data.Semigroup.Cancellative".
+--
 module Test.QuickCheck.Classes.Semigroup.Cancellative
     (
     -- * Commutative
@@ -51,11 +54,12 @@ import Test.QuickCheck.Classes
 
 -- | 'Laws' for instances of 'Cancellative'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- (a '<>' b) '</>' a '==' 'Just' b
 -- @
+--
 -- @
 -- (a '<>' b) '</>' b '==' 'Just' a
 -- @
@@ -111,11 +115,15 @@ cancellativeLaw_cancellation_suffix a b =
 
 -- | 'Laws' for instances of 'Commutative'.
 --
--- Tests the following property:
+-- Tests the following law:
 --
 -- @
 -- a '<>' b '==' b '<>' a
 -- @
+--
+-- Note that the following superclass laws are __not__ included:
+--
+-- * 'Test.QuickCheck.Classes.semigroupLaws'
 --
 commutativeLaws
     :: forall a. (Arbitrary a, Show a, Eq a, Commutative a)
@@ -149,7 +157,7 @@ commutativeLaw_basic a b =
 
 -- | 'Laws' for instances of 'LeftCancellative'.
 --
--- Tests the following property:
+-- Tests the following law:
 --
 -- @
 -- 'stripPrefix' a (a '<>' b) '==' 'Just' b
@@ -188,17 +196,23 @@ leftCancellativeLaw_cancellation a b =
 
 -- | 'Laws' for instances of 'LeftReductive'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- a '`isPrefixOf`' (a '<>' b)
 -- @
+--
 -- @
 -- 'isPrefixOf' a b '==' 'isJust' ('stripPrefix' a b)
 -- @
+--
 -- @
 -- 'maybe' b (a '<>') ('stripPrefix' a b) '==' b
 -- @
+--
+-- Note that the following superclass laws are __not__ included:
+--
+-- * 'Test.QuickCheck.Classes.semigroupLaws'
 --
 leftReductiveLaws
     :: forall a. (Arbitrary a, Show a, Eq a, LeftReductive a)
@@ -258,17 +272,20 @@ leftReductiveLaw_stripPrefix a b =
 
 -- | 'Laws' for instances of 'Reductive'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- a '</>' b '==' 'stripPrefix' b a
 -- @
+--
 -- @
 -- a '</>' b '==' 'stripSuffix' b a
 -- @
+--
 -- @
 -- 'maybe' a (b '<>') (a '</>' b) '==' a
 -- @
+--
 -- @
 -- 'maybe' a ('<>' b) (a '</>' b) '==' a
 -- @
@@ -356,7 +373,7 @@ reductiveLaw_inversion_suffix a b =
 
 -- | 'Laws' for instances of 'RightCancellative'.
 --
--- Tests the following property:
+-- Tests the following law:
 --
 -- @
 -- 'stripSuffix' b (a '<>' b) '==' 'Just' a
@@ -395,17 +412,23 @@ rightCancellativeLaw_cancellation a b =
 
 -- | 'Laws' for instances of 'RightReductive'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- b '`isSuffixOf`' (a '<>' b)
 -- @
+--
 -- @
 -- 'isSuffixOf' a b '==' 'isJust' ('stripSuffix' a b)
 -- @
+--
 -- @
 -- 'maybe' b ('<>' a) ('stripSuffix' a b) '==' b
 -- @
+--
+-- Note that the following superclass laws are __not__ included:
+--
+-- * 'Test.QuickCheck.Classes.semigroupLaws'
 --
 rightReductiveLaws
     :: forall a. (Arbitrary a, Show a, Eq a, RightReductive a)

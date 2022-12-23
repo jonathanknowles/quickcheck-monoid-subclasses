@@ -5,11 +5,14 @@
 -- Copyright: © 2022 Jonathan Knowles
 -- License: Apache-2.0
 --
+-- This module provides 'Laws' definitions for classes exported by
+-- "Data.Monoid.GCD".
+--
 module Test.QuickCheck.Classes.Monoid.GCD
     ( gcdMonoidLaws
+    , cancellativeGCDMonoidLaws
     , leftGCDMonoidLaws
     , rightGCDMonoidLaws
-    , cancellativeGCDMonoidLaws
     , overlappingGCDMonoidLaws
     )
     where
@@ -44,11 +47,12 @@ import Test.QuickCheck.Classes
 
 -- | 'Laws' for instances of 'Cancellative' and 'GCDMonoid'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- 'gcd' (a '<>' b) (a '<>' c) '==' a '<>' 'gcd' b c
 -- @
+--
 -- @
 -- 'gcd' (a '<>' c) (b '<>' c) '==' 'gcd' a b '<>' c
 -- @
@@ -127,23 +131,27 @@ cancellativeGCDMonoidLaw_suffix a b c =
 
 -- | 'Laws' for instances of 'GCDMonoid'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- 'gcd' a b '==' 'commonPrefix' a b
 -- @
+--
 -- @
 -- 'gcd' a b '==' 'commonSuffix' a b
 -- @
+--
 -- @
 -- 'isJust' (a '</>' 'gcd' a b)
 -- @
+--
 -- @
 -- 'isJust' (b '</>' 'gcd' a b)
 -- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
+-- * 'Test.QuickCheck.Classes.monoidLaws'
 -- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.commutativeLaws'
 -- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.reductiveLaws'
 -- * 'Test.QuickCheck.Classes.Monoid.GCD.leftGCDMonoidLaws'
@@ -227,26 +235,31 @@ gcdMonoidLaw_gcd_reduction_2 a b =
 
 -- | 'Laws' for instances of 'LeftGCDMonoid'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- 'stripCommonPrefix' a b '&' \\(p, _, _) -> p '==' 'commonPrefix' a b
 -- @
+--
 -- @
 -- 'stripCommonPrefix' a b '&' \\(p, x, _) -> p '<>' x '==' a
 -- @
+--
 -- @
 -- 'stripCommonPrefix' a b '&' \\(p, _, x) -> p '<>' x '==' b
 -- @
+--
 -- @
 -- 'stripCommonPrefix' a b '&' \\(p, x, _) -> 'Just' x '==' 'stripPrefix' p a
 -- @
+--
 -- @
 -- 'stripCommonPrefix' a b '&' \\(p, _, x) -> 'Just' x '==' 'stripPrefix' p b
 -- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
+-- * 'Test.QuickCheck.Classes.monoidLaws'
 -- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.leftReductiveLaws'
 --
 leftGCDMonoidLaws
@@ -342,26 +355,31 @@ leftGCDMonoidLaw_stripCommonPrefix_stripPrefix_2 a b =
 
 -- | 'Laws' for instances of 'OverlappingGCDMonoid'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- 'overlap' a b '<>' 'stripPrefixOverlap' a b '==' b
 -- @
+--
 -- @
 -- 'stripSuffixOverlap' b a '<>' 'overlap' a b '==' a
 -- @
+--
 -- @
 -- 'stripOverlap' a b '&' \\(_, x, _) -> x '==' 'overlap' a b
 -- @
+--
 -- @
 -- 'stripOverlap' a b '&' \\(_, _, x) -> x '==' 'stripPrefixOverlap' a b
 -- @
+--
 -- @
 -- 'stripOverlap' a b '&' \\(x, _, _) -> x '==' 'stripSuffixOverlap' b a
 -- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
+-- * 'Test.QuickCheck.Classes.monoidLaws'
 -- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.leftReductiveLaws'
 -- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.rightReductiveLaws'
 --
@@ -464,26 +482,31 @@ overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap a b =
 
 -- | 'Laws' for instances of 'RightGCDMonoid'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- 'stripCommonSuffix' a b '&' \\(_, _, s) -> s '==' 'commonSuffix' a b
 -- @
+--
 -- @
 -- 'stripCommonSuffix' a b '&' \\(x, _, s) -> x '<>' s '==' a
 -- @
+--
 -- @
 -- 'stripCommonSuffix' a b '&' \\(_, x, s) -> x '<>' s '==' b
 -- @
+--
 -- @
 -- 'stripCommonSuffix' a b '&' \\(x, _, s) -> 'Just' x '==' 'stripSuffix' s a
 -- @
+--
 -- @
 -- 'stripCommonSuffix' a b '&' \\(_, x, s) -> 'Just' x '==' 'stripSuffix' s b
 -- @
 --
 -- Note that the following superclass laws are __not__ included:
 --
+-- * 'Test.QuickCheck.Classes.monoidLaws'
 -- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.rightReductiveLaws'
 --
 rightGCDMonoidLaws

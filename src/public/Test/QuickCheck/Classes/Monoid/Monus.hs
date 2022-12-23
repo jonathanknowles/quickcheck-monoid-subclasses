@@ -5,10 +5,12 @@
 -- Copyright: © 2022 Jonathan Knowles
 -- License: Apache-2.0
 --
+-- This module provides 'Laws' definitions for classes exported by
+-- "Data.Monoid.Monus".
+--
 module Test.QuickCheck.Classes.Monoid.Monus
-    (
-    -- * Monus
-      monusLaws
+    ( monusLaws
+    , overlappingGCDMonoidLaws
     )
     where
 
@@ -29,6 +31,8 @@ import Test.QuickCheck
     ( Arbitrary (..), Property )
 import Test.QuickCheck.Classes
     ( Laws (..) )
+import Test.QuickCheck.Classes.Monoid.GCD
+    ( overlappingGCDMonoidLaws )
 
 --------------------------------------------------------------------------------
 -- Monus
@@ -36,23 +40,28 @@ import Test.QuickCheck.Classes
 
 -- | 'Laws' for instances of 'Monus'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- a '<\>' a '==' 'mempty'
 -- @
+--
 -- @
 -- 'mempty' '<\>' a '==' 'mempty'
 -- @
+--
 -- @
 -- a '<>' (b '<\>' a) '==' b '<>' (a '<\>' b)
 -- @
+--
 -- @
 -- (a '<\>' b) '<\>' c '==' a '<\>' (b '<>' c)
 -- @
+--
 -- @
 -- a '<\>' b '==' 'stripPrefixOverlap' b a
 -- @
+--
 -- @
 -- a '<\>' b '==' 'stripSuffixOverlap' b a
 -- @
@@ -60,6 +69,7 @@ import Test.QuickCheck.Classes
 -- Note that the following superclass laws are __not__ included:
 --
 -- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.commutativeLaws'
+-- * 'Test.QuickCheck.Classes.monoidLaws'
 -- * 'Test.QuickCheck.Classes.Monoid.GCD.overlappingGCDMonoidLaws'
 --
 monusLaws
