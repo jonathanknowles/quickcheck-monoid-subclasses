@@ -192,6 +192,8 @@ common dependency-vector
 
 common extensions
     default-extensions:
+        ConstraintKinds
+        DataKinds
         DerivingStrategies
         FlexibleContexts
         FlexibleInstances

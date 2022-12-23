@@ -1,6 +1,3 @@
-{-# LANGUAGE ConstraintKinds #-}
-{-# LANGUAGE DataKinds #-}
-
 -- |
 -- Copyright: © 2022 Jonathan Knowles
 -- License: Apache-2.0
