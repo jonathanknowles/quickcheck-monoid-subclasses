@@ -80,9 +80,6 @@ makeProperty propertyDescription t =
             & fmap replaceSpecialChars
         ]
       where
-        replaceSpecialChars = \case
-            'λ'   -> '\\'
-            other -> other
 
 makeProperty0
     :: forall a t. Testable t
@@ -132,3 +129,8 @@ makeProperty3 p (evalTuple3 -> (a, b, c))
 report :: (Show a, Testable prop) => String -> a -> prop -> Property
 report name a = counterexample $
     name <> ":\n" <> show a <> "\n"
+
+replaceSpecialChars :: Char -> Char
+replaceSpecialChars = \case
+    'λ'   -> '\\'
+    other -> other
