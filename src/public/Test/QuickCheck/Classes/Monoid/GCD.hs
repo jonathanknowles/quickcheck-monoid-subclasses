@@ -7,9 +7,9 @@
 --
 module Test.QuickCheck.Classes.Monoid.GCD
     ( gcdMonoidLaws
+    , cancellativeGCDMonoidLaws
     , leftGCDMonoidLaws
     , rightGCDMonoidLaws
-    , cancellativeGCDMonoidLaws
     , overlappingGCDMonoidLaws
     )
     where
