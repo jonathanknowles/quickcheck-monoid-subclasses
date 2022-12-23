@@ -44,7 +44,7 @@ import Test.QuickCheck.Classes
 
 -- | 'Laws' for instances of 'Cancellative' and 'GCDMonoid'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- 'gcd' (a '<>' b) (a '<>' c) '==' a '<>' 'gcd' b c
@@ -128,7 +128,7 @@ cancellativeGCDMonoidLaw_suffix a b c =
 
 -- | 'Laws' for instances of 'GCDMonoid'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- 'gcd' a b '==' 'commonPrefix' a b
@@ -231,7 +231,7 @@ gcdMonoidLaw_gcd_reduction_2 a b =
 
 -- | 'Laws' for instances of 'LeftGCDMonoid'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- 'stripCommonPrefix' a b '&' \\(p, _, _) -> p '==' 'commonPrefix' a b
@@ -350,7 +350,7 @@ leftGCDMonoidLaw_stripCommonPrefix_stripPrefix_2 a b =
 
 -- | 'Laws' for instances of 'OverlappingGCDMonoid'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- 'overlap' a b '<>' 'stripPrefixOverlap' a b '==' b
@@ -476,7 +476,7 @@ overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap a b =
 
 -- | 'Laws' for instances of 'RightGCDMonoid'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- 'stripCommonSuffix' a b '&' \\(_, _, s) -> s '==' 'commonSuffix' a b

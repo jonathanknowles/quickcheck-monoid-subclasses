@@ -36,7 +36,7 @@ import Test.QuickCheck.Classes
 
 -- | 'Laws' for instances of 'Monus'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- a '<\>' a '==' 'mempty'

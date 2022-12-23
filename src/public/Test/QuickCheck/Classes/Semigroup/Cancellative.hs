@@ -51,7 +51,7 @@ import Test.QuickCheck.Classes
 
 -- | 'Laws' for instances of 'Cancellative'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- (a '<>' b) '</>' a '==' 'Just' b
@@ -112,7 +112,7 @@ cancellativeLaw_cancellation_suffix a b =
 
 -- | 'Laws' for instances of 'Commutative'.
 --
--- Tests the following property:
+-- Tests the following law:
 --
 -- @
 -- a '<>' b '==' b '<>' a
@@ -150,7 +150,7 @@ commutativeLaw_basic a b =
 
 -- | 'Laws' for instances of 'LeftCancellative'.
 --
--- Tests the following property:
+-- Tests the following law:
 --
 -- @
 -- 'stripPrefix' a (a '<>' b) '==' 'Just' b
@@ -189,7 +189,7 @@ leftCancellativeLaw_cancellation a b =
 
 -- | 'Laws' for instances of 'LeftReductive'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- a '`isPrefixOf`' (a '<>' b)
@@ -261,7 +261,7 @@ leftReductiveLaw_stripPrefix a b =
 
 -- | 'Laws' for instances of 'Reductive'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- a '</>' b '==' 'stripPrefix' b a
@@ -362,7 +362,7 @@ reductiveLaw_inversion_suffix a b =
 
 -- | 'Laws' for instances of 'RightCancellative'.
 --
--- Tests the following property:
+-- Tests the following law:
 --
 -- @
 -- 'stripSuffix' b (a '<>' b) '==' 'Just' a
@@ -401,7 +401,7 @@ rightCancellativeLaw_cancellation a b =
 
 -- | 'Laws' for instances of 'RightReductive'.
 --
--- Tests the following properties:
+-- Tests the following laws:
 --
 -- @
 -- b '`isSuffixOf`' (a '<>' b)
