@@ -135,6 +135,12 @@ monusLaw_axiom_3 a b =
     makeProperty
         "a <> (b <\\> a) == b <> (a <\\> b)"
         (a <> (b <\\> a) == b <> (a <\\> b))
+    & cover
+        "(a <\\> b) /= mempty"
+        ((a <\\> b) /= mempty)
+    & cover
+        "(b <\\> a) /= mempty"
+        ((b <\\> a) /= mempty)
     & report
         "b <\\> a"
         (b <\\> a)
@@ -154,6 +160,9 @@ monusLaw_axiom_4 a b c =
     makeProperty
         "(a <\\> b) <\\> c == a <\\> (b <> c)"
         ((a <\\> b) <\\> c == a <\\> (b <> c))
+    & cover
+        "(a <\\> b) <\\> c /= mempty"
+        ((a <\\> b) <\\> c /= mempty)
     & report
         "a <\\> b"
         (a <\\> b)
@@ -173,6 +182,9 @@ monusLaw_stripPrefixOverlap a b =
     makeProperty
         "a <\\> b == stripPrefixOverlap b a"
         (a <\\> b == stripPrefixOverlap b a)
+    & cover
+        "a <\\> b /= mempty"
+        (a <\\> b /= mempty)
     & report
         "a <\\> b"
         (a <\\> b)
@@ -186,6 +198,9 @@ monusLaw_stripSuffixOverlap a b =
     makeProperty
         "a <\\> b == stripSuffixOverlap b a"
         (a <\\> b == stripSuffixOverlap b a)
+    & cover
+        "a <\\> b /= mempty"
+        (a <\\> b /= mempty)
     & report
         "a <\\> b"
         (a <\\> b)

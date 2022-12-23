@@ -38,7 +38,7 @@ infixr 0 ==>
 a ==> b = not a || b
 
 cover :: Testable t => String -> Bool -> t -> Property
-cover = flip (QC.cover 0.1)
+cover name = flip (QC.cover 0.1) (replaceSpecialChars <$> name)
 
 makeLaw :: Testable t => String -> t -> (String, Property)
 makeLaw title t = (title, checkCoverage $ property t)
@@ -80,9 +80,6 @@ makeProperty propertyDescription t =
             & fmap replaceSpecialChars
         ]
       where
-        replaceSpecialChars = \case
-            'λ'   -> '\\'
-            other -> other
 
 makeProperty0
     :: forall a t. Testable t
@@ -131,4 +128,9 @@ makeProperty3 p (evalTuple3 -> (a, b, c))
 
 report :: (Show a, Testable prop) => String -> a -> prop -> Property
 report name a = counterexample $
-    name <> ":\n" <> show a <> "\n"
+    (replaceSpecialChars <$> name) <> ":\n" <> show a <> "\n"
+
+replaceSpecialChars :: Char -> Char
+replaceSpecialChars = \case
+    'λ'   -> '\\'
+    other -> other

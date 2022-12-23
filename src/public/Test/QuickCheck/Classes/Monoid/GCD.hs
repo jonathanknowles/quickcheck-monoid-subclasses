@@ -183,6 +183,12 @@ gcdMonoidLaw_gcd_commonPrefix a b =
     makeProperty
         "gcd a b == commonPrefix a b"
         (gcd a b == commonPrefix a b)
+    & cover
+        "gcd a b /= mempty"
+        (gcd a b /= mempty)
+    & cover
+        "commonPrefix a b /= mempty"
+        (commonPrefix a b /= mempty)
     & report
         "gcd a b"
         (gcd a b)
@@ -196,6 +202,12 @@ gcdMonoidLaw_gcd_commonSuffix a b =
     makeProperty
         "gcd a b == commonSuffix a b"
         (gcd a b == commonSuffix a b)
+    & cover
+        "gcd a b /= mempty"
+        (gcd a b /= mempty)
+    & cover
+        "commonSuffix a b /= mempty"
+        (commonSuffix a b /= mempty)
     & report
         "gcd a b"
         (gcd a b)
@@ -209,6 +221,12 @@ gcdMonoidLaw_gcd_reduction_1 a b =
     makeProperty
         "isJust (a </> gcd a b)"
         (isJust (a </> gcd a b))
+    & cover
+        "gcd a b /= mempty"
+        (gcd a b /= mempty)
+    & cover
+        "(a </> gcd a b) /= mempty"
+        ((a </> gcd a b) /= mempty)
     & report
         "gcd a b"
         (gcd a b)
@@ -222,6 +240,12 @@ gcdMonoidLaw_gcd_reduction_2 a b =
     makeProperty
         "isJust (b </> gcd a b)"
         (isJust (b </> gcd a b))
+    & cover
+        "gcd a b /= mempty"
+        (gcd a b /= mempty)
+    & cover
+        "(b </> gcd a b) /= mempty"
+        ((b </> gcd a b) /= mempty)
     & report
         "gcd a b"
         (gcd a b)
@@ -290,6 +314,9 @@ leftGCDMonoidLaw_stripCommonPrefix_commonPrefix a b =
     makeProperty
         "stripCommonPrefix a b & λ(p, _, _) -> p == commonPrefix a b"
         (stripCommonPrefix a b & \(p, _, _) -> p == commonPrefix a b)
+    & cover
+        "commonPrefix a b /= mempty"
+        (commonPrefix a b /= mempty)
     & report
         "stripCommonPrefix a b"
         (stripCommonPrefix a b)
@@ -303,6 +330,9 @@ leftGCDMonoidLaw_stripCommonPrefix_mappend_1 a b =
     makeProperty
         "stripCommonPrefix a b & λ(p, x, _) -> p <> x == a"
         (stripCommonPrefix a b & \(p, x, _) -> p <> x == a)
+    & cover
+        "stripCommonPrefix a b & λ(p, x, _) -> p /= mempty && x /= mempty"
+        (stripCommonPrefix a b & \(p, x, _) -> p /= mempty && x /= mempty)
     & report
         "stripCommonPrefix a b"
         (stripCommonPrefix a b)
@@ -316,6 +346,9 @@ leftGCDMonoidLaw_stripCommonPrefix_mappend_2 a b =
     makeProperty
         "stripCommonPrefix a b & λ(p, _, x) -> p <> x == b"
         (stripCommonPrefix a b & \(p, _, x) -> p <> x == b)
+    & cover
+        "stripCommonPrefix a b & λ(p, _, x) -> p /= mempty && x /= mempty"
+        (stripCommonPrefix a b & \(p, _, x) -> p /= mempty && x /= mempty)
     & report
         "stripCommonPrefix a b"
         (stripCommonPrefix a b)
@@ -329,6 +362,9 @@ leftGCDMonoidLaw_stripCommonPrefix_stripPrefix_1 a b =
     makeProperty
         "stripCommonPrefix a b & λ(p, x, _) -> Just x == stripPrefix p a"
         (stripCommonPrefix a b & \(p, x, _) -> Just x == stripPrefix p a)
+    & cover
+        "stripCommonPrefix a b & λ(p, x, _) -> p /= mempty && x /= mempty"
+        (stripCommonPrefix a b & \(p, x, _) -> p /= mempty && x /= mempty)
     & report
         "stripCommonPrefix a b"
         (stripCommonPrefix a b)
@@ -342,6 +378,9 @@ leftGCDMonoidLaw_stripCommonPrefix_stripPrefix_2 a b =
     makeProperty
         "stripCommonPrefix a b & λ(p, _, x) -> Just x == stripPrefix p b"
         (stripCommonPrefix a b & \(p, _, x) -> Just x == stripPrefix p b)
+    & cover
+        "stripCommonPrefix a b & λ(p, _, x) -> p /= mempty && x /= mempty"
+        (stripCommonPrefix a b & \(p, _, x) -> p /= mempty && x /= mempty)
     & report
         "stripCommonPrefix a b"
         (stripCommonPrefix a b)
@@ -411,6 +450,9 @@ overlappingGCDMonoidLaw_overlap_stripPrefixOverlap a b =
     makeProperty
         "overlap a b <> stripPrefixOverlap a b == b"
         (overlap a b <> stripPrefixOverlap a b == b)
+    & cover
+        "overlap a b /= mempty && stripPrefixOverlap a b /= mempty"
+        (overlap a b /= mempty && stripPrefixOverlap a b /= mempty)
     & report
         "overlap a b"
         (overlap a b)
@@ -427,6 +469,9 @@ overlappingGCDMonoidLaw_overlap_stripSuffixOverlap a b =
     makeProperty
         "stripSuffixOverlap b a <> overlap a b == a"
         (stripSuffixOverlap b a <> overlap a b == a)
+    & cover
+        "stripSuffixOverlap b a /= mempty && overlap a b /= mempty"
+        (stripSuffixOverlap b a /= mempty && overlap a b /= mempty)
     & report
         "stripSuffixOverlap b a"
         (stripSuffixOverlap b a)
@@ -443,6 +488,9 @@ overlappingGCDMonoidLaw_stripOverlap_overlap a b =
     makeProperty
         "stripOverlap a b & λ(_, x, _) -> x == overlap a b"
         (stripOverlap a b & \(_, x, _) -> x == overlap a b)
+    & cover
+        "overlap a b /= mempty"
+        (overlap a b /= mempty)
     & report
         "stripOverlap a b"
         (stripOverlap a b)
@@ -456,6 +504,9 @@ overlappingGCDMonoidLaw_stripOverlap_stripPrefixOverlap a b =
     makeProperty
         "stripOverlap a b & λ(_, _, x) -> x == stripPrefixOverlap a b"
         (stripOverlap a b & \(_, _, x) -> x == stripPrefixOverlap a b)
+    & cover
+        "stripPrefixOverlap a b /= mempty"
+        (stripPrefixOverlap a b /= mempty)
     & report
         "stripOverlap a b"
         (stripOverlap a b)
@@ -469,6 +520,9 @@ overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap a b =
     makeProperty
         "stripOverlap a b & λ(x, _, _) -> x == stripSuffixOverlap b a"
         (stripOverlap a b & \(x, _, _) -> x == stripSuffixOverlap b a)
+    & cover
+        "stripSuffixOverlap b a /= mempty"
+        (stripSuffixOverlap b a /= mempty)
     & report
         "stripOverlap a b"
         (stripOverlap a b)
@@ -537,6 +591,9 @@ rightGCDMonoidLaw_stripCommonSuffix_commonSuffix a b =
     makeProperty
         "stripCommonSuffix a b & λ(_, _, s) -> s == commonSuffix a b"
         (stripCommonSuffix a b & \(_, _, s) -> s == commonSuffix a b)
+    & cover
+        "commonSuffix a b /= mempty"
+        (commonSuffix a b /= mempty)
     & report
         "stripCommonSuffix a b"
         (stripCommonSuffix a b)
@@ -550,6 +607,9 @@ rightGCDMonoidLaw_stripCommonSuffix_mappend_1 a b =
     makeProperty
         "stripCommonSuffix a b & λ(x, _, s) -> x <> s == a"
         (stripCommonSuffix a b & \(x, _, s) -> x <> s == a)
+    & cover
+        "stripCommonSuffix a b & λ(x, _, s) -> x /= mempty && s /= mempty"
+        (stripCommonSuffix a b & \(x, _, s) -> x /= mempty && s /= mempty)
     & report
         "stripCommonSuffix a b"
         (stripCommonSuffix a b)
@@ -563,6 +623,9 @@ rightGCDMonoidLaw_stripCommonSuffix_mappend_2 a b =
     makeProperty
         "stripCommonSuffix a b & λ(_, x, s) -> x <> s == b"
         (stripCommonSuffix a b & \(_, x, s) -> x <> s == b)
+    & cover
+        "stripCommonSuffix a b & λ(_, x, s) -> x /= mempty && s /= mempty"
+        (stripCommonSuffix a b & \(_, x, s) -> x /= mempty && s /= mempty)
     & report
         "stripCommonSuffix a b"
         (stripCommonSuffix a b)
@@ -576,6 +639,9 @@ rightGCDMonoidLaw_stripCommonSuffix_stripSuffix_1 a b =
     makeProperty
         "stripCommonSuffix a b & λ(x, _, s) -> Just x == stripSuffix s a"
         (stripCommonSuffix a b & \(x, _, s) -> Just x == stripSuffix s a)
+    & cover
+        "stripCommonSuffix a b & λ(x, _, s) -> x /= mempty && s /= mempty"
+        (stripCommonSuffix a b & \(x, _, s) -> x /= mempty && s /= mempty)
     & report
         "stripCommonSuffix a b"
         (stripCommonSuffix a b)
@@ -589,6 +655,9 @@ rightGCDMonoidLaw_stripCommonSuffix_stripSuffix_2 a b =
     makeProperty
         "stripCommonSuffix a b & λ(_, x, s) -> Just x == stripSuffix s b"
         (stripCommonSuffix a b & \(_, x, s) -> Just x == stripSuffix s b)
+    & cover
+        "stripCommonSuffix a b & λ(_, x, s) -> x /= mempty && s /= mempty"
+        (stripCommonSuffix a b & \(_, x, s) -> x /= mempty && s /= mempty)
     & report
         "stripCommonSuffix a b"
         (stripCommonSuffix a b)
