@@ -65,6 +65,7 @@ import Test.QuickCheck.Classes
 -- Note that the following superclass laws are __not__ included:
 --
 -- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.commutativeLaws'
+-- * 'Test.QuickCheck.Classes.monoidLaws'
 -- * 'Test.QuickCheck.Classes.Monoid.GCD.overlappingGCDMonoidLaws'
 --
 monusLaws

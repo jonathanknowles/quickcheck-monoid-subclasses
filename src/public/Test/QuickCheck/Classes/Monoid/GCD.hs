@@ -148,6 +148,7 @@ cancellativeGCDMonoidLaw_suffix a b c =
 --
 -- Note that the following superclass laws are __not__ included:
 --
+-- * 'Test.QuickCheck.Classes.monoidLaws'
 -- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.commutativeLaws'
 -- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.reductiveLaws'
 -- * 'Test.QuickCheck.Classes.Monoid.GCD.leftGCDMonoidLaws'
@@ -255,6 +256,7 @@ gcdMonoidLaw_gcd_reduction_2 a b =
 --
 -- Note that the following superclass laws are __not__ included:
 --
+-- * 'Test.QuickCheck.Classes.monoidLaws'
 -- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.leftReductiveLaws'
 --
 leftGCDMonoidLaws
@@ -374,6 +376,7 @@ leftGCDMonoidLaw_stripCommonPrefix_stripPrefix_2 a b =
 --
 -- Note that the following superclass laws are __not__ included:
 --
+-- * 'Test.QuickCheck.Classes.monoidLaws'
 -- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.leftReductiveLaws'
 -- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.rightReductiveLaws'
 --
@@ -500,6 +503,7 @@ overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap a b =
 --
 -- Note that the following superclass laws are __not__ included:
 --
+-- * 'Test.QuickCheck.Classes.monoidLaws'
 -- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.rightReductiveLaws'
 --
 rightGCDMonoidLaws

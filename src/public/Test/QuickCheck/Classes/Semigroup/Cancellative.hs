@@ -118,6 +118,10 @@ cancellativeLaw_cancellation_suffix a b =
 -- a '<>' b '==' b '<>' a
 -- @
 --
+-- Note that the following superclass laws are __not__ included:
+--
+-- * 'Test.QuickCheck.Classes.semigroupLaws'
+--
 commutativeLaws
     :: forall a. (Arbitrary a, Show a, Eq a, Commutative a)
     => Proxy a
@@ -202,6 +206,10 @@ leftCancellativeLaw_cancellation a b =
 -- @
 -- 'maybe' b (a '<>') ('stripPrefix' a b) '==' b
 -- @
+--
+-- Note that the following superclass laws are __not__ included:
+--
+-- * 'Test.QuickCheck.Classes.semigroupLaws'
 --
 leftReductiveLaws
     :: forall a. (Arbitrary a, Show a, Eq a, LeftReductive a)
@@ -414,6 +422,10 @@ rightCancellativeLaw_cancellation a b =
 -- @
 -- 'maybe' b ('<>' a) ('stripSuffix' a b) '==' b
 -- @
+--
+-- Note that the following superclass laws are __not__ included:
+--
+-- * 'Test.QuickCheck.Classes.semigroupLaws'
 --
 rightReductiveLaws
     :: forall a. (Arbitrary a, Show a, Eq a, RightReductive a)

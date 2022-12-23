@@ -43,6 +43,10 @@ import Test.QuickCheck.Classes
 -- 'null' a '==' (a '==' 'mempty')
 -- @
 --
+-- Note that the following superclass laws are __not__ included:
+--
+-- * 'Test.QuickCheck.Classes.monoidLaws'
+--
 monoidNullLaws
     :: forall a. (Arbitrary a, Show a, Eq a, MonoidNull a)
     => Proxy a
