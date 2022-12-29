@@ -43,7 +43,7 @@ common dependency-semigroupoids
 common dependency-text
     build-depends:text                      >= 1.2.4.1      && < 2.1
 common dependency-vector
-    build-depends:vector                    >= 0.13.0.0     && < 0.14
+    build-depends:vector                    >= 0.12.3.1     && < 0.14
 
 common extensions
     default-extensions:
