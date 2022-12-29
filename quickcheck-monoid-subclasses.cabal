@@ -160,7 +160,7 @@ description:
   isPrefixOf a (b <> a) == isJust (stripPrefix a (b <> a))
   @
 
-extra-source-files:
+extra-doc-files:
     README.md
 
 common dependency-base
