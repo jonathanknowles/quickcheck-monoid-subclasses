@@ -217,7 +217,7 @@ library
       , dependency-quickcheck-classes
       , extensions
     build-depends:
-      , quickcheck-monoid-subclasses:internal
+      , internal
     default-language:
         Haskell2010
     hs-source-dirs:
@@ -254,8 +254,8 @@ library prelude
       , dependency-quickcheck-instances
       , extensions
     build-depends:
+      , internal
       , quickcheck-monoid-subclasses
-      , quickcheck-monoid-subclasses:internal
     default-language:
         Haskell2010
     hs-source-dirs:
