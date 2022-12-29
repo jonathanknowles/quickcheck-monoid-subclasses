@@ -11,10 +11,8 @@ category:       Testing
 synopsis:       Testing monoid subclass instances with QuickCheck
 description:
 
-  [QuickCheck](https://hackage.haskell.org/package/QuickCheck) support for
-  testing instances of type classes defined in the
-  [monoid-subclasses](https://hackage.haskell.org/package/monoid-subclasses)
-  library.
+  QuickCheck support for testing instances of type classes defined in the
+  monoid-subclasses library.
 
 extra-doc-files:
     CHANGELOG.md
