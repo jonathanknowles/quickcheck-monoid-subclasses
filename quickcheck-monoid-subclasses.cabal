@@ -161,6 +161,7 @@ description:
   @
 
 extra-doc-files:
+    CHANGELOG.md
     README.md
 
 common dependency-base
