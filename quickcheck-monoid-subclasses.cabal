@@ -1,6 +1,6 @@
 cabal-version:  3.0
 name:           quickcheck-monoid-subclasses
-version:        0.0.0.0
+version:        0.0.0.1
 bug-reports:    https://github.com/jonathanknowles/quickcheck-monoid-subclasses/issues
 license:        Apache-2.0
 license-file:   LICENSE
@@ -43,7 +43,7 @@ common dependency-semigroupoids
 common dependency-text
     build-depends:text                      >= 1.2.4.1      && < 2.1
 common dependency-vector
-    build-depends:vector                    >= 0.13.0.0     && < 0.14
+    build-depends:vector                    >= 0.12.3.1     && < 0.14
 
 common extensions
     default-extensions:
