@@ -78,6 +78,7 @@ library
         src/public
     exposed-modules:
         Test.QuickCheck.Classes.Monoid.GCD
+        Test.QuickCheck.Classes.Monoid.LCM
         Test.QuickCheck.Classes.Monoid.Monus
         Test.QuickCheck.Classes.Monoid.Null
         Test.QuickCheck.Classes.Semigroup.Cancellative
