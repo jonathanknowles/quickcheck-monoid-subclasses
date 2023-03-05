@@ -131,22 +131,24 @@ cancellativeGCDMonoidLaw_suffix a b c =
 
 -- | 'Laws' for instances of 'GCDMonoid'.
 --
--- Tests the following laws:
+-- Includes the following laws:
 --
--- @
--- 'gcd' a b '==' 'commonPrefix' a b
--- @
---
--- @
--- 'gcd' a b '==' 'commonSuffix' a b
--- @
+-- __/Reductivity/__
 --
 -- @
 -- 'isJust' (a '</>' 'gcd' a b)
 -- @
---
 -- @
 -- 'isJust' (b '</>' 'gcd' a b)
+-- @
+--
+-- __/Equivalence/__
+--
+-- @
+-- 'gcd' a b '==' 'commonPrefix' a b
+-- @
+-- @
+-- 'gcd' a b '==' 'commonSuffix' a b
 -- @
 --
 -- Note that the following superclass laws are __not__ included:
@@ -164,60 +166,22 @@ gcdMonoidLaws
     -> Laws
 gcdMonoidLaws _ = Laws "GCDMonoid"
     [ makeLaw2 @a
-        "gcdMonoidLaw_gcd_commonPrefix"
-        (gcdMonoidLaw_gcd_commonPrefix)
+        "gcdMonoidLaw_reductivity_left"
+        (gcdMonoidLaw_reductivity_left)
     , makeLaw2 @a
-        "gcdMonoidLaw_gcd_commonSuffix"
-        (gcdMonoidLaw_gcd_commonSuffix)
+        "gcdMonoidLaw_reductivity_right"
+        (gcdMonoidLaw_reductivity_right)
     , makeLaw2 @a
-        "gcdMonoidLaw_gcd_reduction_1"
-        (gcdMonoidLaw_gcd_reduction_1)
+        "gcdMonoidLaw_equivalence_commonPrefix"
+        (gcdMonoidLaw_equivalence_commonPrefix)
     , makeLaw2 @a
-        "gcdMonoidLaw_gcd_reduction_2"
-        (gcdMonoidLaw_gcd_reduction_2)
+        "gcdMonoidLaw_equivalence_commonSuffix"
+        (gcdMonoidLaw_equivalence_commonSuffix)
     ]
 
-gcdMonoidLaw_gcd_commonPrefix
+gcdMonoidLaw_reductivity_left
     :: (Eq a, Show a, GCDMonoid a) => a -> a -> Property
-gcdMonoidLaw_gcd_commonPrefix a b =
-    makeProperty
-        "gcd a b == commonPrefix a b"
-        (gcd a b == commonPrefix a b)
-    & cover
-        "gcd a b /= mempty"
-        (gcd a b /= mempty)
-    & cover
-        "commonPrefix a b /= mempty"
-        (commonPrefix a b /= mempty)
-    & report
-        "gcd a b"
-        (gcd a b)
-    & report
-        "commonPrefix a b"
-        (commonPrefix a b)
-
-gcdMonoidLaw_gcd_commonSuffix
-    :: (Eq a, Show a, GCDMonoid a) => a -> a -> Property
-gcdMonoidLaw_gcd_commonSuffix a b =
-    makeProperty
-        "gcd a b == commonSuffix a b"
-        (gcd a b == commonSuffix a b)
-    & cover
-        "gcd a b /= mempty"
-        (gcd a b /= mempty)
-    & cover
-        "commonSuffix a b /= mempty"
-        (commonSuffix a b /= mempty)
-    & report
-        "gcd a b"
-        (gcd a b)
-    & report
-        "commonSuffix a b"
-        (commonSuffix a b)
-
-gcdMonoidLaw_gcd_reduction_1
-    :: (Eq a, Show a, GCDMonoid a) => a -> a -> Property
-gcdMonoidLaw_gcd_reduction_1 a b =
+gcdMonoidLaw_reductivity_left a b =
     makeProperty
         "isJust (a </> gcd a b)"
         (isJust (a </> gcd a b))
@@ -234,9 +198,9 @@ gcdMonoidLaw_gcd_reduction_1 a b =
         "a </> gcd a b"
         (a </> gcd a b)
 
-gcdMonoidLaw_gcd_reduction_2
+gcdMonoidLaw_reductivity_right
     :: (Eq a, Show a, GCDMonoid a) => a -> a -> Property
-gcdMonoidLaw_gcd_reduction_2 a b =
+gcdMonoidLaw_reductivity_right a b =
     makeProperty
         "isJust (b </> gcd a b)"
         (isJust (b </> gcd a b))
@@ -252,6 +216,44 @@ gcdMonoidLaw_gcd_reduction_2 a b =
     & report
         "b </> gcd a b"
         (b </> gcd a b)
+
+gcdMonoidLaw_equivalence_commonPrefix
+    :: (Eq a, Show a, GCDMonoid a) => a -> a -> Property
+gcdMonoidLaw_equivalence_commonPrefix a b =
+    makeProperty
+        "gcd a b == commonPrefix a b"
+        (gcd a b == commonPrefix a b)
+    & cover
+        "gcd a b /= mempty"
+        (gcd a b /= mempty)
+    & cover
+        "commonPrefix a b /= mempty"
+        (commonPrefix a b /= mempty)
+    & report
+        "gcd a b"
+        (gcd a b)
+    & report
+        "commonPrefix a b"
+        (commonPrefix a b)
+
+gcdMonoidLaw_equivalence_commonSuffix
+    :: (Eq a, Show a, GCDMonoid a) => a -> a -> Property
+gcdMonoidLaw_equivalence_commonSuffix a b =
+    makeProperty
+        "gcd a b == commonSuffix a b"
+        (gcd a b == commonSuffix a b)
+    & cover
+        "gcd a b /= mempty"
+        (gcd a b /= mempty)
+    & cover
+        "commonSuffix a b /= mempty"
+        (commonSuffix a b /= mempty)
+    & report
+        "gcd a b"
+        (gcd a b)
+    & report
+        "commonSuffix a b"
+        (commonSuffix a b)
 
 --------------------------------------------------------------------------------
 -- LeftGCDMonoid
