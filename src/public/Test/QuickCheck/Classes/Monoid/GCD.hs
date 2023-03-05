@@ -35,7 +35,7 @@ import Data.Proxy
 import Data.Semigroup.Cancellative
     ( Cancellative, LeftReductive (..), Reductive (..), RightReductive (..) )
 import Internal
-    ( cover, makeLaw2, makeLaw3, makeProperty, report )
+    ( cover, makeLaw1, makeLaw2, makeLaw3, makeProperty, report, (==>) )
 import Test.QuickCheck
     ( Arbitrary (..), Property )
 import Test.QuickCheck.Classes
@@ -142,6 +142,54 @@ cancellativeGCDMonoidLaw_suffix a b c =
 -- 'isJust' (b '</>' 'gcd' a b)
 -- @
 --
+-- __/Uniqueness/__
+--
+-- @
+-- 'all' 'isJust'
+--     [ a '</>' c
+--     , b '</>' c
+--     , c '</>' 'gcd' a b
+--     ]
+-- ==>
+--     (c '==' 'gcd' a b)
+-- @
+--
+-- __/Idempotence/__
+--
+-- @
+-- 'gcd' a a '==' a
+-- @
+--
+-- __/Identity/__
+--
+-- @
+-- 'gcd' 'mempty' a '==' 'mempty'
+-- @
+-- @
+-- 'gcd' a 'mempty' '==' 'mempty'
+-- @
+--
+-- __/Commutativity/__
+--
+-- @
+-- 'gcd' a b '==' 'gcd' b a
+-- @
+--
+-- __/Associativity/__
+--
+-- @
+-- 'gcd' ('gcd' a b) c '==' 'gcd' a ('gcd' b c)
+-- @
+--
+-- __/Distributivity/__
+--
+-- @
+-- 'gcd' (a '<>' b) (a '<>' c) '==' a '<>' 'gcd' b c
+-- @
+-- @
+-- 'gcd' (a '<>' c) (b '<>' c) '==' 'gcd' a b '<>' c
+-- @
+--
 -- __/Equivalence/__
 --
 -- @
@@ -171,6 +219,30 @@ gcdMonoidLaws _ = Laws "GCDMonoid"
     , makeLaw2 @a
         "gcdMonoidLaw_reductivity_right"
         (gcdMonoidLaw_reductivity_right)
+    , makeLaw3 @a
+        "gcdMonoidLaw_uniqueness"
+        (gcdMonoidLaw_uniqueness)
+    , makeLaw1 @a
+        "gcdMonoidLaw_idempotence"
+        (gcdMonoidLaw_idempotence)
+    , makeLaw1 @a
+        "gcdMonoidLaw_identity_left"
+        (gcdMonoidLaw_identity_left)
+    , makeLaw1 @a
+        "gcdMonoidLaw_identity_right"
+        (gcdMonoidLaw_identity_right)
+    , makeLaw2 @a
+        "gcdMonoidLaw_commutativity"
+        (gcdMonoidLaw_commutativity)
+    , makeLaw3 @a
+        "gcdMonoidLaw_associativity"
+        (gcdMonoidLaw_associativity)
+    , makeLaw3 @a
+        "gcdMonoidLaw_distributivity_left"
+        (gcdMonoidLaw_distributivity_left)
+    , makeLaw3 @a
+        "gcdMonoidLaw_distributivity_right"
+        (gcdMonoidLaw_distributivity_right)
     , makeLaw2 @a
         "gcdMonoidLaw_equivalence_commonPrefix"
         (gcdMonoidLaw_equivalence_commonPrefix)
@@ -216,6 +288,161 @@ gcdMonoidLaw_reductivity_right a b =
     & report
         "b </> gcd a b"
         (b </> gcd a b)
+
+gcdMonoidLaw_uniqueness
+    :: (Eq a, Show a, GCDMonoid a) => a -> a -> a -> Property
+gcdMonoidLaw_uniqueness a b c =
+    makeProperty
+        "all isJust [a </> c, b </> c, c </> gcd a b] ==> (c == gcd a b)"
+        (all isJust [a </> c, b </> c, c </> gcd a b] ==> (c == gcd a b))
+    & cover
+        "all isJust [a </> c, b </> c, c </> gcd a b]"
+        (all isJust [a </> c, b </> c, c </> gcd a b])
+    & cover
+        "not (all isJust [a </> c, b </> c, c </> gcd a b])"
+        (not (all isJust [a </> c, b </> c, c </> gcd a b]))
+    & cover
+        "c == gcd a b"
+        (c == gcd a b)
+    & cover
+        "c /= gcd a b"
+        (c /= gcd a b)
+    & report
+        "gcd a b"
+        (gcd a b)
+    & report
+        "c </> gcd a b"
+        (c </> gcd a b)
+    & report
+        "a </> c"
+        (a </> c)
+    & report
+        "b </> c"
+        (b </> c)
+
+gcdMonoidLaw_idempotence
+    :: (Eq a, Show a, GCDMonoid a) => a -> Property
+gcdMonoidLaw_idempotence a =
+    makeProperty
+        "gcd a a == a"
+        (gcd a a == a)
+    & report
+        "gcd a a"
+        (gcd a a)
+
+gcdMonoidLaw_identity_left
+    :: (Eq a, Show a, GCDMonoid a) => a -> Property
+gcdMonoidLaw_identity_left a =
+    makeProperty
+        "gcd mempty a == mempty"
+        (gcd mempty a == mempty)
+    & cover
+        "a /= mempty"
+        (a /= mempty)
+    & report
+        "gcd mempty a"
+        (gcd mempty a)
+
+gcdMonoidLaw_identity_right
+    :: (Eq a, Show a, GCDMonoid a) => a -> Property
+gcdMonoidLaw_identity_right a =
+    makeProperty
+        "gcd a mempty == mempty"
+        (gcd a mempty == mempty)
+    & cover
+        "a /= mempty"
+        (a /= mempty)
+    & report
+        "gcd a mempty"
+        (gcd a mempty)
+
+gcdMonoidLaw_commutativity
+    :: (Eq a, Show a, GCDMonoid a) => a -> a -> Property
+gcdMonoidLaw_commutativity a b =
+    makeProperty
+        "gcd a b == gcd b a"
+        (gcd a b == gcd b a)
+    & cover
+        "gcd a b == mempty"
+        (gcd a b == mempty)
+    & cover
+        "gcd a b /= mempty"
+        (gcd a b /= mempty)
+    & report
+        "gcd a b"
+        (gcd a b)
+    & report
+        "gcd b a"
+        (gcd b a)
+
+gcdMonoidLaw_associativity
+    :: (Eq a, Show a, GCDMonoid a) => a -> a -> a -> Property
+gcdMonoidLaw_associativity a b c =
+    makeProperty
+        "gcd (gcd a b) c == gcd a (gcd b c)"
+        (gcd (gcd a b) c == gcd a (gcd b c))
+    & cover
+        "gcd a b /= mempty"
+        (gcd a b /= mempty)
+    & cover
+        "gcd b c /= mempty"
+        (gcd b c /= mempty)
+    & report
+        "gcd a b"
+        (gcd a b)
+    & report
+        "gcd (gcd a b) c"
+        (gcd (gcd a b) c)
+    & report
+        "gcd b c"
+        (gcd b c)
+    & report
+        "gcd a (gcd b c)"
+        (gcd a (gcd b c))
+
+gcdMonoidLaw_distributivity_left
+    :: (Eq a, Show a, GCDMonoid a) => a -> a -> a -> Property
+gcdMonoidLaw_distributivity_left a b c =
+    makeProperty
+        "gcd (a <> b) (a <> c) == a <> gcd b c"
+        (gcd (a <> b) (a <> c) == a <> gcd b c)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "a <> c"
+        (a <> c)
+    & report
+        "gcd (a <> b) (a <> c)"
+        (gcd (a <> b) (a <> c))
+    & report
+        "gcd b c"
+        (gcd b c)
+    & report
+        "a <> gcd b c"
+        (a <> gcd b c)
+
+gcdMonoidLaw_distributivity_right
+    :: (Eq a, Show a, GCDMonoid a) => a -> a -> a -> Property
+gcdMonoidLaw_distributivity_right a b c =
+    makeProperty
+        "gcd (a <> c) (b <> c) == gcd a b <> c"
+        (gcd (a <> c) (b <> c) == gcd a b <> c)
+    & report
+        "a <> c"
+        (a <> c)
+    & report
+        "b <> c"
+        (b <> c)
+    & report
+        "gcd (a <> c) (b <> c)"
+        (gcd (a <> c) (b <> c))
+    & report
+        "gcd a b"
+        (gcd a b)
+    & report
+        "gcd a b <> c"
+        (gcd a b <> c)
 
 gcdMonoidLaw_equivalence_commonPrefix
     :: (Eq a, Show a, GCDMonoid a) => a -> a -> Property
