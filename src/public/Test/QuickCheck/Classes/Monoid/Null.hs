@@ -40,7 +40,7 @@ import Test.QuickCheck.Classes
 
 -- | 'Laws' for instances of 'MonoidNull'.
 --
--- Tests the following law:
+-- Includes the following law:
 --
 -- @
 -- 'null' a '==' (a '==' 'mempty')
@@ -85,7 +85,7 @@ monoidNullLaw_basic a =
 
 -- | 'Laws' for instances of 'PositiveMonoid'.
 --
--- Tests the following law:
+-- Includes the following law:
 --
 -- @
 -- 'null' (a '<>' b) '==' ('null' a '&&' 'null' b)
