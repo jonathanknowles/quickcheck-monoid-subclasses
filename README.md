@@ -59,12 +59,13 @@ To test that the laws of __multiple__ classes hold for a particular type, use th
 > import Test.QuickCheck.Classes.Monoid.Monus
 > import Test.QuickCheck.Classes.Monoid.Null
 > import Test.QuickCheck.Classes.Semigroup.Cancellative
-> 
+>
 > lawsCheckOne (Proxy :: Proxy (Sum Natural))
 >     [ cancellativeGCDMonoidLaws
 >     , cancellativeLaws
 >     , commutativeLaws
 >     , gcdMonoidLaws
+>     , lcmMonoidLaws
 >     , leftCancellativeLaws
 >     , leftGCDMonoidLaws
 >     , leftReductiveLaws
@@ -98,9 +99,9 @@ To increase coverage of interesting and important cases, this library also check
 > ```hs
 > isPrefixOf a b == isJust (stripPrefix a b)
 > ```
-> 
+>
 > This library will also test that the following __derived__ laws hold:
-> 
+>
 > ```hs
 > isPrefixOf a (a <> a) == isJust (stripPrefix a (a <> a))
 > isPrefixOf a (a <> b) == isJust (stripPrefix a (a <> b))
