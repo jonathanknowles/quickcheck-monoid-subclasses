@@ -63,6 +63,8 @@ import Test.QuickCheck.Classes.Monoid.GCD
     , overlappingGCDMonoidLaws
     , rightGCDMonoidLaws
     )
+import Test.QuickCheck.Classes.Monoid.LCM
+    ( lcmMonoidLaws )
 import Test.QuickCheck.Classes.Monoid.Monus
     ( monusLaws )
 import Test.QuickCheck.Classes.Monoid.Null
@@ -94,6 +96,7 @@ spec = do
         , cancellativeLaws
         , commutativeLaws
         , gcdMonoidLaws
+        , lcmMonoidLaws
         , leftCancellativeLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
@@ -155,6 +158,7 @@ spec = do
         , gcdMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
+        , lcmMonoidLaws
         , monoidNullLaws
         , monusLaws
         , overlappingGCDMonoidLaws
@@ -168,6 +172,7 @@ spec = do
         , gcdMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
+        , lcmMonoidLaws
         , monoidNullLaws
         , monusLaws
         , overlappingGCDMonoidLaws
@@ -186,6 +191,7 @@ spec = do
     testLawsMany @(Product Natural)
         [ commutativeLaws
         , gcdMonoidLaws
+        , lcmMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
@@ -211,6 +217,7 @@ spec = do
         , cancellativeLaws
         , commutativeLaws
         , gcdMonoidLaws
+        , lcmMonoidLaws
         , leftCancellativeLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
@@ -329,6 +336,7 @@ spec = do
         , cancellativeLaws
         , commutativeLaws
         , gcdMonoidLaws
+        , lcmMonoidLaws
         , leftCancellativeLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
