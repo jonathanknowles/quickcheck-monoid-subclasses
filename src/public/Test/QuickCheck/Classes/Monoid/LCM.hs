@@ -98,15 +98,6 @@ import Test.QuickCheck.Classes
 -- 'lcm' ('lcm' a b) c '==' 'lcm' a ('lcm' b c)
 -- @
 --
--- __/Absorption/__
---
--- @
--- 'lcm' a ('gcd' a b) '==' a
--- @
--- @
--- 'gcd' a ('lcm' a b) '==' a
--- @
---
 -- __/Distributivity/__
 --
 -- @
@@ -120,6 +111,15 @@ import Test.QuickCheck.Classes
 -- @
 -- @
 -- 'gcd' a ('lcm' b c) '==' 'lcm' ('gcd' a b) ('gcd' a c)
+-- @
+--
+-- __/Absorption/__
+--
+-- @
+-- 'lcm' a ('gcd' a b) '==' a
+-- @
+-- @
+-- 'gcd' a ('lcm' a b) '==' a
 -- @
 --
 -- Note that the following superclass laws are __not__ included:
@@ -155,12 +155,6 @@ lcmMonoidLaws _ = Laws "LCMMonoid"
     , makeLaw3 @a
         "lcmMonoidLaw_associativity"
         (lcmMonoidLaw_associativity)
-    , makeLaw2 @a
-        "lcmMonoidLaw_absorption_gcd_lcm"
-        (lcmMonoidLaw_absorption_gcd_lcm)
-    , makeLaw2 @a
-        "lcmMonoidLaw_absorption_lcm_gcd"
-        (lcmMonoidLaw_absorption_lcm_gcd)
     , makeLaw3 @a
         "lcmMonoidLaw_distributivity_left"
         (lcmMonoidLaw_distributivity_left)
@@ -173,6 +167,12 @@ lcmMonoidLaws _ = Laws "LCMMonoid"
     , makeLaw3 @a
         "lcmMonoidLaw_distributivity_lcm_gcd"
         (lcmMonoidLaw_distributivity_lcm_gcd)
+    , makeLaw2 @a
+        "lcmMonoidLaw_absorption_gcd_lcm"
+        (lcmMonoidLaw_absorption_gcd_lcm)
+    , makeLaw2 @a
+        "lcmMonoidLaw_absorption_lcm_gcd"
+        (lcmMonoidLaw_absorption_lcm_gcd)
     ]
 
 lcmMonoidLaw_reductivity_left
@@ -324,44 +324,6 @@ lcmMonoidLaw_associativity a b c =
         "lcm a (lcm b c)"
         (lcm a (lcm b c))
 
-lcmMonoidLaw_absorption_gcd_lcm
-    :: (Eq a, Show a, LCMMonoid a) => a -> a -> Property
-lcmMonoidLaw_absorption_gcd_lcm a b =
-    makeProperty
-        "lcm a (gcd a b) == a"
-        (lcm a (gcd a b) == a)
-    & cover
-        "gcd a b == mempty"
-        (gcd a b == mempty)
-    & cover
-        "gcd a b /= mempty"
-        (gcd a b /= mempty)
-    & report
-        "gcd a b"
-        (gcd a b)
-    & report
-        "lcm a (gcd a b)"
-        (lcm a (gcd a b))
-
-lcmMonoidLaw_absorption_lcm_gcd
-    :: (Eq a, Show a, LCMMonoid a) => a -> a -> Property
-lcmMonoidLaw_absorption_lcm_gcd a b =
-    makeProperty
-        "gcd a (lcm a b) == a"
-        (gcd a (lcm a b) == a)
-    & cover
-        "gcd a b == mempty"
-        (gcd a b == mempty)
-    & cover
-        "gcd a b /= mempty"
-        (gcd a b /= mempty)
-    & report
-        "lcm a b"
-        (lcm a b)
-    & report
-        "gcd a (lcm a b)"
-        (gcd a (lcm a b))
-
 lcmMonoidLaw_distributivity_left
     :: (Eq a, Show a, LCMMonoid a) => a -> a -> a -> Property
 lcmMonoidLaw_distributivity_left a b c =
@@ -419,3 +381,41 @@ lcmMonoidLaw_distributivity_lcm_gcd a b c =
     makeProperty
         "gcd a (lcm b c) == lcm (gcd a b) (gcd a c)"
         (gcd a (lcm b c) == lcm (gcd a b) (gcd a c))
+
+lcmMonoidLaw_absorption_gcd_lcm
+    :: (Eq a, Show a, LCMMonoid a) => a -> a -> Property
+lcmMonoidLaw_absorption_gcd_lcm a b =
+    makeProperty
+        "lcm a (gcd a b) == a"
+        (lcm a (gcd a b) == a)
+    & cover
+        "gcd a b == mempty"
+        (gcd a b == mempty)
+    & cover
+        "gcd a b /= mempty"
+        (gcd a b /= mempty)
+    & report
+        "gcd a b"
+        (gcd a b)
+    & report
+        "lcm a (gcd a b)"
+        (lcm a (gcd a b))
+
+lcmMonoidLaw_absorption_lcm_gcd
+    :: (Eq a, Show a, LCMMonoid a) => a -> a -> Property
+lcmMonoidLaw_absorption_lcm_gcd a b =
+    makeProperty
+        "gcd a (lcm a b) == a"
+        (gcd a (lcm a b) == a)
+    & cover
+        "gcd a b == mempty"
+        (gcd a b == mempty)
+    & cover
+        "gcd a b /= mempty"
+        (gcd a b /= mempty)
+    & report
+        "lcm a b"
+        (lcm a b)
+    & report
+        "gcd a (lcm a b)"
+        (gcd a (lcm a b))
