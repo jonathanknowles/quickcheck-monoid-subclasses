@@ -40,7 +40,7 @@ import Test.QuickCheck.Classes.Monoid.GCD
 
 -- | 'Laws' for instances of 'Monus'.
 --
--- Tests the following laws:
+-- Includes the following laws:
 --
 -- @
 -- a '<\>' a '==' 'mempty'
