@@ -115,7 +115,7 @@ cancellativeLaw_cancellation_suffix a b =
 
 -- | 'Laws' for instances of 'Commutative'.
 --
--- Tests the following law:
+-- Includes the following law:
 --
 -- @
 -- a '<>' b '==' b '<>' a
@@ -157,7 +157,7 @@ commutativeLaw_basic a b =
 
 -- | 'Laws' for instances of 'LeftCancellative'.
 --
--- Tests the following law:
+-- Includes the following law:
 --
 -- @
 -- 'stripPrefix' a (a '<>' b) '==' 'Just' b
@@ -373,7 +373,7 @@ reductiveLaw_inversion_suffix a b =
 
 -- | 'Laws' for instances of 'RightCancellative'.
 --
--- Tests the following law:
+-- Includes the following law:
 --
 -- @
 -- 'stripSuffix' b (a '<>' b) '==' 'Just' a
