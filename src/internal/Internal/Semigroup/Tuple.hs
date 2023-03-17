@@ -1,3 +1,5 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE NamedFieldPuns #-}
 {- HLINT ignore "Redundant bracket" -}
 
 -- |
@@ -9,8 +11,17 @@ module Internal.Semigroup.Tuple
 
 import Data.List.NonEmpty
     ( NonEmpty (..) )
+import GHC.Generics
+    ( Generic )
 import Test.QuickCheck
-    ( Arbitrary (..), Gen, choose, shuffle, suchThatMap )
+    ( Arbitrary (..)
+    , Gen
+    , applyArbitrary4
+    , choose
+    , genericShrink
+    , shuffle
+    , suchThatMap
+    )
 import Text.Show.Pretty
     ( ppShow )
 
@@ -29,12 +40,11 @@ data Variable
     | D
     deriving (Bounded, Enum, Eq, Ord, Show)
 
-evalVariable :: (s, s, s, s) -> Variable -> s
-evalVariable (va, vb, vc, vd) = \case
-    A -> va
-    B -> vb
-    C -> vc
-    D -> vd
+evalVariable :: BindingSet s -> Variable -> s
+evalVariable BindingSet {bindingForA} A = bindingForA
+evalVariable BindingSet {bindingForB} B = bindingForB
+evalVariable BindingSet {bindingForC} C = bindingForC
+evalVariable BindingSet {bindingForD} D = bindingForD
 
 --------------------------------------------------------------------------------
 -- Semigroup combinations
@@ -57,11 +67,11 @@ arbitraryVariableSum =
         itemCount <- choose (1, 4)
         take itemCount <$> shuffle universe
 
-evalVariableSum :: (s, s, s, s) -> VariableSum -> NonEmpty s
+evalVariableSum :: BindingSet s -> VariableSum -> NonEmpty s
 evalVariableSum tuple (VariableSum selectors) =
     evalVariable tuple <$> selectors
 
-showVariableSum :: Show s => (s, s, s, s) -> VariableSum -> String
+showVariableSum :: Show s => (BindingSet s) -> VariableSum -> String
 showVariableSum tuple =
     F1.intercalateMap1 " <> " show . evalVariableSum tuple
 
@@ -69,13 +79,25 @@ showVariableSum tuple =
 -- Semigroup tuples
 --------------------------------------------------------------------------------
 
-data Tuple1 s = Tuple1 VariableSum (s, s, s, s)
+data BindingSet s = BindingSet
+    { bindingForA :: s
+    , bindingForB :: s
+    , bindingForC :: s
+    , bindingForD :: s
+    }
+    deriving (Eq, Generic, Ord)
+
+instance Arbitrary s => Arbitrary (BindingSet s) where
+    arbitrary = applyArbitrary4 BindingSet
+    shrink = genericShrink
+
+data Tuple1 s = Tuple1 VariableSum (BindingSet s)
     deriving (Eq, Ord)
 
-data Tuple2 s = Tuple2 VariableSum VariableSum (s, s, s, s)
+data Tuple2 s = Tuple2 VariableSum VariableSum (BindingSet s)
     deriving (Eq, Ord)
 
-data Tuple3 s = Tuple3 VariableSum VariableSum VariableSum (s, s, s, s)
+data Tuple3 s = Tuple3 VariableSum VariableSum VariableSum (BindingSet s)
     deriving (Eq, Ord)
 
 instance Arbitrary a => Arbitrary (Tuple1 a) where
