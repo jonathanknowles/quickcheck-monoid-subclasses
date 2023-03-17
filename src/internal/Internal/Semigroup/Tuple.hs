@@ -26,13 +26,15 @@ data Variable
     = A
     | B
     | C
+    | D
     deriving (Bounded, Enum, Eq, Ord, Show)
 
-evalVariable :: (s, s, s) -> Variable -> s
-evalVariable (a, b, c) = \case
+evalVariable :: (s, s, s, s) -> Variable -> s
+evalVariable (a, b, c, d) = \case
     A -> a
     B -> b
     C -> c
+    D -> d
 
 --------------------------------------------------------------------------------
 -- Semigroup combinations
@@ -47,14 +49,14 @@ arbitraryVariableSum =
   where
     arbitraryTupleLensList :: Gen [Variable]
     arbitraryTupleLensList = do
-        itemCount <- choose (1, 3)
+        itemCount <- choose (1, 4)
         take itemCount <$> shuffle universe
 
-evalVariableSum :: (s, s, s) -> VariableSum -> NonEmpty s
+evalVariableSum :: (s, s, s, s) -> VariableSum -> NonEmpty s
 evalVariableSum tuple (VariableSum selectors) =
     evalVariable tuple <$> selectors
 
-showVariableSum :: Show s => (s, s, s) -> VariableSum -> String
+showVariableSum :: Show s => (s, s, s, s) -> VariableSum -> String
 showVariableSum tuple =
     F1.intercalateMap1 " <> " show . evalVariableSum tuple
 
@@ -62,13 +64,13 @@ showVariableSum tuple =
 -- Semigroup tuples
 --------------------------------------------------------------------------------
 
-data Tuple1 s = Tuple1 VariableSum (s, s, s)
+data Tuple1 s = Tuple1 VariableSum (s, s, s, s)
     deriving (Eq, Ord)
 
-data Tuple2 s = Tuple2 VariableSum VariableSum (s, s, s)
+data Tuple2 s = Tuple2 VariableSum VariableSum (s, s, s, s)
     deriving (Eq, Ord)
 
-data Tuple3 s = Tuple3 VariableSum VariableSum VariableSum (s, s, s)
+data Tuple3 s = Tuple3 VariableSum VariableSum VariableSum (s, s, s, s)
     deriving (Eq, Ord)
 
 instance Arbitrary a => Arbitrary (Tuple1 a) where
