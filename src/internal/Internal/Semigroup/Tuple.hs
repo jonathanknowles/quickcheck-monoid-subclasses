@@ -71,6 +71,9 @@ bindVariableSum :: BindingSet s -> VariableSum -> NonEmpty s
 bindVariableSum tuple (VariableSum selectors) =
     bindVariable tuple <$> selectors
 
+evalVariableSum :: Semigroup s => BindingSet s -> VariableSum -> s
+evalVariableSum = (F1.fold1 .) . bindVariableSum
+
 showVariableSum :: Show s => (BindingSet s) -> VariableSum -> String
 showVariableSum tuple =
     F1.intercalateMap1 " <> " show . bindVariableSum tuple
@@ -141,20 +144,20 @@ arbitraryTuple3 = Tuple3
 
 evalTuple1 :: Semigroup s => Tuple1 s -> s
 evalTuple1 (Tuple1 c1 t) =
-    ( F1.fold1 $ bindVariableSum t c1
+    ( evalVariableSum t c1
     )
 
 evalTuple2 :: Semigroup s => Tuple2 s -> (s, s)
 evalTuple2 (Tuple2 c1 c2 t) =
-    ( F1.fold1 $ bindVariableSum t c1
-    , F1.fold1 $ bindVariableSum t c2
+    ( evalVariableSum t c1
+    , evalVariableSum t c2
     )
 
 evalTuple3 :: Semigroup s => Tuple3 s -> (s, s, s)
 evalTuple3 (Tuple3 c1 c2 c3 t) =
-    ( F1.fold1 $ bindVariableSum t c1
-    , F1.fold1 $ bindVariableSum t c2
-    , F1.fold1 $ bindVariableSum t c3
+    ( evalVariableSum t c1
+    , evalVariableSum t c2
+    , evalVariableSum t c3
     )
 
 showTuple1 :: (Semigroup a, Show a) => Tuple1 a -> String
