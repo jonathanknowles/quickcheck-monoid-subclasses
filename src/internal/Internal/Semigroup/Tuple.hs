@@ -22,14 +22,14 @@ import qualified Data.Semigroup.Foldable as F1
 -- Tuple selectors
 --------------------------------------------------------------------------------
 
-data TupleLens3
+data Variable
     = A
     | B
     | C
     deriving (Bounded, Enum, Eq, Ord, Show)
 
-evalTupleLens3 :: (s, s, s) -> TupleLens3 -> s
-evalTupleLens3 (a, b, c) = \case
+evalVariable :: (s, s, s) -> Variable -> s
+evalVariable (a, b, c) = \case
     A -> a
     B -> b
     C -> c
@@ -38,21 +38,21 @@ evalTupleLens3 (a, b, c) = \case
 -- Semigroup combinations
 --------------------------------------------------------------------------------
 
-newtype Combination3 = Combination3 (NonEmpty TupleLens3)
+newtype Combination3 = Combination3 (NonEmpty Variable)
     deriving (Eq, Ord, Show)
 
 arbitraryCombination3 :: Gen Combination3
 arbitraryCombination3 =
     Combination3 <$> arbitraryTupleLensList `suchThatMap` NE.nonEmpty
   where
-    arbitraryTupleLensList :: Gen [TupleLens3]
+    arbitraryTupleLensList :: Gen [Variable]
     arbitraryTupleLensList = do
         itemCount <- choose (1, 3)
         take itemCount <$> shuffle universe
 
 evalCombination3 :: (s, s, s) -> Combination3 -> NonEmpty s
 evalCombination3 tuple (Combination3 selectors) =
-    evalTupleLens3 tuple <$> selectors
+    evalVariable tuple <$> selectors
 
 showCombination3 :: Show s => (s, s, s) -> Combination3 -> String
 showCombination3 tuple =
