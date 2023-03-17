@@ -128,15 +128,15 @@ data Tuple3 s = Tuple3 VariableSum VariableSum VariableSum (BindingSet s)
     deriving (Eq, Ord)
 
 instance Arbitrary a => Arbitrary (Tuple1 a) where
-    arbitrary = arbitraryTuple1
+    arbitrary = genTuple1
     shrink = shrinkTuple1
 
 instance Arbitrary a => Arbitrary (Tuple2 a) where
-    arbitrary = arbitraryTuple2
+    arbitrary = genTuple2
     shrink = shrinkTuple2
 
 instance Arbitrary a => Arbitrary (Tuple3 a) where
-    arbitrary = arbitraryTuple3
+    arbitrary = genTuple3
     shrink = shrinkTuple3
 
 instance (Show s, Semigroup s) => Show (Tuple1 s) where
@@ -148,14 +148,14 @@ instance (Show s, Semigroup s) => Show (Tuple2 s) where
 instance (Show s, Semigroup s) => Show (Tuple3 s) where
     show = showTuple3
 
-arbitraryTuple1 :: Arbitrary a => Gen (Tuple1 a)
-arbitraryTuple1 = applyArbitrary2 Tuple1
+genTuple1 :: Arbitrary a => Gen (Tuple1 a)
+genTuple1 = applyArbitrary2 Tuple1
 
-arbitraryTuple2 :: Arbitrary a => Gen (Tuple2 a)
-arbitraryTuple2 = applyArbitrary3 Tuple2
+genTuple2 :: Arbitrary a => Gen (Tuple2 a)
+genTuple2 = applyArbitrary3 Tuple2
 
-arbitraryTuple3 :: forall a. Arbitrary a => Gen (Tuple3 a)
-arbitraryTuple3 = applyArbitrary4 Tuple3
+genTuple3 :: forall a. Arbitrary a => Gen (Tuple3 a)
+genTuple3 = applyArbitrary4 Tuple3
 
 evalTuple1 :: Semigroup s => Tuple1 s -> s
 evalTuple1 (Tuple1 c1 t) =
