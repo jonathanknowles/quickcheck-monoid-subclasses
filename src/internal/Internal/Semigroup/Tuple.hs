@@ -93,6 +93,16 @@ data BindingSet s = BindingSet
     }
     deriving (Eq, Generic, Ord)
 
+instance Show s => Show (BindingSet s) where
+    show (BindingSet va vb vc vd) = mconcat
+        [ "BindingSet {"
+        , "a = " <> show va <> ", "
+        , "b = " <> show vb <> ", "
+        , "c = " <> show vc <> ", "
+        , "d = " <> show vd
+        , "}"
+        ]
+
 instance Arbitrary s => Arbitrary (BindingSet s) where
     arbitrary = applyArbitrary4 BindingSet
     shrink = genericShrink
