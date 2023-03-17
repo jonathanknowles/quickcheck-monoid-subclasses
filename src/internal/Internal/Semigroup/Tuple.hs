@@ -16,6 +16,8 @@ import GHC.Generics
 import Test.QuickCheck
     ( Arbitrary (..)
     , Gen
+    , applyArbitrary2
+    , applyArbitrary3
     , applyArbitrary4
     , choose
     , genericShrink
@@ -52,6 +54,9 @@ bindVariable BindingSet {bindingForD} D = bindingForD
 
 newtype VariableSum = VariableSum (NonEmpty Variable)
     deriving (Eq, Ord)
+
+instance Arbitrary VariableSum where
+    arbitrary = arbitraryVariableSum
 
 instance Show VariableSum where
     show (VariableSum vs) = F1.intercalate1 " <> " $ show <$> vs
@@ -144,22 +149,13 @@ instance (Show s, Semigroup s) => Show (Tuple3 s) where
     show = showTuple3
 
 arbitraryTuple1 :: Arbitrary a => Gen (Tuple1 a)
-arbitraryTuple1 = Tuple1
-    <$> arbitraryVariableSum
-    <*> arbitrary
+arbitraryTuple1 = applyArbitrary2 Tuple1
 
 arbitraryTuple2 :: Arbitrary a => Gen (Tuple2 a)
-arbitraryTuple2 = Tuple2
-    <$> arbitraryVariableSum
-    <*> arbitraryVariableSum
-    <*> arbitrary
+arbitraryTuple2 = applyArbitrary3 Tuple2
 
-arbitraryTuple3 :: Arbitrary a => Gen (Tuple3 a)
-arbitraryTuple3 = Tuple3
-    <$> arbitraryVariableSum
-    <*> arbitraryVariableSum
-    <*> arbitraryVariableSum
-    <*> arbitrary
+arbitraryTuple3 :: forall a. Arbitrary a => Gen (Tuple3 a)
+arbitraryTuple3 = applyArbitrary4 Tuple3
 
 evalTuple1 :: Semigroup s => Tuple1 s -> s
 evalTuple1 (Tuple1 c1 t) =
