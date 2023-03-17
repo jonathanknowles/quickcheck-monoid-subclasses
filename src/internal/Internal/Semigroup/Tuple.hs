@@ -23,16 +23,16 @@ import qualified Data.Semigroup.Foldable as F1
 --------------------------------------------------------------------------------
 
 data TupleLens3
-    = TupleLens3A
-    | TupleLens3B
-    | TupleLens3C
+    = A
+    | B
+    | C
     deriving (Bounded, Enum, Eq, Ord, Show)
 
 evalTupleLens3 :: (s, s, s) -> TupleLens3 -> s
 evalTupleLens3 (a, b, c) = \case
-    TupleLens3A -> a
-    TupleLens3B -> b
-    TupleLens3C -> c
+    A -> a
+    B -> b
+    C -> c
 
 --------------------------------------------------------------------------------
 -- Semigroup combinations
