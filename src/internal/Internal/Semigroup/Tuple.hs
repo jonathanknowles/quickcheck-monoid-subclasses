@@ -51,7 +51,10 @@ bindVariable BindingSet {bindingForD} D = bindingForD
 --------------------------------------------------------------------------------
 
 newtype VariableSum = VariableSum (NonEmpty Variable)
-    deriving (Eq, Ord, Show)
+    deriving (Eq, Ord)
+
+instance Show VariableSum where
+    show (VariableSum vs) = F1.intercalate1 " <> " $ show <$> vs
 
 a = VariableSum (A :| [])
 b = VariableSum (B :| [])
