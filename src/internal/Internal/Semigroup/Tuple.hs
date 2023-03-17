@@ -56,7 +56,7 @@ newtype VariableSum = VariableSum (NonEmpty Variable)
     deriving (Eq, Ord, Semigroup)
 
 instance Arbitrary VariableSum where
-    arbitrary = arbitraryVariableSum
+    arbitrary = genVariableSum
 
 instance Show VariableSum where
     show (VariableSum vs) = F1.intercalate1 " <> " $ show <$> vs
@@ -66,8 +66,8 @@ b = VariableSum (B :| [])
 c = VariableSum (C :| [])
 d = VariableSum (D :| [])
 
-arbitraryVariableSum :: Gen VariableSum
-arbitraryVariableSum =
+genVariableSum :: Gen VariableSum
+genVariableSum =
     VariableSum <$> arbitraryVariableList `suchThatMap` NE.nonEmpty
   where
     arbitraryVariableList :: Gen [Variable]
