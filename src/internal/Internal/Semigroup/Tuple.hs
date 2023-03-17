@@ -104,8 +104,14 @@ instance Show s => Show (BindingSet s) where
         ]
 
 instance Arbitrary s => Arbitrary (BindingSet s) where
-    arbitrary = applyArbitrary4 BindingSet
-    shrink = genericShrink
+    arbitrary = genBindingSet
+    shrink = shrinkBindingSet
+
+genBindingSet :: Arbitrary s => Gen (BindingSet s)
+genBindingSet = applyArbitrary4 BindingSet
+
+shrinkBindingSet :: Arbitrary s => BindingSet s -> [BindingSet s]
+shrinkBindingSet = genericShrink
 
 data Tuple1 s = Tuple1 VariableSum (BindingSet s)
     deriving (Eq, Ord)
