@@ -38,37 +38,37 @@ evalVariable (a, b, c) = \case
 -- Semigroup combinations
 --------------------------------------------------------------------------------
 
-newtype Combination3 = Combination3 (NonEmpty Variable)
+newtype VariableSum = VariableSum (NonEmpty Variable)
     deriving (Eq, Ord, Show)
 
-arbitraryCombination3 :: Gen Combination3
-arbitraryCombination3 =
-    Combination3 <$> arbitraryTupleLensList `suchThatMap` NE.nonEmpty
+arbitraryVariableSum :: Gen VariableSum
+arbitraryVariableSum =
+    VariableSum <$> arbitraryTupleLensList `suchThatMap` NE.nonEmpty
   where
     arbitraryTupleLensList :: Gen [Variable]
     arbitraryTupleLensList = do
         itemCount <- choose (1, 3)
         take itemCount <$> shuffle universe
 
-evalCombination3 :: (s, s, s) -> Combination3 -> NonEmpty s
-evalCombination3 tuple (Combination3 selectors) =
+evalVariableSum :: (s, s, s) -> VariableSum -> NonEmpty s
+evalVariableSum tuple (VariableSum selectors) =
     evalVariable tuple <$> selectors
 
-showCombination3 :: Show s => (s, s, s) -> Combination3 -> String
-showCombination3 tuple =
-    F1.intercalateMap1 " <> " show . evalCombination3 tuple
+showVariableSum :: Show s => (s, s, s) -> VariableSum -> String
+showVariableSum tuple =
+    F1.intercalateMap1 " <> " show . evalVariableSum tuple
 
 --------------------------------------------------------------------------------
 -- Semigroup tuples
 --------------------------------------------------------------------------------
 
-data Tuple1 s = Tuple1 Combination3 (s, s, s)
+data Tuple1 s = Tuple1 VariableSum (s, s, s)
     deriving (Eq, Ord)
 
-data Tuple2 s = Tuple2 Combination3 Combination3 (s, s, s)
+data Tuple2 s = Tuple2 VariableSum VariableSum (s, s, s)
     deriving (Eq, Ord)
 
-data Tuple3 s = Tuple3 Combination3 Combination3 Combination3 (s, s, s)
+data Tuple3 s = Tuple3 VariableSum VariableSum VariableSum (s, s, s)
     deriving (Eq, Ord)
 
 instance Arbitrary a => Arbitrary (Tuple1 a) where
@@ -94,38 +94,38 @@ instance (Show s, Semigroup s) => Show (Tuple3 s) where
 
 arbitraryTuple1 :: Arbitrary a => Gen (Tuple1 a)
 arbitraryTuple1 = Tuple1
-    <$> arbitraryCombination3
+    <$> arbitraryVariableSum
     <*> arbitrary
 
 arbitraryTuple2 :: Arbitrary a => Gen (Tuple2 a)
 arbitraryTuple2 = Tuple2
-    <$> arbitraryCombination3
-    <*> arbitraryCombination3
+    <$> arbitraryVariableSum
+    <*> arbitraryVariableSum
     <*> arbitrary
 
 arbitraryTuple3 :: Arbitrary a => Gen (Tuple3 a)
 arbitraryTuple3 = Tuple3
-    <$> arbitraryCombination3
-    <*> arbitraryCombination3
-    <*> arbitraryCombination3
+    <$> arbitraryVariableSum
+    <*> arbitraryVariableSum
+    <*> arbitraryVariableSum
     <*> arbitrary
 
 evalTuple1 :: Semigroup s => Tuple1 s -> s
 evalTuple1 (Tuple1 c1 t) =
-    ( F1.fold1 $ evalCombination3 t c1
+    ( F1.fold1 $ evalVariableSum t c1
     )
 
 evalTuple2 :: Semigroup s => Tuple2 s -> (s, s)
 evalTuple2 (Tuple2 c1 c2 t) =
-    ( F1.fold1 $ evalCombination3 t c1
-    , F1.fold1 $ evalCombination3 t c2
+    ( F1.fold1 $ evalVariableSum t c1
+    , F1.fold1 $ evalVariableSum t c2
     )
 
 evalTuple3 :: Semigroup s => Tuple3 s -> (s, s, s)
 evalTuple3 (Tuple3 c1 c2 c3 t) =
-    ( F1.fold1 $ evalCombination3 t c1
-    , F1.fold1 $ evalCombination3 t c2
-    , F1.fold1 $ evalCombination3 t c3
+    ( F1.fold1 $ evalVariableSum t c1
+    , F1.fold1 $ evalVariableSum t c2
+    , F1.fold1 $ evalVariableSum t c3
     )
 
 showTuple1 :: (Semigroup a, Show a) => Tuple1 a -> String
