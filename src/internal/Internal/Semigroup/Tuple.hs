@@ -40,11 +40,11 @@ data Variable
     | D
     deriving (Bounded, Enum, Eq, Ord, Show)
 
-evalVariable :: BindingSet s -> Variable -> s
-evalVariable BindingSet {bindingForA} A = bindingForA
-evalVariable BindingSet {bindingForB} B = bindingForB
-evalVariable BindingSet {bindingForC} C = bindingForC
-evalVariable BindingSet {bindingForD} D = bindingForD
+bindVariable :: BindingSet s -> Variable -> s
+bindVariable BindingSet {bindingForA} A = bindingForA
+bindVariable BindingSet {bindingForB} B = bindingForB
+bindVariable BindingSet {bindingForC} C = bindingForC
+bindVariable BindingSet {bindingForD} D = bindingForD
 
 --------------------------------------------------------------------------------
 -- Semigroup combinations
@@ -67,13 +67,13 @@ arbitraryVariableSum =
         itemCount <- choose (1, 4)
         take itemCount <$> shuffle universe
 
-evalVariableSum :: BindingSet s -> VariableSum -> NonEmpty s
-evalVariableSum tuple (VariableSum selectors) =
-    evalVariable tuple <$> selectors
+bindVariableSum :: BindingSet s -> VariableSum -> NonEmpty s
+bindVariableSum tuple (VariableSum selectors) =
+    bindVariable tuple <$> selectors
 
 showVariableSum :: Show s => (BindingSet s) -> VariableSum -> String
 showVariableSum tuple =
-    F1.intercalateMap1 " <> " show . evalVariableSum tuple
+    F1.intercalateMap1 " <> " show . bindVariableSum tuple
 
 --------------------------------------------------------------------------------
 -- Semigroup tuples
@@ -141,20 +141,20 @@ arbitraryTuple3 = Tuple3
 
 evalTuple1 :: Semigroup s => Tuple1 s -> s
 evalTuple1 (Tuple1 c1 t) =
-    ( F1.fold1 $ evalVariableSum t c1
+    ( F1.fold1 $ bindVariableSum t c1
     )
 
 evalTuple2 :: Semigroup s => Tuple2 s -> (s, s)
 evalTuple2 (Tuple2 c1 c2 t) =
-    ( F1.fold1 $ evalVariableSum t c1
-    , F1.fold1 $ evalVariableSum t c2
+    ( F1.fold1 $ bindVariableSum t c1
+    , F1.fold1 $ bindVariableSum t c2
     )
 
 evalTuple3 :: Semigroup s => Tuple3 s -> (s, s, s)
 evalTuple3 (Tuple3 c1 c2 c3 t) =
-    ( F1.fold1 $ evalVariableSum t c1
-    , F1.fold1 $ evalVariableSum t c2
-    , F1.fold1 $ evalVariableSum t c3
+    ( F1.fold1 $ bindVariableSum t c1
+    , F1.fold1 $ bindVariableSum t c2
+    , F1.fold1 $ bindVariableSum t c3
     )
 
 showTuple1 :: (Semigroup a, Show a) => Tuple1 a -> String
