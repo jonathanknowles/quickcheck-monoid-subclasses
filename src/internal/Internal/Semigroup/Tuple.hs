@@ -30,11 +30,11 @@ data Variable
     deriving (Bounded, Enum, Eq, Ord, Show)
 
 evalVariable :: (s, s, s, s) -> Variable -> s
-evalVariable (a, b, c, d) = \case
-    A -> a
-    B -> b
-    C -> c
-    D -> d
+evalVariable (va, vb, vc, vd) = \case
+    A -> va
+    B -> vb
+    C -> vc
+    D -> vd
 
 --------------------------------------------------------------------------------
 -- Semigroup combinations
@@ -42,6 +42,11 @@ evalVariable (a, b, c, d) = \case
 
 newtype VariableSum = VariableSum (NonEmpty Variable)
     deriving (Eq, Ord, Show)
+
+a = VariableSum (A :| [])
+b = VariableSum (B :| [])
+c = VariableSum (C :| [])
+d = VariableSum (D :| [])
 
 arbitraryVariableSum :: Gen VariableSum
 arbitraryVariableSum =
@@ -131,21 +136,21 @@ evalTuple3 (Tuple3 c1 c2 c3 t) =
     )
 
 showTuple1 :: (Semigroup a, Show a) => Tuple1 a -> String
-showTuple1 (evalTuple1 -> a) = unlines
-    [ mempty, "a:", showWrap a
+showTuple1 (evalTuple1 -> va) = unlines
+    [ mempty, "a:", showWrap va
     ]
 
 showTuple2 :: (Semigroup a, Show a) => Tuple2 a -> String
-showTuple2 (evalTuple2 -> (a, b)) = unlines
-    [ mempty, "a:", showWrap a
-    , mempty, "b:", showWrap b
+showTuple2 (evalTuple2 -> (va, vb)) = unlines
+    [ mempty, "a:", showWrap va
+    , mempty, "b:", showWrap vb
     ]
 
 showTuple3 :: (Semigroup a, Show a) => Tuple3 a -> String
-showTuple3 (evalTuple3 -> (a, b, c)) = unlines
-    [ mempty, "a:", showWrap a
-    , mempty, "b:", showWrap b
-    , mempty, "c:", showWrap c
+showTuple3 (evalTuple3 -> (va, vb, vc)) = unlines
+    [ mempty, "a:", showWrap va
+    , mempty, "b:", showWrap vb
+    , mempty, "c:", showWrap vc
     ]
 
 shrinkTuple1 :: Arbitrary a => Tuple1 a -> [Tuple1 a]
