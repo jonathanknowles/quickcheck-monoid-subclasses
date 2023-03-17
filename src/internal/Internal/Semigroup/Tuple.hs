@@ -9,6 +9,8 @@
 module Internal.Semigroup.Tuple
     where
 
+import Data.Functor
+    ( (<&>) )
 import Data.List.NonEmpty
     ( NonEmpty (..) )
 import GHC.Generics
@@ -21,6 +23,7 @@ import Test.QuickCheck
     , applyArbitrary4
     , choose
     , genericShrink
+    , oneof
     , shuffle
     , suchThatMap
     )
@@ -147,11 +150,61 @@ instance (Show s, Semigroup s) => Show (Tuple3 s) where
 genTuple1 :: Arbitrary a => Gen (Tuple1 a)
 genTuple1 = applyArbitrary2 Tuple1
 
-genTuple2 :: Arbitrary a => Gen (Tuple2 a)
-genTuple2 = applyArbitrary3 Tuple2
+genTuple2 :: forall a. Arbitrary a => Gen (Tuple2 a)
+genTuple2 = oneof [genRandom, genHandChosen]
+  where
+    genRandom :: Gen (Tuple2 a)
+    genRandom = applyArbitrary3 Tuple2
+
+    genHandChosen :: Gen (Tuple2 a)
+    genHandChosen = oneof $ fmap (arbitrary <&>)
+        [ -- All identical:
+          Tuple2 a a
+        , -- All different:
+          Tuple2 a b
+          -- Shared common prefix:
+        , Tuple2 (a <> b) (a <> c)
+          -- Shared common suffix:
+        , Tuple2 (a <> c) (b <> c)
+          -- Shared common overlap (left to right):
+        , Tuple2 (a <> b) (b <> c)
+          -- Shared common overlap (right to left):
+        , Tuple2 (c <> b) (b <> a)
+          -- Append to the RHS (from left to right):
+        , Tuple2 (a) (a <> b)
+          -- Append to the RHS (from right to left):
+        , Tuple2 (a <> b) (a)
+          -- Append to the LHS (from left to right):
+        , Tuple2 (b) (a <> b)
+          -- Append to the LHS (from right to left):
+        , Tuple2 (a <> b) (b)
+        ]
 
 genTuple3 :: forall a. Arbitrary a => Gen (Tuple3 a)
-genTuple3 = applyArbitrary4 Tuple3
+genTuple3 = oneof [genRandom, genHandChosen]
+  where
+    genRandom :: Gen (Tuple3 a)
+    genRandom = applyArbitrary4 Tuple3
+
+    genHandChosen :: Gen (Tuple3 a)
+    genHandChosen = oneof $ fmap (arbitrary <&>)
+        [ -- All identical:
+          Tuple3 a a a
+          -- All different:
+        , Tuple3 a b c
+          -- Shared common prefix:
+        , Tuple3 (a <> b) (a <> c) (a <> d)
+          -- Shared common suffix:
+        , Tuple3 (a <> d) (b <> d) (c <> d)
+          -- Append to the RHS (from left to right):
+        , Tuple3 (a) (a <> b) (a <> b <> c)
+          -- Append to the RHS (from right to left):
+        , Tuple3 (a <> b <> c) (a <> b) (a)
+          -- Append to the LHS (from left to right):
+        , Tuple3 (c) (b <> c) (a <> b <> c)
+          -- Append to the LHS (from right to left):
+        , Tuple3 (a <> b <> c) (b <> c) (c)
+        ]
 
 evalTuple1 :: Semigroup s => Tuple1 s -> s
 evalTuple1 (Tuple1 c1 t) =
