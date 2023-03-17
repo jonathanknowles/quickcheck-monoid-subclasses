@@ -50,10 +50,10 @@ d = VariableSum (D :| [])
 
 arbitraryVariableSum :: Gen VariableSum
 arbitraryVariableSum =
-    VariableSum <$> arbitraryTupleLensList `suchThatMap` NE.nonEmpty
+    VariableSum <$> arbitraryVariableList `suchThatMap` NE.nonEmpty
   where
-    arbitraryTupleLensList :: Gen [Variable]
-    arbitraryTupleLensList = do
+    arbitraryVariableList :: Gen [Variable]
+    arbitraryVariableList = do
         itemCount <- choose (1, 4)
         take itemCount <$> shuffle universe
 
