@@ -53,7 +53,7 @@ bindVariable BindingSet {bindingForD} D = bindingForD
 --------------------------------------------------------------------------------
 
 newtype VariableSum = VariableSum (NonEmpty Variable)
-    deriving (Eq, Ord)
+    deriving (Eq, Ord, Semigroup)
 
 instance Arbitrary VariableSum where
     arbitrary = arbitraryVariableSum
