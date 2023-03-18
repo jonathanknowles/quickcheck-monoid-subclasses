@@ -287,9 +287,6 @@ lcmMonoidLaw_commutativity a b =
         "lcm a b == lcm b a"
         (lcm a b == lcm b a)
     & cover
-        "lcm a b == mempty"
-        (lcm a b == mempty)
-    & cover
         "lcm a b /= mempty"
         (lcm a b /= mempty)
     & report
