@@ -19,7 +19,7 @@ extra-doc-files:
     README.md
 
 common dependency-base
-    build-depends:base                      >= 4.14.3.0     && < 4.18
+    build-depends:base                      >= 4.14.3.0     && < 4.19
 common dependency-bytestring
     build-depends:bytestring                >= 0.10.12.0    && < 0.12
 common dependency-commutative-semigroups
@@ -39,7 +39,7 @@ common dependency-quickcheck-classes
 common dependency-quickcheck-instances
     build-depends:quickcheck-instances      >= 0.3.28       && < 0.4
 common dependency-semigroupoids
-    build-depends:semigroupoids             >= 5.3.7        && < 5.4
+    build-depends:semigroupoids             >= 5.3.7        && < 6.1
 common dependency-text
     build-depends:text                      >= 1.2.4.1      && < 2.1
 common dependency-vector
