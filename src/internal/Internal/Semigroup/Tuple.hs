@@ -35,7 +35,7 @@ import qualified Data.List.NonEmpty as NE
 import qualified Data.Semigroup.Foldable as F1
 
 --------------------------------------------------------------------------------
--- Tuple selectors
+-- Variables
 --------------------------------------------------------------------------------
 
 data Variable = A | B | C | D
@@ -48,7 +48,7 @@ bindVariable BindingSet {bindingForC} C = bindingForC
 bindVariable BindingSet {bindingForD} D = bindingForD
 
 --------------------------------------------------------------------------------
--- Semigroup combinations
+-- Variable sums
 --------------------------------------------------------------------------------
 
 newtype VariableSum = VariableSum (NonEmpty Variable)
@@ -86,7 +86,7 @@ showVariableSum tuple =
     F1.intercalateMap1 " <> " show . bindVariableSum tuple
 
 --------------------------------------------------------------------------------
--- Semigroup tuples
+-- Binding sets (for variables)
 --------------------------------------------------------------------------------
 
 data BindingSet s = BindingSet
@@ -116,6 +116,10 @@ genBindingSet = applyArbitrary4 BindingSet
 
 shrinkBindingSet :: Arbitrary s => BindingSet s -> [BindingSet s]
 shrinkBindingSet = genericShrink
+
+--------------------------------------------------------------------------------
+-- Tuples
+--------------------------------------------------------------------------------
 
 data Tuple1 s = Tuple1 VariableSum (BindingSet s)
     deriving (Eq, Ord)
