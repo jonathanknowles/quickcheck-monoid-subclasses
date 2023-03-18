@@ -35,11 +35,7 @@ import qualified Data.Semigroup.Foldable as F1
 -- Tuple selectors
 --------------------------------------------------------------------------------
 
-data Variable
-    = A
-    | B
-    | C
-    | D
+data Variable = A | B | C | D
     deriving (Bounded, Enum, Eq, Ord, Show)
 
 bindVariable :: BindingSet s -> Variable -> s
