@@ -1,5 +1,6 @@
 {- HLINT ignore "Use camelCase" -}
 {- HLINT ignore "Redundant bracket" -}
+{- HLINT ignore "Redundant ==" -}
 
 -- |
 -- Copyright: © 2022–2023 Jonathan Knowles
@@ -23,7 +24,7 @@ import Prelude hiding
 import Data.Function
     ( (&) )
 import Data.Maybe
-    ( isJust )
+    ( isJust, isNothing )
 import Data.Monoid.GCD
     ( GCDMonoid (..)
     , LeftGCDMonoid (..)
@@ -190,7 +191,7 @@ cancellativeGCDMonoidLaw_suffix a b c =
 -- 'gcd' (a '<>' c) (b '<>' c) '==' 'gcd' a b '<>' c
 -- @
 --
--- __/Equivalence/__
+-- __/Equivalences/__
 --
 -- @
 -- 'gcd' a b '==' 'commonPrefix' a b
@@ -490,6 +491,64 @@ gcdMonoidLaw_equivalence_commonSuffix a b =
 --
 -- Includes the following laws:
 --
+-- __/Reductivity/__
+--
+-- @
+-- 'isJust' ('stripPrefix' ('commonPrefix' a b) a)
+-- @
+-- @
+-- 'isJust' ('stripPrefix' ('commonPrefix' a b) b)
+-- @
+--
+-- __/Uniqueness/__
+--
+-- @
+-- 'all' 'isJust'
+--     [ 'stripPrefix' c a
+--     , 'stripPrefix' c b
+--     , 'stripPrefix' ('commonPrefix' a b) c
+--     ]
+-- ==>
+--     (c '==' 'commonPrefix' a b)
+-- @
+--
+-- __/Idempotence/__
+--
+-- @
+-- 'commonPrefix' a a '==' a
+-- @
+--
+-- __/Identity/__
+--
+-- @
+-- 'commonPrefix' 'mempty' a '==' 'mempty'
+-- @
+-- @
+-- 'commonPrefix' a 'mempty' '==' 'mempty'
+-- @
+--
+-- __/Commutativity/__
+--
+-- @
+-- 'commonPrefix' a b == 'commonPrefix' b a
+-- @
+--
+-- __/Associativity/__
+--
+-- @
+-- 'commonPrefix' ('commonPrefix' a b) c
+-- '=='
+-- 'commonPrefix' a ('commonPrefix' b c)
+-- @
+--
+-- __/Distributivity/__
+--
+-- @
+-- 'commonPrefix' (a '<>' b) (a '<>' c) '==' a '<>' 'commonPrefix' b c
+-- @
+--
+-- __/Equivalences/__
+--
 -- @
 -- 'stripCommonPrefix' a b '&' \\(p, _, _) -> p '==' 'commonPrefix' a b
 -- @
@@ -521,6 +580,33 @@ leftGCDMonoidLaws
     -> Laws
 leftGCDMonoidLaws _ = Laws "LeftGCDMonoid"
     [ makeLaw2 @a
+        "leftGCDMonoidLaw_reductivity_left"
+        (leftGCDMonoidLaw_reductivity_left)
+    , makeLaw2 @a
+        "leftGCDMonoidLaw_reductivity_right"
+        (leftGCDMonoidLaw_reductivity_right)
+    , makeLaw2 @a
+        "leftGCDMonoidLaw_uniqueness"
+        (leftGCDMonoidLaw_uniqueness)
+    , makeLaw1 @a
+        "leftGCDMonoidLaw_idempotence"
+        (leftGCDMonoidLaw_idempotence)
+    , makeLaw1 @a
+        "leftGCDMonoidLaw_identity_left"
+        (leftGCDMonoidLaw_identity_left)
+    , makeLaw1 @a
+        "leftGCDMonoidLaw_identity_right"
+        (leftGCDMonoidLaw_identity_right)
+    , makeLaw2 @a
+        "leftGCDMonoidLaw_commutativity"
+        (leftGCDMonoidLaw_commutativity)
+    , makeLaw3 @a
+        "leftGCDMonoidLaw_associativity"
+        (leftGCDMonoidLaw_associativity)
+    , makeLaw3 @a
+        "leftGCDMonoidLaw_distributivity"
+        (leftGCDMonoidLaw_distributivity)
+    , makeLaw2 @a
         "leftGCDMonoidLaw_stripCommonPrefix_commonPrefix"
         (leftGCDMonoidLaw_stripCommonPrefix_commonPrefix)
     , makeLaw2 @a
@@ -536,6 +622,192 @@ leftGCDMonoidLaws _ = Laws "LeftGCDMonoid"
         "leftGCDMonoidLaw_stripCommonPrefix_stripPrefix_2"
         (leftGCDMonoidLaw_stripCommonPrefix_stripPrefix_2)
     ]
+
+leftGCDMonoidLaw_reductivity_left
+    :: (Eq a, Show a, LeftGCDMonoid a) => a -> a -> Property
+leftGCDMonoidLaw_reductivity_left a b =
+    makeProperty
+        "isJust (stripPrefix (commonPrefix a b) a)"
+        (isJust (stripPrefix (commonPrefix a b) a))
+    & cover
+        "commonPrefix a b /= mempty"
+        (commonPrefix a b /= mempty)
+    & cover
+        "stripPrefix (commonPrefix a b) a /= mempty"
+        (stripPrefix (commonPrefix a b) a /= mempty)
+    & report
+        "commonPrefix a b"
+        (commonPrefix a b)
+    & report
+        "stripPrefix (commonPrefix a b) a"
+        (stripPrefix (commonPrefix a b) a)
+
+leftGCDMonoidLaw_reductivity_right
+    :: (Eq a, Show a, LeftGCDMonoid a) => a -> a -> Property
+leftGCDMonoidLaw_reductivity_right a b =
+    makeProperty
+        "isJust (stripPrefix (commonPrefix a b) b)"
+        (isJust (stripPrefix (commonPrefix a b) b))
+    & cover
+        "commonPrefix a b /= mempty"
+        (commonPrefix a b /= mempty)
+    & cover
+        "stripPrefix (commonPrefix a b) b /= mempty"
+        (stripPrefix (commonPrefix a b) b /= mempty)
+    & report
+        "commonPrefix a b"
+        (commonPrefix a b)
+    & report
+        "stripPrefix (commonPrefix a b) b"
+        (stripPrefix (commonPrefix a b) b)
+
+leftGCDMonoidLaw_uniqueness
+    :: (Eq a, Show a, LeftGCDMonoid a) => a -> a -> a -> Property
+leftGCDMonoidLaw_uniqueness a b c =
+    makeProperty
+        "antecedent ==> consequent"
+        (antecedent ==> consequent)
+    -- Note that in the expressions below, we use '==' to compare Boolean
+    -- expressions, even in cases where it is redundant, in order to make
+    -- test output more readable:
+    & cover
+        "antecedent == True"
+        (antecedent == True)
+    & cover
+        "antecedent == False"
+        (antecedent == False)
+    & cover
+        "consequent == True"
+        (consequent == True)
+    & cover
+        "consequent == False"
+        (consequent == False)
+    & report
+        "stripPrefix c a"
+        (stripPrefix c a)
+    & report
+        "stripPrefix c b"
+        (stripPrefix c b)
+    & report
+        "commonPrefix a b"
+        (commonPrefix a b)
+    & report
+        "stripPrefix (commonPrefix a b) c"
+        (stripPrefix (commonPrefix a b) c)
+  where
+    antecedent =
+        all isJust
+            [ stripPrefix c a
+            , stripPrefix c b
+            , stripPrefix (commonPrefix a b) c
+            ]
+    consequent =
+        c == commonPrefix a b
+
+leftGCDMonoidLaw_idempotence
+    :: (Eq a, Show a, LeftGCDMonoid a) => a -> Property
+leftGCDMonoidLaw_idempotence a =
+    makeProperty
+        "commonPrefix a a == a"
+        (commonPrefix a a == a)
+    & report
+        "commonPrefix a a"
+        (commonPrefix a a)
+
+leftGCDMonoidLaw_identity_left
+    :: (Eq a, Show a, LeftGCDMonoid a) => a -> Property
+leftGCDMonoidLaw_identity_left a =
+    makeProperty
+        "commonPrefix mempty a == mempty"
+        (commonPrefix mempty a == mempty)
+    & cover
+        "a /= mempty"
+        (a /= mempty)
+    & report
+        "commonPrefix mempty a"
+        (commonPrefix mempty a)
+
+leftGCDMonoidLaw_identity_right
+    :: (Eq a, Show a, LeftGCDMonoid a) => a -> Property
+leftGCDMonoidLaw_identity_right a =
+    makeProperty
+        "commonPrefix a mempty == mempty"
+        (commonPrefix a mempty == mempty)
+    & cover
+        "a /= mempty"
+        (a /= mempty)
+    & report
+        "commonPrefix a mempty"
+        (commonPrefix a mempty)
+
+leftGCDMonoidLaw_commutativity
+    :: (Eq a, Show a, LeftGCDMonoid a) => a -> a -> Property
+leftGCDMonoidLaw_commutativity a b =
+    makeProperty
+        "commonPrefix a b == commonPrefix b a"
+        (commonPrefix a b == commonPrefix b a)
+    & cover
+        "commonPrefix a b == mempty"
+        (commonPrefix a b == mempty)
+    & cover
+        "commonPrefix a b /= mempty"
+        (commonPrefix a b /= mempty)
+    & report
+        "commonPrefix a b"
+        (commonPrefix a b)
+    & report
+        "commonPrefix b a"
+        (commonPrefix b a)
+
+leftGCDMonoidLaw_associativity
+    :: (Eq a, Show a, LeftGCDMonoid a) => a -> a -> a -> Property
+leftGCDMonoidLaw_associativity a b c =
+    makeProperty
+        "commonPrefix (commonPrefix a b) c == commonPrefix a (commonPrefix b c)"
+        (commonPrefix (commonPrefix a b) c == commonPrefix a (commonPrefix b c))
+    & cover
+        "commonPrefix (commonPrefix a b) c /= mempty"
+        (commonPrefix (commonPrefix a b) c /= mempty)
+    & cover
+        "commonPrefix a (commonPrefix b c) /= mempty"
+        (commonPrefix a (commonPrefix b c) /= mempty)
+    & report
+        "commonPrefix a b"
+        (commonPrefix a b)
+    & report
+        "commonPrefix (commonPrefix a b) c"
+        (commonPrefix (commonPrefix a b) c)
+    & report
+        "commonPrefix b c"
+        (commonPrefix b c)
+    & report
+        "commonPrefix a (commonPrefix b c)"
+        (commonPrefix a (commonPrefix b c))
+
+leftGCDMonoidLaw_distributivity
+    :: (Eq a, Show a, LeftGCDMonoid a) => a -> a -> a -> Property
+leftGCDMonoidLaw_distributivity a b c =
+    makeProperty
+        "commonPrefix (a <> b) (a <> c) == a <> commonPrefix b c"
+        (commonPrefix (a <> b) (a <> c) == a <> commonPrefix b c)
+    & cover
+        "commonPrefix b c /= mempty && a /= mempty"
+        (commonPrefix b c /= mempty && a /= mempty)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "a <> c"
+        (a <> c)
+    & report
+        "commonPrefix (a <> b) (a <> c)"
+        (commonPrefix (a <> b) (a <> c))
+    & report
+        "commonPrefix b c"
+        (commonPrefix b c)
+    & report
+        "a <> commonPrefix b c"
+        (a <> commonPrefix b c)
 
 leftGCDMonoidLaw_stripCommonPrefix_commonPrefix
     :: (Eq a, Show a, LeftGCDMonoid a) => a -> a -> Property
@@ -767,6 +1039,64 @@ overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap a b =
 --
 -- Includes the following laws:
 --
+-- __/Reductivity/__
+--
+-- @
+-- 'isJust' ('stripSuffix' ('commonSuffix' a b) a)
+-- @
+-- @
+-- 'isJust' ('stripSuffix' ('commonSuffix' a b) b)
+-- @
+--
+-- __/Uniqueness/__
+--
+-- @
+-- 'all' 'isJust'
+--     [ 'stripSuffix' c a
+--     , 'stripSuffix' c b
+--     , 'stripSuffix' ('commonSuffix' a b) c
+--     ]
+-- ==>
+--     (c '==' 'commonSuffix' a b)
+-- @
+--
+-- __/Idempotence/__
+--
+-- @
+-- 'commonSuffix' a a '==' a
+-- @
+--
+-- __/Identity/__
+--
+-- @
+-- 'commonSuffix' 'mempty' a '==' 'mempty'
+-- @
+-- @
+-- 'commonSuffix' a 'mempty' '==' 'mempty'
+-- @
+--
+-- __/Commutativity/__
+--
+-- @
+-- 'commonSuffix' a b == 'commonSuffix' b a
+-- @
+--
+-- __/Associativity/__
+--
+-- @
+-- 'commonSuffix' ('commonSuffix' a b) c
+-- '=='
+-- 'commonSuffix' a ('commonSuffix' b c)
+-- @
+--
+-- __/Distributivity/__
+--
+-- @
+-- 'commonSuffix' (a '<>' c) (b '<>' c) '==' 'commonSuffix' a b '<>' c
+-- @
+--
+-- __/Equivalences/__
+--
 -- @
 -- 'stripCommonSuffix' a b '&' \\(_, _, s) -> s '==' 'commonSuffix' a b
 -- @
@@ -798,6 +1128,33 @@ rightGCDMonoidLaws
     -> Laws
 rightGCDMonoidLaws _ = Laws "RightGCDMonoid"
     [ makeLaw2 @a
+        "rightGCDMonoidLaw_reductivity_left"
+        (rightGCDMonoidLaw_reductivity_left)
+    , makeLaw2 @a
+        "rightGCDMonoidLaw_reductivity_right"
+        (rightGCDMonoidLaw_reductivity_right)
+    , makeLaw2 @a
+        "rightGCDMonoidLaw_uniqueness"
+        (rightGCDMonoidLaw_uniqueness)
+    , makeLaw1 @a
+        "rightGCDMonoidLaw_idempotence"
+        (rightGCDMonoidLaw_idempotence)
+    , makeLaw1 @a
+        "rightGCDMonoidLaw_identity_left"
+        (rightGCDMonoidLaw_identity_left)
+    , makeLaw1 @a
+        "rightGCDMonoidLaw_identity_right"
+        (rightGCDMonoidLaw_identity_right)
+    , makeLaw2 @a
+        "rightGCDMonoidLaw_commutativity"
+        (rightGCDMonoidLaw_commutativity)
+    , makeLaw3 @a
+        "rightGCDMonoidLaw_associativity"
+        (rightGCDMonoidLaw_associativity)
+    , makeLaw3 @a
+        "rightGCDMonoidLaw_distributivity"
+        (rightGCDMonoidLaw_distributivity)
+    , makeLaw2 @a
         "rightGCDMonoidLaw_stripCommonSuffix_commonSuffix"
         (rightGCDMonoidLaw_stripCommonSuffix_commonSuffix)
     , makeLaw2 @a
@@ -813,6 +1170,192 @@ rightGCDMonoidLaws _ = Laws "RightGCDMonoid"
         "rightGCDMonoidLaw_stripCommonSuffix_stripSuffix_2"
         (rightGCDMonoidLaw_stripCommonSuffix_stripSuffix_2)
     ]
+
+rightGCDMonoidLaw_reductivity_left
+    :: (Eq a, Show a, RightGCDMonoid a) => a -> a -> Property
+rightGCDMonoidLaw_reductivity_left a b =
+    makeProperty
+        "isJust (stripSuffix (commonSuffix a b) a)"
+        (isJust (stripSuffix (commonSuffix a b) a))
+    & cover
+        "commonSuffix a b /= mempty"
+        (commonSuffix a b /= mempty)
+    & cover
+        "stripSuffix (commonSuffix a b) a /= mempty"
+        (stripSuffix (commonSuffix a b) a /= mempty)
+    & report
+        "commonSuffix a b"
+        (commonSuffix a b)
+    & report
+        "stripSuffix (commonSuffix a b) a"
+        (stripSuffix (commonSuffix a b) a)
+
+rightGCDMonoidLaw_reductivity_right
+    :: (Eq a, Show a, RightGCDMonoid a) => a -> a -> Property
+rightGCDMonoidLaw_reductivity_right a b =
+    makeProperty
+        "isJust (stripSuffix (commonSuffix a b) b)"
+        (isJust (stripSuffix (commonSuffix a b) b))
+    & cover
+        "commonSuffix a b /= mempty"
+        (commonSuffix a b /= mempty)
+    & cover
+        "stripSuffix (commonSuffix a b) b /= mempty"
+        (stripSuffix (commonSuffix a b) b /= mempty)
+    & report
+        "commonSuffix a b"
+        (commonSuffix a b)
+    & report
+        "stripSuffix (commonSuffix a b) b"
+        (stripSuffix (commonSuffix a b) b)
+
+rightGCDMonoidLaw_uniqueness
+    :: (Eq a, Show a, RightGCDMonoid a) => a -> a -> a -> Property
+rightGCDMonoidLaw_uniqueness a b c =
+    makeProperty
+        "antecedent ==> consequent"
+        (antecedent ==> consequent)
+    -- Note that in the expressions below, we use '==' to compare Boolean
+    -- expressions, even in cases where it is redundant, in order to make
+    -- test output more readable:
+    & cover
+        "antecedent == True"
+        (antecedent == True)
+    & cover
+        "antecedent == False"
+        (antecedent == False)
+    & cover
+        "consequent == True"
+        (consequent == True)
+    & cover
+        "consequent == False"
+        (consequent == False)
+    & report
+        "stripSuffix c a"
+        (stripSuffix c a)
+    & report
+        "stripSuffix c b"
+        (stripSuffix c b)
+    & report
+        "commonSuffix a b"
+        (commonSuffix a b)
+    & report
+        "stripSuffix (commonSuffix a b) c"
+        (stripSuffix (commonSuffix a b) c)
+  where
+    antecedent =
+        all isJust
+            [ stripSuffix c a
+            , stripSuffix c b
+            , stripSuffix (commonSuffix a b) c
+            ]
+    consequent =
+        c == commonSuffix a b
+
+rightGCDMonoidLaw_idempotence
+    :: (Eq a, Show a, RightGCDMonoid a) => a -> Property
+rightGCDMonoidLaw_idempotence a =
+    makeProperty
+        "commonSuffix a a == a"
+        (commonSuffix a a == a)
+    & report
+        "commonSuffix a a"
+        (commonSuffix a a)
+
+rightGCDMonoidLaw_identity_left
+    :: (Eq a, Show a, RightGCDMonoid a) => a -> Property
+rightGCDMonoidLaw_identity_left a =
+    makeProperty
+        "commonSuffix mempty a == mempty"
+        (commonSuffix mempty a == mempty)
+    & cover
+        "a /= mempty"
+        (a /= mempty)
+    & report
+        "commonSuffix mempty a"
+        (commonSuffix mempty a)
+
+rightGCDMonoidLaw_identity_right
+    :: (Eq a, Show a, RightGCDMonoid a) => a -> Property
+rightGCDMonoidLaw_identity_right a =
+    makeProperty
+        "commonSuffix a mempty == mempty"
+        (commonSuffix a mempty == mempty)
+    & cover
+        "a /= mempty"
+        (a /= mempty)
+    & report
+        "commonSuffix a mempty"
+        (commonSuffix a mempty)
+
+rightGCDMonoidLaw_commutativity
+    :: (Eq a, Show a, RightGCDMonoid a) => a -> a -> Property
+rightGCDMonoidLaw_commutativity a b =
+    makeProperty
+        "commonSuffix a b == commonSuffix b a"
+        (commonSuffix a b == commonSuffix b a)
+    & cover
+        "commonSuffix a b == mempty"
+        (commonSuffix a b == mempty)
+    & cover
+        "commonSuffix a b /= mempty"
+        (commonSuffix a b /= mempty)
+    & report
+        "commonSuffix a b"
+        (commonSuffix a b)
+    & report
+        "commonSuffix b a"
+        (commonSuffix b a)
+
+rightGCDMonoidLaw_associativity
+    :: (Eq a, Show a, RightGCDMonoid a) => a -> a -> a -> Property
+rightGCDMonoidLaw_associativity a b c =
+    makeProperty
+        "commonSuffix (commonSuffix a b) c == commonSuffix a (commonSuffix b c)"
+        (commonSuffix (commonSuffix a b) c == commonSuffix a (commonSuffix b c))
+    & cover
+        "commonSuffix (commonSuffix a b) c /= mempty"
+        (commonSuffix (commonSuffix a b) c /= mempty)
+    & cover
+        "commonSuffix a (commonSuffix b c) /= mempty"
+        (commonSuffix a (commonSuffix b c) /= mempty)
+    & report
+        "commonSuffix a b"
+        (commonSuffix a b)
+    & report
+        "commonSuffix (commonSuffix a b) c"
+        (commonSuffix (commonSuffix a b) c)
+    & report
+        "commonSuffix b c"
+        (commonSuffix b c)
+    & report
+        "commonSuffix a (commonSuffix b c)"
+        (commonSuffix a (commonSuffix b c))
+
+rightGCDMonoidLaw_distributivity
+    :: (Eq a, Show a, RightGCDMonoid a) => a -> a -> a -> Property
+rightGCDMonoidLaw_distributivity a b c =
+    makeProperty
+        "commonSuffix (a <> c) (b <> c) == commonSuffix a b <> c"
+        (commonSuffix (a <> c) (b <> c) == commonSuffix a b <> c)
+    & cover
+        "commonSuffix a b /= mempty && c /= mempty"
+        (commonSuffix a b /= mempty && c /= mempty)
+    & report
+        "a <> c"
+        (a <> c)
+    & report
+        "b <> c"
+        (b <> c)
+    & report
+        "commonSuffix (a <> c) (b <> c)"
+        (commonSuffix (a <> c) (b <> c))
+    & report
+        "commonSuffix a b"
+        (commonSuffix a b)
+    & report
+        "commonSuffix a b <> c"
+        (commonSuffix a b <> c)
 
 rightGCDMonoidLaw_stripCommonSuffix_commonSuffix
     :: (Eq a, Show a, RightGCDMonoid a) => a -> a -> Property
