@@ -1,3 +1,11 @@
+# 0.2.0.0
+
+- Improved generation of arbitrary `Semigroup` value combinations.
+- Added derived laws for the `LeftGCDMonoid` type class.
+- Added derived laws for the `RightGCDMonoid` type class.
+- Removed hard-to-satisfy coverage check from `LCMMonoid` type class laws.
+- Added support for building with GHC `9.6` series.
+
 # 0.1.0.0
 
 - Added laws for the `LCMMonoid` type class.
