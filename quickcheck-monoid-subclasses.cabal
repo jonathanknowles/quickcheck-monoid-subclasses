@@ -19,7 +19,7 @@ extra-doc-files:
     README.md
 
 common dependency-base
-    build-depends:base                      >= 4.14.3.0     && < 4.18
+    build-depends:base                      >= 4.14.3.0     && < 4.19
 common dependency-bytestring
     build-depends:bytestring                >= 0.10.12.0    && < 0.12
 common dependency-commutative-semigroups
