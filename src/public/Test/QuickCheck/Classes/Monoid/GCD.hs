@@ -190,7 +190,7 @@ cancellativeGCDMonoidLaw_suffix a b c =
 -- 'gcd' (a '<>' c) (b '<>' c) '==' 'gcd' a b '<>' c
 -- @
 --
--- __/Equivalence/__
+-- __/Equivalences/__
 --
 -- @
 -- 'gcd' a b '==' 'commonPrefix' a b
