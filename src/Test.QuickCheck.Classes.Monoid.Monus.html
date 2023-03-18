@@ -73,8 +73,8 @@
 </span><span id="line-73"></span><span class="hs-comment">-- * 'Test.QuickCheck.Classes.Monoid.GCD.overlappingGCDMonoidLaws'</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaws"><span class="hs-identifier hs-type">monusLaws</span></a></span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679064582"><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Arbitrary</span></span><span> </span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679064563"><span class="annot"><a href="#local-6989586621679064563"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Arbitrary</span></span><span> </span><span class="annot"><a href="#local-6989586621679064563"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679064563"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679064563"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064563"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><a href="#local-6989586621679064563"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Laws</span></span><span>
 </span><span id="line-79"></span><span id="monusLaws"><span class="annot"><span class="annottext">monusLaws :: forall a. (Arbitrary a, Show a, Eq a, Monus a) =&gt; Proxy a -&gt; Laws
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaws"><span class="hs-identifier hs-var hs-var">monusLaws</span></a></span></span><span> </span><span class="annot"><span class="annottext">Proxy a
@@ -84,7 +84,7 @@
 </span><span id="line-80"></span><span>    </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679064563"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;monusLaw_axiom_1&quot;</span></span><span>
 </span><span id="line-82"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -93,7 +93,7 @@ forall a. (Eq a, Monus a, Show a) =&gt; a -&gt; Property
 </span><span id="line-83"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679064563"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;monusLaw_axiom_2&quot;</span></span><span>
 </span><span id="line-85"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -102,7 +102,7 @@ forall a. (Eq a, Monus a, Show a) =&gt; a -&gt; Property
 </span><span id="line-86"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679064563"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;monusLaw_axiom_3&quot;</span></span><span>
 </span><span id="line-88"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Property
@@ -111,7 +111,7 @@ forall a. (Eq a, Monus a, Show a) =&gt; a -&gt; a -&gt; Property
 </span><span id="line-89"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; a -&gt; a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw3</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw3</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679064563"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;monusLaw_axiom_4&quot;</span></span><span>
 </span><span id="line-91"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; a -&gt; Property
@@ -120,7 +120,7 @@ forall a. (Eq a, Monus a, Show a) =&gt; a -&gt; a -&gt; a -&gt; Property
 </span><span id="line-92"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679064563"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;monusLaw_stripPrefixOverlap&quot;</span></span><span>
 </span><span id="line-94"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Property
@@ -129,7 +129,7 @@ forall a. (Eq a, Monus a, Show a) =&gt; a -&gt; a -&gt; Property
 </span><span id="line-95"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679064563"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;monusLaw_stripSuffixOverlap&quot;</span></span><span>
 </span><span id="line-97"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Property
@@ -137,21 +137,21 @@ forall a. (Eq a, Monus a, Show a) =&gt; a -&gt; a -&gt; Property
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripSuffixOverlap"><span class="hs-identifier hs-var">monusLaw_stripSuffixOverlap</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span id="local-6989586621679064595"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_1"><span class="hs-identifier hs-type">monusLaw_axiom_1</span></a></span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679064595"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064595"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679064595"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064595"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-100"></span><span id="local-6989586621679064576"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_1"><span class="hs-identifier hs-type">monusLaw_axiom_1</span></a></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679064576"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064576"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679064576"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064576"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-102"></span><span id="monusLaw_axiom_1"><span class="annot"><span class="annottext">monusLaw_axiom_1 :: forall a. (Eq a, Monus a, Show a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_1"><span class="hs-identifier hs-var hs-var">monusLaw_axiom_1</span></a></span></span><span> </span><span id="local-6989586621679064718"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_1"><span class="hs-identifier hs-var hs-var">monusLaw_axiom_1</span></a></span></span><span> </span><span id="local-6989586621679064699"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;\\&gt; a == mempty&quot;</span></span><span>
 </span><span id="line-105"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064718"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064699"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064718"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064699"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a
 forall a. Monoid a =&gt; a
@@ -164,7 +164,7 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a == mempty&quot;</span></span><span>
 </span><span id="line-108"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064718"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064699"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a
 forall a. Monoid a =&gt; a
@@ -177,7 +177,7 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a /= mempty&quot;</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064718"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064699"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">/=</span></span><span> </span><span class="annot"><span class="annottext">a
 forall a. Monoid a =&gt; a
@@ -192,16 +192,16 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;\\&gt; a&quot;</span></span><span>
 </span><span id="line-114"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064718"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064699"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span id="local-6989586621679064721"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_2"><span class="hs-identifier hs-type">monusLaw_axiom_2</span></a></span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679064721"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064721"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679064721"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064721"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679064702"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_2"><span class="hs-identifier hs-type">monusLaw_axiom_2</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679064702"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064702"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679064702"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064702"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-118"></span><span id="monusLaw_axiom_2"><span class="annot"><span class="annottext">monusLaw_axiom_2 :: forall a. (Eq a, Monus a, Show a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_2"><span class="hs-identifier hs-var hs-var">monusLaw_axiom_2</span></a></span></span><span> </span><span id="local-6989586621679064741"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_2"><span class="hs-identifier hs-var hs-var">monusLaw_axiom_2</span></a></span></span><span> </span><span id="local-6989586621679064722"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -212,7 +212,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">mempty</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064741"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064722"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a
 forall a. Monoid a =&gt; a
@@ -225,7 +225,7 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a == mempty&quot;</span></span><span>
 </span><span id="line-124"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064741"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064722"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a
 forall a. Monoid a =&gt; a
@@ -238,7 +238,7 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a /= mempty&quot;</span></span><span>
 </span><span id="line-127"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064741"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064722"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">/=</span></span><span> </span><span class="annot"><span class="annottext">a
 forall a. Monoid a =&gt; a
@@ -257,36 +257,36 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">mempty</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span id="local-6989586621679064598"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_3"><span class="hs-identifier hs-type">monusLaw_axiom_3</span></a></span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679064598"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064598"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679064598"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064598"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064598"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-132"></span><span id="local-6989586621679064579"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_3"><span class="hs-identifier hs-type">monusLaw_axiom_3</span></a></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679064579"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064579"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679064579"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064579"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064579"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-134"></span><span id="monusLaw_axiom_3"><span class="annot"><span class="annottext">monusLaw_axiom_3 :: forall a. (Eq a, Monus a, Show a) =&gt; a -&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_3"><span class="hs-identifier hs-var hs-var">monusLaw_axiom_3</span></a></span></span><span> </span><span id="local-6989586621679064776"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679064777"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064777"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_3"><span class="hs-identifier hs-var hs-var">monusLaw_axiom_3</span></a></span></span><span> </span><span id="local-6989586621679064757"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679064758"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064758"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;&gt; (b &lt;\\&gt; a) == b &lt;&gt; (a &lt;\\&gt; b)&quot;</span></span><span>
 </span><span id="line-137"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064776"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064757"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064777"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064758"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064777"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064758"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064776"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064757"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064777"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064758"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property -&gt; Property
@@ -295,10 +295,10 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;(a &lt;\\&gt; b) /= mempty&quot;</span></span><span>
 </span><span id="line-140"></span><span>        </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064776"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064757"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064777"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064758"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">/=</span></span><span> </span><span class="annot"><span class="annottext">a
 forall a. Monoid a =&gt; a
@@ -311,10 +311,10 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;(b &lt;\\&gt; a) /= mempty&quot;</span></span><span>
 </span><span id="line-143"></span><span>        </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064777"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064758"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">/=</span></span><span> </span><span class="annot"><span class="annottext">a
 forall a. Monoid a =&gt; a
@@ -329,10 +329,10 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;b &lt;\\&gt; a&quot;</span></span><span>
 </span><span id="line-146"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064777"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064758"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -343,13 +343,13 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;&gt; (b &lt;\\&gt; a)&quot;</span></span><span>
 </span><span id="line-149"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064776"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064757"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064777"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064758"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -360,10 +360,10 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;\\&gt; b&quot;</span></span><span>
 </span><span id="line-152"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064776"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064757"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064777"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064758"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -374,43 +374,43 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;b &lt;&gt; (a &lt;\\&gt; b)&quot;</span></span><span>
 </span><span id="line-155"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064777"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064758"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064776"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064757"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064777"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064758"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span id="local-6989586621679064601"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_4"><span class="hs-identifier hs-type">monusLaw_axiom_4</span></a></span><span>
-</span><span id="line-158"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679064601"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064601"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679064601"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064601"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064601"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064601"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-157"></span><span id="local-6989586621679064582"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_4"><span class="hs-identifier hs-type">monusLaw_axiom_4</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064582"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-159"></span><span id="monusLaw_axiom_4"><span class="annot"><span class="annottext">monusLaw_axiom_4 :: forall a. (Eq a, Monus a, Show a) =&gt; a -&gt; a -&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_4"><span class="hs-identifier hs-var hs-var">monusLaw_axiom_4</span></a></span></span><span> </span><span id="local-6989586621679064809"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679064810"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064810"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span id="local-6989586621679064811"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064811"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_axiom_4"><span class="hs-identifier hs-var hs-var">monusLaw_axiom_4</span></a></span></span><span> </span><span id="local-6989586621679064790"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679064791"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064791"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span id="local-6989586621679064792"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064792"><span class="hs-identifier hs-var">c</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;(a &lt;\\&gt; b) &lt;\\&gt; c == a &lt;\\&gt; (b &lt;&gt; c)&quot;</span></span><span>
 </span><span id="line-162"></span><span>        </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064809"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064790"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064810"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064791"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064811"><span class="hs-identifier hs-var">c</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064792"><span class="hs-identifier hs-var">c</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064809"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064790"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064810"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064791"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064811"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064792"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property -&gt; Property
@@ -419,13 +419,13 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;(a &lt;\\&gt; b) &lt;\\&gt; c /= mempty&quot;</span></span><span>
 </span><span id="line-165"></span><span>        </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064809"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064790"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064810"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064791"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064811"><span class="hs-identifier hs-var">c</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064792"><span class="hs-identifier hs-var">c</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">/=</span></span><span> </span><span class="annot"><span class="annottext">a
 forall a. Monoid a =&gt; a
@@ -440,10 +440,10 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;\\&gt; b&quot;</span></span><span>
 </span><span id="line-168"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064809"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064790"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064810"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064791"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -454,13 +454,13 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;(a &lt;\\&gt; b) &lt;\\&gt; c&quot;</span></span><span>
 </span><span id="line-171"></span><span>        </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064809"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064790"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064810"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064791"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064811"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064792"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -471,10 +471,10 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;b &lt;&gt; c&quot;</span></span><span>
 </span><span id="line-174"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064810"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064791"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064811"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064792"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -485,36 +485,36 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;\\&gt; (b &lt;&gt; c)&quot;</span></span><span>
 </span><span id="line-177"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064809"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064790"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064810"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064791"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064811"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064792"><span class="hs-identifier hs-var">c</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span id="local-6989586621679064812"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripPrefixOverlap"><span class="hs-identifier hs-type">monusLaw_stripPrefixOverlap</span></a></span><span>
-</span><span id="line-180"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679064812"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064812"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679064812"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064812"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064812"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-179"></span><span id="local-6989586621679064793"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripPrefixOverlap"><span class="hs-identifier hs-type">monusLaw_stripPrefixOverlap</span></a></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679064793"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064793"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679064793"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064793"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064793"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-181"></span><span id="monusLaw_stripPrefixOverlap"><span class="annot"><span class="annottext">monusLaw_stripPrefixOverlap :: forall a. (Eq a, Monus a, Show a) =&gt; a -&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripPrefixOverlap"><span class="hs-identifier hs-var hs-var">monusLaw_stripPrefixOverlap</span></a></span></span><span> </span><span id="local-6989586621679064833"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679064834"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064834"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripPrefixOverlap"><span class="hs-identifier hs-var hs-var">monusLaw_stripPrefixOverlap</span></a></span></span><span> </span><span id="local-6989586621679064814"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679064815"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064815"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;\\&gt; b == stripPrefixOverlap b a&quot;</span></span><span>
 </span><span id="line-184"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064833"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064814"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064834"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064815"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. OverlappingGCDMonoid m =&gt; m -&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">stripPrefixOverlap</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064834"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064815"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property -&gt; Property
@@ -523,10 +523,10 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;\\&gt; b /= mempty&quot;</span></span><span>
 </span><span id="line-187"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064833"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064814"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064834"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064815"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">/=</span></span><span> </span><span class="annot"><span class="annottext">a
 forall a. Monoid a =&gt; a
@@ -541,10 +541,10 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;\\&gt; b&quot;</span></span><span>
 </span><span id="line-190"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064833"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064814"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064834"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064815"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -557,31 +557,31 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-193"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. OverlappingGCDMonoid m =&gt; m -&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">stripPrefixOverlap</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064834"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064815"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span id="local-6989586621679064835"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripSuffixOverlap"><span class="hs-identifier hs-type">monusLaw_stripSuffixOverlap</span></a></span><span>
-</span><span id="line-196"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679064835"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064835"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679064835"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064835"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064835"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-195"></span><span id="local-6989586621679064816"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripSuffixOverlap"><span class="hs-identifier hs-type">monusLaw_stripSuffixOverlap</span></a></span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679064816"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064816"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679064816"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064816"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064816"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-197"></span><span id="monusLaw_stripSuffixOverlap"><span class="annot"><span class="annottext">monusLaw_stripSuffixOverlap :: forall a. (Eq a, Monus a, Show a) =&gt; a -&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripSuffixOverlap"><span class="hs-identifier hs-var hs-var">monusLaw_stripSuffixOverlap</span></a></span></span><span> </span><span id="local-6989586621679064855"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679064856"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064856"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#monusLaw_stripSuffixOverlap"><span class="hs-identifier hs-var hs-var">monusLaw_stripSuffixOverlap</span></a></span></span><span> </span><span id="local-6989586621679064836"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679064837"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064837"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
 </span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;\\&gt; b == stripSuffixOverlap b a&quot;</span></span><span>
 </span><span id="line-200"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064855"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064836"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064856"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064837"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. OverlappingGCDMonoid m =&gt; m -&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">stripSuffixOverlap</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064856"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064837"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property -&gt; Property
@@ -590,10 +590,10 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;\\&gt; b /= mempty&quot;</span></span><span>
 </span><span id="line-203"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064855"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064836"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064856"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679064837"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">/=</span></span><span> </span><span class="annot"><span class="annottext">a
 forall a. Monoid a =&gt; a
@@ -608,10 +608,10 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;\\&gt; b&quot;</span></span><span>
 </span><span id="line-206"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064855"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679064836"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var">&lt;\\&gt;</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064856"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064837"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -624,11 +624,11 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-209"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall m. OverlappingGCDMonoid m =&gt; m -&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">stripSuffixOverlap</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064856"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679064855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679064837"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679064836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="annot"><span class="hs-comment">-- | Convenient synonym for '&lt;\&gt;'.</span></span><span>
-</span><span id="line-212"></span><span id="local-6989586621679064604"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-type">(&lt;\\&gt;)</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064604"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064604"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064604"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064604"><span class="hs-identifier hs-type">m</span></a></span></span><span>
+</span><span id="line-212"></span><span id="local-6989586621679064585"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-type">(&lt;\\&gt;)</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Monus</span></span><span> </span><span class="annot"><a href="#local-6989586621679064585"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064585"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064585"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679064585"><span class="hs-identifier hs-type">m</span></a></span></span><span>
 </span><span id="line-213"></span><span id="%3C%5C%5C%3E"><span class="annot"><span class="annottext">&lt;\\&gt; :: forall m. Monus m =&gt; m -&gt; m -&gt; m
 </span><a href="Test.QuickCheck.Classes.Monoid.Monus.html#%3C%5C%5C%3E"><span class="hs-operator hs-var hs-var">(&lt;\\&gt;)</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">m -&gt; m -&gt; m
 forall m. Monus m =&gt; m -&gt; m -&gt; m
