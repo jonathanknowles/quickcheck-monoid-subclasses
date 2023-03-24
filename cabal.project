@@ -1,1 +1,6 @@
 packages: .
+
+source-repository-package
+    type: git
+    location: https://github.com/jonathanknowles/monoid-subclasses.git
+    tag: 088af43880c6c05777b86b11be127c970c756212
