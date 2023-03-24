@@ -64,6 +64,7 @@ To test that the laws of __multiple__ classes hold for a particular type, use th
 >     [ cancellativeLaws
 >     , commutativeLaws
 >     , distributiveGCDMonoidLaws
+>     , distributiveLCMMonoidLaws
 >     , gcdMonoidLaws
 >     , lcmMonoidLaws
 >     , leftCancellativeLaws
