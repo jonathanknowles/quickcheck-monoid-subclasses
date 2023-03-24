@@ -80,6 +80,7 @@ library
         Test.QuickCheck.Classes.Monoid.GCD
         Test.QuickCheck.Classes.Monoid.GCD.Distributive
         Test.QuickCheck.Classes.Monoid.LCM
+        Test.QuickCheck.Classes.Monoid.LCM.Distributive
         Test.QuickCheck.Classes.Monoid.Monus
         Test.QuickCheck.Classes.Monoid.Null
         Test.QuickCheck.Classes.Semigroup.Cancellative
