@@ -1078,7 +1078,7 @@ overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap a b =
 -- __/Commutativity/__
 --
 -- @
--- 'commonSuffix' a b == 'commonSuffix' b a
+-- 'commonSuffix' a b '==' 'commonSuffix' b a
 -- @
 --
 -- __/Associativity/__
