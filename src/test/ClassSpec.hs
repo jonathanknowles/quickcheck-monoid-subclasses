@@ -69,6 +69,8 @@ import Test.QuickCheck.Classes.Monoid.GCD.Distributive
     )
 import Test.QuickCheck.Classes.Monoid.LCM
     ( lcmMonoidLaws )
+import Test.QuickCheck.Classes.Monoid.LCM.Distributive
+    ( distributiveLCMMonoidLaws )
 import Test.QuickCheck.Classes.Monoid.Monus
     ( monusLaws )
 import Test.QuickCheck.Classes.Monoid.Null
@@ -99,6 +101,7 @@ spec = do
         [ cancellativeLaws
         , commutativeLaws
         , distributiveGCDMonoidLaws
+        , distributiveLCMMonoidLaws
         , gcdMonoidLaws
         , lcmMonoidLaws
         , leftCancellativeLaws
@@ -244,6 +247,7 @@ spec = do
     testLawsMany @(Set SmallInt)
         [ commutativeLaws
         , distributiveGCDMonoidLaws
+        , distributiveLCMMonoidLaws
         , gcdMonoidLaws
         , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
@@ -261,6 +265,7 @@ spec = do
     testLawsMany @(Set Natural)
         [ commutativeLaws
         , distributiveGCDMonoidLaws
+        , distributiveLCMMonoidLaws
         , gcdMonoidLaws
         , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
@@ -285,6 +290,7 @@ spec = do
     testLawsMany @(Product Natural)
         [ commutativeLaws
         , distributiveGCDMonoidLaws
+        , distributiveLCMMonoidLaws
         , gcdMonoidLaws
         , lcmMonoidLaws
         , leftDistributiveGCDMonoidLaws
@@ -313,6 +319,7 @@ spec = do
         [ cancellativeLaws
         , commutativeLaws
         , distributiveGCDMonoidLaws
+        , distributiveLCMMonoidLaws
         , gcdMonoidLaws
         , lcmMonoidLaws
         , leftCancellativeLaws
@@ -423,6 +430,7 @@ spec = do
         [ cancellativeLaws
         , commutativeLaws
         , distributiveGCDMonoidLaws
+        , distributiveLCMMonoidLaws
         , gcdMonoidLaws
         , lcmMonoidLaws
         , leftCancellativeLaws
