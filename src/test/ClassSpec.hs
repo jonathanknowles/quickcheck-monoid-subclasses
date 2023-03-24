@@ -63,6 +63,11 @@ import Test.QuickCheck.Classes.Monoid.GCD
     , overlappingGCDMonoidLaws
     , rightGCDMonoidLaws
     )
+import Test.QuickCheck.Classes.Monoid.GCD.Distributive
+    ( distributiveGCDMonoidLaws
+    , leftDistributiveGCDMonoidLaws
+    , rightDistributiveGCDMonoidLaws
+    )
 import Test.QuickCheck.Classes.Monoid.LCM
     ( lcmMonoidLaws )
 import Test.QuickCheck.Classes.Monoid.Monus
@@ -95,9 +100,11 @@ spec = do
         [ cancellativeGCDMonoidLaws
         , cancellativeLaws
         , commutativeLaws
+        , distributiveGCDMonoidLaws
         , gcdMonoidLaws
         , lcmMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
@@ -106,94 +113,111 @@ spec = do
         , positiveMonoidLaws
         , reductiveLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
     testLawsMany @ByteString
         [ leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
     testLawsMany @(Dual ByteString)
         [ leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
     testLawsMany @Text
         [ leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
     testLawsMany @(Dual Text)
         [ leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
     testLawsMany @[SmallInt]
         [ leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
     testLawsMany @(Dual [SmallInt])
         [ leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
     testLawsMany @(Seq SmallInt)
         [ leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
     testLawsMany @(Dual (Seq SmallInt))
         [ leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
@@ -221,7 +245,9 @@ spec = do
         ]
     testLawsMany @(Set SmallInt)
         [ commutativeLaws
+        , distributiveGCDMonoidLaws
         , gcdMonoidLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , lcmMonoidLaws
@@ -230,12 +256,15 @@ spec = do
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , reductiveLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
     testLawsMany @(Set Natural)
         [ commutativeLaws
+        , distributiveGCDMonoidLaws
         , gcdMonoidLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , lcmMonoidLaws
@@ -244,6 +273,7 @@ spec = do
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , reductiveLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
@@ -256,8 +286,10 @@ spec = do
         ]
     testLawsMany @(Product Natural)
         [ commutativeLaws
+        , distributiveGCDMonoidLaws
         , gcdMonoidLaws
         , lcmMonoidLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
@@ -266,6 +298,7 @@ spec = do
         , positiveMonoidLaws
         , reductiveLaws
         , rightGCDMonoidLaws
+        , rightDistributiveGCDMonoidLaws
         , rightReductiveLaws
         ]
     testLawsMany @(Sum SmallInt)
@@ -282,9 +315,11 @@ spec = do
         [ cancellativeGCDMonoidLaws
         , cancellativeLaws
         , commutativeLaws
+        , distributiveGCDMonoidLaws
         , gcdMonoidLaws
         , lcmMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
@@ -293,6 +328,7 @@ spec = do
         , positiveMonoidLaws
         , reductiveLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
@@ -390,9 +426,11 @@ spec = do
         [ cancellativeGCDMonoidLaws
         , cancellativeLaws
         , commutativeLaws
+        , distributiveGCDMonoidLaws
         , gcdMonoidLaws
         , lcmMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
@@ -401,6 +439,7 @@ spec = do
         , positiveMonoidLaws
         , reductiveLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
