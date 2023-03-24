@@ -530,7 +530,7 @@ gcdMonoidLaw_equivalence_commonSuffix a b =
 -- __/Commutativity/__
 --
 -- @
--- 'commonPrefix' a b == 'commonPrefix' b a
+-- 'commonPrefix' a b '==' 'commonPrefix' b a
 -- @
 --
 -- __/Associativity/__
@@ -1078,7 +1078,7 @@ overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap a b =
 -- __/Commutativity/__
 --
 -- @
--- 'commonSuffix' a b == 'commonSuffix' b a
+-- 'commonSuffix' a b '==' 'commonSuffix' b a
 -- @
 --
 -- __/Associativity/__
