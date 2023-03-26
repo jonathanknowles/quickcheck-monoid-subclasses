@@ -897,6 +897,32 @@ leftGCDMonoidLaw_stripCommonPrefix_stripPrefix_2 a b =
 --
 -- Includes the following laws:
 --
+-- __/Reductivity/__
+--
+-- @
+-- 'isJust' ('stripSuffix' ('overlap' a b) a)
+-- @
+-- @
+-- 'isJust' ('stripPrefix' ('overlap' a b) b)
+-- @
+--
+-- __/Idempotence/__
+--
+-- @
+-- 'overlap' a a '==' a
+-- @
+--
+-- __/Identity/__
+--
+-- @
+-- 'overlap' 'mempty' a '==' 'mempty'
+-- @
+-- @
+-- 'overlap' a 'mempty' '==' 'mempty'
+-- @
+--
+-- __/Equivalences/__
+--
 -- @
 -- 'overlap' a b '<>' 'stripPrefixOverlap' a b '==' b
 -- @
@@ -929,6 +955,21 @@ overlappingGCDMonoidLaws
     -> Laws
 overlappingGCDMonoidLaws _ = Laws "OverlappingGCDMonoid"
     [ makeLaw2 @a
+        "overlappingGCDMonoidLaw_reductivity_left"
+        (overlappingGCDMonoidLaw_reductivity_left)
+    , makeLaw2 @a
+        "overlappingGCDMonoidLaw_reductivity_right"
+        (overlappingGCDMonoidLaw_reductivity_right)
+    , makeLaw1 @a
+        "overlappingGCDMonoidLaw_idempotence"
+        (overlappingGCDMonoidLaw_idempotence)
+    , makeLaw1 @a
+        "overlappingGCDMonoidLaw_identity_left"
+        (overlappingGCDMonoidLaw_identity_left)
+    , makeLaw1 @a
+        "overlappingGCDMonoidLaw_identity_right"
+        (overlappingGCDMonoidLaw_identity_right)
+    , makeLaw2 @a
         "overlappingGCDMonoidLaw_overlap_stripPrefixOverlap"
         (overlappingGCDMonoidLaw_overlap_stripPrefixOverlap)
     , makeLaw2 @a
@@ -944,6 +985,80 @@ overlappingGCDMonoidLaws _ = Laws "OverlappingGCDMonoid"
         "overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap"
         (overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap)
     ]
+
+overlappingGCDMonoidLaw_reductivity_left
+    :: (Eq a, Show a, OverlappingGCDMonoid a) => a -> a -> Property
+overlappingGCDMonoidLaw_reductivity_left a b =
+    makeProperty
+        "isJust (stripSuffix (overlap a b) a)"
+        (isJust (stripSuffix (overlap a b) a))
+    & cover
+        "overlap a b /= mempty"
+        (overlap a b /= mempty)
+    & cover
+        "stripSuffix (overlap a b) a /= mempty"
+        (stripSuffix (overlap a b) a /= mempty)
+    & report
+        "overlap a b"
+        (overlap a b)
+    & report
+        "stripSuffix (overlap a b) a"
+        (stripSuffix (overlap a b) a)
+
+overlappingGCDMonoidLaw_reductivity_right
+    :: (Eq a, Show a, OverlappingGCDMonoid a) => a -> a -> Property
+overlappingGCDMonoidLaw_reductivity_right a b =
+    makeProperty
+        "isJust (stripPrefix (overlap a b) b)"
+        (isJust (stripPrefix (overlap a b) b))
+    & cover
+        "overlap a b /= mempty"
+        (overlap a b /= mempty)
+    & cover
+        "stripPrefix (overlap a b) b /= mempty"
+        (stripPrefix (overlap a b) b /= mempty)
+    & report
+        "overlap a b"
+        (overlap a b)
+    & report
+        "stripPrefix (overlap a b) b"
+        (stripPrefix (overlap a b) b)
+
+overlappingGCDMonoidLaw_idempotence
+    :: (Eq a, Show a, OverlappingGCDMonoid a) => a -> Property
+overlappingGCDMonoidLaw_idempotence a =
+    makeProperty
+        "overlap a a == a"
+        (overlap a a == a)
+    & report
+        "overlap a a"
+        (overlap a a)
+
+overlappingGCDMonoidLaw_identity_left
+    :: (Eq a, Show a, OverlappingGCDMonoid a) => a -> Property
+overlappingGCDMonoidLaw_identity_left a =
+    makeProperty
+        "overlap mempty a == mempty"
+        (overlap mempty a == mempty)
+    & cover
+        "a /= mempty"
+        (a /= mempty)
+    & report
+        "overlap mempty a"
+        (overlap mempty a)
+
+overlappingGCDMonoidLaw_identity_right
+    :: (Eq a, Show a, OverlappingGCDMonoid a) => a -> Property
+overlappingGCDMonoidLaw_identity_right a =
+    makeProperty
+        "overlap a mempty == mempty"
+        (overlap a mempty == mempty)
+    & cover
+        "a /= mempty"
+        (a /= mempty)
+    & report
+        "overlap a mempty"
+        (overlap a mempty)
 
 overlappingGCDMonoidLaw_overlap_stripPrefixOverlap
     :: (Eq a, Show a, OverlappingGCDMonoid a) => a -> a -> Property
