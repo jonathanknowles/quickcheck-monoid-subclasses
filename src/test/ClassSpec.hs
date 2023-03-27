@@ -54,13 +54,16 @@ import Test.QuickCheck.Classes.Monoid.Factorial
     ( factorialMonoidLaws )
 import Test.QuickCheck.Classes.Monoid.GCD
     ( cancellativeGCDMonoidLaws
+    , distributiveGCDMonoidLaws
     , gcdMonoidLaws
+    , leftDistributiveGCDMonoidLaws
     , leftGCDMonoidLaws
     , overlappingGCDMonoidLaws
+    , rightDistributiveGCDMonoidLaws
     , rightGCDMonoidLaws
     )
 import Test.QuickCheck.Classes.Monoid.LCM
-    ( lcmMonoidLaws )
+    ( distributiveLCMMonoidLaws, lcmMonoidLaws )
 import Test.QuickCheck.Classes.Monoid.Monus
     ( monusLaws )
 import Test.QuickCheck.Classes.Monoid.Null
@@ -93,11 +96,14 @@ spec = do
         [ cancellativeGCDMonoidLaws
         , cancellativeLaws
         , commutativeLaws
+        , distributiveGCDMonoidLaws
+        , distributiveLCMMonoidLaws
         , factorialLaws
         , factorialMonoidLaws
         , gcdMonoidLaws
         , lcmMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
@@ -106,6 +112,7 @@ spec = do
         , positiveMonoidLaws
         , reductiveLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         , stableFactorialLaws
@@ -114,12 +121,14 @@ spec = do
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         , stableFactorialLaws
@@ -128,12 +137,14 @@ spec = do
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         , stableFactorialLaws
@@ -142,12 +153,14 @@ spec = do
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         , stableFactorialLaws
@@ -156,12 +169,14 @@ spec = do
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         , stableFactorialLaws
@@ -170,12 +185,14 @@ spec = do
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         , stableFactorialLaws
@@ -184,12 +201,14 @@ spec = do
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         , stableFactorialLaws
@@ -198,12 +217,14 @@ spec = do
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         , stableFactorialLaws
@@ -212,12 +233,14 @@ spec = do
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         , stableFactorialLaws
@@ -226,12 +249,14 @@ spec = do
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         , stableFactorialLaws
@@ -240,45 +265,55 @@ spec = do
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         , stableFactorialLaws
         ]
     testLawsMany @(Set SmallInt)
         [ commutativeLaws
+        , distributiveGCDMonoidLaws
+        , distributiveLCMMonoidLaws
         , factorialLaws
         , factorialMonoidLaws
         , gcdMonoidLaws
+        , lcmMonoidLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
-        , lcmMonoidLaws
         , monoidNullLaws
         , monusLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , reductiveLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
     testLawsMany @(Set Natural)
         [ commutativeLaws
+        , distributiveGCDMonoidLaws
+        , distributiveLCMMonoidLaws
         , factorialLaws
         , factorialMonoidLaws
         , gcdMonoidLaws
+        , lcmMonoidLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
-        , lcmMonoidLaws
         , monoidNullLaws
         , monusLaws
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , reductiveLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
@@ -293,10 +328,13 @@ spec = do
         ]
     testLawsMany @(Product Natural)
         [ commutativeLaws
+        , distributiveGCDMonoidLaws
+        , distributiveLCMMonoidLaws
         , factorialLaws
         , factorialMonoidLaws
         , gcdMonoidLaws
         , lcmMonoidLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
@@ -304,6 +342,7 @@ spec = do
         , overlappingGCDMonoidLaws
         , positiveMonoidLaws
         , reductiveLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
@@ -323,11 +362,14 @@ spec = do
         [ cancellativeGCDMonoidLaws
         , cancellativeLaws
         , commutativeLaws
+        , distributiveGCDMonoidLaws
+        , distributiveLCMMonoidLaws
         , factorialLaws
         , factorialMonoidLaws
         , gcdMonoidLaws
         , lcmMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
@@ -336,6 +378,7 @@ spec = do
         , positiveMonoidLaws
         , reductiveLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         , stableFactorialLaws
@@ -452,11 +495,14 @@ spec = do
         [ cancellativeGCDMonoidLaws
         , cancellativeLaws
         , commutativeLaws
+        , distributiveGCDMonoidLaws
+        , distributiveLCMMonoidLaws
         , factorialLaws
         , factorialMonoidLaws
         , gcdMonoidLaws
         , lcmMonoidLaws
         , leftCancellativeLaws
+        , leftDistributiveGCDMonoidLaws
         , leftGCDMonoidLaws
         , leftReductiveLaws
         , monoidNullLaws
@@ -465,6 +511,7 @@ spec = do
         , positiveMonoidLaws
         , reductiveLaws
         , rightCancellativeLaws
+        , rightDistributiveGCDMonoidLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
         , stableFactorialLaws
