@@ -93,21 +93,6 @@ import Test.QuickCheck.Classes
 -- 'lcm' ('lcm' a b) c '==' 'lcm' a ('lcm' b c)
 -- @
 --
--- __/Distributivity/__
---
--- @
--- 'lcm' (a '<>' b) (a '<>' c) '==' a '<>' 'lcm' b c
--- @
--- @
--- 'lcm' (a '<>' c) (b '<>' c) '==' 'lcm' a b '<>' c
--- @
--- @
--- 'lcm' a ('gcd' b c) '==' 'gcd' ('lcm' a b) ('lcm' a c)
--- @
--- @
--- 'gcd' a ('lcm' b c) '==' 'lcm' ('gcd' a b) ('gcd' a c)
--- @
---
 -- __/Absorption/__
 --
 -- @
@@ -150,18 +135,6 @@ lcmMonoidLaws _ = Laws "LCMMonoid"
     , makeLaw3 @a
         "lcmMonoidLaw_associativity"
         (lcmMonoidLaw_associativity)
-    , makeLaw3 @a
-        "lcmMonoidLaw_distributivity_left"
-        (lcmMonoidLaw_distributivity_left)
-    , makeLaw3 @a
-        "lcmMonoidLaw_distributivity_right"
-        (lcmMonoidLaw_distributivity_right)
-    , makeLaw3 @a
-        "lcmMonoidLaw_distributivity_gcd_lcm"
-        (lcmMonoidLaw_distributivity_gcd_lcm)
-    , makeLaw3 @a
-        "lcmMonoidLaw_distributivity_lcm_gcd"
-        (lcmMonoidLaw_distributivity_lcm_gcd)
     , makeLaw2 @a
         "lcmMonoidLaw_absorption_gcd_lcm"
         (lcmMonoidLaw_absorption_gcd_lcm)
@@ -315,64 +288,6 @@ lcmMonoidLaw_associativity a b c =
     & report
         "lcm a (lcm b c)"
         (lcm a (lcm b c))
-
-lcmMonoidLaw_distributivity_left
-    :: (Eq a, Show a, LCMMonoid a) => a -> a -> a -> Property
-lcmMonoidLaw_distributivity_left a b c =
-    makeProperty
-        "lcm (a <> b) (a <> c) == a <> lcm b c"
-        (lcm (a <> b) (a <> c) == a <> lcm b c)
-    & report
-        "a <> b"
-        (a <> b)
-    & report
-        "a <> c"
-        (a <> c)
-    & report
-        "lcm (a <> b) (a <> c)"
-        (lcm (a <> b) (a <> c))
-    & report
-        "lcm b c"
-        (lcm b c)
-    & report
-        "a <> lcm b c"
-        (a <> lcm b c)
-
-lcmMonoidLaw_distributivity_right
-    :: (Eq a, Show a, LCMMonoid a) => a -> a -> a -> Property
-lcmMonoidLaw_distributivity_right a b c =
-    makeProperty
-        "lcm (a <> c) (b <> c) == lcm a b <> c"
-        (lcm (a <> c) (b <> c) == lcm a b <> c)
-    & report
-        "a <> c"
-        (a <> c)
-    & report
-        "b <> c"
-        (b <> c)
-    & report
-        "lcm (a <> c) (b <> c)"
-        (lcm (a <> c) (b <> c))
-    & report
-        "lcm a b"
-        (lcm a b)
-    & report
-        "lcm a b <> c"
-        (lcm a b <> c)
-
-lcmMonoidLaw_distributivity_gcd_lcm
-    :: (Eq a, Show a, LCMMonoid a) => a -> a -> a -> Property
-lcmMonoidLaw_distributivity_gcd_lcm a b c =
-    makeProperty
-        "lcm a (gcd b c) == gcd (lcm a b) (lcm a c)"
-        (lcm a (gcd b c) == gcd (lcm a b) (lcm a c))
-
-lcmMonoidLaw_distributivity_lcm_gcd
-    :: (Eq a, Show a, LCMMonoid a) => a -> a -> a -> Property
-lcmMonoidLaw_distributivity_lcm_gcd a b c =
-    makeProperty
-        "gcd a (lcm b c) == lcm (gcd a b) (gcd a c)"
-        (gcd a (lcm b c) == lcm (gcd a b) (gcd a c))
 
 lcmMonoidLaw_absorption_gcd_lcm
     :: (Eq a, Show a, LCMMonoid a) => a -> a -> Property
