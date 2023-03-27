@@ -53,8 +53,7 @@ import Test.QuickCheck.Classes
 import Test.QuickCheck.Classes.Monoid.Factorial
     ( factorialMonoidLaws )
 import Test.QuickCheck.Classes.Monoid.GCD
-    ( cancellativeGCDMonoidLaws
-    , distributiveGCDMonoidLaws
+    ( distributiveGCDMonoidLaws
     , gcdMonoidLaws
     , leftDistributiveGCDMonoidLaws
     , leftGCDMonoidLaws
@@ -93,8 +92,7 @@ import Test.QuickCheck.Property
 spec :: Spec
 spec = do
     testLawsMany @() $ fmap disableCoverageCheck <$>
-        [ cancellativeGCDMonoidLaws
-        , cancellativeLaws
+        [ cancellativeLaws
         , commutativeLaws
         , distributiveGCDMonoidLaws
         , distributiveLCMMonoidLaws
@@ -359,8 +357,7 @@ spec = do
         , rightReductiveLaws
         ]
     testLawsMany @(Sum Natural)
-        [ cancellativeGCDMonoidLaws
-        , cancellativeLaws
+        [ cancellativeLaws
         , commutativeLaws
         , distributiveGCDMonoidLaws
         , distributiveLCMMonoidLaws
@@ -492,8 +489,7 @@ spec = do
 
 {- All laws tested in this module:
 
-        [ cancellativeGCDMonoidLaws
-        , cancellativeLaws
+        [ cancellativeLaws
         , commutativeLaws
         , distributiveGCDMonoidLaws
         , distributiveLCMMonoidLaws

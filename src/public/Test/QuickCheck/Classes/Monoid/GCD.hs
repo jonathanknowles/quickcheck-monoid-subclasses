@@ -11,7 +11,6 @@
 --
 module Test.QuickCheck.Classes.Monoid.GCD
     ( gcdMonoidLaws
-    , cancellativeGCDMonoidLaws
     , leftGCDMonoidLaws
     , rightGCDMonoidLaws
     , overlappingGCDMonoidLaws
@@ -40,97 +39,13 @@ import Data.Monoid.GCD
 import Data.Proxy
     ( Proxy (..) )
 import Data.Semigroup.Cancellative
-    ( Cancellative, LeftReductive (..), Reductive (..), RightReductive (..) )
+    ( LeftReductive (..), Reductive (..), RightReductive (..) )
 import Internal
     ( cover, makeLaw1, makeLaw2, makeLaw3, makeProperty, report, (==>) )
 import Test.QuickCheck
     ( Arbitrary (..), Property )
 import Test.QuickCheck.Classes
     ( Laws (..) )
-
---------------------------------------------------------------------------------
--- CancellativeGCDMonoid
---------------------------------------------------------------------------------
-
--- | 'Laws' for instances of 'Cancellative' and 'GCDMonoid'.
---
--- Includes the following laws:
---
--- @
--- 'gcd' (a '<>' b) (a '<>' c) '==' a '<>' 'gcd' b c
--- @
---
--- @
--- 'gcd' (a '<>' c) (b '<>' c) '==' 'gcd' a b '<>' c
--- @
---
--- Note that the following superclass laws are __not__ included:
---
--- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.cancellativeLaws'
--- * 'Test.QuickCheck.Classes.Monoid.GCD.gcdMonoidLaws'
---
-cancellativeGCDMonoidLaws
-    :: forall a. (Arbitrary a, Show a, Eq a, Cancellative a, GCDMonoid a)
-    => Proxy a
-    -> Laws
-cancellativeGCDMonoidLaws _ = Laws "CancellativeGCDMonoid"
-    [ makeLaw3 @a
-        "cancellativeGCDMonoidLaw_prefix"
-        (cancellativeGCDMonoidLaw_prefix)
-    , makeLaw3 @a
-        "cancellativeGCDMonoidLaw_suffix"
-        (cancellativeGCDMonoidLaw_suffix)
-    ]
-
-cancellativeGCDMonoidLaw_prefix
-    :: (Eq a, Show a, Cancellative a, GCDMonoid a) => a -> a -> a -> Property
-cancellativeGCDMonoidLaw_prefix a b c =
-    makeProperty
-        "gcd (a <> b) (a <> c) == a <> gcd b c"
-        (gcd (a <> b) (a <> c) == a <> gcd b c)
-    & report
-        "a <> b"
-        (a <> b)
-    & report
-        "a <> c"
-        (a <> c)
-    & report
-        "gcd (a <> b) (a <> c)"
-        (gcd (a <> b) (a <> c))
-    & report
-        "gcd b c"
-        (gcd b c)
-    & report
-        "a <> gcd b c"
-        (a <> gcd b c)
-    & cover
-        "a /= mempty && gcd b c /= mempty && a /= gcd b c"
-        (a /= mempty && gcd b c /= mempty && a /= gcd b c)
-
-cancellativeGCDMonoidLaw_suffix
-    :: (Eq a, Show a, Cancellative a, GCDMonoid a) => a -> a -> a -> Property
-cancellativeGCDMonoidLaw_suffix a b c =
-    makeProperty
-        "gcd (a <> c) (b <> c) == gcd a b <> c"
-        (gcd (a <> c) (b <> c) == gcd a b <> c)
-    & report
-        "a <> c"
-        (a <> c)
-    & report
-        "b <> c"
-        (b <> c)
-    & report
-        "gcd (a <> c) (b <> c)"
-        (gcd (a <> c) (b <> c))
-    & report
-        "gcd a b"
-        (gcd a b)
-    & report
-        "gcd a b <> c"
-        (gcd a b <> c)
-    & cover
-        "c /= mempty && gcd a b /= mempty && c /= gcd a b"
-        (c /= mempty && gcd a b /= mempty && c /= gcd a b)
 
 --------------------------------------------------------------------------------
 -- GCDMonoid
