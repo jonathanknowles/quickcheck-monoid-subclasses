@@ -24,7 +24,7 @@ import Prelude hiding
 import Data.Function
     ( (&) )
 import Data.Maybe
-    ( isJust, isNothing )
+    ( isJust )
 import Data.Monoid.GCD
     ( GCDMonoid (..)
     , LeftGCDMonoid (..)

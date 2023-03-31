@@ -47,13 +47,7 @@ import Test.Hspec
 import Test.Hspec.Laws
     ( testLawsMany )
 import Test.QuickCheck
-    ( Arbitrary (..)
-    , Confidence
-    , Property
-    , arbitrarySizedIntegral
-    , scale
-    , shrinkMap
-    )
+    ( Arbitrary (..), Confidence, Property, scale, shrinkMap )
 import Test.QuickCheck.Classes
     ( Laws (..) )
 import Test.QuickCheck.Classes.Monoid.GCD

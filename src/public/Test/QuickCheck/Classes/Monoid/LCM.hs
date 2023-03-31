@@ -22,19 +22,13 @@ import Data.Function
 import Data.Maybe
     ( isJust )
 import Data.Monoid.GCD
-    ( GCDMonoid (..), OverlappingGCDMonoid (..) )
+    ( GCDMonoid (..) )
 import Data.Monoid.LCM
     ( LCMMonoid (..) )
-import Data.Monoid.Monus
-    ( Monus (..) )
 import Data.Proxy
     ( Proxy (..) )
 import Data.Semigroup.Cancellative
-    ( Cancellative (..)
-    , LeftReductive (..)
-    , Reductive (..)
-    , RightReductive (..)
-    )
+    ( Reductive (..) )
 import Internal
     ( cover, makeLaw1, makeLaw2, makeLaw3, makeProperty, report, (==>) )
 import Test.QuickCheck
