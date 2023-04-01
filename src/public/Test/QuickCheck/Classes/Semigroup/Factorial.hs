@@ -45,6 +45,7 @@ import Test.QuickCheck.Classes
     ( Laws (Laws) )
 
 import qualified Data.List as L
+import qualified Prelude
 
 --------------------------------------------------------------------------------
 -- Factorial
@@ -53,6 +54,10 @@ import qualified Data.List as L
 -- | 'Laws' for instances of 'Factorial'.
 --
 -- Includes the following laws:
+--
+-- @
+-- 'length' a '==' "Prelude".'Prelude.length' ('factors' a)
+-- @
 --
 -- @
 -- 'maybe' a 'sconcat' ('nonEmpty' ('factors' a)) '==' a
@@ -85,6 +90,9 @@ factorialLaws _ = Laws "Factorial"
     [ makeLaw1 @a
         "factorialLaw_coverage"
         (factorialLaw_coverage)
+    , makeLaw1 @a
+        "factorialLaw_length_factors"
+        (factorialLaw_length_factors)
     , makeLaw1 @a
         "factorialLaw_maybe_sconcat_nonEmpty_factors"
         (factorialLaw_maybe_sconcat_nonEmpty_factors)
@@ -123,6 +131,19 @@ factorialLaw_coverage a =
     & cover
         "length a >= 2"
         (length a >= 2)
+
+factorialLaw_length_factors
+    :: (Eq a, Show a, Factorial a) => a -> Property
+factorialLaw_length_factors a =
+    makeProperty
+        "length a == Prelude.length (factors a)"
+        (length a == Prelude.length (factors a))
+    & report
+        "length a"
+        (length a)
+    & report
+        "Prelude.length (factors a)"
+        (Prelude.length (factors a))
 
 factorialLaw_maybe_sconcat_nonEmpty_factors
     :: (Eq a, Show a, Factorial a) => a -> Property
