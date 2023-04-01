@@ -17,7 +17,7 @@ module Test.QuickCheck.Classes.Semigroup.Factorial
     where
 
 import Prelude hiding
-    ( foldl, foldr, length )
+    ( foldl, foldr, length, reverse )
 
 import Data.Function
     ( (&) )
@@ -36,6 +36,7 @@ import Data.Semigroup.Factorial
     , length
     , primePrefix
     , primeSuffix
+    , reverse
     )
 import Internal
     ( cover, makeLaw1, makeLaw2, makeProperty, report )
@@ -60,7 +61,8 @@ import qualified Prelude
 -- @
 --
 -- @
--- 'maybe' a 'sconcat' ('nonEmpty' ('factors' a)) '==' a
+-- 'maybe' a 'sconcat' ('nonEmpty'   \ \ \     \ $ 'factors' a) '==' \       \ a
+-- 'maybe' a 'sconcat' ('nonEmpty' $ 'L.reverse' $ 'factors' a) '==' 'reverse' a
 -- @
 --
 -- @
@@ -96,6 +98,9 @@ factorialLaws _ = Laws "Factorial"
     , makeLaw1 @a
         "factorialLaw_maybe_sconcat_nonEmpty_factors"
         (factorialLaw_maybe_sconcat_nonEmpty_factors)
+    , makeLaw1 @a
+        "factorialLaw_maybe_sconcat_nonEmpty_factors_reverse"
+        (factorialLaw_maybe_sconcat_nonEmpty_factors_reverse)
     , makeLaw1 @a
         "factorialLaw_all_factors_prime"
         (factorialLaw_all_factors_prime)
@@ -160,6 +165,28 @@ factorialLaw_maybe_sconcat_nonEmpty_factors a =
     & report
         "fmap sconcat (nonEmpty (factors a))"
         (fmap sconcat (nonEmpty (factors a)))
+
+factorialLaw_maybe_sconcat_nonEmpty_factors_reverse
+    :: (Eq a, Show a, Factorial a) => a -> Property
+factorialLaw_maybe_sconcat_nonEmpty_factors_reverse a =
+    makeProperty
+        "maybe a sconcat (nonEmpty (L.reverse (factors a))) == reverse a"
+        (maybe a sconcat (nonEmpty (L.reverse (factors a))) == reverse a)
+    & report
+        "factors a"
+        (factors a)
+    & report
+        "L.reverse (factors a)"
+        (L.reverse (factors a))
+    & report
+        "nonEmpty (L.reverse (factors a))"
+        (nonEmpty (L.reverse (factors a)))
+    & report
+        "maybe a sconcat (nonEmpty (L.reverse (factors a)))"
+        (maybe a sconcat (nonEmpty (L.reverse (factors a))))
+    & report
+        "reverse a"
+        (reverse a)
 
 factorialLaw_all_factors_prime
     :: (Eq a, Show a, Factorial a) => a -> Property
