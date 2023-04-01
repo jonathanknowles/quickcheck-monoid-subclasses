@@ -82,6 +82,7 @@ library
         Test.QuickCheck.Classes.Monoid.Monus
         Test.QuickCheck.Classes.Monoid.Null
         Test.QuickCheck.Classes.Semigroup.Cancellative
+        Test.QuickCheck.Classes.Semigroup.Factorial
 
 library internal
     import:
