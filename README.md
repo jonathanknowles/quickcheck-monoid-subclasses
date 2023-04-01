@@ -81,6 +81,7 @@ To test that the laws of __multiple__ classes hold for a particular type, use th
 >     , rightGCDMonoidLaws
 >     , rightReductiveLaws
 >     , semigroupLaws
+>     , stableFactorialLaws
 >     ]
 > ```
 
