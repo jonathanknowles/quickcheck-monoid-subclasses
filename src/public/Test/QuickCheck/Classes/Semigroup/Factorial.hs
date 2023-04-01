@@ -36,7 +36,7 @@ import Test.QuickCheck
 import Test.QuickCheck.Classes
     ( Laws (Laws) )
 
-import qualified Data.Foldable as F
+import qualified Data.List as L
 
 --------------------------------------------------------------------------------
 -- Factorial
@@ -60,9 +60,9 @@ import qualified Data.Foldable as F
 -- @
 --
 -- @
--- 'foldl'  f x a '==' "Data.Foldable".'F.foldl'  f x ('factors' a)
--- 'foldl'' f x a '==' "Data.Foldable".'F.foldl'' f x ('factors' a)
--- 'foldr'  f x a '==' "Data.Foldable".'F.foldr'  f x ('factors' a)
+-- 'foldl'  f x a '==' "Data.List".'Data.List.foldl'  f x ('factors' a)
+-- 'foldl'' f x a '==' "Data.List".'Data.List.foldl'' f x ('factors' a)
+-- 'foldr'  f x a '==' "Data.List".'Data.List.foldr'  f x ('factors' a)
 -- @
 --
 -- Note that the following superclass laws are __not__ included:
@@ -182,8 +182,8 @@ factorialLaw_factors_foldl
 factorialLaw_factors_foldl x a =
     forAllBlind genAccumulatorFn $ \(fDefinition, f) ->
         makeProperty
-            "foldl f x a == F.foldl f x (factors a)"
-            (foldl f x a == F.foldl f x (factors a))
+            "foldl f x a == L.foldl f x (factors a)"
+            (foldl f x a == L.foldl f x (factors a))
         & report
             "f"
             (fDefinition)
@@ -191,16 +191,16 @@ factorialLaw_factors_foldl x a =
             "foldl f x a"
             (foldl f x a)
         & report
-            "F.foldl f x (factors a)"
-            (F.foldl f x (factors a))
+            "L.foldl f x (factors a)"
+            (L.foldl f x (factors a))
 
 factorialLaw_factors_foldl'
     :: (Eq a, Show a, Factorial a) => a -> a -> Property
 factorialLaw_factors_foldl' x a =
     forAllBlind genAccumulatorFn $ \(fDefinition, f) ->
         makeProperty
-            "foldl' f x a == F.foldl' f x (factors a)"
-            (foldl' f x a == F.foldl' f x (factors a))
+            "foldl' f x a == L.foldl' f x (factors a)"
+            (foldl' f x a == L.foldl' f x (factors a))
         & report
             "f"
             (fDefinition)
@@ -208,16 +208,16 @@ factorialLaw_factors_foldl' x a =
             "foldl' f x a"
             (foldl' f x a)
         & report
-            "F.foldl' f x (factors a)"
-            (F.foldl' f x (factors a))
+            "L.foldl' f x (factors a)"
+            (L.foldl' f x (factors a))
 
 factorialLaw_factors_foldr
     :: (Eq a, Show a, Factorial a) => a -> a -> Property
 factorialLaw_factors_foldr x a =
     forAllBlind genAccumulatorFn $ \(fDefinition, f) ->
         makeProperty
-            "foldr f x a == F.foldr f x (factors a)"
-            (foldr f x a == F.foldr f x (factors a))
+            "foldr f x a == L.foldr f x (factors a)"
+            (foldr f x a == L.foldr f x (factors a))
         & report
             "f"
             (fDefinition)
@@ -225,8 +225,8 @@ factorialLaw_factors_foldr x a =
             "foldr f x a"
             (foldr f x a)
         & report
-            "F.foldr f x (factors a)"
-            (F.foldr f x (factors a))
+            "L.foldr f x (factors a)"
+            (L.foldr f x (factors a))
 
 --------------------------------------------------------------------------------
 -- Utilities
