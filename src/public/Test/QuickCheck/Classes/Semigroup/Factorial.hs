@@ -55,7 +55,7 @@ import qualified Data.Foldable as F
 -- @
 --
 -- @
--- 'primePrefix' a '==' 'foldr' 'const' a a
+-- 'primePrefix' a '==' 'foldr' (\\x _ -> x) a a
 -- @
 --
 -- @
@@ -145,14 +145,17 @@ factorialLaw_primePrefix_foldr
     :: (Eq a, Show a, Factorial a) => a -> Property
 factorialLaw_primePrefix_foldr a =
     makeProperty
-        "primePrefix a == foldr const a a"
-        (primePrefix a == foldr const a a)
+        "primePrefix a == foldr (λx _ -> x) a a"
+        (primePrefix a == foldr (\x _ -> x) a a)
+    & report
+        "factors a"
+        (factors a)
     & report
         "primePrefix a"
         (primePrefix a)
     & report
-        "foldr const a a"
-        (foldr const a a)
+        "foldr (λx _ -> x) a a"
+        (foldr (\x _ -> x) a a)
 
 factorialLaw_factors_foldl
     :: (Eq a, Show a, Factorial a) => a -> a -> Property
