@@ -17,7 +17,7 @@ module Test.QuickCheck.Classes.Semigroup.Factorial
     where
 
 import Prelude hiding
-    ( foldl, foldr )
+    ( foldl, foldr, length, reverse )
 
 import Data.Function
     ( (&) )
@@ -28,7 +28,16 @@ import Data.Proxy
 import Data.Semigroup
     ( Semigroup (sconcat) )
 import Data.Semigroup.Factorial
-    ( Factorial (factors, foldl, foldl', foldr, primePrefix) )
+    ( Factorial
+    , factors
+    , foldl
+    , foldl'
+    , foldr
+    , length
+    , primePrefix
+    , primeSuffix
+    , reverse
+    )
 import Internal
     ( cover, makeLaw1, makeLaw2, makeProperty, report )
 import Test.QuickCheck
@@ -36,7 +45,7 @@ import Test.QuickCheck
 import Test.QuickCheck.Classes
     ( Laws (Laws) )
 
-import qualified Data.Foldable as F
+import qualified Data.List as L
 
 --------------------------------------------------------------------------------
 -- Factorial
@@ -47,7 +56,12 @@ import qualified Data.Foldable as F
 -- Includes the following laws:
 --
 -- @
--- 'maybe' a 'sconcat' ('nonEmpty' ('factors' a)) '==' a
+-- 'length' a '==' "Data.List".'Data.List.length' ('factors' a)
+-- @
+--
+-- @
+-- 'maybe' a 'sconcat' ('nonEmpty'   \ \ \     \ $ 'factors' a) '==' \       \ a
+-- 'maybe' a 'sconcat' ('nonEmpty' $ 'L.reverse' $ 'factors' a) '==' 'reverse' a
 -- @
 --
 -- @
@@ -55,13 +69,14 @@ import qualified Data.Foldable as F
 -- @
 --
 -- @
--- 'primePrefix' a '==' 'foldr' 'const' a a
+-- 'primePrefix' a '==' 'foldr' (\\x _ -> x) a a
+-- 'primeSuffix' a '==' 'foldl' (\\_ x -> x) a a
 -- @
 --
 -- @
--- 'foldl'  f x a '==' "Data.Foldable".'F.foldl'  f x ('factors' a)
--- 'foldl'' f x a '==' "Data.Foldable".'F.foldl'' f x ('factors' a)
--- 'foldr'  f x a '==' "Data.Foldable".'F.foldr'  f x ('factors' a)
+-- 'foldl'  f x a '==' "Data.List".'Data.List.foldl'  f x ('factors' a)
+-- 'foldl'' f x a '==' "Data.List".'Data.List.foldl'' f x ('factors' a)
+-- 'foldr'  f x a '==' "Data.List".'Data.List.foldr'  f x ('factors' a)
 -- @
 --
 -- Note that the following superclass laws are __not__ included:
@@ -77,14 +92,23 @@ factorialLaws _ = Laws "Factorial"
         "factorialLaw_coverage"
         (factorialLaw_coverage)
     , makeLaw1 @a
+        "factorialLaw_length_factors"
+        (factorialLaw_length_factors)
+    , makeLaw1 @a
         "factorialLaw_maybe_sconcat_nonEmpty_factors"
         (factorialLaw_maybe_sconcat_nonEmpty_factors)
+    , makeLaw1 @a
+        "factorialLaw_maybe_sconcat_nonEmpty_factors_reverse"
+        (factorialLaw_maybe_sconcat_nonEmpty_factors_reverse)
     , makeLaw1 @a
         "factorialLaw_all_factors_prime"
         (factorialLaw_all_factors_prime)
     , makeLaw1 @a
         "factorialLaw_primePrefix_foldr"
         (factorialLaw_primePrefix_foldr)
+    , makeLaw1 @a
+        "factorialLaw_primeSuffix_foldl"
+        (factorialLaw_primeSuffix_foldl)
     , makeLaw2 @a
         "factorialLaw_factors_foldl"
         (factorialLaw_factors_foldl)
@@ -103,14 +127,27 @@ factorialLaw_coverage a =
         "True"
         (True)
     & cover
-        "length (factors a) == 0"
-        (length (factors a) == 0)
+        "length a == 0"
+        (length a == 0)
     & cover
-        "length (factors a) == 1"
-        (length (factors a) == 1)
+        "length a == 1"
+        (length a == 1)
     & cover
-        "length (factors a) >= 2"
-        (length (factors a) >= 2)
+        "length a >= 2"
+        (length a >= 2)
+
+factorialLaw_length_factors
+    :: (Eq a, Show a, Factorial a) => a -> Property
+factorialLaw_length_factors a =
+    makeProperty
+        "length a == L.length (factors a)"
+        (length a == L.length (factors a))
+    & report
+        "length a"
+        (length a)
+    & report
+        "L.length (factors a)"
+        (L.length (factors a))
 
 factorialLaw_maybe_sconcat_nonEmpty_factors
     :: (Eq a, Show a, Factorial a) => a -> Property
@@ -127,6 +164,28 @@ factorialLaw_maybe_sconcat_nonEmpty_factors a =
     & report
         "fmap sconcat (nonEmpty (factors a))"
         (fmap sconcat (nonEmpty (factors a)))
+
+factorialLaw_maybe_sconcat_nonEmpty_factors_reverse
+    :: (Eq a, Show a, Factorial a) => a -> Property
+factorialLaw_maybe_sconcat_nonEmpty_factors_reverse a =
+    makeProperty
+        "maybe a sconcat (nonEmpty (L.reverse (factors a))) == reverse a"
+        (maybe a sconcat (nonEmpty (L.reverse (factors a))) == reverse a)
+    & report
+        "factors a"
+        (factors a)
+    & report
+        "L.reverse (factors a)"
+        (L.reverse (factors a))
+    & report
+        "nonEmpty (L.reverse (factors a))"
+        (nonEmpty (L.reverse (factors a)))
+    & report
+        "maybe a sconcat (nonEmpty (L.reverse (factors a)))"
+        (maybe a sconcat (nonEmpty (L.reverse (factors a))))
+    & report
+        "reverse a"
+        (reverse a)
 
 factorialLaw_all_factors_prime
     :: (Eq a, Show a, Factorial a) => a -> Property
@@ -145,22 +204,41 @@ factorialLaw_primePrefix_foldr
     :: (Eq a, Show a, Factorial a) => a -> Property
 factorialLaw_primePrefix_foldr a =
     makeProperty
-        "primePrefix a == foldr const a a"
-        (primePrefix a == foldr const a a)
+        "primePrefix a == foldr (λx _ -> x) a a"
+        (primePrefix a == foldr (\x _ -> x) a a)
+    & report
+        "factors a"
+        (factors a)
     & report
         "primePrefix a"
         (primePrefix a)
     & report
-        "foldr const a a"
-        (foldr const a a)
+        "foldr (λx _ -> x) a a"
+        (foldr (\x _ -> x) a a)
+
+factorialLaw_primeSuffix_foldl
+    :: (Eq a, Show a, Factorial a) => a -> Property
+factorialLaw_primeSuffix_foldl a =
+    makeProperty
+        "primeSuffix a == foldl (λ_ x -> x) a a"
+        (primeSuffix a == foldl (\_ x -> x) a a)
+    & report
+        "factors a"
+        (factors a)
+    & report
+        "primeSuffix a"
+        (primeSuffix a)
+    & report
+        "foldl (λ_ x -> x) a a"
+        (foldl (\_ x -> x) a a)
 
 factorialLaw_factors_foldl
     :: (Eq a, Show a, Factorial a) => a -> a -> Property
 factorialLaw_factors_foldl x a =
     forAllBlind genAccumulatorFn $ \(fDefinition, f) ->
         makeProperty
-            "foldl f x a == F.foldl f x (factors a)"
-            (foldl f x a == F.foldl f x (factors a))
+            "foldl f x a == L.foldl f x (factors a)"
+            (foldl f x a == L.foldl f x (factors a))
         & report
             "f"
             (fDefinition)
@@ -168,16 +246,16 @@ factorialLaw_factors_foldl x a =
             "foldl f x a"
             (foldl f x a)
         & report
-            "F.foldl f x (factors a)"
-            (F.foldl f x (factors a))
+            "L.foldl f x (factors a)"
+            (L.foldl f x (factors a))
 
 factorialLaw_factors_foldl'
     :: (Eq a, Show a, Factorial a) => a -> a -> Property
 factorialLaw_factors_foldl' x a =
     forAllBlind genAccumulatorFn $ \(fDefinition, f) ->
         makeProperty
-            "foldl' f x a == F.foldl' f x (factors a)"
-            (foldl' f x a == F.foldl' f x (factors a))
+            "foldl' f x a == L.foldl' f x (factors a)"
+            (foldl' f x a == L.foldl' f x (factors a))
         & report
             "f"
             (fDefinition)
@@ -185,16 +263,16 @@ factorialLaw_factors_foldl' x a =
             "foldl' f x a"
             (foldl' f x a)
         & report
-            "F.foldl' f x (factors a)"
-            (F.foldl' f x (factors a))
+            "L.foldl' f x (factors a)"
+            (L.foldl' f x (factors a))
 
 factorialLaw_factors_foldr
     :: (Eq a, Show a, Factorial a) => a -> a -> Property
 factorialLaw_factors_foldr x a =
     forAllBlind genAccumulatorFn $ \(fDefinition, f) ->
         makeProperty
-            "foldr f x a == F.foldr f x (factors a)"
-            (foldr f x a == F.foldr f x (factors a))
+            "foldr f x a == L.foldr f x (factors a)"
+            (foldr f x a == L.foldr f x (factors a))
         & report
             "f"
             (fDefinition)
@@ -202,8 +280,8 @@ factorialLaw_factors_foldr x a =
             "foldr f x a"
             (foldr f x a)
         & report
-            "F.foldr f x (factors a)"
-            (F.foldr f x (factors a))
+            "L.foldr f x (factors a)"
+            (L.foldr f x (factors a))
 
 --------------------------------------------------------------------------------
 -- Utilities
