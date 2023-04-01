@@ -17,7 +17,7 @@ module Test.QuickCheck.Classes.Semigroup.Factorial
     where
 
 import Prelude hiding
-    ( foldl, foldr )
+    ( foldl, foldr, length )
 
 import Data.Function
     ( (&) )
@@ -28,7 +28,15 @@ import Data.Proxy
 import Data.Semigroup
     ( Semigroup (sconcat) )
 import Data.Semigroup.Factorial
-    ( Factorial (factors, foldl, foldl', foldr, primePrefix, primeSuffix) )
+    ( Factorial
+    , factors
+    , foldl
+    , foldl'
+    , foldr
+    , length
+    , primePrefix
+    , primeSuffix
+    )
 import Internal
     ( cover, makeLaw1, makeLaw2, makeProperty, report )
 import Test.QuickCheck
@@ -107,14 +115,14 @@ factorialLaw_coverage a =
         "True"
         (True)
     & cover
-        "length (factors a) == 0"
-        (length (factors a) == 0)
+        "length a == 0"
+        (length a == 0)
     & cover
-        "length (factors a) == 1"
-        (length (factors a) == 1)
+        "length a == 1"
+        (length a == 1)
     & cover
-        "length (factors a) >= 2"
-        (length (factors a) >= 2)
+        "length a >= 2"
+        (length a >= 2)
 
 factorialLaw_maybe_sconcat_nonEmpty_factors
     :: (Eq a, Show a, Factorial a) => a -> Property
