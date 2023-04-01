@@ -13,6 +13,7 @@
 --
 module Test.QuickCheck.Classes.Semigroup.Factorial
     ( factorialLaws
+    , stableFactorialLaws
     )
     where
 
@@ -29,6 +30,7 @@ import Data.Semigroup
     ( Semigroup (sconcat) )
 import Data.Semigroup.Factorial
     ( Factorial
+    , StableFactorial
     , factors
     , foldl
     , foldl'
@@ -282,6 +284,123 @@ factorialLaw_factors_foldr x a =
         & report
             "L.foldr f x (factors a)"
             (L.foldr f x (factors a))
+
+--------------------------------------------------------------------------------
+-- StableFactorial
+--------------------------------------------------------------------------------
+
+-- | 'Laws' for instances of 'StableFactorial'.
+--
+-- Includes the following laws:
+--
+-- @
+-- 'factors' (a '<>' b) '==' 'factors' a '<>' 'factors' b
+-- @
+--
+-- @
+-- 'factors' ('reverse' a) '==' "Data.List".'L.reverse' ('factors' a)
+-- @
+--
+-- @
+-- 'primePrefix' a '==' 'primeSuffix' ('reverse' a)
+-- 'primeSuffix' a '==' 'primePrefix' ('reverse' a)
+-- @
+--
+-- Note that the following superclass laws are __not__ included:
+--
+-- * 'factorialLaws'
+--
+stableFactorialLaws
+    :: forall a. (Arbitrary a, Show a, Eq a, StableFactorial a)
+    => Proxy a
+    -> Laws
+stableFactorialLaws _ = Laws "Factorial"
+    [ makeLaw2 @a
+        "stableFactorialLaw_factors_mappend"
+        (stableFactorialLaw_factors_mappend)
+    , makeLaw1 @a
+        "stableFactorialLaw_factors_reverse"
+        (stableFactorialLaw_factors_reverse)
+    , makeLaw1 @a
+        "stableFactorialLaw_primePrefix_primeSuffix_reverse"
+        (stableFactorialLaw_primePrefix_primeSuffix_reverse)
+    , makeLaw1 @a
+        "stableFactorialLaw_primeSuffix_primePrefix_reverse"
+        (stableFactorialLaw_primeSuffix_primePrefix_reverse)
+    ]
+
+stableFactorialLaw_factors_mappend
+    :: (Eq a, Show a, StableFactorial a) => a -> a -> Property
+stableFactorialLaw_factors_mappend a b =
+    makeProperty
+        "factors (a <> b) == factors a <> factors b"
+        (factors (a <> b) == factors a <> factors b)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "factors a"
+        (factors a)
+    & report
+        "factors b"
+        (factors b)
+    & report
+        "factors (a <> b)"
+        (factors (a <> b))
+    & report
+        "factors a <> factors b"
+        (factors a <> factors b)
+
+stableFactorialLaw_factors_reverse
+    :: (Eq a, Show a, StableFactorial a) => a -> Property
+stableFactorialLaw_factors_reverse a =
+    makeProperty
+        "factors (reverse a) == L.reverse (factors a)"
+        (factors (reverse a) == L.reverse (factors a))
+    & report
+        "reverse a"
+        (reverse a)
+    & report
+        "factors (reverse a)"
+        (factors (reverse a))
+    & report
+        "factors a"
+        (factors a)
+    & report
+        "L.reverse (factors a)"
+        (L.reverse (factors a))
+
+stableFactorialLaw_primePrefix_primeSuffix_reverse
+    :: (Eq a, Show a, StableFactorial a) => a -> Property
+stableFactorialLaw_primePrefix_primeSuffix_reverse a =
+    makeProperty
+        "primePrefix a == primeSuffix (reverse a)"
+        (primePrefix a == primeSuffix (reverse a))
+    & report
+        "primePrefix a"
+        (primePrefix a)
+    & report
+        "reverse a"
+        (reverse a)
+    & report
+        "primeSuffix (reverse a)"
+        (primeSuffix (reverse a))
+
+stableFactorialLaw_primeSuffix_primePrefix_reverse
+    :: (Eq a, Show a, StableFactorial a) => a -> Property
+stableFactorialLaw_primeSuffix_primePrefix_reverse a =
+    makeProperty
+        "primeSuffix a == primePrefix (reverse a)"
+        (primeSuffix a == primePrefix (reverse a))
+    & report
+        "primeSuffix a"
+        (primeSuffix a)
+    & report
+        "reverse a"
+        (reverse a)
+    & report
+        "primePrefix (reverse a)"
+        (primePrefix (reverse a))
 
 --------------------------------------------------------------------------------
 -- Utilities

@@ -73,7 +73,7 @@ import Test.QuickCheck.Classes.Semigroup.Cancellative
     , rightReductiveLaws
     )
 import Test.QuickCheck.Classes.Semigroup.Factorial
-    ( factorialLaws )
+    ( factorialLaws, stableFactorialLaws )
 import Test.QuickCheck.Instances.ByteString
     ()
 import Test.QuickCheck.Instances.Natural
@@ -105,6 +105,7 @@ spec = do
         , rightCancellativeLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
+        , stableFactorialLaws
         ]
     testLawsMany @ByteString
         [ factorialLaws
@@ -117,6 +118,7 @@ spec = do
         , rightCancellativeLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
+        , stableFactorialLaws
         ]
     testLawsMany @(Dual ByteString)
         [ factorialLaws
@@ -129,6 +131,7 @@ spec = do
         , rightCancellativeLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
+        , stableFactorialLaws
         ]
     testLawsMany @Text
         [ factorialLaws
@@ -141,6 +144,7 @@ spec = do
         , rightCancellativeLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
+        , stableFactorialLaws
         ]
     testLawsMany @(Dual Text)
         [ factorialLaws
@@ -153,6 +157,7 @@ spec = do
         , rightCancellativeLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
+        , stableFactorialLaws
         ]
     testLawsMany @[SmallInt]
         [ factorialLaws
@@ -165,6 +170,7 @@ spec = do
         , rightCancellativeLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
+        , stableFactorialLaws
         ]
     testLawsMany @(Dual [SmallInt])
         [ factorialLaws
@@ -177,6 +183,7 @@ spec = do
         , rightCancellativeLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
+        , stableFactorialLaws
         ]
     testLawsMany @(Seq SmallInt)
         [ factorialLaws
@@ -189,6 +196,7 @@ spec = do
         , rightCancellativeLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
+        , stableFactorialLaws
         ]
     testLawsMany @(Dual (Seq SmallInt))
         [ factorialLaws
@@ -201,6 +209,7 @@ spec = do
         , rightCancellativeLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
+        , stableFactorialLaws
         ]
     testLawsMany @(Vector SmallInt)
         [ factorialLaws
@@ -213,6 +222,7 @@ spec = do
         , rightCancellativeLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
+        , stableFactorialLaws
         ]
     testLawsMany @(Dual (Vector SmallInt))
         [ factorialLaws
@@ -225,6 +235,7 @@ spec = do
         , rightCancellativeLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
+        , stableFactorialLaws
         ]
     testLawsMany @(Set SmallInt)
         [ commutativeLaws
@@ -308,6 +319,7 @@ spec = do
         , rightCancellativeLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
+        , stableFactorialLaws
         ]
     testLawsMany @(IntMap SmallInt)
         [ factorialLaws
@@ -426,6 +438,7 @@ spec = do
         , rightCancellativeLaws
         , rightGCDMonoidLaws
         , rightReductiveLaws
+        , stableFactorialLaws
         ]
 -}
 
