@@ -28,7 +28,7 @@ import Data.Proxy
 import Data.Semigroup
     ( Semigroup (sconcat) )
 import Data.Semigroup.Factorial
-    ( Factorial (factors, foldl, foldl', foldr, primePrefix) )
+    ( Factorial (factors, foldl, foldl', foldr, primePrefix, primeSuffix) )
 import Internal
     ( cover, makeLaw1, makeLaw2, makeProperty, report )
 import Test.QuickCheck
@@ -56,6 +56,7 @@ import qualified Data.Foldable as F
 --
 -- @
 -- 'primePrefix' a '==' 'foldr' (\\x _ -> x) a a
+-- 'primeSuffix' a '==' 'foldl' (\\_ x -> x) a a
 -- @
 --
 -- @
@@ -85,6 +86,9 @@ factorialLaws _ = Laws "Factorial"
     , makeLaw1 @a
         "factorialLaw_primePrefix_foldr"
         (factorialLaw_primePrefix_foldr)
+    , makeLaw1 @a
+        "factorialLaw_primeSuffix_foldl"
+        (factorialLaw_primeSuffix_foldl)
     , makeLaw2 @a
         "factorialLaw_factors_foldl"
         (factorialLaw_factors_foldl)
@@ -156,6 +160,22 @@ factorialLaw_primePrefix_foldr a =
     & report
         "foldr (λx _ -> x) a a"
         (foldr (\x _ -> x) a a)
+
+factorialLaw_primeSuffix_foldl
+    :: (Eq a, Show a, Factorial a) => a -> Property
+factorialLaw_primeSuffix_foldl a =
+    makeProperty
+        "primeSuffix a == foldl (λ_ x -> x) a a"
+        (primeSuffix a == foldl (\_ x -> x) a a)
+    & report
+        "factors a"
+        (factors a)
+    & report
+        "primeSuffix a"
+        (primeSuffix a)
+    & report
+        "foldl (λ_ x -> x) a a"
+        (foldl (\_ x -> x) a a)
 
 factorialLaw_factors_foldl
     :: (Eq a, Show a, Factorial a) => a -> a -> Property
