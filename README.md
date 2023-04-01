@@ -59,11 +59,13 @@ To test that the laws of __multiple__ classes hold for a particular type, use th
 > import Test.QuickCheck.Classes.Monoid.Monus
 > import Test.QuickCheck.Classes.Monoid.Null
 > import Test.QuickCheck.Classes.Semigroup.Cancellative
+> import Test.QuickCheck.Classes.Semigroup.Factorial
 >
 > lawsCheckOne (Proxy :: Proxy (Sum Natural))
 >     [ cancellativeGCDMonoidLaws
 >     , cancellativeLaws
 >     , commutativeLaws
+>     , factorialLaws
 >     , gcdMonoidLaws
 >     , lcmMonoidLaws
 >     , leftCancellativeLaws
