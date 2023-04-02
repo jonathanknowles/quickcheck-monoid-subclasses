@@ -11,10 +11,12 @@
 --
 module Test.QuickCheck.Classes.Monoid.GCD
     ( gcdMonoidLaws
-    , cancellativeGCDMonoidLaws
     , leftGCDMonoidLaws
     , rightGCDMonoidLaws
     , overlappingGCDMonoidLaws
+    , distributiveGCDMonoidLaws
+    , leftDistributiveGCDMonoidLaws
+    , rightDistributiveGCDMonoidLaws
     )
     where
 
@@ -26,105 +28,24 @@ import Data.Function
 import Data.Maybe
     ( isJust )
 import Data.Monoid.GCD
-    ( GCDMonoid (..)
+    ( DistributiveGCDMonoid
+    , GCDMonoid (..)
+    , LeftDistributiveGCDMonoid
     , LeftGCDMonoid (..)
     , OverlappingGCDMonoid (..)
+    , RightDistributiveGCDMonoid
     , RightGCDMonoid (..)
     )
 import Data.Proxy
     ( Proxy (..) )
 import Data.Semigroup.Cancellative
-    ( Cancellative, LeftReductive (..), Reductive (..), RightReductive (..) )
+    ( LeftReductive (..), Reductive (..), RightReductive (..) )
 import Internal
     ( cover, makeLaw1, makeLaw2, makeLaw3, makeProperty, report, (==>) )
 import Test.QuickCheck
     ( Arbitrary (..), Property )
 import Test.QuickCheck.Classes
     ( Laws (..) )
-
---------------------------------------------------------------------------------
--- CancellativeGCDMonoid
---------------------------------------------------------------------------------
-
--- | 'Laws' for instances of 'Cancellative' and 'GCDMonoid'.
---
--- Includes the following laws:
---
--- @
--- 'gcd' (a '<>' b) (a '<>' c) '==' a '<>' 'gcd' b c
--- @
---
--- @
--- 'gcd' (a '<>' c) (b '<>' c) '==' 'gcd' a b '<>' c
--- @
---
--- Note that the following superclass laws are __not__ included:
---
--- * 'Test.QuickCheck.Classes.Semigroup.Cancellative.cancellativeLaws'
--- * 'Test.QuickCheck.Classes.Monoid.GCD.gcdMonoidLaws'
---
-cancellativeGCDMonoidLaws
-    :: forall a. (Arbitrary a, Show a, Eq a, Cancellative a, GCDMonoid a)
-    => Proxy a
-    -> Laws
-cancellativeGCDMonoidLaws _ = Laws "CancellativeGCDMonoid"
-    [ makeLaw3 @a
-        "cancellativeGCDMonoidLaw_prefix"
-        (cancellativeGCDMonoidLaw_prefix)
-    , makeLaw3 @a
-        "cancellativeGCDMonoidLaw_suffix"
-        (cancellativeGCDMonoidLaw_suffix)
-    ]
-
-cancellativeGCDMonoidLaw_prefix
-    :: (Eq a, Show a, Cancellative a, GCDMonoid a) => a -> a -> a -> Property
-cancellativeGCDMonoidLaw_prefix a b c =
-    makeProperty
-        "gcd (a <> b) (a <> c) == a <> gcd b c"
-        (gcd (a <> b) (a <> c) == a <> gcd b c)
-    & report
-        "a <> b"
-        (a <> b)
-    & report
-        "a <> c"
-        (a <> c)
-    & report
-        "gcd (a <> b) (a <> c)"
-        (gcd (a <> b) (a <> c))
-    & report
-        "gcd b c"
-        (gcd b c)
-    & report
-        "a <> gcd b c"
-        (a <> gcd b c)
-    & cover
-        "a /= mempty && gcd b c /= mempty && a /= gcd b c"
-        (a /= mempty && gcd b c /= mempty && a /= gcd b c)
-
-cancellativeGCDMonoidLaw_suffix
-    :: (Eq a, Show a, Cancellative a, GCDMonoid a) => a -> a -> a -> Property
-cancellativeGCDMonoidLaw_suffix a b c =
-    makeProperty
-        "gcd (a <> c) (b <> c) == gcd a b <> c"
-        (gcd (a <> c) (b <> c) == gcd a b <> c)
-    & report
-        "a <> c"
-        (a <> c)
-    & report
-        "b <> c"
-        (b <> c)
-    & report
-        "gcd (a <> c) (b <> c)"
-        (gcd (a <> c) (b <> c))
-    & report
-        "gcd a b"
-        (gcd a b)
-    & report
-        "gcd a b <> c"
-        (gcd a b <> c)
-    & cover
-        "c /= mempty && gcd a b /= mempty && c /= gcd a b"
-        (c /= mempty && gcd a b /= mempty && c /= gcd a b)
 
 --------------------------------------------------------------------------------
 -- GCDMonoid
@@ -182,15 +103,6 @@ cancellativeGCDMonoidLaw_suffix a b c =
 -- 'gcd' ('gcd' a b) c '==' 'gcd' a ('gcd' b c)
 -- @
 --
--- __/Distributivity/__
---
--- @
--- 'gcd' (a '<>' b) (a '<>' c) '==' a '<>' 'gcd' b c
--- @
--- @
--- 'gcd' (a '<>' c) (b '<>' c) '==' 'gcd' a b '<>' c
--- @
---
 -- __/Equivalences/__
 --
 -- @
@@ -238,12 +150,6 @@ gcdMonoidLaws _ = Laws "GCDMonoid"
     , makeLaw3 @a
         "gcdMonoidLaw_associativity"
         (gcdMonoidLaw_associativity)
-    , makeLaw3 @a
-        "gcdMonoidLaw_distributivity_left"
-        (gcdMonoidLaw_distributivity_left)
-    , makeLaw3 @a
-        "gcdMonoidLaw_distributivity_right"
-        (gcdMonoidLaw_distributivity_right)
     , makeLaw2 @a
         "gcdMonoidLaw_equivalence_commonPrefix"
         (gcdMonoidLaw_equivalence_commonPrefix)
@@ -401,50 +307,6 @@ gcdMonoidLaw_associativity a b c =
         "gcd a (gcd b c)"
         (gcd a (gcd b c))
 
-gcdMonoidLaw_distributivity_left
-    :: (Eq a, Show a, GCDMonoid a) => a -> a -> a -> Property
-gcdMonoidLaw_distributivity_left a b c =
-    makeProperty
-        "gcd (a <> b) (a <> c) == a <> gcd b c"
-        (gcd (a <> b) (a <> c) == a <> gcd b c)
-    & report
-        "a <> b"
-        (a <> b)
-    & report
-        "a <> c"
-        (a <> c)
-    & report
-        "gcd (a <> b) (a <> c)"
-        (gcd (a <> b) (a <> c))
-    & report
-        "gcd b c"
-        (gcd b c)
-    & report
-        "a <> gcd b c"
-        (a <> gcd b c)
-
-gcdMonoidLaw_distributivity_right
-    :: (Eq a, Show a, GCDMonoid a) => a -> a -> a -> Property
-gcdMonoidLaw_distributivity_right a b c =
-    makeProperty
-        "gcd (a <> c) (b <> c) == gcd a b <> c"
-        (gcd (a <> c) (b <> c) == gcd a b <> c)
-    & report
-        "a <> c"
-        (a <> c)
-    & report
-        "b <> c"
-        (b <> c)
-    & report
-        "gcd (a <> c) (b <> c)"
-        (gcd (a <> c) (b <> c))
-    & report
-        "gcd a b"
-        (gcd a b)
-    & report
-        "gcd a b <> c"
-        (gcd a b <> c)
-
 gcdMonoidLaw_equivalence_commonPrefix
     :: (Eq a, Show a, GCDMonoid a) => a -> a -> Property
 gcdMonoidLaw_equivalence_commonPrefix a b =
@@ -541,12 +403,6 @@ gcdMonoidLaw_equivalence_commonSuffix a b =
 -- 'commonPrefix' a ('commonPrefix' b c)
 -- @
 --
--- __/Distributivity/__
---
--- @
--- 'commonPrefix' (a '<>' b) (a '<>' c) '==' a '<>' 'commonPrefix' b c
--- @
---
 -- __/Equivalences/__
 --
 -- @
@@ -603,9 +459,6 @@ leftGCDMonoidLaws _ = Laws "LeftGCDMonoid"
     , makeLaw3 @a
         "leftGCDMonoidLaw_associativity"
         (leftGCDMonoidLaw_associativity)
-    , makeLaw3 @a
-        "leftGCDMonoidLaw_distributivity"
-        (leftGCDMonoidLaw_distributivity)
     , makeLaw2 @a
         "leftGCDMonoidLaw_stripCommonPrefix_commonPrefix"
         (leftGCDMonoidLaw_stripCommonPrefix_commonPrefix)
@@ -783,31 +636,6 @@ leftGCDMonoidLaw_associativity a b c =
     & report
         "commonPrefix a (commonPrefix b c)"
         (commonPrefix a (commonPrefix b c))
-
-leftGCDMonoidLaw_distributivity
-    :: (Eq a, Show a, LeftGCDMonoid a) => a -> a -> a -> Property
-leftGCDMonoidLaw_distributivity a b c =
-    makeProperty
-        "commonPrefix (a <> b) (a <> c) == a <> commonPrefix b c"
-        (commonPrefix (a <> b) (a <> c) == a <> commonPrefix b c)
-    & cover
-        "commonPrefix b c /= mempty && a /= mempty"
-        (commonPrefix b c /= mempty && a /= mempty)
-    & report
-        "a <> b"
-        (a <> b)
-    & report
-        "a <> c"
-        (a <> c)
-    & report
-        "commonPrefix (a <> b) (a <> c)"
-        (commonPrefix (a <> b) (a <> c))
-    & report
-        "commonPrefix b c"
-        (commonPrefix b c)
-    & report
-        "a <> commonPrefix b c"
-        (a <> commonPrefix b c)
 
 leftGCDMonoidLaw_stripCommonPrefix_commonPrefix
     :: (Eq a, Show a, LeftGCDMonoid a) => a -> a -> Property
@@ -1204,12 +1032,6 @@ overlappingGCDMonoidLaw_stripOverlap_stripSuffixOverlap a b =
 -- 'commonSuffix' a ('commonSuffix' b c)
 -- @
 --
--- __/Distributivity/__
---
--- @
--- 'commonSuffix' (a '<>' c) (b '<>' c) '==' 'commonSuffix' a b '<>' c
--- @
---
 -- __/Equivalences/__
 --
 -- @
@@ -1266,9 +1088,6 @@ rightGCDMonoidLaws _ = Laws "RightGCDMonoid"
     , makeLaw3 @a
         "rightGCDMonoidLaw_associativity"
         (rightGCDMonoidLaw_associativity)
-    , makeLaw3 @a
-        "rightGCDMonoidLaw_distributivity"
-        (rightGCDMonoidLaw_distributivity)
     , makeLaw2 @a
         "rightGCDMonoidLaw_stripCommonSuffix_commonSuffix"
         (rightGCDMonoidLaw_stripCommonSuffix_commonSuffix)
@@ -1447,31 +1266,6 @@ rightGCDMonoidLaw_associativity a b c =
         "commonSuffix a (commonSuffix b c)"
         (commonSuffix a (commonSuffix b c))
 
-rightGCDMonoidLaw_distributivity
-    :: (Eq a, Show a, RightGCDMonoid a) => a -> a -> a -> Property
-rightGCDMonoidLaw_distributivity a b c =
-    makeProperty
-        "commonSuffix (a <> c) (b <> c) == commonSuffix a b <> c"
-        (commonSuffix (a <> c) (b <> c) == commonSuffix a b <> c)
-    & cover
-        "commonSuffix a b /= mempty && c /= mempty"
-        (commonSuffix a b /= mempty && c /= mempty)
-    & report
-        "a <> c"
-        (a <> c)
-    & report
-        "b <> c"
-        (b <> c)
-    & report
-        "commonSuffix (a <> c) (b <> c)"
-        (commonSuffix (a <> c) (b <> c))
-    & report
-        "commonSuffix a b"
-        (commonSuffix a b)
-    & report
-        "commonSuffix a b <> c"
-        (commonSuffix a b <> c)
-
 rightGCDMonoidLaw_stripCommonSuffix_commonSuffix
     :: (Eq a, Show a, RightGCDMonoid a) => a -> a -> Property
 rightGCDMonoidLaw_stripCommonSuffix_commonSuffix a b =
@@ -1551,3 +1345,192 @@ rightGCDMonoidLaw_stripCommonSuffix_stripSuffix_2 a b =
     & report
         "stripCommonSuffix a b & λ(_, _, s) -> stripSuffix s b"
         (stripCommonSuffix a b & \(_, _, s) -> stripSuffix s b)
+
+--------------------------------------------------------------------------------
+-- DistributiveGCDMonoid
+--------------------------------------------------------------------------------
+
+-- | 'Laws' for instances of 'DistributiveGCDMonoid'.
+--
+-- Includes the following laws:
+--
+-- __/Left-distributivity/__
+--
+-- @
+-- 'gcd' (a '<>' b) (a '<>' c) '==' a '<>' 'gcd' b c
+-- @
+--
+-- __/Right-distributivity/__
+--
+-- @
+-- 'gcd' (a '<>' c) (b '<>' c) '==' 'gcd' a b '<>' c
+-- @
+--
+-- Note that the following superclass laws are __not__ included:
+--
+-- * 'gcdMonoidLaws'
+-- * 'leftDistributiveGCDMonoidLaws'
+-- * 'rightDistributiveGCDMonoidLaws'
+--
+distributiveGCDMonoidLaws
+    :: forall a. (Arbitrary a, Show a, Eq a, DistributiveGCDMonoid a)
+    => Proxy a
+    -> Laws
+distributiveGCDMonoidLaws _ = Laws "DistributiveGCDMonoid"
+    [ makeLaw3 @a
+        "distributiveGCDMonoidLaw_distributivity_left"
+        (distributiveGCDMonoidLaw_distributivity_left)
+    , makeLaw3 @a
+        "distributiveGCDMonoidLaw_distributivity_right"
+        (distributiveGCDMonoidLaw_distributivity_right)
+    ]
+
+distributiveGCDMonoidLaw_distributivity_left
+    :: (Eq a, Show a, DistributiveGCDMonoid a) => a -> a -> a -> Property
+distributiveGCDMonoidLaw_distributivity_left a b c =
+    makeProperty
+        "gcd (a <> b) (a <> c) == a <> gcd b c"
+        (gcd (a <> b) (a <> c) == a <> gcd b c)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "a <> c"
+        (a <> c)
+    & report
+        "gcd (a <> b) (a <> c)"
+        (gcd (a <> b) (a <> c))
+    & report
+        "gcd b c"
+        (gcd b c)
+    & report
+        "a <> gcd b c"
+        (a <> gcd b c)
+
+distributiveGCDMonoidLaw_distributivity_right
+    :: (Eq a, Show a, DistributiveGCDMonoid a) => a -> a -> a -> Property
+distributiveGCDMonoidLaw_distributivity_right a b c =
+    makeProperty
+        "gcd (a <> c) (b <> c) == gcd a b <> c"
+        (gcd (a <> c) (b <> c) == gcd a b <> c)
+    & report
+        "a <> c"
+        (a <> c)
+    & report
+        "b <> c"
+        (b <> c)
+    & report
+        "gcd (a <> c) (b <> c)"
+        (gcd (a <> c) (b <> c))
+    & report
+        "gcd a b"
+        (gcd a b)
+    & report
+        "gcd a b <> c"
+        (gcd a b <> c)
+
+--------------------------------------------------------------------------------
+-- LeftDistributiveGCDMonoid
+--------------------------------------------------------------------------------
+
+-- | 'Laws' for instances of 'LeftDistributiveGCDMonoid'.
+--
+-- Includes the following law:
+--
+-- __/Left-distributivity/__
+--
+-- @
+-- 'commonPrefix' (a '<>' b) (a '<>' c) '==' a '<>' 'commonPrefix' b c
+-- @
+--
+-- Note that the following superclass laws are __not__ included:
+--
+-- * 'leftGCDMonoidLaws'
+--
+leftDistributiveGCDMonoidLaws
+    :: forall a. (Arbitrary a, Show a, Eq a, LeftDistributiveGCDMonoid a)
+    => Proxy a
+    -> Laws
+leftDistributiveGCDMonoidLaws _ = Laws "LeftDistributiveGCDMonoid"
+    [ makeLaw3 @a
+        "leftDistributiveGCDMonoidLaw_distributivity"
+        (leftDistributiveGCDMonoidLaw_distributivity)
+    ]
+
+leftDistributiveGCDMonoidLaw_distributivity
+    :: (Eq a, Show a, LeftDistributiveGCDMonoid a) => a -> a -> a -> Property
+leftDistributiveGCDMonoidLaw_distributivity a b c =
+    makeProperty
+        "commonPrefix (a <> b) (a <> c) == a <> commonPrefix b c"
+        (commonPrefix (a <> b) (a <> c) == a <> commonPrefix b c)
+    & cover
+        "commonPrefix b c /= mempty && a /= mempty"
+        (commonPrefix b c /= mempty && a /= mempty)
+    & report
+        "a <> b"
+        (a <> b)
+    & report
+        "a <> c"
+        (a <> c)
+    & report
+        "commonPrefix (a <> b) (a <> c)"
+        (commonPrefix (a <> b) (a <> c))
+    & report
+        "commonPrefix b c"
+        (commonPrefix b c)
+    & report
+        "a <> commonPrefix b c"
+        (a <> commonPrefix b c)
+
+--------------------------------------------------------------------------------
+-- RightDistributiveGCDMonoid
+--------------------------------------------------------------------------------
+
+-- | 'Laws' for instances of 'RightDistributiveGCDMonoid'.
+--
+-- Includes the following law:
+--
+-- __/Right-distributivity/__
+--
+-- @
+-- 'commonSuffix' (a '<>' c) (b '<>' c) '==' 'commonSuffix' a b '<>' c
+-- @
+--
+-- Note that the following superclass laws are __not__ included:
+--
+-- * 'rightGCDMonoidLaws'
+--
+rightDistributiveGCDMonoidLaws
+    :: forall a. (Arbitrary a, Show a, Eq a, RightDistributiveGCDMonoid a)
+    => Proxy a
+    -> Laws
+rightDistributiveGCDMonoidLaws _ = Laws "RightDistributiveGCDMonoid"
+    [ makeLaw3 @a
+        "rightDistributiveGCDMonoidLaw_distributivity"
+        (rightDistributiveGCDMonoidLaw_distributivity)
+    ]
+
+rightDistributiveGCDMonoidLaw_distributivity
+    :: (Eq a, Show a, RightDistributiveGCDMonoid a) => a -> a -> a -> Property
+rightDistributiveGCDMonoidLaw_distributivity a b c =
+    makeProperty
+        "commonSuffix (a <> c) (b <> c) == commonSuffix a b <> c"
+        (commonSuffix (a <> c) (b <> c) == commonSuffix a b <> c)
+    & cover
+        "commonSuffix a b /= mempty && c /= mempty"
+        (commonSuffix a b /= mempty && c /= mempty)
+    & report
+        "a <> c"
+        (a <> c)
+    & report
+        "b <> c"
+        (b <> c)
+    & report
+        "commonSuffix (a <> c) (b <> c)"
+        (commonSuffix (a <> c) (b <> c))
+    & report
+        "commonSuffix a b"
+        (commonSuffix a b)
+    & report
+        "commonSuffix a b <> c"
+        (commonSuffix a b <> c)

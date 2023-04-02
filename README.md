@@ -56,20 +56,23 @@ To test that the laws of __multiple__ classes hold for a particular type, use th
 > import Numeric.Natural (Natural)
 > import Test.QuickCheck.Classes
 > import Test.QuickCheck.Classes.Monoid.GCD
+> import Test.QuickCheck.Classes.Monoid.LCM
 > import Test.QuickCheck.Classes.Monoid.Monus
 > import Test.QuickCheck.Classes.Monoid.Null
 > import Test.QuickCheck.Classes.Semigroup.Cancellative
 > import Test.QuickCheck.Classes.Semigroup.Factorial
 >
 > lawsCheckOne (Proxy :: Proxy (Sum Natural))
->     [ cancellativeGCDMonoidLaws
->     , cancellativeLaws
+>     [ cancellativeLaws
 >     , commutativeLaws
+>     , distributiveGCDMonoidLaws
+>     , distributiveLCMMonoidLaws
 >     , factorialLaws
 >     , factorialMonoidLaws
 >     , gcdMonoidLaws
 >     , lcmMonoidLaws
 >     , leftCancellativeLaws
+>     , leftDistributiveGCDMonoidLaws
 >     , leftGCDMonoidLaws
 >     , leftReductiveLaws
 >     , monoidLaws
@@ -79,6 +82,7 @@ To test that the laws of __multiple__ classes hold for a particular type, use th
 >     , positiveMonoidLaws
 >     , reductiveLaws
 >     , rightCancellativeLaws
+>     , rightDistributiveGCDMonoidLaws
 >     , rightGCDMonoidLaws
 >     , rightReductiveLaws
 >     , semigroupLaws
