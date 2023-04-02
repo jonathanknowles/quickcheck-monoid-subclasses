@@ -314,7 +314,7 @@ stableFactorialLaws
     :: forall a. (Arbitrary a, Show a, Eq a, StableFactorial a)
     => Proxy a
     -> Laws
-stableFactorialLaws _ = Laws "Factorial"
+stableFactorialLaws _ = Laws "StableFactorial"
     [ makeLaw2 @a
         "stableFactorialLaw_factors_mappend"
         (stableFactorialLaw_factors_mappend)
