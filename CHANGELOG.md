@@ -1,3 +1,21 @@
+# 0.3.0.0
+
+- Added laws for the following factorial semigroup and monoid classes:
+    - `Data.Semigroup.Factorial.Factorial`
+    - `Data.Semigroup.Factorial.StableFactorial`
+    - `Data.Monoid.Factorial.FactorialMonoid`
+
+- Added laws for the following GCD and LCM monoid classes:
+    - `Data.Monoid.GCD.{Left,Right}DistributiveGCDMonoid`
+    - `Data.Monoid.GCD.DistributiveGCDMonoid`
+    - `Data.Monoid.LCM.DistributiveLCMMonoid`
+
+- Added missing laws for the following class:
+    - `Data.Monoid.GCD.OverlappingGCDMonoid`
+
+- Removed `cancellativeGCDMonoidLaws`.
+    - The documentation for the `GCDMonoid` class no longer states these laws.
+
 # 0.2.0.0
 
 - Improved generation of arbitrary `Semigroup` value combinations.
