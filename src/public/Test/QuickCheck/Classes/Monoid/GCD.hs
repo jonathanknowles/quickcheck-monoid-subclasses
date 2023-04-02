@@ -1437,7 +1437,7 @@ distributiveGCDMonoidLaw_distributivity_right a b c =
 --
 -- Includes the following law:
 --
--- __/Distributivity/__
+-- __/Left-distributivity/__
 --
 -- @
 -- 'commonPrefix' (a '<>' b) (a '<>' c) '==' a '<>' 'commonPrefix' b c
@@ -1490,7 +1490,7 @@ leftDistributiveGCDMonoidLaw_distributivity a b c =
 --
 -- Includes the following law:
 --
--- __/Distributivity/__
+-- __/Right-distributivity/__
 --
 -- @
 -- 'commonSuffix' (a '<>' c) (b '<>' c) '==' 'commonSuffix' a b '<>' c

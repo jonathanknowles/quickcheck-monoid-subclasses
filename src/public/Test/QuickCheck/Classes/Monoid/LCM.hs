@@ -335,15 +335,24 @@ lcmMonoidLaw_absorption_lcm_gcd a b =
 --
 -- Includes the following laws:
 --
+-- __/Left-distributivity/__
+--
 -- @
 -- 'lcm' (a '<>' b) (a '<>' c) '==' a '<>' 'lcm' b c
 -- @
+--
+-- __/Right-distributivity/__
+--
 -- @
 -- 'lcm' (a '<>' c) (b '<>' c) '==' 'lcm' a b '<>' c
 -- @
+--
+-- __/Lattice distributivity/__
+--
 -- @
 -- 'lcm' a ('gcd' b c) '==' 'gcd' ('lcm' a b) ('lcm' a c)
 -- @
+--
 -- @
 -- 'gcd' a ('lcm' b c) '==' 'lcm' ('gcd' a b) ('gcd' a c)
 -- @
