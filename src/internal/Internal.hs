@@ -127,8 +127,12 @@ makeProperty3 p (evalTuple3 -> (a, b, c))
     $ property $ p a b c
 
 report :: (Show a, Testable prop) => String -> a -> prop -> Property
-report name a = counterexample $
-    (replaceSpecialChars <$> name) <> ":\n" <> show a <> "\n"
+report name a = counterexample $ mconcat
+    [ replaceSpecialChars <$> name
+    , ":\n"
+    , replaceSpecialChars <$> show a
+    , "\n"
+    ]
 
 replaceSpecialChars :: Char -> Char
 replaceSpecialChars = \case
