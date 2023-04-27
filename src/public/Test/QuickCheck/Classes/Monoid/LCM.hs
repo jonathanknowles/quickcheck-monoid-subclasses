@@ -141,6 +141,9 @@ lcmMonoidLaws _ = Laws "LCMMonoid"
     , makeLaw2 @a
         "lcmMonoidLaw_absorption_lcm_gcd"
         (lcmMonoidLaw_absorption_lcm_gcd)
+    , makeLaw2 @a
+        "lcmMonoidLaw_disjoint"
+        (lcmMonoidLaw_disjoint)
     ]
 
 lcmMonoidLaw_reductivity_left
@@ -326,6 +329,28 @@ lcmMonoidLaw_absorption_lcm_gcd a b =
     & report
         "gcd a (lcm a b)"
         (gcd a (lcm a b))
+
+lcmMonoidLaw_disjoint
+    :: (Eq a, Show a, LCMMonoid a) => a -> a -> Property
+lcmMonoidLaw_disjoint a b =
+    makeProperty
+        "disjoint a b ==> (lcm a b == a <> b)"
+        (disjoint a b ==> (lcm a b == a <> b))
+    & cover
+        "disjoint a b"
+        (disjoint a b)
+    & cover
+        "not (disjoint a b)"
+        (not (disjoint a b))
+    & report
+        "disjoint a b"
+        (disjoint a b)
+    & report
+        "lcm a b"
+        (lcm a b)
+    & report
+        "a <> b"
+        (a <> b)
 
 --------------------------------------------------------------------------------
 -- DistributiveLCMMonoid

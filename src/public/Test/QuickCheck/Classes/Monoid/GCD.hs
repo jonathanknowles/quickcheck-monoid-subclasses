@@ -156,6 +156,9 @@ gcdMonoidLaws _ = Laws "GCDMonoid"
     , makeLaw2 @a
         "gcdMonoidLaw_equivalence_commonSuffix"
         (gcdMonoidLaw_equivalence_commonSuffix)
+    , makeLaw2 @a
+        "gcdMonoidLaw_disjoint"
+        (gcdMonoidLaw_disjoint)
     ]
 
 gcdMonoidLaw_reductivity_left
@@ -344,6 +347,25 @@ gcdMonoidLaw_equivalence_commonSuffix a b =
     & report
         "commonSuffix a b"
         (commonSuffix a b)
+
+gcdMonoidLaw_disjoint
+    :: (Eq a, Show a, GCDMonoid a) => a -> a -> Property
+gcdMonoidLaw_disjoint a b =
+    makeProperty
+        "disjoint a b == (gcd a b == mempty)"
+        (disjoint a b == (gcd a b == mempty))
+    & cover
+        "gcd a b == mempty"
+        (gcd a b == mempty)
+    & cover
+        "gcd a b /= mempty"
+        (gcd a b /= mempty)
+    & report
+        "gcd a b"
+        (gcd a b)
+    & report
+        "disjoint a b"
+        (disjoint a b)
 
 --------------------------------------------------------------------------------
 -- LeftGCDMonoid
