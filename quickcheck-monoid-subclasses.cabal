@@ -19,15 +19,15 @@ extra-doc-files:
     README.md
 
 common dependency-base
-    build-depends:base                      >= 4.14.3.0     && < 4.19
+    build-depends:base                      >= 4.14.3.0     && < 4.20
 common dependency-bytestring
-    build-depends:bytestring                >= 0.10.12.0    && < 0.12
+    build-depends:bytestring                >= 0.10.12.0    && < 0.13
 common dependency-commutative-semigroups
     build-depends:commutative-semigroups    >= 0.1.0.0      && < 0.2
 common dependency-containers
     build-depends:containers                >= 0.6.5.1      && < 0.7
 common dependency-hspec
-    build-depends:hspec                     >= 2.10.7       && < 2.11
+    build-depends:hspec                     >= 2.10.7       && < 2.12
 common dependency-monoid-subclasses
     build-depends:monoid-subclasses         >= 1.2.3        && < 1.3
 common dependency-pretty-show
@@ -41,7 +41,7 @@ common dependency-quickcheck-instances
 common dependency-semigroupoids
     build-depends:semigroupoids             >= 5.3.7        && < 6.1
 common dependency-text
-    build-depends:text                      >= 1.2.4.1      && < 2.1
+    build-depends:text                      >= 1.2.4.1      && < 2.2
 common dependency-vector
     build-depends:vector                    >= 0.12.3.1     && < 0.14
 
