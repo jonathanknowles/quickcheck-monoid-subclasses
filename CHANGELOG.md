@@ -1,3 +1,7 @@
+# 0.3.0.1
+
+- Added support for GHC `9.8`.
+
 # 0.3.0.0
 
 - Added laws for the following factorial semigroup and monoid classes:
