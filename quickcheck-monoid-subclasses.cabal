@@ -25,7 +25,7 @@ common dependency-bytestring
 common dependency-commutative-semigroups
     build-depends:commutative-semigroups    >= 0.1.0.0      && < 0.3
 common dependency-containers
-    build-depends:containers                >= 0.6.5.1      && < 0.7
+    build-depends:containers                >= 0.6.5.1      && < 0.8
 common dependency-hspec
     build-depends:hspec                     >= 2.10.7       && < 2.12
 common dependency-monoid-subclasses
