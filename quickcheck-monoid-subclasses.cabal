@@ -1,12 +1,12 @@
 cabal-version:  3.0
 name:           quickcheck-monoid-subclasses
-version:        0.3.0.1
+version:        0.3.0.2
 bug-reports:    https://github.com/jonathanknowles/quickcheck-monoid-subclasses/issues
 license:        Apache-2.0
 license-file:   LICENSE
 author:         Jonathan Knowles
 maintainer:     mail@jonathanknowles.net
-copyright:      2022–2023 Jonathan Knowles
+copyright:      2022–2024 Jonathan Knowles
 category:       Testing
 synopsis:       Testing monoid subclass instances with QuickCheck
 description:
@@ -23,9 +23,9 @@ common dependency-base
 common dependency-bytestring
     build-depends:bytestring                >= 0.10.12.0    && < 0.13
 common dependency-commutative-semigroups
-    build-depends:commutative-semigroups    >= 0.1.0.0      && < 0.2
+    build-depends:commutative-semigroups    >= 0.1.0.0      && < 0.3
 common dependency-containers
-    build-depends:containers                >= 0.6.5.1      && < 0.7
+    build-depends:containers                >= 0.6.5.1      && < 0.8
 common dependency-hspec
     build-depends:hspec                     >= 2.10.7       && < 2.12
 common dependency-monoid-subclasses
