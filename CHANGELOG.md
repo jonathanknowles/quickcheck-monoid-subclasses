@@ -1,3 +1,7 @@
+# 0.3.0.3
+
+- Revised upper bounds for package dependencies.
+
 # 0.3.0.2
 
 - Revised upper bounds for package dependencies.
