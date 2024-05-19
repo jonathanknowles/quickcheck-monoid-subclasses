@@ -17,17 +17,26 @@ module Test.QuickCheck.Classes.Semigroup.Factorial
     )
     where
 
-import Prelude hiding
-    ( foldl, foldr, length, reverse )
-
+import Data.Bool
+    ( Bool (True) )
+import Data.Eq
+    ( Eq ((==)) )
+import Data.Foldable
+    ( all )
 import Data.Function
-    ( (&) )
+    ( ($), (&) )
+import Data.Functor
+    ( Functor (fmap), (<$>) )
 import Data.List.NonEmpty
     ( nonEmpty )
+import Data.Maybe
+    ( maybe )
+import Data.Ord
+    ( Ord ((>=)) )
 import Data.Proxy
     ( Proxy )
 import Data.Semigroup
-    ( Semigroup (sconcat) )
+    ( Semigroup (sconcat, (<>)) )
 import Data.Semigroup.Factorial
     ( Factorial
     , StableFactorial
@@ -40,12 +49,16 @@ import Data.Semigroup.Factorial
     , primeSuffix
     , reverse
     )
+import Data.String
+    ( String )
 import Internal
     ( cover, makeLaw1, makeLaw2, makeProperty, report )
 import Test.QuickCheck
     ( Arbitrary, Gen, Property, elements, forAllBlind )
 import Test.QuickCheck.Classes
     ( Laws (Laws) )
+import Text.Show
+    ( Show )
 
 import qualified Data.List as L
 
