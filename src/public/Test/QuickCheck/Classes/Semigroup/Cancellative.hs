@@ -26,6 +26,8 @@ module Test.QuickCheck.Classes.Semigroup.Cancellative
     )
     where
 
+import Prelude
+
 import Data.Function
     ( (&) )
 import Data.Maybe

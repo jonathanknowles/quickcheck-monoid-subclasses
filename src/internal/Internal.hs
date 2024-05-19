@@ -14,6 +14,8 @@ module Internal
     )
     where
 
+import Prelude
+
 import Data.Function
     ( (&) )
 import Data.Proxy

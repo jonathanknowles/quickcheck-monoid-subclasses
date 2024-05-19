@@ -1,6 +1,6 @@
 cabal-version:  3.0
 name:           quickcheck-monoid-subclasses
-version:        0.3.0.3
+version:        0.3.0.4
 bug-reports:    https://github.com/jonathanknowles/quickcheck-monoid-subclasses/issues
 license:        Apache-2.0
 license-file:   LICENSE
@@ -19,7 +19,7 @@ extra-doc-files:
     README.md
 
 common dependency-base
-    build-depends:base                      >= 4.14.3.0     && < 4.20
+    build-depends:base                      >= 4.14.3.0     && < 4.21
 common dependency-bytestring
     build-depends:bytestring                >= 0.10.12.0    && < 0.13
 common dependency-commutative-semigroups
@@ -54,6 +54,7 @@ common extensions
         FlexibleInstances
         GeneralizedNewtypeDeriving
         LambdaCase
+        NoImplicitPrelude
         PolyKinds
         ScopedTypeVariables
         TypeApplications
