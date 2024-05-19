@@ -6,6 +6,8 @@
 --
 module ClassSpec where
 
+import Prelude
+
 import Data.ByteString.Lazy
     ( ByteString )
 import Data.IntMap.Strict

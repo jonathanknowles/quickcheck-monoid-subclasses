@@ -9,6 +9,8 @@ module Internal.Semigroup.Eq
     )
     where
 
+import Prelude
+
 import Data.List
     ( nub )
 

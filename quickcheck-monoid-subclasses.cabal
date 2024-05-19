@@ -54,6 +54,7 @@ common extensions
         FlexibleInstances
         GeneralizedNewtypeDeriving
         LambdaCase
+        NoImplicitPrelude
         PolyKinds
         ScopedTypeVariables
         TypeApplications

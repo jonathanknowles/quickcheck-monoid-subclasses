@@ -9,6 +9,8 @@
 module Internal.Semigroup.Tuple
     where
 
+import Prelude
+
 import Data.Functor
     ( (<&>) )
 import Data.List.NonEmpty
