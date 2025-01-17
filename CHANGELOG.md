@@ -1,3 +1,7 @@
+# 0.3.0.5
+
+- Added support for GHC `9.12`.
+
 # 0.3.0.4
 
 - Added support for GHC `9.10`.
