@@ -551,6 +551,10 @@ newtype Small a = Small {getSmall :: a}
         , SumCancellative
         )
 
+--------------------------------------------------------------------------------
+-- Arbitrary instances
+--------------------------------------------------------------------------------
+
 instance Arbitrary a => Arbitrary (Small a) where
     arbitrary = Small <$> scale (`div` 2) arbitrary
     shrink = shrinkMap Small getSmall
