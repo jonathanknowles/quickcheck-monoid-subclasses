@@ -49,7 +49,14 @@ import Test.Hspec
 import Test.Hspec.Laws
     ( testLawsMany )
 import Test.QuickCheck
-    ( Arbitrary (..), Confidence, Property, scale, shrinkMap )
+    ( Arbitrary (..)
+    , Confidence
+    , Property
+    , frequency
+    , listOf
+    , scale
+    , shrinkMap
+    )
 import Test.QuickCheck.Classes
     ( Laws (..) )
 import Test.QuickCheck.Classes.Monoid.Factorial
@@ -84,12 +91,12 @@ import Test.QuickCheck.Instances.ByteString
     ()
 import Test.QuickCheck.Instances.Natural
     ()
-import Test.QuickCheck.Instances.Text
-    ()
 import Test.QuickCheck.Instances.Vector
     ()
 import Test.QuickCheck.Property
     ( Result (..), mapTotalResult )
+
+import qualified Data.Text as Text
 
 spec :: Spec
 spec = do
@@ -558,6 +565,17 @@ newtype Small a = Small {getSmall :: a}
 instance Arbitrary a => Arbitrary (Small a) where
     arbitrary = Small <$> scale (`div` 2) arbitrary
     shrink = shrinkMap Small getSmall
+
+instance Arbitrary Text where
+    arbitrary = Text.pack <$> listOf genChar
+      where
+        genChar = frequency
+            [ (64, pure 'a')
+            , (16, pure 'b')
+            , ( 4, pure 'c')
+            , ( 1, pure 'd')
+            ]
+    shrink = shrinkMap Text.pack Text.unpack
 
 --------------------------------------------------------------------------------
 -- Coverage checks
