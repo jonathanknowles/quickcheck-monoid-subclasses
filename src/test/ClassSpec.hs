@@ -87,8 +87,6 @@ import Test.QuickCheck.Classes.Semigroup.Cancellative
     )
 import Test.QuickCheck.Classes.Semigroup.Factorial
     ( factorialLaws, stableFactorialLaws )
-import Test.QuickCheck.Instances.ByteString
-    ()
 import Test.QuickCheck.Instances.Natural
     ()
 import Test.QuickCheck.Instances.Vector
@@ -96,6 +94,7 @@ import Test.QuickCheck.Instances.Vector
 import Test.QuickCheck.Property
     ( Result (..), mapTotalResult )
 
+import qualified Data.ByteString.Lazy as ByteString
 import qualified Data.Text as Text
 
 spec :: Spec
@@ -565,6 +564,17 @@ newtype Small a = Small {getSmall :: a}
 instance Arbitrary a => Arbitrary (Small a) where
     arbitrary = Small <$> scale (`div` 2) arbitrary
     shrink = shrinkMap Small getSmall
+
+instance Arbitrary ByteString where
+    arbitrary = ByteString.pack <$> listOf genByte
+      where
+        genByte = frequency
+            [ (64, pure 0)
+            , (16, pure 1)
+            , ( 4, pure 2)
+            , ( 1, pure 3)
+            ]
+    shrink = shrinkMap ByteString.pack ByteString.unpack
 
 instance Arbitrary Text where
     arbitrary = Text.pack <$> listOf genChar
