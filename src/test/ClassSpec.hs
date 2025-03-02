@@ -89,13 +89,12 @@ import Test.QuickCheck.Classes.Semigroup.Cancellative
     )
 import Test.QuickCheck.Classes.Semigroup.Factorial
     ( factorialLaws, stableFactorialLaws )
-import Test.QuickCheck.Instances.Vector
-    ()
 import Test.QuickCheck.Property
     ( Result (..), mapTotalResult )
 
 import qualified Data.ByteString.Lazy as ByteString
 import qualified Data.Text as Text
+import qualified Data.Vector as Vector
 
 spec :: Spec
 spec = do
@@ -590,6 +589,10 @@ instance Arbitrary Text where
 instance Arbitrary Natural where
     arbitrary = elements [0 .. 3]
     shrink = shrinkIntegral
+
+instance Arbitrary a => Arbitrary (Vector a) where
+    arbitrary = Vector.fromList <$> arbitrary
+    shrink = shrinkMap Vector.fromList Vector.toList
 
 --------------------------------------------------------------------------------
 -- Coverage checks
