@@ -52,9 +52,11 @@ import Test.QuickCheck
     ( Arbitrary (..)
     , Confidence
     , Property
+    , elements
     , frequency
     , listOf
     , scale
+    , shrinkIntegral
     , shrinkMap
     )
 import Test.QuickCheck.Classes
@@ -87,8 +89,6 @@ import Test.QuickCheck.Classes.Semigroup.Cancellative
     )
 import Test.QuickCheck.Classes.Semigroup.Factorial
     ( factorialLaws, stableFactorialLaws )
-import Test.QuickCheck.Instances.Natural
-    ()
 import Test.QuickCheck.Instances.Vector
     ()
 import Test.QuickCheck.Property
@@ -586,6 +586,10 @@ instance Arbitrary Text where
             , ( 1, pure 'd')
             ]
     shrink = shrinkMap Text.pack Text.unpack
+
+instance Arbitrary Natural where
+    arbitrary = elements [0 .. 3]
+    shrink = shrinkIntegral
 
 --------------------------------------------------------------------------------
 -- Coverage checks
