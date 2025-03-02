@@ -49,7 +49,16 @@ import Test.Hspec
 import Test.Hspec.Laws
     ( testLawsMany )
 import Test.QuickCheck
-    ( Arbitrary (..), Confidence, Property, scale, shrinkMap )
+    ( Arbitrary (..)
+    , Confidence
+    , Property
+    , elements
+    , frequency
+    , listOf
+    , scale
+    , shrinkIntegral
+    , shrinkMap
+    )
 import Test.QuickCheck.Classes
     ( Laws (..) )
 import Test.QuickCheck.Classes.Monoid.Factorial
@@ -80,16 +89,12 @@ import Test.QuickCheck.Classes.Semigroup.Cancellative
     )
 import Test.QuickCheck.Classes.Semigroup.Factorial
     ( factorialLaws, stableFactorialLaws )
-import Test.QuickCheck.Instances.ByteString
-    ()
-import Test.QuickCheck.Instances.Natural
-    ()
-import Test.QuickCheck.Instances.Text
-    ()
-import Test.QuickCheck.Instances.Vector
-    ()
 import Test.QuickCheck.Property
     ( Result (..), mapTotalResult )
+
+import qualified Data.ByteString.Lazy as ByteString
+import qualified Data.Text as Text
+import qualified Data.Vector as Vector
 
 spec :: Spec
 spec = do
@@ -551,9 +556,43 @@ newtype Small a = Small {getSmall :: a}
         , SumCancellative
         )
 
+--------------------------------------------------------------------------------
+-- Arbitrary instances
+--------------------------------------------------------------------------------
+
 instance Arbitrary a => Arbitrary (Small a) where
     arbitrary = Small <$> scale (`div` 2) arbitrary
     shrink = shrinkMap Small getSmall
+
+instance Arbitrary ByteString where
+    arbitrary = ByteString.pack <$> listOf genByte
+      where
+        genByte = frequency
+            [ (64, pure 0)
+            , (16, pure 1)
+            , ( 4, pure 2)
+            , ( 1, pure 3)
+            ]
+    shrink = shrinkMap ByteString.pack ByteString.unpack
+
+instance Arbitrary Text where
+    arbitrary = Text.pack <$> listOf genChar
+      where
+        genChar = frequency
+            [ (64, pure 'a')
+            , (16, pure 'b')
+            , ( 4, pure 'c')
+            , ( 1, pure 'd')
+            ]
+    shrink = shrinkMap Text.pack Text.unpack
+
+instance Arbitrary Natural where
+    arbitrary = elements [0 .. 3]
+    shrink = shrinkIntegral
+
+instance Arbitrary a => Arbitrary (Vector a) where
+    arbitrary = Vector.fromList <$> arbitrary
+    shrink = shrinkMap Vector.fromList Vector.toList
 
 --------------------------------------------------------------------------------
 -- Coverage checks

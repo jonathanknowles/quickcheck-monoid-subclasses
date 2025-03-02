@@ -36,8 +36,6 @@ common dependency-QuickCheck
     build-depends:QuickCheck                >= 2.14.2       && < 2.16
 common dependency-quickcheck-classes
     build-depends:quickcheck-classes        >= 0.6.5.0      && < 0.7
-common dependency-quickcheck-instances
-    build-depends:quickcheck-instances      >= 0.3.28       && < 0.4
 common dependency-semigroupoids
     build-depends:semigroupoids             >= 5.3.7        && < 6.1
 common dependency-text
@@ -109,7 +107,6 @@ library prelude
       , dependency-monoid-subclasses
       , dependency-QuickCheck
       , dependency-quickcheck-classes
-      , dependency-quickcheck-instances
       , extensions
     build-depends:
       , internal
@@ -131,7 +128,6 @@ test-suite test
       , dependency-monoid-subclasses
       , dependency-QuickCheck
       , dependency-quickcheck-classes
-      , dependency-quickcheck-instances
       , dependency-text
       , dependency-vector
       , extensions

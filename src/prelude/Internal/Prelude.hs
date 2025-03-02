@@ -26,5 +26,3 @@ import Internal.Semigroup.Eq
 import Internal.Semigroup.Tuple
 import Numeric.Natural
 import Test.QuickCheck
-import Test.QuickCheck.Instances.Natural
-    ()
