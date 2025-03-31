@@ -114,8 +114,8 @@
 </span><span id="line-114"></span><span class="hs-comment">-- * 'Test.QuickCheck.Classes.Monoid.Null.monoidNullLaws'</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaws"><span class="hs-identifier hs-type">factorialMonoidLaws</span></a></span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679082267"><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Arbitrary</span></span><span> </span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679082536"><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Arbitrary</span></span><span> </span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Laws</span></span><span>
 </span><span id="line-120"></span><span id="factorialMonoidLaws"><span class="annot"><span class="annottext">factorialMonoidLaws :: forall a.
 (Arbitrary a, Show a, Eq a, FactorialMonoid a) =&gt;
@@ -127,7 +127,7 @@ Proxy a -&gt; Laws
 </span><span id="line-121"></span><span>    </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialMonoidLaw_coverage&quot;</span></span><span>
 </span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -136,7 +136,7 @@ forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
 </span><span id="line-124"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialMonoidLaw_null&quot;</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -145,7 +145,7 @@ forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
 </span><span id="line-127"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialMonoidLaw_splitPrimePrefix&quot;</span></span><span>
 </span><span id="line-129"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -154,7 +154,7 @@ forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
 </span><span id="line-130"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialMonoidLaw_splitPrimeSuffix&quot;</span></span><span>
 </span><span id="line-132"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -163,7 +163,7 @@ forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
 </span><span id="line-133"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialMonoidLaw_reverse&quot;</span></span><span>
 </span><span id="line-135"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -172,7 +172,7 @@ forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
 </span><span id="line-136"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialMonoidLaw_primePrefix&quot;</span></span><span>
 </span><span id="line-138"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -181,7 +181,7 @@ forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
 </span><span id="line-139"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialMonoidLaw_primeSuffix&quot;</span></span><span>
 </span><span id="line-141"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -190,7 +190,7 @@ forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
 </span><span id="line-142"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialMonoidLaw_inits&quot;</span></span><span>
 </span><span id="line-144"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -199,7 +199,7 @@ forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
 </span><span id="line-145"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialMonoidLaw_tails&quot;</span></span><span>
 </span><span id="line-147"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -208,7 +208,7 @@ forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
 </span><span id="line-148"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialMonoidLaw_span&quot;</span></span><span>
 </span><span id="line-150"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -217,7 +217,7 @@ forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
 </span><span id="line-151"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialMonoidLaw_split&quot;</span></span><span>
 </span><span id="line-153"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -226,7 +226,7 @@ forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
 </span><span id="line-154"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialMonoidLaw_split_intersperse&quot;</span></span><span>
 </span><span id="line-156"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -235,7 +235,7 @@ forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
 </span><span id="line-157"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082267"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679082536"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialMonoidLaw_splitAt&quot;</span></span><span>
 </span><span id="line-159"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -243,11 +243,11 @@ forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
 </span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_splitAt"><span class="hs-identifier hs-var">factorialMonoidLaw_splitAt</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-special">]</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span id="local-6989586621679082280"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_coverage"><span class="hs-identifier hs-type">factorialMonoidLaw_coverage</span></a></span><span>
-</span><span id="line-163"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082280"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082280"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082280"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082280"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-162"></span><span id="local-6989586621679082549"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_coverage"><span class="hs-identifier hs-type">factorialMonoidLaw_coverage</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082549"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082549"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082549"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082549"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-164"></span><span id="factorialMonoidLaw_coverage"><span class="annot"><span class="annottext">factorialMonoidLaw_coverage :: forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_coverage"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_coverage</span></a></span></span><span> </span><span id="local-6989586621679082567"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_coverage"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_coverage</span></a></span></span><span> </span><span id="local-6989586621679082836"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679082836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -265,7 +265,7 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-170"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Int
 forall m. Factorial m =&gt; m -&gt; Int
 </span><span class="hs-identifier hs-var">length</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082567"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+</span><a href="#local-6989586621679082836"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">0</span></span><span class="hs-special">)</span><span>
@@ -279,7 +279,7 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-173"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Int
 forall m. Factorial m =&gt; m -&gt; Int
 </span><span class="hs-identifier hs-var">length</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082567"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+</span><a href="#local-6989586621679082836"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span class="hs-special">)</span><span>
@@ -293,16 +293,16 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-176"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Int
 forall m. Factorial m =&gt; m -&gt; Int
 </span><span class="hs-identifier hs-var">length</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082567"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+</span><a href="#local-6989586621679082836"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
 forall a. Ord a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">&gt;=</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">2</span></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span id="local-6989586621679082568"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_null"><span class="hs-identifier hs-type">factorialMonoidLaw_null</span></a></span><span>
-</span><span id="line-179"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082568"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082568"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082568"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082568"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-178"></span><span id="local-6989586621679082837"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_null"><span class="hs-identifier hs-type">factorialMonoidLaw_null</span></a></span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082837"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082837"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082837"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082837"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-180"></span><span id="factorialMonoidLaw_null"><span class="annot"><span class="annottext">factorialMonoidLaw_null :: forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_null"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_null</span></a></span></span><span> </span><span id="local-6989586621679082594"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_null"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_null</span></a></span></span><span> </span><span id="local-6989586621679082863"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679082863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -311,14 +311,14 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-183"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Bool
 forall m. MonoidNull m =&gt; m -&gt; Bool
 </span><span class="hs-identifier hs-var">null</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082594"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Bool -&gt; Bool
+</span><a href="#local-6989586621679082863"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Bool -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; Bool
 forall m. MonoidNull m =&gt; m -&gt; Bool
 </span><span class="hs-identifier hs-var">null</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property -&gt; Property
@@ -331,7 +331,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-186"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Bool
 forall m. MonoidNull m =&gt; m -&gt; Bool
 </span><span class="hs-identifier hs-var">null</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -344,7 +344,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-189"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property -&gt; Property
@@ -359,13 +359,13 @@ forall m. MonoidNull m =&gt; m -&gt; Bool
 </span><span class="hs-identifier hs-var">null</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span id="local-6989586621679082595"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_splitPrimePrefix"><span class="hs-identifier hs-type">factorialMonoidLaw_splitPrimePrefix</span></a></span><span>
-</span><span id="line-195"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082595"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082595"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082595"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082595"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-194"></span><span id="local-6989586621679082864"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_splitPrimePrefix"><span class="hs-identifier hs-type">factorialMonoidLaw_splitPrimePrefix</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082864"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082864"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082864"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082864"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-196"></span><span id="factorialMonoidLaw_splitPrimePrefix"><span class="annot"><span class="annottext">factorialMonoidLaw_splitPrimePrefix :: forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_splitPrimePrefix"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_splitPrimePrefix</span></a></span></span><span> </span><span id="local-6989586621679082611"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_splitPrimePrefix"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_splitPrimePrefix</span></a></span></span><span> </span><span id="local-6989586621679082880"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679082880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -374,14 +374,14 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-199"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082611"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; Bool
+</span><a href="#local-6989586621679082880"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">(a -&gt; Maybe (a, a)) -&gt; a -&gt; [a]
 forall b a. (b -&gt; Maybe (a, b)) -&gt; b -&gt; [a]
 </span><span class="hs-identifier hs-var">unfoldr</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Maybe (a, a)
 forall m. FactorialMonoid m =&gt; m -&gt; Maybe (m, m)
 </span><span class="hs-identifier hs-var">splitPrimePrefix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -394,7 +394,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-202"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -409,13 +409,13 @@ forall b a. (b -&gt; Maybe (a, b)) -&gt; b -&gt; [a]
 </span><span class="hs-identifier hs-var">unfoldr</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Maybe (a, a)
 forall m. FactorialMonoid m =&gt; m -&gt; Maybe (m, m)
 </span><span class="hs-identifier hs-var">splitPrimePrefix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span id="local-6989586621679082612"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_splitPrimeSuffix"><span class="hs-identifier hs-type">factorialMonoidLaw_splitPrimeSuffix</span></a></span><span>
-</span><span id="line-208"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082612"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082612"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082612"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082612"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-207"></span><span id="local-6989586621679082881"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_splitPrimeSuffix"><span class="hs-identifier hs-type">factorialMonoidLaw_splitPrimeSuffix</span></a></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082881"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082881"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082881"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082881"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-209"></span><span id="factorialMonoidLaw_splitPrimeSuffix"><span class="annot"><span class="annottext">factorialMonoidLaw_splitPrimeSuffix :: forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_splitPrimeSuffix"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_splitPrimeSuffix</span></a></span></span><span> </span><span id="local-6989586621679082634"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_splitPrimeSuffix"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_splitPrimeSuffix</span></a></span></span><span> </span><span id="local-6989586621679082903"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679082903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -424,7 +424,7 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-212"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082634"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; Bool
+</span><a href="#local-6989586621679082903"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a]
 forall a. [a] -&gt; [a]
@@ -441,7 +441,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Maybe (a, a)
 forall m. FactorialMonoid m =&gt; m -&gt; Maybe (m, m)
 </span><span class="hs-identifier hs-var">splitPrimeSuffix</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -454,7 +454,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-215"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -477,7 +477,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Maybe (a, a)
 forall m. FactorialMonoid m =&gt; m -&gt; Maybe (m, m)
 </span><span class="hs-identifier hs-var">splitPrimeSuffix</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -502,13 +502,13 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Maybe (a, a)
 forall m. FactorialMonoid m =&gt; m -&gt; Maybe (m, m)
 </span><span class="hs-identifier hs-var">splitPrimeSuffix</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span id="local-6989586621679082636"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_reverse"><span class="hs-identifier hs-type">factorialMonoidLaw_reverse</span></a></span><span>
-</span><span id="line-224"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082636"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082636"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082636"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082636"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-223"></span><span id="local-6989586621679082905"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_reverse"><span class="hs-identifier hs-type">factorialMonoidLaw_reverse</span></a></span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082905"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082905"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082905"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082905"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-225"></span><span id="factorialMonoidLaw_reverse"><span class="annot"><span class="annottext">factorialMonoidLaw_reverse :: forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_reverse"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_reverse</span></a></span></span><span> </span><span id="local-6989586621679082662"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_reverse"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_reverse</span></a></span></span><span> </span><span id="local-6989586621679082931"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679082931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-226"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -517,7 +517,7 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-228"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082662"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679082931"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; a
 forall a. Monoid a =&gt; [a] -&gt; a
@@ -526,7 +526,7 @@ forall a. [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">L.reverse</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -539,7 +539,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-231"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -552,7 +552,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-234"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -567,7 +567,7 @@ forall a. [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">L.reverse</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -584,13 +584,13 @@ forall a. [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">L.reverse</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span id="local-6989586621679082663"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_primePrefix"><span class="hs-identifier hs-type">factorialMonoidLaw_primePrefix</span></a></span><span>
-</span><span id="line-243"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082663"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082663"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082663"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082663"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-242"></span><span id="local-6989586621679082932"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_primePrefix"><span class="hs-identifier hs-type">factorialMonoidLaw_primePrefix</span></a></span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082932"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082932"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082932"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082932"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-244"></span><span id="factorialMonoidLaw_primePrefix"><span class="annot"><span class="annottext">factorialMonoidLaw_primePrefix :: forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_primePrefix"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_primePrefix</span></a></span></span><span> </span><span id="local-6989586621679082688"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_primePrefix"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_primePrefix</span></a></span></span><span> </span><span id="local-6989586621679082957"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679082957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -599,7 +599,7 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-247"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primePrefix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082688"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679082957"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; ((a, a) -&gt; a) -&gt; Maybe (a, a) -&gt; a
 forall b a. b -&gt; (a -&gt; b) -&gt; Maybe a -&gt; b
@@ -610,7 +610,7 @@ forall a b. (a, b) -&gt; a
 </span><span class="hs-identifier hs-var">fst</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Maybe (a, a)
 forall m. FactorialMonoid m =&gt; m -&gt; Maybe (m, m)
 </span><span class="hs-identifier hs-var">splitPrimePrefix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -623,7 +623,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-250"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primePrefix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Maybe (a, a) -&gt; Property -&gt; Property
@@ -636,7 +636,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-253"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Maybe (a, a)
 forall m. FactorialMonoid m =&gt; m -&gt; Maybe (m, m)
 </span><span class="hs-identifier hs-var">splitPrimePrefix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -655,13 +655,13 @@ forall a b. (a, b) -&gt; a
 </span><span class="hs-identifier hs-var">fst</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Maybe (a, a)
 forall m. FactorialMonoid m =&gt; m -&gt; Maybe (m, m)
 </span><span class="hs-identifier hs-var">splitPrimePrefix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span id="local-6989586621679082689"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_primeSuffix"><span class="hs-identifier hs-type">factorialMonoidLaw_primeSuffix</span></a></span><span>
-</span><span id="line-259"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082689"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082689"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082689"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082689"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-258"></span><span id="local-6989586621679082958"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_primeSuffix"><span class="hs-identifier hs-type">factorialMonoidLaw_primeSuffix</span></a></span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082958"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082958"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082958"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082958"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-260"></span><span id="factorialMonoidLaw_primeSuffix"><span class="annot"><span class="annottext">factorialMonoidLaw_primeSuffix :: forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_primeSuffix"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_primeSuffix</span></a></span></span><span> </span><span id="local-6989586621679082712"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_primeSuffix"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_primeSuffix</span></a></span></span><span> </span><span id="local-6989586621679082981"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679082981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-261"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -670,7 +670,7 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-263"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primeSuffix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082712"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679082981"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; ((a, a) -&gt; a) -&gt; Maybe (a, a) -&gt; a
 forall b a. b -&gt; (a -&gt; b) -&gt; Maybe a -&gt; b
@@ -681,7 +681,7 @@ forall a b. (a, b) -&gt; b
 </span><span class="hs-identifier hs-var">snd</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Maybe (a, a)
 forall m. FactorialMonoid m =&gt; m -&gt; Maybe (m, m)
 </span><span class="hs-identifier hs-var">splitPrimeSuffix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -694,7 +694,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-266"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primeSuffix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Maybe (a, a) -&gt; Property -&gt; Property
@@ -707,7 +707,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-269"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Maybe (a, a)
 forall m. FactorialMonoid m =&gt; m -&gt; Maybe (m, m)
 </span><span class="hs-identifier hs-var">splitPrimeSuffix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -726,13 +726,13 @@ forall a b. (a, b) -&gt; b
 </span><span class="hs-identifier hs-var">snd</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Maybe (a, a)
 forall m. FactorialMonoid m =&gt; m -&gt; Maybe (m, m)
 </span><span class="hs-identifier hs-var">splitPrimeSuffix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679082981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
-</span><span id="line-274"></span><span id="local-6989586621679082713"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_inits"><span class="hs-identifier hs-type">factorialMonoidLaw_inits</span></a></span><span>
-</span><span id="line-275"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082713"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082713"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082713"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082713"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-274"></span><span id="local-6989586621679082982"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_inits"><span class="hs-identifier hs-type">factorialMonoidLaw_inits</span></a></span><span>
+</span><span id="line-275"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082982"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082982"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082982"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082982"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-276"></span><span id="factorialMonoidLaw_inits"><span class="annot"><span class="annottext">factorialMonoidLaw_inits :: forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_inits"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_inits</span></a></span></span><span> </span><span id="local-6989586621679082741"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_inits"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_inits</span></a></span></span><span> </span><span id="local-6989586621679083010"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-277"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -741,7 +741,7 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-279"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. FactorialMonoid m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">inits</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082741"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; Bool
+</span><a href="#local-6989586621679083010"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">([a] -&gt; a) -&gt; [[a]] -&gt; [a]
 forall a b. (a -&gt; b) -&gt; [a] -&gt; [b]
@@ -753,7 +753,7 @@ forall a. [a] -&gt; [[a]]
 </span><span class="hs-identifier hs-var">L.inits</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -766,7 +766,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-282"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. FactorialMonoid m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">inits</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -779,7 +779,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-285"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [[a]] -&gt; Property -&gt; Property
@@ -794,7 +794,7 @@ forall a. [a] -&gt; [[a]]
 </span><span class="hs-identifier hs-var">L.inits</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-289"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -814,13 +814,13 @@ forall a. [a] -&gt; [[a]]
 </span><span class="hs-identifier hs-var">L.inits</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>
-</span><span id="line-293"></span><span id="local-6989586621679082742"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_tails"><span class="hs-identifier hs-type">factorialMonoidLaw_tails</span></a></span><span>
-</span><span id="line-294"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082742"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082742"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082742"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082742"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-293"></span><span id="local-6989586621679083011"><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_tails"><span class="hs-identifier hs-type">factorialMonoidLaw_tails</span></a></span><span>
+</span><span id="line-294"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679083011"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679083011"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679083011"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679083011"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-295"></span><span id="factorialMonoidLaw_tails"><span class="annot"><span class="annottext">factorialMonoidLaw_tails :: forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_tails"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_tails</span></a></span></span><span> </span><span id="local-6989586621679082769"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_tails"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_tails</span></a></span></span><span> </span><span id="local-6989586621679083038"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-296"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -829,7 +829,7 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-298"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. FactorialMonoid m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">tails</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082769"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; Bool
+</span><a href="#local-6989586621679083038"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">([a] -&gt; a) -&gt; [[a]] -&gt; [a]
 forall a b. (a -&gt; b) -&gt; [a] -&gt; [b]
@@ -841,7 +841,7 @@ forall a. [a] -&gt; [[a]]
 </span><span class="hs-identifier hs-var">L.tails</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-299"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -854,7 +854,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-301"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. FactorialMonoid m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">tails</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-302"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -867,7 +867,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-304"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-305"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [[a]] -&gt; Property -&gt; Property
@@ -882,7 +882,7 @@ forall a. [a] -&gt; [[a]]
 </span><span class="hs-identifier hs-var">L.tails</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-308"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -902,23 +902,23 @@ forall a. [a] -&gt; [[a]]
 </span><span class="hs-identifier hs-var">L.tails</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_span"><span class="hs-identifier hs-type">factorialMonoidLaw_span</span></a></span><span>
-</span><span id="line-313"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679082770"><span class="annot"><a href="#local-6989586621679082770"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082770"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082770"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082770"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-314"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082770"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-313"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679083039"><span class="annot"><a href="#local-6989586621679083039"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679083039"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679083039"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679083039"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679083039"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-315"></span><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span><span>
 </span><span id="line-316"></span><span id="factorialMonoidLaw_span"><span class="annot"><span class="annottext">factorialMonoidLaw_span :: forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_span"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_span</span></a></span></span><span> </span><span id="local-6989586621679082813"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">((a -&gt; Bool) -&gt; Property) -&gt; Property
+</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_span"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_span</span></a></span></span><span> </span><span id="local-6989586621679083082"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">((a -&gt; Bool) -&gt; Property) -&gt; Property
 forall a b t.
 (Show a, Show b, Arbitrary b, Testable t) =&gt;
 ((a -&gt; b) -&gt; t) -&gt; Property
 </span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#withShowableFn"><span class="hs-identifier hs-var">withShowableFn</span></a></span><span> </span><span class="annot"><span class="annottext">(((a -&gt; Bool) -&gt; Property) -&gt; Property)
 -&gt; ((a -&gt; Bool) -&gt; Property) -&gt; Property
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679082815"><span class="annot"><span class="annottext">a -&gt; Bool
-</span><a href="#local-6989586621679082815"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679083084"><span class="annot"><span class="annottext">a -&gt; Bool
+</span><a href="#local-6989586621679083084"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-317"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -927,8 +927,8 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-319"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; a -&gt; (a, a)
 forall m. FactorialMonoid m =&gt; (m -&gt; Bool) -&gt; m -&gt; (m, m)
 </span><span class="hs-identifier hs-var">span</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Bool
-</span><a href="#local-6989586621679082815"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082813"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">(a, a) -&gt; (a, a) -&gt; Bool
+</span><a href="#local-6989586621679083084"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083082"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">(a, a) -&gt; (a, a) -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">([a] -&gt; a) -&gt; ([a] -&gt; a) -&gt; ([a], [a]) -&gt; (a, a)
 forall a b c d. (a -&gt; b) -&gt; (c -&gt; d) -&gt; (a, c) -&gt; (b, d)
@@ -942,10 +942,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">mconcat</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; [a] -&gt; ([a], [a])
 forall a. (a -&gt; Bool) -&gt; [a] -&gt; ([a], [a])
 </span><span class="hs-identifier hs-var">L.span</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Bool
-</span><a href="#local-6989586621679082815"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679083084"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-320"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property -&gt; Property
@@ -956,10 +956,10 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-322"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; [a] -&gt; Bool
 forall (t :: * -&gt; *) a. Foldable t =&gt; (a -&gt; Bool) -&gt; t a -&gt; Bool
 </span><span class="hs-identifier hs-var">any</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Bool
-</span><a href="#local-6989586621679082815"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679083084"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-323"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property -&gt; Property
@@ -973,10 +973,10 @@ forall (t :: * -&gt; *) a. Foldable t =&gt; (a -&gt; Bool) -&gt; t a -&gt; Bool
 </span><span class="hs-identifier hs-var">not</span></span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Bool) -&gt; (a -&gt; Bool) -&gt; a -&gt; Bool
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Bool
-</span><a href="#local-6989586621679082815"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679083084"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-326"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; (a, a) -&gt; Property -&gt; Property
@@ -989,8 +989,8 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-328"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; a -&gt; (a, a)
 forall m. FactorialMonoid m =&gt; (m -&gt; Bool) -&gt; m -&gt; (m, m)
 </span><span class="hs-identifier hs-var">span</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Bool
-</span><a href="#local-6989586621679082815"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083084"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -1003,7 +1003,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-331"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-332"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; ([a], [a]) -&gt; Property -&gt; Property
@@ -1016,10 +1016,10 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-334"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; [a] -&gt; ([a], [a])
 forall a. (a -&gt; Bool) -&gt; [a] -&gt; ([a], [a])
 </span><span class="hs-identifier hs-var">L.span</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Bool
-</span><a href="#local-6989586621679082815"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679083084"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-335"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; (a, a) -&gt; Property -&gt; Property
@@ -1041,26 +1041,26 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">mconcat</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; [a] -&gt; ([a], [a])
 forall a. (a -&gt; Bool) -&gt; [a] -&gt; ([a], [a])
 </span><span class="hs-identifier hs-var">L.span</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Bool
-</span><a href="#local-6989586621679082815"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679083084"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-338"></span><span>
 </span><span id="line-339"></span><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_split"><span class="hs-identifier hs-type">factorialMonoidLaw_split</span></a></span><span>
-</span><span id="line-340"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679082817"><span class="annot"><a href="#local-6989586621679082817"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082817"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082817"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082817"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-341"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082817"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-340"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679083086"><span class="annot"><a href="#local-6989586621679083086"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679083086"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679083086"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679083086"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679083086"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-342"></span><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span><span>
 </span><span id="line-343"></span><span id="factorialMonoidLaw_split"><span class="annot"><span class="annottext">factorialMonoidLaw_split :: forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_split"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_split</span></a></span></span><span> </span><span id="local-6989586621679082840"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">((a -&gt; Bool) -&gt; Property) -&gt; Property
+</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_split"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_split</span></a></span></span><span> </span><span id="local-6989586621679083109"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">((a -&gt; Bool) -&gt; Property) -&gt; Property
 forall a b t.
 (Show a, Show b, Arbitrary b, Testable t) =&gt;
 ((a -&gt; b) -&gt; t) -&gt; Property
 </span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#withShowableFn"><span class="hs-identifier hs-var">withShowableFn</span></a></span><span> </span><span class="annot"><span class="annottext">(((a -&gt; Bool) -&gt; Property) -&gt; Property)
 -&gt; ((a -&gt; Bool) -&gt; Property) -&gt; Property
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679082841"><span class="annot"><span class="annottext">a -&gt; Bool
-</span><a href="#local-6989586621679082841"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679083110"><span class="annot"><span class="annottext">a -&gt; Bool
+</span><a href="#local-6989586621679083110"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-344"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -1074,15 +1074,15 @@ forall (t :: * -&gt; *) a. Foldable t =&gt; (a -&gt; Bool) -&gt; t a -&gt; Bool
 </span><span class="hs-identifier hs-var">not</span></span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Bool) -&gt; (a -&gt; Bool) -&gt; a -&gt; Bool
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Bool
-</span><a href="#local-6989586621679082841"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([a] -&gt; Bool) -&gt; (a -&gt; [a]) -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679083110"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([a] -&gt; Bool) -&gt; (a -&gt; [a]) -&gt; a -&gt; Bool
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; a -&gt; [a]
 forall m. FactorialMonoid m =&gt; (m -&gt; Bool) -&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">split</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Bool
-</span><a href="#local-6989586621679082841"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083110"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-347"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property -&gt; Property
@@ -1093,10 +1093,10 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-349"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; [a] -&gt; Bool
 forall (t :: * -&gt; *) a. Foldable t =&gt; (a -&gt; Bool) -&gt; t a -&gt; Bool
 </span><span class="hs-identifier hs-var">any</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Bool
-</span><a href="#local-6989586621679082841"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679083110"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-350"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property -&gt; Property
@@ -1110,10 +1110,10 @@ forall (t :: * -&gt; *) a. Foldable t =&gt; (a -&gt; Bool) -&gt; t a -&gt; Bool
 </span><span class="hs-identifier hs-var">not</span></span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Bool) -&gt; (a -&gt; Bool) -&gt; a -&gt; Bool
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Bool
-</span><a href="#local-6989586621679082841"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679083110"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-353"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -1126,16 +1126,16 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-355"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; a -&gt; [a]
 forall m. FactorialMonoid m =&gt; (m -&gt; Bool) -&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">split</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Bool
-</span><a href="#local-6989586621679082841"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083110"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-356"></span><span>
 </span><span id="line-357"></span><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_split_intersperse"><span class="hs-identifier hs-type">factorialMonoidLaw_split_intersperse</span></a></span><span>
-</span><span id="line-358"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679082842"><span class="annot"><a href="#local-6989586621679082842"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082842"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082842"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082842"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-359"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082842"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-358"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679083111"><span class="annot"><a href="#local-6989586621679083111"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679083111"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679083111"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679083111"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679083111"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-360"></span><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span><span>
 </span><span id="line-361"></span><span id="factorialMonoidLaw_split_intersperse"><span class="annot"><span class="annottext">factorialMonoidLaw_split_intersperse :: forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_split_intersperse"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_split_intersperse</span></a></span></span><span> </span><span id="local-6989586621679082872"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_split_intersperse"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_split_intersperse</span></a></span></span><span> </span><span id="local-6989586621679083141"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-362"></span><span>    </span><span class="annot"><span class="annottext">Gen a -&gt; (a -&gt; Property) -&gt; Property
 forall a prop.
 (Show a, Testable prop) =&gt;
@@ -1145,10 +1145,10 @@ forall a. HasCallStack =&gt; [a] -&gt; Gen a
 </span><span class="hs-identifier hs-var">elements</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((a -&gt; Property) -&gt; Property) -&gt; (a -&gt; Property) -&gt; Property
+</span><a href="#local-6989586621679083141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((a -&gt; Property) -&gt; Property) -&gt; (a -&gt; Property) -&gt; Property
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679082873"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082873"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679083142"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083142"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-363"></span><span>        </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -1159,16 +1159,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">mconcat</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a] -&gt; [a]
 forall a. a -&gt; [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">L.intersperse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082873"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; a -&gt; [a]
+</span><a href="#local-6989586621679083142"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; a -&gt; [a]
 forall m. FactorialMonoid m =&gt; (m -&gt; Bool) -&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">split</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082873"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679083142"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-366"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -1183,8 +1183,8 @@ forall m. FactorialMonoid m =&gt; (m -&gt; Bool) -&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">split</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082873"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083142"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-369"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -1197,13 +1197,13 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-371"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a] -&gt; [a]
 forall a. a -&gt; [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">L.intersperse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082873"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; a -&gt; [a]
+</span><a href="#local-6989586621679083142"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; a -&gt; [a]
 forall m. FactorialMonoid m =&gt; (m -&gt; Bool) -&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">split</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082873"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083142"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-372"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -1218,21 +1218,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">mconcat</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a] -&gt; [a]
 forall a. a -&gt; [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">L.intersperse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082873"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; a -&gt; [a]
+</span><a href="#local-6989586621679083142"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; a -&gt; [a]
 forall m. FactorialMonoid m =&gt; (m -&gt; Bool) -&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">split</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082873"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083142"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-375"></span><span>
 </span><span id="line-376"></span><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_splitAt"><span class="hs-identifier hs-type">factorialMonoidLaw_splitAt</span></a></span><span>
-</span><span id="line-377"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679082874"><span class="annot"><a href="#local-6989586621679082874"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679082874"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082874"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679082874"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-378"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082874"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-377"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679083143"><span class="annot"><a href="#local-6989586621679083143"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679083143"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679083143"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">FactorialMonoid</span></span><span> </span><span class="annot"><a href="#local-6989586621679083143"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-378"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679083143"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-379"></span><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span><span>
 </span><span id="line-380"></span><span id="factorialMonoidLaw_splitAt"><span class="annot"><span class="annottext">factorialMonoidLaw_splitAt :: forall a. (Eq a, Show a, FactorialMonoid a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_splitAt"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_splitAt</span></a></span></span><span> </span><span id="local-6989586621679082907"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#factorialMonoidLaw_splitAt"><span class="hs-identifier hs-var hs-var">factorialMonoidLaw_splitAt</span></a></span></span><span> </span><span id="local-6989586621679083176"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-381"></span><span>    </span><span class="annot"><span class="annottext">Gen Int -&gt; (Int -&gt; Property) -&gt; Property
 forall a prop.
 (Show a, Testable prop) =&gt;
@@ -1242,10 +1242,10 @@ Gen a -&gt; (a -&gt; prop) -&gt; Property
 </span><span class="hs-number">0</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">a -&gt; Int
 forall m. Factorial m =&gt; m -&gt; Int
 </span><span class="hs-identifier hs-var">length</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Int -&gt; Property) -&gt; Property) -&gt; (Int -&gt; Property) -&gt; Property
+</span><a href="#local-6989586621679083176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Int -&gt; Property) -&gt; Property) -&gt; (Int -&gt; Property) -&gt; Property
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679082908"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679082908"><span class="hs-identifier hs-var">i</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679083177"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679083177"><span class="hs-identifier hs-var">i</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-382"></span><span>        </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -1254,8 +1254,8 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-384"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; a -&gt; (a, a)
 forall m. FactorialMonoid m =&gt; Int -&gt; m -&gt; (m, m)
 </span><span class="hs-identifier hs-var">splitAt</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679082908"><span class="hs-identifier hs-var">i</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082907"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">(a, a) -&gt; (a, a) -&gt; Bool
+</span><a href="#local-6989586621679083177"><span class="hs-identifier hs-var">i</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083176"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">(a, a) -&gt; (a, a) -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">([a] -&gt; a) -&gt; ([a] -&gt; a) -&gt; ([a], [a]) -&gt; (a, a)
 forall a b c d. (a -&gt; b) -&gt; (c -&gt; d) -&gt; (a, c) -&gt; (b, d)
@@ -1269,10 +1269,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">mconcat</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; [a] -&gt; ([a], [a])
 forall a. Int -&gt; [a] -&gt; ([a], [a])
 </span><span class="hs-identifier hs-var">L.splitAt</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679082908"><span class="hs-identifier hs-var">i</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679083177"><span class="hs-identifier hs-var">i</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-385"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; (a, a) -&gt; Property -&gt; Property
@@ -1285,8 +1285,8 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-387"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; a -&gt; (a, a)
 forall m. FactorialMonoid m =&gt; Int -&gt; m -&gt; (m, m)
 </span><span class="hs-identifier hs-var">splitAt</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679082908"><span class="hs-identifier hs-var">i</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083177"><span class="hs-identifier hs-var">i</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679083176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-388"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -1299,7 +1299,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-390"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-391"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; ([a], [a]) -&gt; Property -&gt; Property
@@ -1312,10 +1312,10 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-393"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; [a] -&gt; ([a], [a])
 forall a. Int -&gt; [a] -&gt; ([a], [a])
 </span><span class="hs-identifier hs-var">L.splitAt</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679082908"><span class="hs-identifier hs-var">i</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679083177"><span class="hs-identifier hs-var">i</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-394"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; (a, a) -&gt; Property -&gt; Property
@@ -1337,24 +1337,24 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">mconcat</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; [a] -&gt; ([a], [a])
 forall a. Int -&gt; [a] -&gt; ([a], [a])
 </span><span class="hs-identifier hs-var">L.splitAt</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679082908"><span class="hs-identifier hs-var">i</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679083177"><span class="hs-identifier hs-var">i</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679082907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679083176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-397"></span><span>
 </span><span id="line-398"></span><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
 </span><span id="line-399"></span><span class="hs-comment">-- Utilities</span><span>
 </span><span id="line-400"></span><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
 </span><span id="line-401"></span><span>
 </span><span id="line-402"></span><span class="annot"><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#withShowableFn"><span class="hs-identifier hs-type">withShowableFn</span></a></span><span>
-</span><span id="line-403"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679082331"><span class="annot"><a href="#local-6989586621679082331"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span id="local-6989586621679082332"><span class="annot"><a href="#local-6989586621679082332"><span class="hs-identifier hs-type">b</span></a></span></span><span> </span><span id="local-6989586621679082333"><span class="annot"><a href="#local-6989586621679082333"><span class="hs-identifier hs-type">t</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082331"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082332"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Arbitrary</span></span><span> </span><span class="annot"><a href="#local-6989586621679082332"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Testable</span></span><span> </span><span class="annot"><a href="#local-6989586621679082333"><span class="hs-identifier hs-type">t</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-404"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><a href="#local-6989586621679082331"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082332"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082333"><span class="hs-identifier hs-type">t</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-403"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679082600"><span class="annot"><a href="#local-6989586621679082600"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span id="local-6989586621679082601"><span class="annot"><a href="#local-6989586621679082601"><span class="hs-identifier hs-type">b</span></a></span></span><span> </span><span id="local-6989586621679082602"><span class="annot"><a href="#local-6989586621679082602"><span class="hs-identifier hs-type">t</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082600"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679082601"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Arbitrary</span></span><span> </span><span class="annot"><a href="#local-6989586621679082601"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Testable</span></span><span> </span><span class="annot"><a href="#local-6989586621679082602"><span class="hs-identifier hs-type">t</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-404"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><a href="#local-6989586621679082600"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082601"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679082602"><span class="hs-identifier hs-type">t</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-405"></span><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span><span>
 </span><span id="line-406"></span><span id="withShowableFn"><span class="annot"><span class="annottext">withShowableFn :: forall a b t.
 (Show a, Show b, Arbitrary b, Testable t) =&gt;
 ((a -&gt; b) -&gt; t) -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#withShowableFn"><span class="hs-identifier hs-var hs-var">withShowableFn</span></a></span></span><span> </span><span id="local-6989586621679082931"><span class="annot"><span class="annottext">(a -&gt; b) -&gt; t
-</span><a href="#local-6989586621679082931"><span class="hs-identifier hs-var">t</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Monoid.Factorial.html#withShowableFn"><span class="hs-identifier hs-var hs-var">withShowableFn</span></a></span></span><span> </span><span id="local-6989586621679083200"><span class="annot"><span class="annottext">(a -&gt; b) -&gt; t
+</span><a href="#local-6989586621679083200"><span class="hs-identifier hs-var">t</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-407"></span><span>    </span><span class="annot"><span class="annottext">Gen (Fun String b)
 -&gt; (Fun String b -&gt; [Fun String b])
 -&gt; (Fun String b -&gt; t)
@@ -1363,18 +1363,18 @@ forall a prop.
 (Show a, Testable prop) =&gt;
 Gen a -&gt; (a -&gt; [a]) -&gt; (a -&gt; prop) -&gt; Property
 </span><span class="hs-identifier hs-var">forAllShrink</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">forall a. Arbitrary a =&gt; Gen a
-</span><span class="hs-identifier hs-var">arbitrary</span></span><span> </span><span class="hs-glyph">@</span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Fun</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span> </span><span class="annot"><a href="#local-6989586621679082332"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Fun String b -&gt; [Fun String b]
+</span><span class="hs-identifier hs-var">arbitrary</span></span><span> </span><span class="hs-glyph">@</span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Fun</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span> </span><span class="annot"><a href="#local-6989586621679082601"><span class="hs-identifier hs-type">b</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Fun String b -&gt; [Fun String b]
 forall a. Arbitrary a =&gt; a -&gt; [a]
 </span><span class="hs-identifier hs-var">shrink</span></span><span> </span><span class="annot"><span class="annottext">((Fun String b -&gt; t) -&gt; Property)
 -&gt; (Fun String b -&gt; t) -&gt; Property
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">$</span></span><span>
-</span><span id="line-408"></span><span>        </span><span class="hs-glyph">\</span><span id="local-6989586621679082932"><span class="annot"><span class="annottext">Fun String b
-</span><a href="#local-6989586621679082932"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">(a -&gt; b) -&gt; t
-</span><a href="#local-6989586621679082931"><span class="hs-identifier hs-var">t</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Fun String b -&gt; String -&gt; b
+</span><span id="line-408"></span><span>        </span><span class="hs-glyph">\</span><span id="local-6989586621679083201"><span class="annot"><span class="annottext">Fun String b
+</span><a href="#local-6989586621679083201"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">(a -&gt; b) -&gt; t
+</span><a href="#local-6989586621679083200"><span class="hs-identifier hs-var">t</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Fun String b -&gt; String -&gt; b
 forall a b. Fun a b -&gt; a -&gt; b
 </span><span class="hs-identifier hs-var">applyFun</span></span><span> </span><span class="annot"><span class="annottext">Fun String b
-</span><a href="#local-6989586621679082932"><span class="hs-identifier hs-var">f</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(String -&gt; b) -&gt; (a -&gt; String) -&gt; a -&gt; b
+</span><a href="#local-6989586621679083201"><span class="hs-identifier hs-var">f</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(String -&gt; b) -&gt; (a -&gt; String) -&gt; a -&gt; b
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; String
 forall a. Show a =&gt; a -&gt; String
