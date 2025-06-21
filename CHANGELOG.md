@@ -1,3 +1,7 @@
+# 0.3.0.6
+
+- Revised upper bounds for package dependencies.
+
 # 0.3.0.5
 
 - Added support for GHC `9.12`.
