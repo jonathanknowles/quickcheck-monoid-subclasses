@@ -99,8 +99,8 @@
 </span><span id="line-99"></span><span class="hs-comment">-- * 'Test.QuickCheck.Classes.semigroupLaws'</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaws"><span class="hs-identifier hs-type">factorialLaws</span></a></span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679086928"><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Arbitrary</span></span><span> </span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679087048"><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Arbitrary</span></span><span> </span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Laws</span></span><span>
 </span><span id="line-105"></span><span id="factorialLaws"><span class="annot"><span class="annottext">factorialLaws :: forall a.
 (Arbitrary a, Show a, Eq a, Factorial a) =&gt;
@@ -112,7 +112,7 @@ Proxy a -&gt; Laws
 </span><span id="line-106"></span><span>    </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialLaw_coverage&quot;</span></span><span>
 </span><span id="line-108"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -121,7 +121,7 @@ forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; Property
 </span><span id="line-109"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialLaw_length_factors&quot;</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -130,7 +130,7 @@ forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; Property
 </span><span id="line-112"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialLaw_maybe_sconcat_nonEmpty_factors&quot;</span></span><span>
 </span><span id="line-114"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -139,7 +139,7 @@ forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; Property
 </span><span id="line-115"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialLaw_maybe_sconcat_nonEmpty_factors_reverse&quot;</span></span><span>
 </span><span id="line-117"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -148,7 +148,7 @@ forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; Property
 </span><span id="line-118"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialLaw_all_factors_prime&quot;</span></span><span>
 </span><span id="line-120"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -157,7 +157,7 @@ forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; Property
 </span><span id="line-121"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialLaw_primePrefix_foldr&quot;</span></span><span>
 </span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -166,7 +166,7 @@ forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; Property
 </span><span id="line-124"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialLaw_primeSuffix_foldl&quot;</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -175,7 +175,7 @@ forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; Property
 </span><span id="line-127"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialLaw_factors_foldl&quot;</span></span><span>
 </span><span id="line-129"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Property
@@ -184,7 +184,7 @@ forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; a -&gt; Property
 </span><span id="line-130"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialLaw_factors_foldl'&quot;</span></span><span>
 </span><span id="line-132"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Property
@@ -193,7 +193,7 @@ forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; a -&gt; Property
 </span><span id="line-133"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679086928"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679087048"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;factorialLaw_factors_foldr&quot;</span></span><span>
 </span><span id="line-135"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Property
@@ -201,11 +201,11 @@ forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; a -&gt; Property
 </span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_factors_foldr"><span class="hs-identifier hs-var">factorialLaw_factors_foldr</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span id="local-6989586621679086939"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_coverage"><span class="hs-identifier hs-type">factorialLaw_coverage</span></a></span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679086939"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679086939"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679086939"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679086939"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-138"></span><span id="local-6989586621679087059"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_coverage"><span class="hs-identifier hs-type">factorialLaw_coverage</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087059"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087059"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087059"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087059"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-140"></span><span id="factorialLaw_coverage"><span class="annot"><span class="annottext">factorialLaw_coverage :: forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_coverage"><span class="hs-identifier hs-var hs-var">factorialLaw_coverage</span></a></span></span><span> </span><span id="local-6989586621679087153"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_coverage"><span class="hs-identifier hs-var hs-var">factorialLaw_coverage</span></a></span></span><span> </span><span id="local-6989586621679087273"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -223,7 +223,7 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-146"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Int
 forall m. Factorial m =&gt; m -&gt; Int
 </span><span class="hs-identifier hs-var">length</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087153"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+</span><a href="#local-6989586621679087273"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">0</span></span><span class="hs-special">)</span><span>
@@ -237,7 +237,7 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-149"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Int
 forall m. Factorial m =&gt; m -&gt; Int
 </span><span class="hs-identifier hs-var">length</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087153"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+</span><a href="#local-6989586621679087273"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span class="hs-special">)</span><span>
@@ -251,16 +251,16 @@ forall t. Testable t =&gt; String -&gt; Bool -&gt; t -&gt; Property
 </span><span id="line-152"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Int
 forall m. Factorial m =&gt; m -&gt; Int
 </span><span class="hs-identifier hs-var">length</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087153"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+</span><a href="#local-6989586621679087273"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
 forall a. Ord a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">&gt;=</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">2</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span id="local-6989586621679087154"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_length_factors"><span class="hs-identifier hs-type">factorialLaw_length_factors</span></a></span><span>
-</span><span id="line-155"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087154"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087154"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087154"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087154"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-154"></span><span id="local-6989586621679087274"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_length_factors"><span class="hs-identifier hs-type">factorialLaw_length_factors</span></a></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087274"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087274"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087274"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087274"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-156"></span><span id="factorialLaw_length_factors"><span class="annot"><span class="annottext">factorialLaw_length_factors :: forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_length_factors"><span class="hs-identifier hs-var hs-var">factorialLaw_length_factors</span></a></span></span><span> </span><span id="local-6989586621679087172"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_length_factors"><span class="hs-identifier hs-var hs-var">factorialLaw_length_factors</span></a></span></span><span> </span><span id="local-6989586621679087292"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -269,7 +269,7 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-159"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Int
 forall m. Factorial m =&gt; m -&gt; Int
 </span><span class="hs-identifier hs-var">length</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087172"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
+</span><a href="#local-6989586621679087292"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; Int
 forall a. [a] -&gt; Int
@@ -277,7 +277,7 @@ forall (t :: * -&gt; *) a. Foldable t =&gt; t a -&gt; Int
 </span><span class="hs-identifier hs-var">L.length</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Int -&gt; Property -&gt; Property
@@ -290,7 +290,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-162"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Int
 forall m. Factorial m =&gt; m -&gt; Int
 </span><span class="hs-identifier hs-var">length</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Int -&gt; Property -&gt; Property
@@ -306,13 +306,13 @@ forall (t :: * -&gt; *) a. Foldable t =&gt; t a -&gt; Int
 </span><span class="hs-identifier hs-var">L.length</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span id="local-6989586621679087174"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_maybe_sconcat_nonEmpty_factors"><span class="hs-identifier hs-type">factorialLaw_maybe_sconcat_nonEmpty_factors</span></a></span><span>
-</span><span id="line-168"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087174"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087174"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087174"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087174"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-167"></span><span id="local-6989586621679087294"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_maybe_sconcat_nonEmpty_factors"><span class="hs-identifier hs-type">factorialLaw_maybe_sconcat_nonEmpty_factors</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087294"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087294"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087294"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087294"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-169"></span><span id="factorialLaw_maybe_sconcat_nonEmpty_factors"><span class="annot"><span class="annottext">factorialLaw_maybe_sconcat_nonEmpty_factors :: forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_maybe_sconcat_nonEmpty_factors"><span class="hs-identifier hs-var hs-var">factorialLaw_maybe_sconcat_nonEmpty_factors</span></a></span></span><span> </span><span id="local-6989586621679087199"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_maybe_sconcat_nonEmpty_factors"><span class="hs-identifier hs-var hs-var">factorialLaw_maybe_sconcat_nonEmpty_factors</span></a></span></span><span> </span><span id="local-6989586621679087319"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -321,17 +321,17 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-172"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; (NonEmpty a -&gt; a) -&gt; Maybe (NonEmpty a) -&gt; a
 forall b a. b -&gt; (a -&gt; b) -&gt; Maybe a -&gt; b
 </span><span class="hs-identifier hs-var">maybe</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087199"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">NonEmpty a -&gt; a
+</span><a href="#local-6989586621679087319"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">NonEmpty a -&gt; a
 forall a. Semigroup a =&gt; NonEmpty a -&gt; a
 </span><span class="hs-identifier hs-var">sconcat</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[a] -&gt; Maybe (NonEmpty a)
 forall a. [a] -&gt; Maybe (NonEmpty a)
 </span><span class="hs-identifier hs-var">nonEmpty</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679087319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -344,7 +344,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-175"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Maybe (NonEmpty a) -&gt; Property -&gt; Property
@@ -359,7 +359,7 @@ forall a. [a] -&gt; Maybe (NonEmpty a)
 </span><span class="hs-identifier hs-var">nonEmpty</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Maybe a -&gt; Property -&gt; Property
@@ -379,13 +379,13 @@ forall a. [a] -&gt; Maybe (NonEmpty a)
 </span><span class="hs-identifier hs-var">nonEmpty</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span id="local-6989586621679087200"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_maybe_sconcat_nonEmpty_factors_reverse"><span class="hs-identifier hs-type">factorialLaw_maybe_sconcat_nonEmpty_factors_reverse</span></a></span><span>
-</span><span id="line-184"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087200"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087200"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087200"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087200"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-183"></span><span id="local-6989586621679087320"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_maybe_sconcat_nonEmpty_factors_reverse"><span class="hs-identifier hs-type">factorialLaw_maybe_sconcat_nonEmpty_factors_reverse</span></a></span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087320"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087320"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087320"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087320"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-185"></span><span id="factorialLaw_maybe_sconcat_nonEmpty_factors_reverse"><span class="annot"><span class="annottext">factorialLaw_maybe_sconcat_nonEmpty_factors_reverse :: forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_maybe_sconcat_nonEmpty_factors_reverse"><span class="hs-identifier hs-var hs-var">factorialLaw_maybe_sconcat_nonEmpty_factors_reverse</span></a></span></span><span> </span><span id="local-6989586621679087227"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_maybe_sconcat_nonEmpty_factors_reverse"><span class="hs-identifier hs-var hs-var">factorialLaw_maybe_sconcat_nonEmpty_factors_reverse</span></a></span></span><span> </span><span id="local-6989586621679087347"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -394,7 +394,7 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-188"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; (NonEmpty a -&gt; a) -&gt; Maybe (NonEmpty a) -&gt; a
 forall b a. b -&gt; (a -&gt; b) -&gt; Maybe a -&gt; b
 </span><span class="hs-identifier hs-var">maybe</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087227"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">NonEmpty a -&gt; a
+</span><a href="#local-6989586621679087347"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">NonEmpty a -&gt; a
 forall a. Semigroup a =&gt; NonEmpty a -&gt; a
 </span><span class="hs-identifier hs-var">sconcat</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[a] -&gt; Maybe (NonEmpty a)
 forall a. [a] -&gt; Maybe (NonEmpty a)
@@ -403,12 +403,12 @@ forall a. [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">L.reverse</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679087347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -421,7 +421,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-191"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -436,7 +436,7 @@ forall a. [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">L.reverse</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; Maybe (NonEmpty a) -&gt; Property -&gt; Property
@@ -453,7 +453,7 @@ forall a. [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">L.reverse</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -466,7 +466,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-200"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; (NonEmpty a -&gt; a) -&gt; Maybe (NonEmpty a) -&gt; a
 forall b a. b -&gt; (a -&gt; b) -&gt; Maybe a -&gt; b
 </span><span class="hs-identifier hs-var">maybe</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087227"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">NonEmpty a -&gt; a
+</span><a href="#local-6989586621679087347"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">NonEmpty a -&gt; a
 forall a. Semigroup a =&gt; NonEmpty a -&gt; a
 </span><span class="hs-identifier hs-var">sconcat</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[a] -&gt; Maybe (NonEmpty a)
 forall a. [a] -&gt; Maybe (NonEmpty a)
@@ -475,7 +475,7 @@ forall a. [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">L.reverse</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -488,13 +488,13 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-203"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span id="local-6989586621679087228"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_all_factors_prime"><span class="hs-identifier hs-type">factorialLaw_all_factors_prime</span></a></span><span>
-</span><span id="line-206"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087228"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087228"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087228"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087228"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-205"></span><span id="local-6989586621679087348"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_all_factors_prime"><span class="hs-identifier hs-type">factorialLaw_all_factors_prime</span></a></span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087348"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087348"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087348"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087348"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-207"></span><span id="factorialLaw_all_factors_prime"><span class="annot"><span class="annottext">factorialLaw_all_factors_prime :: forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_all_factors_prime"><span class="hs-identifier hs-var hs-var">factorialLaw_all_factors_prime</span></a></span></span><span> </span><span id="local-6989586621679087247"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_all_factors_prime"><span class="hs-identifier hs-var hs-var">factorialLaw_all_factors_prime</span></a></span></span><span> </span><span id="local-6989586621679087367"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -502,17 +502,17 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-string">&quot;all (&#955;f -&gt; factors f == [f]) (factors a)&quot;</span></span><span>
 </span><span id="line-210"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; Bool) -&gt; [a] -&gt; Bool
 forall (t :: * -&gt; *) a. Foldable t =&gt; (a -&gt; Bool) -&gt; t a -&gt; Bool
-</span><span class="hs-identifier hs-var">all</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679087248"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087248"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><span class="hs-identifier hs-var">all</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679087368"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087368"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087248"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; Bool
+</span><a href="#local-6989586621679087368"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087248"><span class="hs-identifier hs-var">f</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679087368"><span class="hs-identifier hs-var">f</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -525,7 +525,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-213"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [[a]] -&gt; Property -&gt; Property
@@ -542,13 +542,13 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span id="local-6989586621679087249"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_primePrefix_foldr"><span class="hs-identifier hs-type">factorialLaw_primePrefix_foldr</span></a></span><span>
-</span><span id="line-219"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087249"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087249"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087249"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087249"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-218"></span><span id="local-6989586621679087369"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_primePrefix_foldr"><span class="hs-identifier hs-type">factorialLaw_primePrefix_foldr</span></a></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087369"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087369"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087369"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087369"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-220"></span><span id="factorialLaw_primePrefix_foldr"><span class="annot"><span class="annottext">factorialLaw_primePrefix_foldr :: forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_primePrefix_foldr"><span class="hs-identifier hs-var hs-var">factorialLaw_primePrefix_foldr</span></a></span></span><span> </span><span id="local-6989586621679087266"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_primePrefix_foldr"><span class="hs-identifier hs-var hs-var">factorialLaw_primePrefix_foldr</span></a></span></span><span> </span><span id="local-6989586621679087386"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -557,17 +557,17 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-223"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primePrefix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087266"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679087386"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">(a -&gt; a -&gt; a) -&gt; a -&gt; a -&gt; a
 forall m a. Factorial m =&gt; (m -&gt; a -&gt; a) -&gt; a -&gt; m -&gt; a
 forall a. (a -&gt; a -&gt; a) -&gt; a -&gt; a -&gt; a
-</span><span class="hs-identifier hs-var">foldr</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679087267"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087267"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-identifier hs-var">foldr</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679087387"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087387"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087267"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087266"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087387"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087386"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -580,7 +580,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-226"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -593,7 +593,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-229"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primePrefix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -606,18 +606,18 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-232"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(a -&gt; a -&gt; a) -&gt; a -&gt; a -&gt; a
 forall m a. Factorial m =&gt; (m -&gt; a -&gt; a) -&gt; a -&gt; m -&gt; a
 forall a. (a -&gt; a -&gt; a) -&gt; a -&gt; a -&gt; a
-</span><span class="hs-identifier hs-var">foldr</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679087268"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087268"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-identifier hs-var">foldr</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679087388"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087388"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087268"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087266"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087388"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087386"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span id="local-6989586621679087269"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_primeSuffix_foldl"><span class="hs-identifier hs-type">factorialLaw_primeSuffix_foldl</span></a></span><span>
-</span><span id="line-235"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087269"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087269"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087269"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087269"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-234"></span><span id="local-6989586621679087389"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_primeSuffix_foldl"><span class="hs-identifier hs-type">factorialLaw_primeSuffix_foldl</span></a></span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087389"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087389"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087389"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087389"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-236"></span><span id="factorialLaw_primeSuffix_foldl"><span class="annot"><span class="annottext">factorialLaw_primeSuffix_foldl :: forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_primeSuffix_foldl"><span class="hs-identifier hs-var hs-var">factorialLaw_primeSuffix_foldl</span></a></span></span><span> </span><span id="local-6989586621679087286"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_primeSuffix_foldl"><span class="hs-identifier hs-var hs-var">factorialLaw_primeSuffix_foldl</span></a></span></span><span> </span><span id="local-6989586621679087406"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -626,17 +626,17 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-239"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primeSuffix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087286"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679087406"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">(a -&gt; a -&gt; a) -&gt; a -&gt; a -&gt; a
 forall m a. Factorial m =&gt; (a -&gt; m -&gt; a) -&gt; a -&gt; m -&gt; a
 forall a. (a -&gt; a -&gt; a) -&gt; a -&gt; a -&gt; a
 </span><span class="hs-identifier hs-var">foldl</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><span class="annottext">a
-</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679087287"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087287"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087287"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087286"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679087407"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087407"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087407"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087406"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -649,7 +649,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-242"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -662,7 +662,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-245"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primeSuffix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -676,18 +676,18 @@ String -&gt; a -&gt; prop -&gt; Property
 forall m a. Factorial m =&gt; (a -&gt; m -&gt; a) -&gt; a -&gt; m -&gt; a
 forall a. (a -&gt; a -&gt; a) -&gt; a -&gt; a -&gt; a
 </span><span class="hs-identifier hs-var">foldl</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><span class="annottext">a
-</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679087288"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087288"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087288"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087286"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679087408"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087408"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087408"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087406"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>
-</span><span id="line-250"></span><span id="local-6989586621679086942"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_factors_foldl"><span class="hs-identifier hs-type">factorialLaw_factors_foldl</span></a></span><span>
-</span><span id="line-251"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679086942"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679086942"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679086942"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679086942"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679086942"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-250"></span><span id="local-6989586621679087062"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_factors_foldl"><span class="hs-identifier hs-type">factorialLaw_factors_foldl</span></a></span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087062"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087062"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087062"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087062"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087062"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-252"></span><span id="factorialLaw_factors_foldl"><span class="annot"><span class="annottext">factorialLaw_factors_foldl :: forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_factors_foldl"><span class="hs-identifier hs-var hs-var">factorialLaw_factors_foldl</span></a></span></span><span> </span><span id="local-6989586621679087311"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087311"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679087312"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_factors_foldl"><span class="hs-identifier hs-var hs-var">factorialLaw_factors_foldl</span></a></span></span><span> </span><span id="local-6989586621679087431"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087431"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679087432"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-253"></span><span>    </span><span class="annot"><span class="annottext">Gen (String, a -&gt; a -&gt; a)
 -&gt; ((String, a -&gt; a -&gt; a) -&gt; Property) -&gt; Property
 forall prop a. Testable prop =&gt; Gen a -&gt; (a -&gt; prop) -&gt; Property
@@ -696,9 +696,9 @@ forall a. Semigroup a =&gt; Gen (String, a -&gt; a -&gt; a)
 </span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#genAccumulatorFn"><span class="hs-identifier hs-var">genAccumulatorFn</span></a></span><span> </span><span class="annot"><span class="annottext">(((String, a -&gt; a -&gt; a) -&gt; Property) -&gt; Property)
 -&gt; ((String, a -&gt; a -&gt; a) -&gt; Property) -&gt; Property
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span class="hs-special">(</span><span id="local-6989586621679087314"><span class="annot"><span class="annottext">String
-</span><a href="#local-6989586621679087314"><span class="hs-identifier hs-var">fDefinition</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679087315"><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087315"><span class="hs-identifier hs-var">f</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span class="hs-special">(</span><span id="local-6989586621679087434"><span class="annot"><span class="annottext">String
+</span><a href="#local-6989586621679087434"><span class="hs-identifier hs-var">fDefinition</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679087435"><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679087435"><span class="hs-identifier hs-var">f</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -708,9 +708,9 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 forall m a. Factorial m =&gt; (a -&gt; m -&gt; a) -&gt; a -&gt; m -&gt; a
 forall a. (a -&gt; a -&gt; a) -&gt; a -&gt; a -&gt; a
 </span><span class="hs-identifier hs-var">foldl</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087315"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087312"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679087435"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087432"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">(a -&gt; a -&gt; a) -&gt; a -&gt; [a] -&gt; a
 forall b a. (b -&gt; a -&gt; b) -&gt; b -&gt; [a] -&gt; b
@@ -718,11 +718,11 @@ forall (t :: * -&gt; *) b a.
 Foldable t =&gt;
 (b -&gt; a -&gt; b) -&gt; b -&gt; t a -&gt; b
 </span><span class="hs-identifier hs-var">L.foldl</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087315"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679087435"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; String -&gt; Property -&gt; Property
@@ -733,7 +733,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;f&quot;</span></span><span>
 </span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">String
-</span><a href="#local-6989586621679087314"><span class="hs-identifier hs-var">fDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087434"><span class="hs-identifier hs-var">fDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -747,9 +747,9 @@ String -&gt; a -&gt; prop -&gt; Property
 forall m a. Factorial m =&gt; (a -&gt; m -&gt; a) -&gt; a -&gt; m -&gt; a
 forall a. (a -&gt; a -&gt; a) -&gt; a -&gt; a -&gt; a
 </span><span class="hs-identifier hs-var">foldl</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087315"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087435"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -765,18 +765,18 @@ forall (t :: * -&gt; *) b a.
 Foldable t =&gt;
 (b -&gt; a -&gt; b) -&gt; b -&gt; t a -&gt; b
 </span><span class="hs-identifier hs-var">L.foldl</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087315"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679087435"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
-</span><span id="line-267"></span><span id="local-6989586621679087317"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_factors_foldl%27"><span class="hs-identifier hs-type">factorialLaw_factors_foldl'</span></a></span><span>
-</span><span id="line-268"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087317"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087317"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087317"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087317"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087317"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-267"></span><span id="local-6989586621679087437"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_factors_foldl%27"><span class="hs-identifier hs-type">factorialLaw_factors_foldl'</span></a></span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087437"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087437"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087437"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087437"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087437"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-269"></span><span id="factorialLaw_factors_foldl%27"><span class="annot"><span class="annottext">factorialLaw_factors_foldl' :: forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_factors_foldl%27"><span class="hs-identifier hs-var hs-var">factorialLaw_factors_foldl'</span></a></span></span><span> </span><span id="local-6989586621679087339"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087339"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679087340"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_factors_foldl%27"><span class="hs-identifier hs-var hs-var">factorialLaw_factors_foldl'</span></a></span></span><span> </span><span id="local-6989586621679087459"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679087460"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-270"></span><span>    </span><span class="annot"><span class="annottext">Gen (String, a -&gt; a -&gt; a)
 -&gt; ((String, a -&gt; a -&gt; a) -&gt; Property) -&gt; Property
 forall prop a. Testable prop =&gt; Gen a -&gt; (a -&gt; prop) -&gt; Property
@@ -785,9 +785,9 @@ forall a. Semigroup a =&gt; Gen (String, a -&gt; a -&gt; a)
 </span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#genAccumulatorFn"><span class="hs-identifier hs-var">genAccumulatorFn</span></a></span><span> </span><span class="annot"><span class="annottext">(((String, a -&gt; a -&gt; a) -&gt; Property) -&gt; Property)
 -&gt; ((String, a -&gt; a -&gt; a) -&gt; Property) -&gt; Property
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span class="hs-special">(</span><span id="local-6989586621679087341"><span class="annot"><span class="annottext">String
-</span><a href="#local-6989586621679087341"><span class="hs-identifier hs-var">fDefinition</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679087342"><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087342"><span class="hs-identifier hs-var">f</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span class="hs-special">(</span><span id="local-6989586621679087461"><span class="annot"><span class="annottext">String
+</span><a href="#local-6989586621679087461"><span class="hs-identifier hs-var">fDefinition</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679087462"><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679087462"><span class="hs-identifier hs-var">f</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -797,9 +797,9 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 forall m a. Factorial m =&gt; (a -&gt; m -&gt; a) -&gt; a -&gt; m -&gt; a
 forall a. (a -&gt; a -&gt; a) -&gt; a -&gt; a -&gt; a
 </span><span class="hs-identifier hs-var">foldl'</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087342"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087340"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679087462"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087460"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">(a -&gt; a -&gt; a) -&gt; a -&gt; [a] -&gt; a
 forall b a. (b -&gt; a -&gt; b) -&gt; b -&gt; [a] -&gt; b
@@ -807,11 +807,11 @@ forall (t :: * -&gt; *) b a.
 Foldable t =&gt;
 (b -&gt; a -&gt; b) -&gt; b -&gt; t a -&gt; b
 </span><span class="hs-identifier hs-var">L.foldl'</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087342"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679087462"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; String -&gt; Property -&gt; Property
@@ -822,7 +822,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;f&quot;</span></span><span>
 </span><span id="line-276"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">String
-</span><a href="#local-6989586621679087341"><span class="hs-identifier hs-var">fDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087461"><span class="hs-identifier hs-var">fDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -836,9 +836,9 @@ String -&gt; a -&gt; prop -&gt; Property
 forall m a. Factorial m =&gt; (a -&gt; m -&gt; a) -&gt; a -&gt; m -&gt; a
 forall a. (a -&gt; a -&gt; a) -&gt; a -&gt; a -&gt; a
 </span><span class="hs-identifier hs-var">foldl'</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087342"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087462"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -854,18 +854,18 @@ forall (t :: * -&gt; *) b a.
 Foldable t =&gt;
 (b -&gt; a -&gt; b) -&gt; b -&gt; t a -&gt; b
 </span><span class="hs-identifier hs-var">L.foldl'</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087342"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679087462"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>
-</span><span id="line-284"></span><span id="local-6989586621679087344"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_factors_foldr"><span class="hs-identifier hs-type">factorialLaw_factors_foldr</span></a></span><span>
-</span><span id="line-285"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087344"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087344"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087344"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087344"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087344"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-284"></span><span id="local-6989586621679087464"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_factors_foldr"><span class="hs-identifier hs-type">factorialLaw_factors_foldr</span></a></span><span>
+</span><span id="line-285"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087464"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087464"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Factorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087464"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087464"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087464"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-286"></span><span id="factorialLaw_factors_foldr"><span class="annot"><span class="annottext">factorialLaw_factors_foldr :: forall a. (Eq a, Show a, Factorial a) =&gt; a -&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_factors_foldr"><span class="hs-identifier hs-var hs-var">factorialLaw_factors_foldr</span></a></span></span><span> </span><span id="local-6989586621679087366"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087366"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679087367"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#factorialLaw_factors_foldr"><span class="hs-identifier hs-var hs-var">factorialLaw_factors_foldr</span></a></span></span><span> </span><span id="local-6989586621679087486"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087486"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679087487"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-287"></span><span>    </span><span class="annot"><span class="annottext">Gen (String, a -&gt; a -&gt; a)
 -&gt; ((String, a -&gt; a -&gt; a) -&gt; Property) -&gt; Property
 forall prop a. Testable prop =&gt; Gen a -&gt; (a -&gt; prop) -&gt; Property
@@ -874,9 +874,9 @@ forall a. Semigroup a =&gt; Gen (String, a -&gt; a -&gt; a)
 </span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#genAccumulatorFn"><span class="hs-identifier hs-var">genAccumulatorFn</span></a></span><span> </span><span class="annot"><span class="annottext">(((String, a -&gt; a -&gt; a) -&gt; Property) -&gt; Property)
 -&gt; ((String, a -&gt; a -&gt; a) -&gt; Property) -&gt; Property
 forall a b. (a -&gt; b) -&gt; a -&gt; b
-</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span class="hs-special">(</span><span id="local-6989586621679087368"><span class="annot"><span class="annottext">String
-</span><a href="#local-6989586621679087368"><span class="hs-identifier hs-var">fDefinition</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679087369"><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087369"><span class="hs-identifier hs-var">f</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span class="hs-special">(</span><span id="local-6989586621679087488"><span class="annot"><span class="annottext">String
+</span><a href="#local-6989586621679087488"><span class="hs-identifier hs-var">fDefinition</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679087489"><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679087489"><span class="hs-identifier hs-var">f</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-288"></span><span>        </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -886,9 +886,9 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 forall m a. Factorial m =&gt; (m -&gt; a -&gt; a) -&gt; a -&gt; m -&gt; a
 forall a. (a -&gt; a -&gt; a) -&gt; a -&gt; a -&gt; a
 </span><span class="hs-identifier hs-var">foldr</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087369"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087367"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679087489"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087487"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">(a -&gt; a -&gt; a) -&gt; a -&gt; [a] -&gt; a
 forall a b. (a -&gt; b -&gt; b) -&gt; b -&gt; [a] -&gt; b
@@ -896,11 +896,11 @@ forall (t :: * -&gt; *) a b.
 Foldable t =&gt;
 (a -&gt; b -&gt; b) -&gt; b -&gt; t a -&gt; b
 </span><span class="hs-identifier hs-var">L.foldr</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087369"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679087489"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-291"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; String -&gt; Property -&gt; Property
@@ -911,7 +911,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-292"></span><span>            </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;f&quot;</span></span><span>
 </span><span id="line-293"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">String
-</span><a href="#local-6989586621679087368"><span class="hs-identifier hs-var">fDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087488"><span class="hs-identifier hs-var">fDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -925,9 +925,9 @@ String -&gt; a -&gt; prop -&gt; Property
 forall m a. Factorial m =&gt; (m -&gt; a -&gt; a) -&gt; a -&gt; m -&gt; a
 forall a. (a -&gt; a -&gt; a) -&gt; a -&gt; a -&gt; a
 </span><span class="hs-identifier hs-var">foldr</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087369"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087489"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-297"></span><span>        </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -943,11 +943,11 @@ forall (t :: * -&gt; *) a b.
 Foldable t =&gt;
 (a -&gt; b -&gt; b) -&gt; b -&gt; t a -&gt; b
 </span><span class="hs-identifier hs-var">L.foldr</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
-</span><a href="#local-6989586621679087369"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
+</span><a href="#local-6989586621679087489"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-300"></span><span>
 </span><span id="line-301"></span><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
 </span><span id="line-302"></span><span class="hs-comment">-- StableFactorial</span><span>
@@ -975,8 +975,8 @@ forall m. Factorial m =&gt; m -&gt; [m]
 </span><span id="line-324"></span><span class="hs-comment">-- * 'factorialLaws'</span><span>
 </span><span id="line-325"></span><span class="hs-comment">--</span><span>
 </span><span id="line-326"></span><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaws"><span class="hs-identifier hs-type">stableFactorialLaws</span></a></span><span>
-</span><span id="line-327"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679086997"><span class="annot"><a href="#local-6989586621679086997"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Arbitrary</span></span><span> </span><span class="annot"><a href="#local-6989586621679086997"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679086997"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679086997"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">StableFactorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679086997"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-328"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><a href="#local-6989586621679086997"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-327"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-keyword">forall</span><span> </span><span id="local-6989586621679087117"><span class="annot"><a href="#local-6989586621679087117"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-operator">.</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Arbitrary</span></span><span> </span><span class="annot"><a href="#local-6989586621679087117"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087117"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087117"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">StableFactorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087117"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>    </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Proxy</span></span><span> </span><span class="annot"><a href="#local-6989586621679087117"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-329"></span><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Laws</span></span><span>
 </span><span id="line-330"></span><span id="stableFactorialLaws"><span class="annot"><span class="annottext">stableFactorialLaws :: forall a.
 (Arbitrary a, Show a, Eq a, StableFactorial a) =&gt;
@@ -988,7 +988,7 @@ Proxy a -&gt; Laws
 </span><span id="line-331"></span><span>    </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679086997"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw2</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679087117"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-332"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;stableFactorialLaw_factors_mappend&quot;</span></span><span>
 </span><span id="line-333"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a -&gt; Property
@@ -997,7 +997,7 @@ forall a. (Eq a, Show a, StableFactorial a) =&gt; a -&gt; a -&gt; Property
 </span><span id="line-334"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679086997"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679087117"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-335"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;stableFactorialLaw_factors_reverse&quot;</span></span><span>
 </span><span id="line-336"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -1006,7 +1006,7 @@ forall a. (Eq a, Show a, StableFactorial a) =&gt; a -&gt; Property
 </span><span id="line-337"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679086997"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679087117"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-338"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;stableFactorialLaw_primePrefix_primeSuffix_reverse&quot;</span></span><span>
 </span><span id="line-339"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -1015,7 +1015,7 @@ forall a. (Eq a, Show a, StableFactorial a) =&gt; a -&gt; Property
 </span><span id="line-340"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">forall a t.
 (Arbitrary a, Show a, Eq a, Semigroup a, Testable t) =&gt;
 String -&gt; (a -&gt; t) -&gt; (String, Property)
-</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679086997"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span class="hs-identifier hs-var">makeLaw1</span></span><span> </span><span class="hs-glyph">@</span><span class="annot"><a href="#local-6989586621679087117"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-341"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;stableFactorialLaw_primeSuffix_primePrefix_reverse&quot;</span></span><span>
 </span><span id="line-342"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Property
@@ -1023,12 +1023,12 @@ forall a. (Eq a, Show a, StableFactorial a) =&gt; a -&gt; Property
 </span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_primeSuffix_primePrefix_reverse"><span class="hs-identifier hs-var">stableFactorialLaw_primeSuffix_primePrefix_reverse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-343"></span><span>    </span><span class="hs-special">]</span><span>
 </span><span id="line-344"></span><span>
-</span><span id="line-345"></span><span id="local-6989586621679087001"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_factors_mappend"><span class="hs-identifier hs-type">stableFactorialLaw_factors_mappend</span></a></span><span>
-</span><span id="line-346"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087001"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087001"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">StableFactorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087001"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087001"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087001"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-345"></span><span id="local-6989586621679087121"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_factors_mappend"><span class="hs-identifier hs-type">stableFactorialLaw_factors_mappend</span></a></span><span>
+</span><span id="line-346"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087121"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087121"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">StableFactorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087121"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087121"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087121"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-347"></span><span id="stableFactorialLaw_factors_mappend"><span class="annot"><span class="annottext">stableFactorialLaw_factors_mappend :: forall a. (Eq a, Show a, StableFactorial a) =&gt; a -&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_factors_mappend"><span class="hs-identifier hs-var hs-var">stableFactorialLaw_factors_mappend</span></a></span></span><span> </span><span id="local-6989586621679087445"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679087446"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087446"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_factors_mappend"><span class="hs-identifier hs-var hs-var">stableFactorialLaw_factors_mappend</span></a></span></span><span> </span><span id="local-6989586621679087565"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679087566"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087566"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-348"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -1037,20 +1037,20 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-350"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087445"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679087565"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087446"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; Bool
+</span><a href="#local-6989586621679087566"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087445"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; [a]
+</span><a href="#local-6989586621679087565"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; [a]
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087446"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087566"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-351"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -1061,10 +1061,10 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-352"></span><span>        </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;a &lt;&gt; b&quot;</span></span><span>
 </span><span id="line-353"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087445"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679087565"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087446"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087566"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-354"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -1077,7 +1077,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-356"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-357"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -1090,7 +1090,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-359"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087446"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087566"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-360"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -1103,10 +1103,10 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-362"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087445"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><a href="#local-6989586621679087565"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087446"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087566"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-363"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -1119,18 +1119,18 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-365"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087445"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; [a]
+</span><a href="#local-6989586621679087565"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; [a]
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087446"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087566"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-366"></span><span>
-</span><span id="line-367"></span><span id="local-6989586621679087002"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_factors_reverse"><span class="hs-identifier hs-type">stableFactorialLaw_factors_reverse</span></a></span><span>
-</span><span id="line-368"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087002"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087002"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">StableFactorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087002"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087002"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-367"></span><span id="local-6989586621679087122"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_factors_reverse"><span class="hs-identifier hs-type">stableFactorialLaw_factors_reverse</span></a></span><span>
+</span><span id="line-368"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087122"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087122"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">StableFactorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087122"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087122"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-369"></span><span id="stableFactorialLaw_factors_reverse"><span class="annot"><span class="annottext">stableFactorialLaw_factors_reverse :: forall a. (Eq a, Show a, StableFactorial a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_factors_reverse"><span class="hs-identifier hs-var hs-var">stableFactorialLaw_factors_reverse</span></a></span></span><span> </span><span id="local-6989586621679087469"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_factors_reverse"><span class="hs-identifier hs-var hs-var">stableFactorialLaw_factors_reverse</span></a></span></span><span> </span><span id="local-6989586621679087589"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-370"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -1141,14 +1141,14 @@ forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; Bool
+</span><a href="#local-6989586621679087589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a] -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">[a] -&gt; [a]
 forall a. [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">L.reverse</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-373"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -1161,7 +1161,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-375"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-376"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -1176,7 +1176,7 @@ forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-379"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -1189,7 +1189,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-381"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-382"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; [a] -&gt; Property -&gt; Property
@@ -1204,13 +1204,13 @@ forall a. [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">L.reverse</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; [a]
 forall m. Factorial m =&gt; m -&gt; [m]
 </span><span class="hs-identifier hs-var">factors</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-385"></span><span>
-</span><span id="line-386"></span><span id="local-6989586621679087470"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_primePrefix_primeSuffix_reverse"><span class="hs-identifier hs-type">stableFactorialLaw_primePrefix_primeSuffix_reverse</span></a></span><span>
-</span><span id="line-387"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087470"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087470"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">StableFactorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087470"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087470"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-386"></span><span id="local-6989586621679087590"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_primePrefix_primeSuffix_reverse"><span class="hs-identifier hs-type">stableFactorialLaw_primePrefix_primeSuffix_reverse</span></a></span><span>
+</span><span id="line-387"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087590"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087590"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">StableFactorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087590"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087590"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-388"></span><span id="stableFactorialLaw_primePrefix_primeSuffix_reverse"><span class="annot"><span class="annottext">stableFactorialLaw_primePrefix_primeSuffix_reverse :: forall a. (Eq a, Show a, StableFactorial a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_primePrefix_primeSuffix_reverse"><span class="hs-identifier hs-var hs-var">stableFactorialLaw_primePrefix_primeSuffix_reverse</span></a></span></span><span> </span><span id="local-6989586621679087490"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_primePrefix_primeSuffix_reverse"><span class="hs-identifier hs-var hs-var">stableFactorialLaw_primePrefix_primeSuffix_reverse</span></a></span></span><span> </span><span id="local-6989586621679087610"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-389"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -1219,14 +1219,14 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-391"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primePrefix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087490"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679087610"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primeSuffix</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-392"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -1239,7 +1239,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-394"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primePrefix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-395"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -1252,7 +1252,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-397"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-398"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -1267,13 +1267,13 @@ forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primeSuffix</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-401"></span><span>
-</span><span id="line-402"></span><span id="local-6989586621679087491"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_primeSuffix_primePrefix_reverse"><span class="hs-identifier hs-type">stableFactorialLaw_primeSuffix_primePrefix_reverse</span></a></span><span>
-</span><span id="line-403"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087491"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087491"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">StableFactorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087491"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087491"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
+</span><span id="line-402"></span><span id="local-6989586621679087611"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_primeSuffix_primePrefix_reverse"><span class="hs-identifier hs-type">stableFactorialLaw_primeSuffix_primePrefix_reverse</span></a></span><span>
+</span><span id="line-403"></span><span>    </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679087611"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Show</span></span><span> </span><span class="annot"><a href="#local-6989586621679087611"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">StableFactorial</span></span><span> </span><span class="annot"><a href="#local-6989586621679087611"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087611"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Property</span></span></span><span>
 </span><span id="line-404"></span><span id="stableFactorialLaw_primeSuffix_primePrefix_reverse"><span class="annot"><span class="annottext">stableFactorialLaw_primeSuffix_primePrefix_reverse :: forall a. (Eq a, Show a, StableFactorial a) =&gt; a -&gt; Property
-</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_primeSuffix_primePrefix_reverse"><span class="hs-identifier hs-var hs-var">stableFactorialLaw_primeSuffix_primePrefix_reverse</span></a></span></span><span> </span><span id="local-6989586621679087511"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#stableFactorialLaw_primeSuffix_primePrefix_reverse"><span class="hs-identifier hs-var hs-var">stableFactorialLaw_primeSuffix_primePrefix_reverse</span></a></span></span><span> </span><span id="local-6989586621679087631"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-405"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; Bool -&gt; Property
 forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span class="hs-identifier hs-var">makeProperty</span></span><span>
@@ -1282,14 +1282,14 @@ forall t. Testable t =&gt; String -&gt; t -&gt; Property
 </span><span id="line-407"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primeSuffix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087511"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
+</span><a href="#local-6989586621679087631"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primePrefix</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-408"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -1302,7 +1302,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-410"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primeSuffix</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-411"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -1315,7 +1315,7 @@ String -&gt; a -&gt; prop -&gt; Property
 </span><span id="line-413"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-414"></span><span>    </span><span class="annot"><span class="annottext">Property -&gt; (Property -&gt; Property) -&gt; Property
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; a -&gt; Property -&gt; Property
@@ -1330,50 +1330,50 @@ forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">primePrefix</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; a
 forall m. Factorial m =&gt; m -&gt; m
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-417"></span><span>
 </span><span id="line-418"></span><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
 </span><span id="line-419"></span><span class="hs-comment">-- Utilities</span><span>
 </span><span id="line-420"></span><span class="hs-comment">--------------------------------------------------------------------------------</span><span>
 </span><span id="line-421"></span><span>
-</span><span id="line-422"></span><span id="local-6989586621679086985"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#genAccumulatorFn"><span class="hs-identifier hs-type">genAccumulatorFn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Semigroup</span></span><span> </span><span class="annot"><a href="#local-6989586621679086985"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Gen</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="#local-6989586621679086985"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679086985"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679086985"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span></span><span>
+</span><span id="line-422"></span><span id="local-6989586621679087105"><span class="annot"><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#genAccumulatorFn"><span class="hs-identifier hs-type">genAccumulatorFn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Semigroup</span></span><span> </span><span class="annot"><a href="#local-6989586621679087105"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Gen</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="#local-6989586621679087105"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087105"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679087105"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span></span><span>
 </span><span id="line-423"></span><span id="genAccumulatorFn"><span class="annot"><span class="annottext">genAccumulatorFn :: forall a. Semigroup a =&gt; Gen (String, a -&gt; a -&gt; a)
 </span><a href="Test.QuickCheck.Classes.Semigroup.Factorial.html#genAccumulatorFn"><span class="hs-identifier hs-var hs-var">genAccumulatorFn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[(String, a -&gt; a -&gt; a)] -&gt; Gen (String, a -&gt; a -&gt; a)
 forall a. HasCallStack =&gt; [a] -&gt; Gen a
 </span><span class="hs-identifier hs-var">elements</span></span><span>
 </span><span id="line-424"></span><span>    </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;&#955;a _ -&gt; a&quot;</span></span><span>
-</span><span id="line-425"></span><span>      </span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679087517"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span id="line-425"></span><span>      </span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679087637"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-426"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-427"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;&#955;_ b -&gt; b&quot;</span></span><span>
 </span><span id="line-428"></span><span>      </span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><span class="annottext">a
-</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679087518"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087518"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087518"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier">_</span></span><span> </span><span id="local-6989586621679087638"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087638"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087638"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-429"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-430"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;&#955;a b -&gt; a &lt;&gt; b&quot;</span></span><span>
-</span><span id="line-431"></span><span>      </span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679087519"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679087520"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087520"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087519"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><span id="line-431"></span><span>      </span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679087639"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679087640"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087640"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087639"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087520"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087640"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-432"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-433"></span><span>    </span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;&#955;a b -&gt; b &lt;&gt; a&quot;</span></span><span>
-</span><span id="line-434"></span><span>      </span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679087521"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679087522"><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087522"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087522"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
+</span><span id="line-434"></span><span>      </span><span class="hs-special">,</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679087641"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679087642"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087642"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679087642"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; a
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><a href="#local-6989586621679087521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679087641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-435"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-436"></span><span>    </span><span class="hs-special">]</span><span>
 </span><span id="line-437"></span></pre></body></html>
