@@ -1,6 +1,11 @@
 # `quickcheck-monoid-subclasses`
 
-<a href="http://jonathanknowles.net/quickcheck-monoid-subclasses/"><img src="https://img.shields.io/badge/API-Documentation-green" /></a>
+[![Latest Release](
+  https://img.shields.io/hackage/v/quickcheck-monoid-subclasses?label=Latest%20Release&color=227755
+)](https://hackage.haskell.org/package/quickcheck-monoid-subclasses)
+[![Development Branch](
+  https://img.shields.io/badge/Development%20Branch-API%20Documentation-225577
+)](https://jonathanknowles.github.io/quickcheck-monoid-subclasses/)
 
 ## Overview
 
