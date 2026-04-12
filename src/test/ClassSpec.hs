@@ -46,8 +46,8 @@ import Numeric.Product.Commutative
     ( CommutativeProduct )
 import Test.Hspec
     ( Spec )
-import Test.Hspec.Laws
-    ( testLawsMany )
+import Test.Hspec.QuickCheck.Classes
+    ( testLaws )
 import Test.QuickCheck
     ( Arbitrary (..)
     , Confidence
@@ -98,7 +98,7 @@ import qualified Data.Vector as Vector
 
 spec :: Spec
 spec = do
-    testLawsMany @() $ fmap disableCoverageCheck <$>
+    testLaws @() $ fmap disableCoverageCheck <$>
         [ cancellativeLaws
         , commutativeLaws
         , distributiveGCDMonoidLaws
@@ -122,7 +122,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLawsMany @ByteString
+    testLaws @ByteString
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -138,7 +138,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLawsMany @(Dual ByteString)
+    testLaws @(Dual ByteString)
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -154,7 +154,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLawsMany @Text
+    testLaws @Text
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -170,7 +170,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLawsMany @(Dual Text)
+    testLaws @(Dual Text)
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -186,7 +186,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLawsMany @[SmallInt]
+    testLaws @[SmallInt]
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -202,7 +202,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLawsMany @(Dual [SmallInt])
+    testLaws @(Dual [SmallInt])
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -218,7 +218,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLawsMany @(Seq SmallInt)
+    testLaws @(Seq SmallInt)
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -234,7 +234,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLawsMany @(Dual (Seq SmallInt))
+    testLaws @(Dual (Seq SmallInt))
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -250,7 +250,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLawsMany @(Vector SmallInt)
+    testLaws @(Vector SmallInt)
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -266,7 +266,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLawsMany @(Dual (Vector SmallInt))
+    testLaws @(Dual (Vector SmallInt))
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -282,7 +282,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLawsMany @(Set SmallInt)
+    testLaws @(Set SmallInt)
         [ commutativeLaws
         , distributiveGCDMonoidLaws
         , distributiveLCMMonoidLaws
@@ -302,7 +302,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Set Natural)
+    testLaws @(Set Natural)
         [ commutativeLaws
         , distributiveGCDMonoidLaws
         , distributiveLCMMonoidLaws
@@ -322,7 +322,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Product SmallInt)
+    testLaws @(Product SmallInt)
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -331,7 +331,7 @@ spec = do
         , reductiveLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Product Natural)
+    testLaws @(Product Natural)
         [ commutativeLaws
         , distributiveGCDMonoidLaws
         , distributiveLCMMonoidLaws
@@ -351,7 +351,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Sum SmallInt)
+    testLaws @(Sum SmallInt)
         [ cancellativeLaws
         , commutativeLaws
         , factorialLaws
@@ -363,7 +363,7 @@ spec = do
         , rightCancellativeLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Sum Natural)
+    testLaws @(Sum Natural)
         [ cancellativeLaws
         , commutativeLaws
         , distributiveGCDMonoidLaws
@@ -387,7 +387,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLawsMany @(IntMap SmallInt)
+    testLaws @(IntMap SmallInt)
         [ factorialLaws
         , factorialMonoidLaws
         , leftGCDMonoidLaws
@@ -397,7 +397,7 @@ spec = do
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(IntMap Natural)
+    testLaws @(IntMap Natural)
         [ factorialLaws
         , factorialMonoidLaws
         , leftGCDMonoidLaws
@@ -407,7 +407,7 @@ spec = do
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Map Int SmallInt)
+    testLaws @(Map Int SmallInt)
         [ factorialLaws
         , factorialMonoidLaws
         , leftGCDMonoidLaws
@@ -417,7 +417,7 @@ spec = do
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Map Int Natural)
+    testLaws @(Map Int Natural)
         [ factorialLaws
         , factorialMonoidLaws
         , leftGCDMonoidLaws
@@ -427,7 +427,7 @@ spec = do
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Maybe ()) $ fmap disableCoverageCheck <$>
+    testLaws @(Maybe ()) $ fmap disableCoverageCheck <$>
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -441,7 +441,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Maybe (Product SmallInt))
+    testLaws @(Maybe (Product SmallInt))
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -451,7 +451,7 @@ spec = do
         , reductiveLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Maybe (Product Natural))
+    testLaws @(Maybe (Product Natural))
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -465,7 +465,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Maybe (Sum SmallInt))
+    testLaws @(Maybe (Sum SmallInt))
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -475,7 +475,7 @@ spec = do
         , reductiveLaws
         , rightReductiveLaws
         ]
-    testLawsMany @(Maybe (Sum Natural))
+    testLaws @(Maybe (Sum Natural))
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
