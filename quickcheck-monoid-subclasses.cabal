@@ -147,7 +147,6 @@ test-suite test
     other-modules:
         ClassSpec
         SpecHook
-        Test.Hspec.Laws
     type:
         exitcode-stdio-1.0
     build-tool-depends:
