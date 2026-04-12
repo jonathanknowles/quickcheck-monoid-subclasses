@@ -19,31 +19,31 @@ extra-doc-files:
     README.md
 
 common dependency-base
-    build-depends:base                      >= 4.14.3.0     && < 4.22
+    build-depends:base                        >= 4.14.3.0     && < 4.22
 common dependency-bytestring
-    build-depends:bytestring                >= 0.10.12.0    && < 0.13
+    build-depends:bytestring                  >= 0.10.12.0    && < 0.13
 common dependency-commutative-semigroups
-    build-depends:commutative-semigroups    >= 0.1.0.0      && < 0.3
+    build-depends:commutative-semigroups      >= 0.1.0.0      && < 0.3
 common dependency-containers
-    build-depends:containers                >= 0.6.5.1      && < 0.8
+    build-depends:containers                  >= 0.6.5.1      && < 0.8
 common dependency-hspec
-    build-depends:hspec                     >= 2.10.7       && < 2.12
+    build-depends:hspec                       >= 2.10.7       && < 2.12
 common dependency-hspec-quickcheck-classes
-    build-depends:hspec-quickcheck-classes  >= 0.0.0.0      && < 0.1
+    build-depends:hspec-quickcheck-classes    >= 0.0.0.0      && < 0.1
 common dependency-monoid-subclasses
-    build-depends:monoid-subclasses         >= 1.2.3        && < 1.3
+    build-depends:monoid-subclasses           >= 1.2.3        && < 1.3
 common dependency-pretty-show
-    build-depends:pretty-show               >= 1.10         && < 1.11
+    build-depends:pretty-show                 >= 1.10         && < 1.11
 common dependency-QuickCheck
-    build-depends:QuickCheck                >= 2.14.2       && < 2.17
+    build-depends:QuickCheck                  >= 2.14.2       && < 2.17
 common dependency-quickcheck-classes
-    build-depends:quickcheck-classes        >= 0.6.5.0      && < 0.7
+    build-depends:quickcheck-classes          >= 0.6.5.0      && < 0.7
 common dependency-semigroupoids
-    build-depends:semigroupoids             >= 5.3.7        && < 6.1
+    build-depends:semigroupoids               >= 5.3.7        && < 6.1
 common dependency-text
-    build-depends:text                      >= 1.2.4.1      && < 2.2
+    build-depends:text                        >= 1.2.4.1      && < 2.2
 common dependency-vector
-    build-depends:vector                    >= 0.12.3.1     && < 0.14
+    build-depends:vector                      >= 0.12.3.1     && < 0.14
 
 common extensions
     default-extensions:
