@@ -1,3 +1,4 @@
+{-# LANGUAGE DeriveFunctor #-}
 {-# LANGUAGE UndecidableInstances #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
@@ -17,8 +18,19 @@ import Data.Map.Strict
     ( Map )
 import Data.Monoid
     ( Dual (..), Product (..), Sum (..) )
+import Data.Monoid.Factorial
+    ( FactorialMonoid )
 import Data.Monoid.GCD
-    ( GCDMonoid, LeftGCDMonoid, OverlappingGCDMonoid, RightGCDMonoid )
+    ( DistributiveGCDMonoid
+    , GCDMonoid
+    , LeftDistributiveGCDMonoid
+    , LeftGCDMonoid
+    , OverlappingGCDMonoid
+    , RightDistributiveGCDMonoid
+    , RightGCDMonoid
+    )
+import Data.Monoid.LCM
+    ( DistributiveLCMMonoid, LCMMonoid )
 import Data.Monoid.Monus
     ( Monus )
 import Data.Monoid.Null
@@ -33,6 +45,8 @@ import Data.Semigroup.Cancellative
     , RightReductive
     , SumCancellative
     )
+import Data.Semigroup.Factorial
+    ( Factorial, StableFactorial )
 import Data.Sequence
     ( Seq )
 import Data.Set
@@ -529,15 +543,22 @@ spec = do
 type SmallInt = Small Int
 
 newtype Small a = Small {getSmall :: a}
+    deriving stock Functor
     deriving newtype
         ( Cancellative
         , Commutative
         , CommutativeProduct
+        , DistributiveGCDMonoid
+        , DistributiveLCMMonoid
         , Enum
         , Eq
+        , Factorial
+        , FactorialMonoid
         , GCDMonoid
         , Integral
+        , LCMMonoid
         , LeftCancellative
+        , LeftDistributiveGCDMonoid
         , LeftGCDMonoid
         , LeftReductive
         , Monoid
@@ -550,10 +571,12 @@ newtype Small a = Small {getSmall :: a}
         , Real
         , Reductive
         , RightCancellative
+        , RightDistributiveGCDMonoid
         , RightGCDMonoid
         , RightReductive
         , Semigroup
         , Show
+        , StableFactorial
         , SumCancellative
         )
 
