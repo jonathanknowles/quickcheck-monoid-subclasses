@@ -19,13 +19,13 @@ extra-doc-files:
     README.md
 
 common dependency-base
-    build-depends:base                        >= 4.14.3.0     && < 4.22
+    build-depends:base                        >= 4.14.3.0     && < 4.23
 common dependency-bytestring
     build-depends:bytestring                  >= 0.10.12.0    && < 0.13
 common dependency-commutative-semigroups
     build-depends:commutative-semigroups      >= 0.1.0.0      && < 0.3
 common dependency-containers
-    build-depends:containers                  >= 0.6.5.1      && < 0.8
+    build-depends:containers                  >= 0.6.5.1      && < 0.9
 common dependency-hspec
     build-depends:hspec                       >= 2.10.7       && < 2.12
 common dependency-hspec-quickcheck-classes
