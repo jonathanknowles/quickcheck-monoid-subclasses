@@ -1,3 +1,4 @@
+{-# LANGUAGE UndecidableInstances #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
 -- |
@@ -560,7 +561,7 @@ newtype Small a = Small {getSmall :: a}
 -- Arbitrary instances
 --------------------------------------------------------------------------------
 
-instance Arbitrary a => Arbitrary (Small a) where
+instance Arbitrary (Small Int) where
     arbitrary = Small <$> scale (`div` 2) arbitrary
     shrink = shrinkMap Small getSmall
 
