@@ -202,7 +202,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @[SmallInt]
+    testLaws @[Small Int]
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -218,7 +218,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @(Dual [SmallInt])
+    testLaws @(Dual [Small Int])
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -234,7 +234,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @(Seq SmallInt)
+    testLaws @(Seq (Small Int))
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -250,7 +250,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @(Dual (Seq SmallInt))
+    testLaws @(Dual (Seq (Small Int)))
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -266,7 +266,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @(Vector SmallInt)
+    testLaws @(Vector (Small Int))
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -282,7 +282,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @(Dual (Vector SmallInt))
+    testLaws @(Dual (Vector (Small Int)))
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -298,7 +298,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @(Set SmallInt)
+    testLaws @(Set (Small Int))
         [ commutativeLaws
         , distributiveGCDMonoidLaws
         , distributiveLCMMonoidLaws
@@ -338,7 +338,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(Product SmallInt)
+    testLaws @(Product (Small Int))
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -367,7 +367,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(Sum SmallInt)
+    testLaws @(Sum (Small Int))
         [ cancellativeLaws
         , commutativeLaws
         , factorialLaws
@@ -403,7 +403,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @(IntMap SmallInt)
+    testLaws @(IntMap (Small Int))
         [ factorialLaws
         , factorialMonoidLaws
         , leftGCDMonoidLaws
@@ -423,7 +423,7 @@ spec = do
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(Map Int SmallInt)
+    testLaws @(Map Int (Small Int))
         [ factorialLaws
         , factorialMonoidLaws
         , leftGCDMonoidLaws
@@ -457,7 +457,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(Maybe (Product SmallInt))
+    testLaws @(Maybe (Product (Small Int)))
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -481,7 +481,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(Maybe (Sum SmallInt))
+    testLaws @(Maybe (Sum (Small Int)))
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -540,8 +540,6 @@ spec = do
 --------------------------------------------------------------------------------
 -- Utility types
 --------------------------------------------------------------------------------
-
-type SmallInt = Small Int
 
 newtype Small a = Small {getSmall :: a}
     deriving stock Functor
