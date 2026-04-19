@@ -73,6 +73,7 @@ import Test.QuickCheck
     , scale
     , shrinkIntegral
     , shrinkMap
+    , shrinkMapBy
     )
 import Test.QuickCheck.Classes
     ( Laws (..) )
@@ -317,7 +318,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(Set Natural)
+    testLaws @(Set (Small Natural))
         [ commutativeLaws
         , distributiveGCDMonoidLaws
         , distributiveLCMMonoidLaws
@@ -346,7 +347,7 @@ spec = do
         , reductiveLaws
         , rightReductiveLaws
         ]
-    testLaws @(Product Natural)
+    testLaws @(Small (Product Natural))
         [ commutativeLaws
         , distributiveGCDMonoidLaws
         , distributiveLCMMonoidLaws
@@ -378,7 +379,7 @@ spec = do
         , rightCancellativeLaws
         , rightReductiveLaws
         ]
-    testLaws @(Sum Natural)
+    testLaws @(Small (Sum Natural))
         [ cancellativeLaws
         , commutativeLaws
         , distributiveGCDMonoidLaws
@@ -412,7 +413,7 @@ spec = do
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(IntMap Natural)
+    testLaws @(IntMap (Small Natural))
         [ factorialLaws
         , factorialMonoidLaws
         , leftGCDMonoidLaws
@@ -432,7 +433,7 @@ spec = do
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(Map Int Natural)
+    testLaws @(Map Int (Small Natural))
         [ factorialLaws
         , factorialMonoidLaws
         , leftGCDMonoidLaws
@@ -466,7 +467,7 @@ spec = do
         , reductiveLaws
         , rightReductiveLaws
         ]
-    testLaws @(Maybe (Product Natural))
+    testLaws @(Maybe (Small (Product Natural)))
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -490,7 +491,7 @@ spec = do
         , reductiveLaws
         , rightReductiveLaws
         ]
-    testLaws @(Maybe (Sum Natural))
+    testLaws @(Maybe (Small (Sum Natural)))
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -610,9 +611,17 @@ instance Arbitrary Text where
             ]
     shrink = shrinkMap Text.pack Text.unpack
 
-instance Arbitrary Natural where
-    arbitrary = elements [0 .. 3]
-    shrink = shrinkIntegral
+instance Arbitrary (Small Natural) where
+    arbitrary = Small <$> elements [0 .. 3]
+    shrink = shrinkMapBy Small getSmall shrinkIntegral
+
+instance Arbitrary (Small (Product Natural)) where
+    arbitrary = fmap Product <$> arbitrary
+    shrink = shrinkMap (fmap Product) (fmap getProduct)
+
+instance Arbitrary (Small (Sum Natural)) where
+    arbitrary = fmap Sum <$> arbitrary
+    shrink = shrinkMap (fmap Sum) (fmap getSum)
 
 instance Arbitrary a => Arbitrary (Vector a) where
     arbitrary = Vector.fromList <$> arbitrary
