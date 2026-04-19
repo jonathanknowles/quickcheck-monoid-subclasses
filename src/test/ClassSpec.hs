@@ -1,3 +1,5 @@
+{-# LANGUAGE DeriveFunctor #-}
+{-# LANGUAGE UndecidableInstances #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
 -- |
@@ -16,8 +18,19 @@ import Data.Map.Strict
     ( Map )
 import Data.Monoid
     ( Dual (..), Product (..), Sum (..) )
+import Data.Monoid.Factorial
+    ( FactorialMonoid )
 import Data.Monoid.GCD
-    ( GCDMonoid, LeftGCDMonoid, OverlappingGCDMonoid, RightGCDMonoid )
+    ( DistributiveGCDMonoid
+    , GCDMonoid
+    , LeftDistributiveGCDMonoid
+    , LeftGCDMonoid
+    , OverlappingGCDMonoid
+    , RightDistributiveGCDMonoid
+    , RightGCDMonoid
+    )
+import Data.Monoid.LCM
+    ( DistributiveLCMMonoid, LCMMonoid )
 import Data.Monoid.Monus
     ( Monus )
 import Data.Monoid.Null
@@ -32,6 +45,8 @@ import Data.Semigroup.Cancellative
     , RightReductive
     , SumCancellative
     )
+import Data.Semigroup.Factorial
+    ( Factorial, StableFactorial )
 import Data.Sequence
     ( Seq )
 import Data.Set
@@ -58,6 +73,7 @@ import Test.QuickCheck
     , scale
     , shrinkIntegral
     , shrinkMap
+    , shrinkMapBy
     )
 import Test.QuickCheck.Classes
     ( Laws (..) )
@@ -186,7 +202,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @[SmallInt]
+    testLaws @[Small Int]
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -202,7 +218,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @(Dual [SmallInt])
+    testLaws @(Dual [Small Int])
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -218,7 +234,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @(Seq SmallInt)
+    testLaws @(Seq (Small Int))
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -234,7 +250,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @(Dual (Seq SmallInt))
+    testLaws @(Dual (Seq (Small Int)))
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -250,7 +266,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @(Vector SmallInt)
+    testLaws @(Vector (Small Int))
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -266,7 +282,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @(Dual (Vector SmallInt))
+    testLaws @(Dual (Vector (Small Int)))
         [ factorialLaws
         , factorialMonoidLaws
         , leftCancellativeLaws
@@ -282,7 +298,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @(Set SmallInt)
+    testLaws @(Set (Small Int))
         [ commutativeLaws
         , distributiveGCDMonoidLaws
         , distributiveLCMMonoidLaws
@@ -302,7 +318,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(Set Natural)
+    testLaws @(Set (Small Natural))
         [ commutativeLaws
         , distributiveGCDMonoidLaws
         , distributiveLCMMonoidLaws
@@ -322,7 +338,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(Product SmallInt)
+    testLaws @(Product (Small Int))
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -331,7 +347,7 @@ spec = do
         , reductiveLaws
         , rightReductiveLaws
         ]
-    testLaws @(Product Natural)
+    testLaws @(Small (Product Natural))
         [ commutativeLaws
         , distributiveGCDMonoidLaws
         , distributiveLCMMonoidLaws
@@ -351,7 +367,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(Sum SmallInt)
+    testLaws @(Sum (Small Int))
         [ cancellativeLaws
         , commutativeLaws
         , factorialLaws
@@ -363,7 +379,7 @@ spec = do
         , rightCancellativeLaws
         , rightReductiveLaws
         ]
-    testLaws @(Sum Natural)
+    testLaws @(Small (Sum Natural))
         [ cancellativeLaws
         , commutativeLaws
         , distributiveGCDMonoidLaws
@@ -387,7 +403,7 @@ spec = do
         , rightReductiveLaws
         , stableFactorialLaws
         ]
-    testLaws @(IntMap SmallInt)
+    testLaws @(IntMap (Small Int))
         [ factorialLaws
         , factorialMonoidLaws
         , leftGCDMonoidLaws
@@ -397,7 +413,7 @@ spec = do
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(IntMap Natural)
+    testLaws @(IntMap (Small Natural))
         [ factorialLaws
         , factorialMonoidLaws
         , leftGCDMonoidLaws
@@ -407,7 +423,7 @@ spec = do
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(Map Int SmallInt)
+    testLaws @(Map Int (Small Int))
         [ factorialLaws
         , factorialMonoidLaws
         , leftGCDMonoidLaws
@@ -417,7 +433,7 @@ spec = do
         , positiveMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(Map Int Natural)
+    testLaws @(Map Int (Small Natural))
         [ factorialLaws
         , factorialMonoidLaws
         , leftGCDMonoidLaws
@@ -441,7 +457,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(Maybe (Product SmallInt))
+    testLaws @(Maybe (Product (Small Int)))
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -451,7 +467,7 @@ spec = do
         , reductiveLaws
         , rightReductiveLaws
         ]
-    testLaws @(Maybe (Product Natural))
+    testLaws @(Maybe (Small (Product Natural)))
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -465,7 +481,7 @@ spec = do
         , rightGCDMonoidLaws
         , rightReductiveLaws
         ]
-    testLaws @(Maybe (Sum SmallInt))
+    testLaws @(Maybe (Sum (Small Int)))
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -475,7 +491,7 @@ spec = do
         , reductiveLaws
         , rightReductiveLaws
         ]
-    testLaws @(Maybe (Sum Natural))
+    testLaws @(Maybe (Small (Sum Natural)))
         [ commutativeLaws
         , factorialLaws
         , factorialMonoidLaws
@@ -525,18 +541,23 @@ spec = do
 -- Utility types
 --------------------------------------------------------------------------------
 
-type SmallInt = Small Int
-
 newtype Small a = Small {getSmall :: a}
+    deriving stock Functor
     deriving newtype
         ( Cancellative
         , Commutative
         , CommutativeProduct
+        , DistributiveGCDMonoid
+        , DistributiveLCMMonoid
         , Enum
         , Eq
+        , Factorial
+        , FactorialMonoid
         , GCDMonoid
         , Integral
+        , LCMMonoid
         , LeftCancellative
+        , LeftDistributiveGCDMonoid
         , LeftGCDMonoid
         , LeftReductive
         , Monoid
@@ -549,10 +570,12 @@ newtype Small a = Small {getSmall :: a}
         , Real
         , Reductive
         , RightCancellative
+        , RightDistributiveGCDMonoid
         , RightGCDMonoid
         , RightReductive
         , Semigroup
         , Show
+        , StableFactorial
         , SumCancellative
         )
 
@@ -560,7 +583,7 @@ newtype Small a = Small {getSmall :: a}
 -- Arbitrary instances
 --------------------------------------------------------------------------------
 
-instance Arbitrary a => Arbitrary (Small a) where
+instance Arbitrary (Small Int) where
     arbitrary = Small <$> scale (`div` 2) arbitrary
     shrink = shrinkMap Small getSmall
 
@@ -586,9 +609,17 @@ instance Arbitrary Text where
             ]
     shrink = shrinkMap Text.pack Text.unpack
 
-instance Arbitrary Natural where
-    arbitrary = elements [0 .. 3]
-    shrink = shrinkIntegral
+instance Arbitrary (Small Natural) where
+    arbitrary = Small <$> elements [0 .. 3]
+    shrink = shrinkMapBy Small getSmall shrinkIntegral
+
+instance Arbitrary (Small (Product Natural)) where
+    arbitrary = fmap Product <$> arbitrary
+    shrink = shrinkMap (fmap Product) (fmap getProduct)
+
+instance Arbitrary (Small (Sum Natural)) where
+    arbitrary = fmap Sum <$> arbitrary
+    shrink = shrinkMap (fmap Sum) (fmap getSum)
 
 instance Arbitrary a => Arbitrary (Vector a) where
     arbitrary = Vector.fromList <$> arbitrary
